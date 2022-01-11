@@ -87,7 +87,7 @@ local progress = {
 		local index = math.ceil(line_ratio * #chars)
 		return chars[index]
 	end,
-	color = { fg = colors.yellow },
+	color = { fg = colors.yellow, bg =colors.bg },
 }
 
 local spaces = function()
