@@ -24,15 +24,21 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "sv", "<cmd>vsplit<cr>", opts)
+keymap("n", "sg", "<cmd>split<cr>", opts)
+keymap("n", "sc", "<C-w>c", opts)
+
+-- Better close buffer
+keymap("n", "X", "<cmd>Bdelete!<CR>", opts)
 
 -- Better Quit
 keymap("n", "Q", ":qa!<cr>", opts)
 
 -- Better ^ $
-keymap("n", "H", "^",opts)
-keymap("n", "L", "$",opts)
-keymap("v", "H", "^",opts)
-keymap("v", "L", "$",opts)
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+keymap("v", "H", "^", opts)
+keymap("v", "L", "$", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)

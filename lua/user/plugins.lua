@@ -16,12 +16,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
+-- vim.cmd([[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -57,7 +57,12 @@ return packer.startup(function(use)
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use("goolord/alpha-nvim")
+	use({ "goolord/alpha-nvim",
+    event = "BufWinEnter",
+    config = function ()
+      require("user.dashboard").config()
+    end,
+  })
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use({ "zeertzjq/which-key.nvim", branch = "patch-1" })
 
@@ -110,6 +115,18 @@ return packer.startup(function(use)
 	-- Color
 	use({
 		"norcalli/nvim-colorizer.lua",
+	})
+	-- Smartim
+	use({
+		"ybian/smartim",
+		event = { "InsertEnter" },
+		config = function()
+			vim.g.smartim_default = "com.apple.keylayout.ABC"
+		end,
+	})
+	use({
+		"mattn/emmet-vim",
+		ft = { "html", "css", "php", "jsp", "markdown" },
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
