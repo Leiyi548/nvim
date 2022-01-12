@@ -48,13 +48,14 @@ local diff = {
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
 	-- cond = hide_in_width,
+	cond = nil,
 	always_visible = true,
 	diff_color = {
 		added = { fg = colors.green },
 		modified = { fg = colors.yellow },
 		removed = { fg = colors.red },
 	},
-	cond = nil,
+	padding = { left = 0, right = 0 },
 }
 
 local mode = {
@@ -106,7 +107,7 @@ local progress = {
 		return chars[index]
 	end,
 	color = { fg = colors.yellow, bg = colors.bg },
-	padding = 0,
+	padding = { left = 1, right = 0 },
 }
 
 local spaces = function()

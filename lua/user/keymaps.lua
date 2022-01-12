@@ -28,6 +28,7 @@ keymap("n", "<C-h>", "<CMD>lua require('Navigator').left()<cr>", opts)
 keymap("n", "<C-j>", "<CMD>lua require('Navigator').down()<cr>", opts)
 keymap("n", "<C-k>", "<CMD>lua require('Navigator').up()<cr>", opts)
 keymap("n", "<C-l>", "<CMD>lua require('Navigator').right()<cr>", opts)
+-- Split window
 keymap("n", "sv", "<cmd>vsplit<cr>", opts)
 keymap("n", "sg", "<cmd>split<cr>", opts)
 keymap("n", "sc", "<C-w>c", opts)
@@ -35,6 +36,15 @@ keymap("n", "sc", "<C-w>c", opts)
 -- Better close buffer
 keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 
+-- Better easymotion (hop)
+keymap("n", "E", "<cmd>HopChar1<cr>", opts)
+keymap("v", "E", "<cmd>HopChar1<cr>", opts)
+keymap("n", "ss", "<cmd>HopChar2<cr>", opts)
+keymap("v", "ss", "<cmd>HopChar2<cr>", opts)
+keymap("n", "sl", "<cmd>HopLineStart<cr>", opts)
+keymap("v", "sl", "<cmd>HopLineStart<cr>", opts)
+keymap("n", "sw", "<cmd>HopWord<cr>", opts)
+keymap("v", "sw", "<cmd>HopWord<cr>", opts)
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
@@ -62,26 +72,17 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
 -- Better terminal navigation

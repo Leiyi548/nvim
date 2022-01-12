@@ -40,6 +40,13 @@ function M.findDotfile()
 		path_display = { "smart" },
 		prompt_position = "top",
 		cwd = "~/.config/nvim",
+		previewer = false,
+		layout_config = {
+			width = 0.5,
+			height = 0.8,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
 	}
 	-- layout_strategy = "horizontal",
 	-- layout_config = { preview_width = 0.65, width = 0.75 },
@@ -213,13 +220,6 @@ function M.grep_last_search(opts)
 	opts.search = register
 
 	builtin.grep_string(opts)
-end
-
-function M.installed_plugins()
-	builtin.find_files({
-		prompt_title = " Find plugins",
-		cwd = join_paths(os.getenv("LUNARVIM_RUNTIME_DIR"), "site", "pack", "packer"),
-	})
 end
 
 function M.project_search()

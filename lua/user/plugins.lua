@@ -80,16 +80,20 @@ return packer.startup(function(use)
 	})
 	use({ "nvim-lualine/lualine.nvim" })
 	use({
+		"itchyny/vim-cursorword",
+		event = { "BufReadPre", "BufNewFile" },
+	})
+	use({
+		"p00f/nvim-ts-rainbow",
+		after = "nvim-treesitter",
+	})
+
+	-- toggleterm
+	use({
 		"akinsho/toggleterm.nvim",
 		event = "BufWinEnter",
 		config = function()
 			require("user.toggleterm")
-		end,
-	})
-	use({
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("user.project")
 		end,
 	})
 	-- Improve startup time for Neovim
@@ -165,6 +169,13 @@ return packer.startup(function(use)
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	use({
+		"ray-x/lsp_signature.nvim",
+		event = "BufRead",
+		config = function()
+			require("user.lsp_signature").config()
+		end,
+	})
 
 	-- Telescope
 	use({
@@ -174,7 +185,12 @@ return packer.startup(function(use)
 		end,
 		cmd = "Telescope",
 	})
-
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("user.project")
+		end,
+	})
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -255,14 +271,26 @@ return packer.startup(function(use)
         ]])
 		end,
 	})
-  -- Tmux navigation
-  use({
-    "numToStr/Navigator.nvim",
-    event = "BufRead",
-    config = function()
-    require("Navigator").setup()
-    end,
-  })
+	-- Tmux navigation
+	use({
+		"numToStr/Navigator.nvim",
+		event = "BufRead",
+		config = function()
+			require("Navigator").setup()
+		end,
+	})
+	-- easymotion
+	use({
+		"phaazon/hop.nvim",
+		as = "hop",
+		event = "BufRead",
+		config = function()
+			-- you can configure Hop the way you like here; see :h hop-config
+			require("hop").setup({
+				keys = "etovxqpdygfblzhckisuran",
+			})
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
