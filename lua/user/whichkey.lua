@@ -109,7 +109,8 @@ local mappings = {
 		}, ]]
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		-- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		c = { "<cmd>lua require('user.colors')<cr>", "Colorschemes" },
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 	},
 

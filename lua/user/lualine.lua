@@ -20,7 +20,7 @@ local diagnostics = {
 
 local fakeMode = {
 	function()
-		return "   "
+		return " "
 	end,
 	padding = { left = 0, right = 0 },
 	color = {},
@@ -69,7 +69,7 @@ local mode = {
 local filetype = {
 	"filetype",
 	icons_enabled = true,
-	-- icon = nil,
+	padding = 0,
 }
 
 local branch = {
@@ -82,6 +82,11 @@ local location = {
 	"location",
 	padding = 0,
 	color = { fg = colors.yellow },
+}
+
+local encoding = {
+	"encoding",
+	padding = {left = 0,right = 1},
 }
 
 local treesitter = {
@@ -106,8 +111,9 @@ local progress = {
 		local index = math.ceil(line_ratio * #chars)
 		return chars[index]
 	end,
-	color = { fg = colors.yellow, bg = colors.bg },
-	padding = { left = 1, right = 0 },
+	-- color = { fg = colors.yellow, bg = colors.bg },
+	color = { fg = colors.yellow },
+	padding = { left = 0, right = 0 },
 }
 
 local spaces = function()
@@ -124,11 +130,11 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = {},
+		lualine_a = { fakeMode },
 		lualine_b = { branch },
 		lualine_c = { diagnostics, mode },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { treesitter, diff, spaces, "encoding", filetype },
+		lualine_x = { treesitter, diff, spaces, encoding, filetype },
 		lualine_y = { location },
 		lualine_z = { progress },
 	},
