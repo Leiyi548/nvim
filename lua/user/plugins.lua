@@ -126,7 +126,7 @@ return packer.startup(function(use)
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	-- use("lunarvim/darkplus.nvim")
 	use("Mofiqul/vscode.nvim")
-  use("dracula/vim")
+	use("dracula/vim")
 
 	-- cmp plugins
 	use({
@@ -156,7 +156,13 @@ return packer.startup(function(use)
 	})
 
 	-- snippets
-	use({ "L3MON4D3/LuaSnip", after = "nvim-cmp" }) --snippet engine
+	use({
+		"L3MON4D3/LuaSnip",
+		after = "nvim-cmp",
+		config = function()
+      require("user.luasnipConfig")
+		end,
+	}) --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- LSP
