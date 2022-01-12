@@ -80,13 +80,8 @@ local opts = {
 
 local mappings = {
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
-	["b"] = {
-		"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-		"Buffers",
-	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 
 	-- Whichkey-p
@@ -100,6 +95,17 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
+	-- Whichkey-F
+	F = {
+		name = "Custom Find",
+		b = { "<cmd>lua require('user.fancy_telescope').builtin()<cr>", "Builtin" },
+		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "Current Buffer" },
+		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
+		p = { "<cmd>lua require('user.fancy_telescope').project_search()<cr>", "Project" },
+		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+		s = { "<cmd>lua require('user.telescope').git_status()<cr>", "Git Status" },
+		z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
+	},
 	-- Whichkey-f
 	f = {
 		name = "Find",
@@ -108,10 +114,6 @@ local mappings = {
       "Files"
 		},
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }, ]]
-		b = {
-			"<cmd>lua require'telescope.builtin'.buffers()<cr>",
-			"Buffer",
-		},
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
 		c = { "<cmd>lua require('user.colors')<cr>", "Colorschemes" },
@@ -140,6 +142,22 @@ local mappings = {
 		},
 	},
 
+	-- Whichkey-b
+	b = {
+		name = "Buffer",
+		["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
+		["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
+		["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
+		["4"] = { "<Cmd>BufferLineGoToBuffer 4<CR>", "goto 4" },
+		["5"] = { "<Cmd>BufferLineGoToBuffer 5<CR>", "goto 5" },
+		["6"] = { "<Cmd>BufferLineGoToBuffer 6<CR>", "goto 6" },
+		["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
+		["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
+		["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
+		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "FuzzyFind" },
+		c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
+		p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
+	},
 	-- Whichkey-r
 	r = {
 		name = "Run",

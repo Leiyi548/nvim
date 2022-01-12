@@ -40,4 +40,6 @@ luac.out
 *.hex
 
 
+# Custom 
 plugin/packer_compiled.lua
+1.py
