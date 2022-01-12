@@ -106,18 +106,44 @@ local mappings = {
 		--[[ f = {
 			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
       "Files"
-		}, ]]
+		},
+		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }, ]]
+		b = {
+			"<cmd>lua require'telescope.builtin'.buffers()<cr>",
+			"Buffer",
+		},
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
-		-- c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		c = { "<cmd>lua require('user.colors')<cr>", "Colorschemes" },
+		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
+		p = { "<cmd>Telescope projects<cr>", "Keymaps" },
+		H = { "<cmd>Telescope help_tags<cr>", "Help" },
+		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		N = { "<cmd>enew<cr>", "New File" },
+		r = {
+			"<cmd>lua require'telescope.builtin'.oldfiles()<cr>",
+			"Recent File",
+		},
+		j = {
+			"<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
+			"Jumplist",
+		},
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		m = {
+			"<cmd>lua require'telescope.builtin'.marks(require('telescope.themes').get_dropdown({}))<cr>",
+			"Marks",
+		},
+		n = {
+			"<cmd>lua require('user.telescope').find_note()<cr>",
+			"Notes",
+		},
 	},
 
 	-- Whichkey-r
 	r = {
 		name = "Run",
-		a = { "<cmd>RnvimrToggle<cr>", "Ranger" },
+		-- a = { "<cmd>RnvimrToggle<cr>", "Ranger" },
 		r = { "<cmd>AsyncTask file-run<cr>", "Run on Terminal" },
 		f = { "<cmd>AsyncTask file-run-floaterm<cr>", "Run on floaterm" },
 	},
