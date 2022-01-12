@@ -73,7 +73,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"akinsho/bufferline.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.bufferline")
 		end,
@@ -160,7 +160,7 @@ return packer.startup(function(use)
 		"L3MON4D3/LuaSnip",
 		after = "nvim-cmp",
 		config = function()
-      require("user.luasnipConfig")
+			require("user.luasnipConfig")
 		end,
 	}) --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -174,7 +174,7 @@ return packer.startup(function(use)
 		end,
 	}) -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+	use({ "tamago324/nlsp-settings.nvim", after = "nvim-lspconfig" }) -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use({
 		"ray-x/lsp_signature.nvim",
