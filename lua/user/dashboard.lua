@@ -90,7 +90,7 @@ M.config = function()
 			button("w", "   Find word", "<cmd>Telescope live_grep<cr>"),
 			button("p", "   Recent Projects", ":Telescope projects<cr>"),
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
-			-- button("c", "   Colorscheme", "<cmd>luafile" .. "~/.config/lvim/lua/user/colors.lua" .. "<cr>"),
+			button("c", "   Colorscheme", "<cmd>lua require('user.colors')<cr>"),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),
 			button("q", "   Quit", ":q<cr>"),
 		},
