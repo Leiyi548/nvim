@@ -119,6 +119,7 @@ local mappings = {
       "Files"
 		},
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }, ]]
+		b = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "FuzzyFind" },
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
 		c = { "<cmd>lua require('user.colors')<cr>", "Colorschemes" },
@@ -159,7 +160,7 @@ local mappings = {
 		["7"] = { "<Cmd>BufferLineGoToBuffer 7<CR>", "goto 7" },
 		["8"] = { "<Cmd>BufferLineGoToBuffer 8<CR>", "goto 8" },
 		["9"] = { "<Cmd>BufferLineGoToBuffer 9<CR>", "goto 9" },
-		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "FuzzyFind" },
+		f = { "<cmd>lua require('user.fancy_telescope').findBuffer()<cr>", "Find" },
 		c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
 		p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
 	},
