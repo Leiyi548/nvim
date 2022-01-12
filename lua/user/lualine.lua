@@ -23,9 +23,10 @@ local fakeMode = {
 		return "   "
 	end,
 	padding = { left = 0, right = 0 },
-  color = {},
+	color = {},
 	cond = nil,
 }
+
 local colors = {
 	bg = "#202328",
 	fg = "#bbc2cf",
@@ -46,7 +47,14 @@ local diff = {
 	"diff",
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
+	-- cond = hide_in_width,
+	always_visible = true,
+	diff_color = {
+		added = { fg = colors.green },
+		modified = { fg = colors.yellow },
+		removed = { fg = colors.red },
+	},
+	cond = nil,
 }
 
 local mode = {
@@ -115,9 +123,9 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = {  },
-		lualine_b = { branch},
-		lualine_c = {diagnostics, mode},
+		lualine_a = {},
+		lualine_b = { branch },
+		lualine_c = { diagnostics, mode },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { treesitter, diff, spaces, "encoding", filetype },
 		lualine_y = { location },

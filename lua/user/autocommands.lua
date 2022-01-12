@@ -13,6 +13,11 @@ vim.cmd [[
     autocmd FileType gitcommit setlocal spell
   augroup end
 
+  augroup _run
+    autocmd!
+    autocmd TermOpen terminal nnoremap <silent> <buffer> q :bdelete!<cr>
+  augroup end
+
   augroup _markdown
     autocmd!
     autocmd FileType markdown setlocal wrap

@@ -47,7 +47,7 @@ local setup = {
 		position = "bottom", -- bottom, top
 		margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
 		padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		winblend = 0,
+		winblend = 20,
 	},
 	layout = {
 		height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -85,7 +85,6 @@ local mappings = {
 		"Buffers",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	-- ["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
@@ -112,6 +111,14 @@ local mappings = {
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
+	},
+
+	-- Whichkey-r
+	r = {
+		name = "Run",
+		a = { "<cmd>RnvimrToggle<cr>", "Ranger" },
+		r = { "<cmd>AsyncTask file-run<cr>", "Run on Terminal" },
+		f = { "<cmd>AsyncTask file-run-floaterm<cr>", "Run on floaterm" },
 	},
 
 	-- Whichkey-g

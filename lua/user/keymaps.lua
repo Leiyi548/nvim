@@ -24,18 +24,22 @@ keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-h>", "<CMD>lua require('Navigator').left()<cr>", opts)
+keymap("n", "<C-j>", "<CMD>lua require('Navigator').down()<cr>", opts)
+keymap("n", "<C-k>", "<CMD>lua require('Navigator').up()<cr>", opts)
+keymap("n", "<C-l>", "<CMD>lua require('Navigator').right()<cr>", opts)
 keymap("n", "sv", "<cmd>vsplit<cr>", opts)
 keymap("n", "sg", "<cmd>split<cr>", opts)
 keymap("n", "sc", "<C-w>c", opts)
 
 -- Better close buffer
-keymap("n", "X", "<cmd>Bdelete!<CR>", opts)
+keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 
 -- Better copy and paste
-keymap("n", "<leader>y", "\"+y", opts)
-keymap("n", "<leader>p", "\"+p", opts)
-keymap("v", "<leader>y", "\"+y", opts)
-keymap("v", "<leader>p", "\"+p", opts)
+keymap("n", "<leader>y", '"+y', opts)
+keymap("n", "<leader>p", '"+p', opts)
+keymap("v", "<leader>y", '"+y', opts)
+keymap("v", "<leader>p", '"+p', opts)
 
 -- Better Quit
 keymap("n", "Q", ":qa!<cr>", opts)

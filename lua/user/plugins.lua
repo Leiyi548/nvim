@@ -63,6 +63,7 @@ return packer.startup(function(use)
 		event = "BufRead",
 	})
 	use("kyazdani42/nvim-web-devicons")
+	-- UI
 	use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
@@ -72,11 +73,11 @@ return packer.startup(function(use)
 	})
 	use({
 		"akinsho/bufferline.nvim",
+		event = "BufRead",
 		config = function()
 			require("user.bufferline")
 		end,
 	})
-	use({ "moll/vim-bbye", cmd = "Bdelete" })
 	use({ "nvim-lualine/lualine.nvim" })
 	use({
 		"akinsho/toggleterm.nvim",
@@ -91,7 +92,7 @@ return packer.startup(function(use)
 			require("user.project")
 		end,
 	})
-  -- Improve startup time for Neovim
+	-- Improve startup time for Neovim
 	use("lewis6991/impatient.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
@@ -166,7 +167,13 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		config = function()
+			require("user.telescope")
+		end,
+		cmd = "Telescope",
+	})
 
 	-- Treesitter
 	use({
@@ -228,6 +235,34 @@ return packer.startup(function(use)
 			vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
 		end,
 	})
+	use({
+		"skywind3000/asyncrun.vim",
+		cmd = { "AsyncRun" },
+	})
+	use({
+		"skywind3000/asynctasks.vim",
+		cmd = { "AsyncTask" },
+		config = function()
+			vim.g.asynctasks_term_pos = "bottom"
+			vim.g.asynctasks_term_cols = 60
+			vim.g.asynctasks_term_rows = 12
+			vim.g.asyncrun_open = 6
+			vim.g.asynctasks_system = "macos"
+			vim.cmd([[
+        let g:asynctasks_extra_config = [
+    \ '~/.config/lvim/tasks.ini',
+    \ ]
+        ]])
+		end,
+	})
+  -- Tmux navigation
+  use({
+    "numToStr/Navigator.nvim",
+    event = "BufRead",
+    config = function()
+    require("Navigator").setup()
+    end,
+  })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
