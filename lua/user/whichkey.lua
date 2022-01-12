@@ -79,11 +79,16 @@ local opts = {
 }
 
 local mappings = {
+	["<Space>"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon" },
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
+	["a"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add file" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-
+	["1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
+	["2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
+	["3"] = { "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", "goto3" },
+	["4"] = { "<CMD>lua require('harpoon.ui').nav_file(4)<CR>", "goto4" },
 	-- Whichkey-p
 	p = {
 		name = "Packer",
