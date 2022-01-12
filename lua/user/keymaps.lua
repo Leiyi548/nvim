@@ -31,6 +31,12 @@ keymap("n", "sc", "<C-w>c", opts)
 -- Better close buffer
 keymap("n", "X", "<cmd>Bdelete!<CR>", opts)
 
+-- Better copy and paste
+keymap("n", "<leader>y", "\"+y", opts)
+keymap("n", "<leader>p", "\"+p", opts)
+keymap("v", "<leader>y", "\"+y", opts)
+keymap("v", "<leader>p", "\"+p", opts)
+
 -- Better Quit
 keymap("n", "Q", ":qa!<cr>", opts)
 

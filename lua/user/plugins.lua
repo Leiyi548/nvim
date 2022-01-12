@@ -46,20 +46,22 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
+	-- Autopairs, integrates with both cmp and treesitter
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
 			require("user.autopairs")
 		end,
 		after = "nvim-cmp",
-	}) -- Autopairs, integrates with both cmp and treesitter
+	})
+	-- Easily comment stuff
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("user.comment")
 		end,
 		event = "BufRead",
-	}) -- Easily comment stuff
+	})
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
@@ -68,9 +70,14 @@ return packer.startup(function(use)
 			require("user.nvim-tree")
 		end,
 	})
-	use("akinsho/bufferline.nvim")
-	use("moll/vim-bbye")
-	use("nvim-lualine/lualine.nvim")
+	use({
+		"akinsho/bufferline.nvim",
+		config = function()
+			require("user.bufferline")
+		end,
+	})
+	use({ "moll/vim-bbye", cmd = "Bdelete" })
+	use({ "nvim-lualine/lualine.nvim" })
 	use({
 		"akinsho/toggleterm.nvim",
 		event = "BufWinEnter",
@@ -78,9 +85,21 @@ return packer.startup(function(use)
 			require("user.toggleterm")
 		end,
 	})
-	use("ahmedkhalf/project.nvim")
+	use({
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("user.project")
+		end,
+	})
+  -- Improve startup time for Neovim
 	use("lewis6991/impatient.nvim")
-	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"lukas-reineke/indent-blankline.nvim",
+		event = "BufRead",
+		config = function()
+			require("user.indentline")
+		end,
+	})
 	use({
 		"goolord/alpha-nvim",
 		event = "BufWinEnter",
@@ -116,6 +135,19 @@ return packer.startup(function(use)
 	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline completions
 	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
+	use({
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		config = function()
+			local tabnine = require("cmp_tabnine.config")
+			tabnine:setup({
+				max_lines = 1000,
+				max_num_results = 10,
+				sort = true,
+			})
+		end,
+		event = "InsertEnter",
+	})
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip", after = "nvim-cmp" }) --snippet engine
@@ -167,6 +199,7 @@ return packer.startup(function(use)
 	use({
 		"norcalli/nvim-colorizer.lua",
 	})
+
 	-- Smartim
 	use({
 		"ybian/smartim",
@@ -175,9 +208,25 @@ return packer.startup(function(use)
 			vim.g.smartim_default = "com.apple.keylayout.ABC"
 		end,
 	})
+
+	-- emmet
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "css", "php", "jsp", "markdown" },
+	})
+
+	-- Run code
+	use({
+		"voldikss/vim-floaterm",
+		cmd = { "FloatermNew" },
+		config = function()
+			vim.cmd([[hi FloatermNC guibg=gray]])
+			vim.g.floaterm_width = 0.9
+			vim.g.floaterm_wintype = "float"
+			vim.g.floaterm_height = 0.9
+			vim.g.floaterm_title = ""
+			vim.g.floaterm_borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" }
+		end,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
