@@ -13,10 +13,19 @@ local diagnostics = {
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
 	colored = false,
+	color = {},
 	update_in_insert = false,
 	always_visible = true,
 }
 
+local fakeMode = {
+	function()
+		return "   "
+	end,
+	padding = { left = 0, right = 0 },
+  color = {},
+	cond = nil,
+}
 local colors = {
 	bg = "#202328",
 	fg = "#bbc2cf",
@@ -45,12 +54,13 @@ local mode = {
 	fmt = function(str)
 		return "-- " .. str .. " --"
 	end,
+	color = {},
 }
 
 local filetype = {
 	"filetype",
-	icons_enabled = false,
-	icon = nil,
+	icons_enabled = true,
+	-- icon = nil,
 }
 
 local branch = {
@@ -87,7 +97,8 @@ local progress = {
 		local index = math.ceil(line_ratio * #chars)
 		return chars[index]
 	end,
-	color = { fg = colors.yellow, bg =colors.bg },
+	color = { fg = colors.yellow, bg = colors.bg },
+	padding = 0,
 }
 
 local spaces = function()
@@ -104,9 +115,9 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		lualine_c = {},
+		lualine_a = {  },
+		lualine_b = { branch},
+		lualine_c = {diagnostics, mode},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { treesitter, diff, spaces, "encoding", filetype },
 		lualine_y = { location },

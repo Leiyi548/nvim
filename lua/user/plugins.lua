@@ -46,45 +46,89 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
-	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
-	use("numToStr/Comment.nvim") -- Easily comment stuff
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("user.autopairs")
+		end,
+		after = "nvim-cmp",
+	}) -- Autopairs, integrates with both cmp and treesitter
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("user.comment")
+		end,
+		event = "BufRead",
+	}) -- Easily comment stuff
 	use("kyazdani42/nvim-web-devicons")
-	use("kyazdani42/nvim-tree.lua")
+	use({
+		"kyazdani42/nvim-tree.lua",
+		cmd = "NvimTreeToggle",
+		config = function()
+			require("user.nvim-tree")
+		end,
+	})
 	use("akinsho/bufferline.nvim")
 	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
-	use("akinsho/toggleterm.nvim")
+	use({
+		"akinsho/toggleterm.nvim",
+		event = "BufWinEnter",
+		config = function()
+			require("user.toggleterm")
+		end,
+	})
 	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
-	use({ "goolord/alpha-nvim",
-    event = "BufWinEnter",
-    config = function ()
-      require("user.dashboard").config()
-    end,
-  })
+	use({
+		"goolord/alpha-nvim",
+		event = "BufWinEnter",
+		config = function()
+			require("user.dashboard").config()
+		end,
+	})
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-	use({ "zeertzjq/which-key.nvim", branch = "patch-1" })
+	use({
+		"zeertzjq/which-key.nvim",
+		branch = "patch-1",
+		config = function()
+			require("user.whichkey")
+		end,
+		event = "BufWinEnter",
+	})
 
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	use("lunarvim/darkplus.nvim")
-  use("Mofiqul/vscode.nvim")
+	-- use("lunarvim/darkplus.nvim")
+	use("Mofiqul/vscode.nvim")
 
 	-- cmp plugins
-	use("hrsh7th/nvim-cmp") -- The completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
-	use("hrsh7th/cmp-nvim-lsp")
+	use({
+		"hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+		config = function()
+			require("user.cmp")
+		end,
+	}) -- The completion plugin
+	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer completions
+	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path completions
+	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline completions
+	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
+	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
+	use({ "L3MON4D3/LuaSnip", after = "nvim-cmp" }) --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
+	use({
+		"neovim/nvim-lspconfig",
+		event = "BufReadPre",
+		config = function()
+			require("user.lsp")
+		end,
+	}) -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
@@ -97,10 +141,16 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
-	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPost" })
 
 	-- Git
-	use("lewis6991/gitsigns.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		event = "BufRead",
+		config = function()
+			require("user.gitsigns")
+		end,
+	})
 
 	-- Startuptime
 	use({

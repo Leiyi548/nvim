@@ -40,6 +40,8 @@ keymap("n", "L", "$", opts)
 keymap("v", "H", "^", opts)
 keymap("v", "L", "$", opts)
 
+-- Better CodeAction
+keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
