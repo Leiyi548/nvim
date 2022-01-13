@@ -127,7 +127,7 @@ return packer.startup(function(use)
 	-- use("lunarvim/darkplus.nvim")
 	use("Mofiqul/vscode.nvim")
 	use("dracula/vim")
-
+	use("projekt0n/github-nvim-theme")
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
@@ -298,8 +298,8 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-  -- harpoon
-  use({'ThePrimeagen/harpoon'})
+	-- harpoon
+	use({ "ThePrimeagen/harpoon" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

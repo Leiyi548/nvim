@@ -1,8 +1,11 @@
 local M = {}
--- local actions = require "telescope.actions"
 local action_state = require("telescope.actions.state")
+local actions = require("telescope.actions")
+local sorters = require("telescope.sorters")
+local pickers = require("telescope.pickers")
 local themes = require("telescope.themes")
 local builtin = require("telescope.builtin")
+local finders = require("telescope.finders")
 
 -- beautiful default layout for telescope prompt
 function M.layout_config()
@@ -34,6 +37,60 @@ function M.layout_config()
 	}
 end
 
+local function enter(prompt_bufnr)
+	local selected = action_state.get_selected_entry()
+	local cmd = "colorscheme " .. selected[1]
+	vim.cmd(cmd)
+	local lvimColor = "vim.cmd([[colorscheme " .. " " .. selected[1] .. "]])"
+	local config_dir = vim.fn.expand("~/.config/nvim/lua/user/nvimColorScheme.lua")
+	local job_cmd = "sed -i '' '$d' " .. config_dir .. " && echo '" .. lvimColor .. "'>>" .. config_dir
+	vim.fn.jobstart(job_cmd)
+	actions.close(prompt_bufnr)
+end
+
+local function next_color(prompt_bufnr)
+	actions.move_selection_next(prompt_bufnr)
+	local selection = action_state.get_selected_entry()
+	local cmd = "colorscheme " .. selection[1]
+	vim.cmd(cmd)
+end
+
+local function prev_color(prompt_bufnr)
+	actions.move_selection_previous(prompt_bufnr)
+	local selection = action_state.get_selected_entry()
+	local cmd = "colorscheme " .. selection[1]
+	vim.cmd(cmd)
+end
+function M.colorscheme()
+	local colorthemes = vim.fn.getcompletion("", "color")
+	local opts = {
+		prompt_title = " Find colorscheme",
+		results_title = "Change colorscheme",
+		path_display = { "smart" },
+		finder = finders.new_table(colorthemes),
+		prompt_position = "top",
+		previewer = false,
+		winblend = 20,
+		layout_config = {
+			width = 0.5,
+			height = 0.5,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
+		attach_mappings = function(prompt_bufnr, map)
+			map("i", "<cr>", enter)
+			map("i", "<Tab>", next_color)
+			map("i", "<S-Tab>", prev_color)
+			map("i", "<C-n>", next_color)
+			map("i", "<C-p>", prev_color)
+			return true
+		end,
+		sorter = sorters.get_generic_fuzzy_sorter({}),
+	}
+  local colors = pickers.new(dropdown,opts)
+  colors:find()
+end
+
 function M.findBuffer()
 	local opts = {
 		prompt_title = " Find Buffer",
@@ -48,7 +105,7 @@ function M.findBuffer()
 			vertical = { preview_height = 0.75 },
 		},
 	}
-  builtin.buffers(themes.get_dropdown(opts))
+	builtin.buffers(themes.get_dropdown(opts))
 end
 
 function M.findDotfile()
