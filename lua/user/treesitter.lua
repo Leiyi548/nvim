@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = {"lua","python","html"}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = { "lua", "python", "html" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	matchup = {
@@ -39,3 +39,9 @@ configs.setup({
 		max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
 	},
 })
+
+-- use fastgit to download treesitter parser
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+for _, value in pairs(parser_config) do
+	value.install_info.url = value.install_info.url:gsub("github.com", "hub.fastgit.org")
+end
