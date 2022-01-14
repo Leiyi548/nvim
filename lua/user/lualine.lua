@@ -68,7 +68,7 @@ local mode = {
 
 local filetype = {
 	"filetype",
-	icons_enabled = true,
+	icons_enabled = false,
 	padding = 0,
 }
 

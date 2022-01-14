@@ -16,12 +16,13 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd([[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]])
+-- autocmd BufWritePost plugins.lua source <afile> | PackerSync
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile>
+  augroup end
+]])
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -126,8 +127,9 @@ return packer.startup(function(use)
 	-- use("lunarvim/darkplus.nvim")
 	use("Mofiqul/vscode.nvim")
 	use("Mofiqul/dracula.nvim")
-	-- use("dracula/vim")
 	use("projekt0n/github-nvim-theme")
+	-- use({ "ellisonleao/gruvbox.nvim" })
+	-- use("sainnhe/gruvbox-material")
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
@@ -203,12 +205,16 @@ return packer.startup(function(use)
 		config = function()
 			require("user.project")
 		end,
+		disable = true,
 	})
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
+		config = function()
+			require("user.treesitter")
+		end,
 	})
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPost" })
 
@@ -235,6 +241,10 @@ return packer.startup(function(use)
 	-- Color
 	use({
 		"norcalli/nvim-colorizer.lua",
+		event = "BufRead",
+		config = function()
+			require("user.colorizer").config()
+		end,
 	})
 
 	-- Smartim

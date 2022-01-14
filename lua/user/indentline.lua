@@ -8,12 +8,13 @@ vim.g.indent_blankline_filetype_exclude = {
 	"help",
 	"startify",
 	"dashboard",
-  "alpha",
+	"alpha",
 	"packer",
 	"neogitstatus",
 	"NvimTree",
 	"Trouble",
-	"Telescope",
+	"TelescopePrompt",
+	"TelescopeResults",
 }
 vim.g.indentLine_enabled = 1
 -- vim.g.indent_blankline_char = "│"

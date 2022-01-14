@@ -88,7 +88,7 @@ M.config = function()
 			button("f", "   Find File ", ":Telescope find_files<cr>"),
 			button("n", "    New file", ":ene <BAR> startinsert <cr>"), -- 
 			button("w", "   Find word", "<cmd>Telescope live_grep<cr>"),
-			button("p", "   Recent Projects", ":Telescope projects<cr>"),
+			-- button("p", "   Recent Projects", ":Telescope projects<cr>"),
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
 			button("c", "   Colorscheme", "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>"),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),

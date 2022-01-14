@@ -119,6 +119,7 @@ local mappings = {
 		},
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }, ]]
 		b = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "FuzzyFind" },
+		e = { "<cmd>Telescope file_browser<cr>", "file_browser" },
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
 		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", "Colorschemes" },
