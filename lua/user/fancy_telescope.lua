@@ -6,6 +6,7 @@ local pickers = require("telescope.pickers")
 local themes = require("telescope.themes")
 local builtin = require("telescope.builtin")
 local finders = require("telescope.finders")
+local conf = require("telescope.config").values
 
 -- beautiful default layout for telescope prompt
 function M.layout_config()
@@ -62,12 +63,28 @@ local function prev_color(prompt_bufnr)
 	vim.cmd(cmd)
 end
 function M.colorscheme()
-	local colorthemes = vim.fn.getcompletion("", "color")
+	local before_color = vim.api.nvim_exec("colorscheme", true)
+	local need_restore = true
+
+	local colors = { before_color }
+	if not vim.tbl_contains(colors, before_color) then
+		table.insert(colors, 1, before_color)
+	end
+
+	colors = vim.list_extend(
+		colors,
+		vim.tbl_filter(function(color)
+			return color ~= before_color
+		end, vim.fn.getcompletion("", "color"))
+	)
 	local opts = {
 		prompt_title = " Find colorscheme",
 		results_title = "Change colorscheme",
 		path_display = { "smart" },
-		finder = finders.new_table(colorthemes),
+		-- finder = finders.new_table(colorthemes),
+		finder = finders.new_table({
+			results = colors,
+		}),
 		prompt_position = "top",
 		previewer = false,
 		winblend = 0,
@@ -87,10 +104,11 @@ function M.colorscheme()
 			map("i", "<C-p>", prev_color)
 			return true
 		end,
-		sorter = sorters.get_generic_fuzzy_sorter({}),
+		-- sorter = sorters.get_generic_fuzzy_sorter({}),
+		sorter = conf.generic_sorter({}),
 	}
-  local colors = pickers.new(dropdown,opts)
-  colors:find()
+	local colorschemes = pickers.new(dropdown, opts)
+	colorschemes:find()
 end
 
 function M.findBuffer()
