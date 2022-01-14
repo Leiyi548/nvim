@@ -45,7 +45,7 @@ vim.g.dracula_colors = {
   nontext = "#3B4048",
 }
 -- show the '~' characters after the end of buffers
-vim.g.dracula_show_end_of_buffer = true
+vim.g.dracula_show_end_of_buffer = false
 -- use transparent background
 vim.g.dracula_transparent_bg = true
 -- set custom lualine background color
