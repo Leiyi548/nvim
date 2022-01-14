@@ -43,7 +43,7 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
 	-- My plugins here
-	use("wbthomason/packer.nvim") -- Have packer manage itself
+	use({ "wbthomason/packer.nvim" }) -- Have packer manage itself
 	use("nvim-lua/popup.nvim") -- An implementation of the Popup API from vim in Neovim
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used ny lots of plugins
 	-- Autopairs, integrates with both cmp and treesitter
@@ -63,7 +63,6 @@ return packer.startup(function(use)
 		event = "BufRead",
 	})
 	use("kyazdani42/nvim-web-devicons")
-	-- UI
 	use({
 		"kyazdani42/nvim-tree.lua",
 		cmd = "NvimTreeToggle",
@@ -126,7 +125,8 @@ return packer.startup(function(use)
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	-- use("lunarvim/darkplus.nvim")
 	use("Mofiqul/vscode.nvim")
-	use("dracula/vim")
+	use("Mofiqul/dracula.nvim")
+	-- use("dracula/vim")
 	use("projekt0n/github-nvim-theme")
 	-- cmp plugins
 	use({
@@ -168,14 +168,20 @@ return packer.startup(function(use)
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
-		event = "BufReadPre",
+		-- event = "BufReadPre",
 		config = function()
 			require("user.lsp")
 		end,
 	}) -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use({ "williamboman/nvim-lsp-installer", after = "nvim-lspconfig" }) -- simple to use language server installer
 	use({ "tamago324/nlsp-settings.nvim", after = "nvim-lspconfig" }) -- language server settings defined in json for
-	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
+	use({
+		"jose-elias-alvarez/null-ls.nvim",
+		after = "nvim-lspconfig",
+		config = function()
+			require("user.lsp.null-ls")
+		end,
+	}) -- for formatters and linters
 	use({
 		"ray-x/lsp_signature.nvim",
 		event = "BufRead",
@@ -243,6 +249,7 @@ return packer.startup(function(use)
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "css", "php", "jsp", "markdown" },
+		disable = true,
 	})
 
 	-- Run code
