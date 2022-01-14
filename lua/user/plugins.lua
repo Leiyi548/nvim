@@ -204,6 +204,7 @@ return packer.startup(function(use)
 			require("user.project")
 		end,
 	})
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
