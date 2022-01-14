@@ -43,3 +43,5 @@ luac.out
 # Custom 
 plugin/packer_compiled.lua
 1.py
+
+lua/user/nvimColorScheme.lua
