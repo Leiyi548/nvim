@@ -70,7 +70,7 @@ function M.colorscheme()
 		finder = finders.new_table(colorthemes),
 		prompt_position = "top",
 		previewer = false,
-		winblend = 20,
+		winblend = 0,
 		layout_config = {
 			width = 0.5,
 			height = 0.5,
@@ -81,6 +81,8 @@ function M.colorscheme()
 			map("i", "<cr>", enter)
 			map("i", "<Tab>", next_color)
 			map("i", "<S-Tab>", prev_color)
+			map("n", "j", next_color)
+			map("n", "k", prev_color)
 			map("i", "<C-n>", next_color)
 			map("i", "<C-p>", prev_color)
 			return true

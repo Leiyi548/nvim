@@ -1,1 +1,1 @@
-vim.cmd([[colorscheme  vscode]])
+vim.cmd([[colorscheme  github_light]])
