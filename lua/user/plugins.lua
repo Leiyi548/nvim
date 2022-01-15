@@ -140,7 +140,13 @@ return packer.startup(function(use)
 	}) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer completions
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path completions
-	use({ "hrsh7th/cmp-cmdline", after = "nvim-cmp" }) -- cmdline completions
+	use({
+		"hrsh7th/cmp-cmdline",
+		after = "nvim-cmp",
+		config = function()
+			require("cmp").setup.cmdline(":", { sources = { { name = "cmdline" } } })
+		end,
+	}) -- cmdline completions
 	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
 	use({

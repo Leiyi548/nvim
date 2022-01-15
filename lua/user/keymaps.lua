@@ -53,6 +53,8 @@ keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>p", '"+p', opts)
+keymap("n", "<leader>P", '"+P', opts)
+keymap("v", "<leader>P", '"+P', opts)
 
 -- Better Quit
 keymap("n", "Q", ":qa!<cr>", opts)
