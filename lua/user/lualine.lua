@@ -130,8 +130,8 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { branch },
-		lualine_b = {},
+		lualine_a = { fakeMode },
+		lualine_b = { branch },
 		lualine_c = { diagnostics, mode },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { treesitter, diff, spaces, encoding, filetype },

@@ -128,6 +128,10 @@ return packer.startup(function(use)
 	use("Mofiqul/vscode.nvim")
 	use("Mofiqul/dracula.nvim")
 	use("projekt0n/github-nvim-theme")
+	use({
+		"rose-pine/neovim",
+		as = "rose-pine",
+	})
 	-- use({ "ellisonleao/gruvbox.nvim" })
 	-- use("sainnhe/gruvbox-material")
 	-- cmp plugins
@@ -148,7 +152,7 @@ return packer.startup(function(use)
 		end,
 	}) -- cmdline completions
 	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
-	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip"})
+	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
 	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
