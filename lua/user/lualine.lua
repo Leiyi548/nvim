@@ -86,7 +86,7 @@ local location = {
 
 local encoding = {
 	"encoding",
-	padding = {left = 0,right = 1},
+	padding = { left = 0, right = 1 },
 }
 
 local treesitter = {
@@ -130,8 +130,8 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { fakeMode },
-		lualine_b = { branch },
+		lualine_a = { branch },
+		lualine_b = {},
 		lualine_c = { diagnostics, mode },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { treesitter, diff, spaces, encoding, filetype },

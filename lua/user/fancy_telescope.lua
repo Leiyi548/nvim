@@ -62,6 +62,13 @@ local function prev_color(prompt_bufnr)
 	local cmd = "colorscheme " .. selection[1]
 	vim.cmd(cmd)
 end
+
+local function preview(prompt_bufnr)
+	local selection = action_state.get_selected_entry()
+	local cmd = "colorscheme " .. selection[1]
+	vim.cmd(cmd)
+end
+
 function M.colorscheme()
 	local before_color = vim.api.nvim_exec("colorscheme", true)
 	local need_restore = true
@@ -91,24 +98,21 @@ function M.colorscheme()
 		layout_config = {
 			width = 0.5,
 			height = 0.5,
-			horizontal = { width = { padding = 0.15 } },
-			vertical = { preview_height = 0.75 },
+      prompt_position = "top", -- top bottom
 		},
 		attach_mappings = function(prompt_bufnr, map)
 			map("i", "<cr>", enter)
-			map("i", "<Tab>", prev_color)
-			map("i", "<S-Tab>", next_color)
-			map("i", "<C-n>", next_color)
-			map("i", "<C-p>", prev_color)
-			map("n", "j", next_color)
-			map("n", "k", prev_color)
+			map("i", "<S-Tab>", prev_color)
+			map("i", "<Tab>", next_color)
+			map("n", "p", preview)
 			map("n", "<cr>", enter)
 			return true
 		end,
 		-- sorter = sorters.get_generic_fuzzy_sorter({}),
 		sorter = conf.generic_sorter({}),
 	}
-	local colorschemes = pickers.new(dropdown, opts)
+	-- themes.get_ivy() themes.get_cursor
+	local colorschemes = pickers.new(themes.get_dropdown(), opts)
 	colorschemes:find()
 end
 
