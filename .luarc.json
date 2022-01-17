@@ -4,5 +4,9 @@
         "unused-local",
         "undefined-global",
         "different-requires"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim",
+        "builtin"
     ]
 }

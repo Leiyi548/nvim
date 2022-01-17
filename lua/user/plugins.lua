@@ -87,6 +87,10 @@ return packer.startup(function(use)
 		"p00f/nvim-ts-rainbow",
 		after = "nvim-treesitter",
 	})
+	use({
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		before = "nvim-treesitter",
+	})
 
 	-- toggleterm
 	use({
@@ -270,7 +274,8 @@ return packer.startup(function(use)
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "css", "php", "jsp", "markdown" },
-		disable = true,
+		disable = not builtin.emmet.active,
+		-- disable = true,
 	})
 
 	-- Run code
