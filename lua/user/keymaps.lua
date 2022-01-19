@@ -81,6 +81,8 @@ keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+keymap("n", ">", ">>", opts)
+keymap("n", "<", "<<", opts)
 
 keymap("v", "p", '"_dP', opts)
 
