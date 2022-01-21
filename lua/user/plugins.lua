@@ -78,6 +78,7 @@ return packer.startup(function(use)
 			require("user.bufferline")
 		end,
 	})
+	use({ "Asheq/close-buffers.vim" })
 	use({ "nvim-lualine/lualine.nvim" })
 	use({
 		"itchyny/vim-cursorword",

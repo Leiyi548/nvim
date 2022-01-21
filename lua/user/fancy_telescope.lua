@@ -69,6 +69,7 @@ local function preview(prompt_bufnr)
 	vim.cmd(cmd)
 end
 
+-- custom colorscheme
 function M.colorscheme()
 	local before_color = vim.api.nvim_exec("colorscheme", true)
 	local need_restore = true
