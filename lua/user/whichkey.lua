@@ -100,6 +100,7 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
+
 	-- Whichkey-F
 	F = {
 		name = "Custom Find",
@@ -163,6 +164,7 @@ local mappings = {
 		f = { "<cmd>lua require('user.fancy_telescope').findBuffer()<cr>", "Find" },
 		c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
 		p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
+		o = { "<cmd>Bdelete other<cr>", "Close other buffer" },
 	},
 	-- Whichkey-r
 	r = {
