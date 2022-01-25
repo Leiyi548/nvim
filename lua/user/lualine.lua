@@ -7,13 +7,29 @@ local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
 
+local colors = {
+	bg = "#007acc",
+	fg = "#d4d4d4",
+	yellow = "#ECBE7B",
+	cyan = "#008080",
+	darkblue = "#081633",
+	green = "#98be65",
+	orange = "#FF8800",
+	violet = "#a9a1e1",
+	magenta = "#c678dd",
+	purple = "#c678dd",
+	blue = "#027acc",
+	red = "#ec5f67",
+	git = { change = "#0c7d9d", add = "#587c0c", delete = "#94151b", conflict = "#bb7a61" },
+}
+
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
 	colored = false,
-	color = {},
+	color = { bg = colors.blue },
 	update_in_insert = false,
 	always_visible = true,
 }
@@ -23,24 +39,8 @@ local fakeMode = {
 		return " "
 	end,
 	padding = { left = 0, right = 0 },
-	color = {},
+	color = { bg = colors.blue },
 	cond = nil,
-}
-
-local colors = {
-	bg = "#202328",
-	fg = "#bbc2cf",
-	yellow = "#ECBE7B",
-	cyan = "#008080",
-	darkblue = "#081633",
-	green = "#98be65",
-	orange = "#FF8800",
-	violet = "#a9a1e1",
-	magenta = "#c678dd",
-	purple = "#c678dd",
-	blue = "#51afef",
-	red = "#ec5f67",
-	git = { change = "#0c7d9d", add = "#587c0c", delete = "#94151b", conflict = "#bb7a61" },
 }
 
 local diff = {
@@ -55,6 +55,7 @@ local diff = {
 		modified = { fg = colors.yellow },
 		removed = { fg = colors.red },
 	},
+	color = { bg = colors.blue },
 	padding = { left = 0, right = 0 },
 }
 
@@ -63,30 +64,33 @@ local mode = {
 	fmt = function(str)
 		return "-- " .. str .. " --"
 	end,
-	color = {},
+	color = { bg = colors.blue },
 }
 
 local filetype = {
 	"filetype",
 	icons_enabled = false,
 	padding = 0,
+	color = { bg = colors.blue },
 }
 
 local branch = {
 	"branch",
 	icons_enabled = true,
 	icon = "",
+	color = { bg = colors.blue },
 }
 
 local location = {
 	"location",
 	padding = 0,
-	color = { fg = colors.yellow },
+	color = { fg = colors.yellow, bg = colors.blue },
 }
 
 local encoding = {
 	"encoding",
 	padding = { left = 0, right = 1 },
+	color = { bg = colors.blue },
 }
 
 local treesitter = {
@@ -97,7 +101,7 @@ local treesitter = {
 		end
 		return ""
 	end,
-	color = { fg = colors.green },
+	color = { fg = colors.green, bg = colors.blue },
 	cond = hide_in_width,
 }
 
@@ -111,38 +115,47 @@ local progress = {
 		local index = math.ceil(line_ratio * #chars)
 		return chars[index]
 	end,
-	-- color = { fg = colors.yellow, bg = colors.bg },
-	color = { fg = colors.yellow },
+	color = { fg = colors.yellow, bg = colors.blue },
 	padding = { left = 0, right = 0 },
 }
 
-local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
-end
+local spaces = {
+	function()
+		return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+	end,
+	color = {fg = colors.fg, bg = colors.blue },
+}
 
+-- mid sections
+local mid = {
+	color = { bg = colors.blue },
+}
 lualine.setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
+		theme = {
+			normal = { c = { fg = colors.fg, bg = colors.bg } },
+			inactive = { c = { fg = colors.fg, bg = colors.bg } },
+		},
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { fakeMode },
-		lualine_b = { branch },
-		lualine_c = { diagnostics, mode },
+		lualine_a = {},
+		lualine_b = {},
+		lualine_c = { fakeMode, branch, diagnostics, mode, mid, mid },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { treesitter, diff, spaces, encoding, filetype },
-		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_x = { treesitter, diff, spaces, encoding, filetype, location, progress },
+		lualine_y = {},
+		lualine_z = {},
 	},
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
+		lualine_c = {},
+		lualine_x = {},
 		lualine_y = {},
 		lualine_z = {},
 	},
