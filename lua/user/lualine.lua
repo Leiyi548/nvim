@@ -126,6 +126,12 @@ local spaces = {
 	color = {fg = colors.fg, bg = colors.blue },
 }
 
+local filename = {
+  "filename",
+	color = { bg = colors.blue },
+	always_visible = true,
+}
+
 -- mid sections
 local mid = {
 	color = { bg = colors.blue },
@@ -147,7 +153,7 @@ lualine.setup({
 		lualine_b = {},
 		lualine_c = { fakeMode, branch, diagnostics, mode, mid, mid },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { treesitter, diff, spaces, encoding, filetype, location, progress },
+		lualine_x = { filename,treesitter, diff, spaces, encoding, filetype, location, progress },
 		lualine_y = {},
 		lualine_z = {},
 	},
