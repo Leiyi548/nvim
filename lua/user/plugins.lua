@@ -170,6 +170,7 @@ return packer.startup(function(use)
 			})
 		end,
 		event = "InsertEnter",
+    disable = builtin.tabnine,
 	})
 
 	-- snippets
