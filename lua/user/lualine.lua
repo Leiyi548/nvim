@@ -70,7 +70,7 @@ local mode = {
 local filetype = {
 	"filetype",
 	icons_enabled = false,
-	padding = 0,
+	padding = { left = 0, right = 1 },
 	color = { bg = colors.blue },
 }
 
@@ -121,13 +121,13 @@ local progress = {
 
 local spaces = {
 	function()
-		return "Tab size: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+		return "Space: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 	end,
-	color = {fg = colors.fg, bg = colors.blue },
+	color = { fg = colors.fg, bg = colors.blue },
 }
 
 local filename = {
-  "filename",
+	"filename",
 	color = { bg = colors.blue },
 	always_visible = true,
 }
@@ -153,7 +153,7 @@ lualine.setup({
 		lualine_b = {},
 		lualine_c = { fakeMode, branch, diagnostics, mode, mid, mid },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { filename,treesitter, diff, spaces, encoding, filetype, location, progress },
+		lualine_x = { filename, treesitter, diff, spaces, encoding, filetype, location, progress },
 		lualine_y = {},
 		lualine_z = {},
 	},
