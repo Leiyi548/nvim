@@ -16,6 +16,8 @@ vim.cmd([[
   augroup _run
     autocmd!
     autocmd TermOpen terminal nnoremap <silent> <buffer> q :bdelete!<cr>
+    autocmd FileType floaterm nnoremap <silent> <buffer> q :q<cr>" },
+
   augroup end
 
   augroup _markdown
@@ -29,11 +31,12 @@ vim.cmd([[
     autocmd VimResized * tabdo wincmd = 
   augroup end
 
-  augroup _alpha
-    autocmd!
-    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
-  augroup end
+ augroup _alpha
+   autocmd!
+   autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+ augroup end
 ]])
+
 
 -- Autoformat
 -- augroup _lsp
