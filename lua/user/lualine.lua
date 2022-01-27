@@ -69,7 +69,7 @@ local mode = {
 
 local filetype = {
 	"filetype",
-	icons_enabled = false,
+	icons_enabled = true,
 	padding = { left = 0, right = 1 },
 	color = { bg = colors.blue },
 }
@@ -81,16 +81,11 @@ local branch = {
 	color = { bg = colors.blue },
 }
 
-local location = {
-	"location",
-	padding = 0,
-	color = { fg = colors.yellow, bg = colors.blue },
-}
-
 local encoding = {
 	"encoding",
 	padding = { left = 0, right = 1 },
 	color = { bg = colors.blue },
+	cond = hide_in_width,
 }
 
 local treesitter = {
@@ -105,6 +100,12 @@ local treesitter = {
 	cond = hide_in_width,
 }
 
+local location = {
+	"location",
+	padding = 0,
+	-- color = { fg = colors.yellow, bg = colors.blue },
+	color = { fg = colors.fg, bg = colors.blue },
+}
 -- cool function for progress
 local progress = {
 	function()
@@ -115,7 +116,8 @@ local progress = {
 		local index = math.ceil(line_ratio * #chars)
 		return chars[index]
 	end,
-	color = { fg = colors.yellow, bg = colors.blue },
+	-- color = { fg = colors.yellow, bg = colors.blue },
+	color = { fg = colors.fg, bg = colors.blue },
 	padding = { left = 0, right = 0 },
 }
 
