@@ -32,7 +32,9 @@ end
 
 -- Have packer use a popup window
 packer.init({
-	git = { clone_timeout = 300, default_url_format = "https://hub.fastgit.org/%s" },
+	git = { clone_timeout = 500, default_url_format = "https://github.com.cnpmjs.org/%s" },
+	--default_url_format = "https://github.cnpmjs.org/%s" },
+	--default_url_format = "https://hub.fastgit.org/%s" },
 	max_jobs = 50,
 	display = {
 		open_fn = function()
@@ -170,7 +172,7 @@ return packer.startup(function(use)
 			})
 		end,
 		event = "InsertEnter",
-    disable = builtin.tabnine,
+		disable = builtin.tabnine,
 	})
 
 	-- snippets
