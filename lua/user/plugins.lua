@@ -36,11 +36,11 @@ packer.init({
 	--default_url_format = "https://github.cnpmjs.org/%s" },
 	--default_url_format = "https://hub.fastgit.org/%s" },
 	max_jobs = 50,
-	display = {
+	--[[ display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
-	},
+	}, ]]
 })
 
 -- Install your plugins here
