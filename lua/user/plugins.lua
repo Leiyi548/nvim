@@ -133,7 +133,7 @@ return packer.startup(function(use)
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	-- use("lunarvim/darkplus.nvim")
 	use("Mofiqul/vscode.nvim")
-  use{"olimorris/onedarkpro.nvim"}
+	use({ "olimorris/onedarkpro.nvim" })
 	use("Mofiqul/dracula.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({
@@ -194,8 +194,8 @@ return packer.startup(function(use)
 			require("user.lsp")
 		end,
 	}) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer"}) -- simple to use language server installer
-	use({ "tamago324/nlsp-settings.nvim"}) -- language server settings defined in json for
+	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
+	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
