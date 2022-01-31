@@ -83,6 +83,7 @@ local branch = {
 
 local encoding = {
 	"encoding",
+	fmt = string.upper,
 	padding = { left = 0, right = 1 },
 	color = { bg = colors.blue },
 	cond = hide_in_width,
