@@ -193,11 +193,10 @@ return packer.startup(function(use)
 			require("user.lsp")
 		end,
 	}) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer", after = "nvim-lspconfig" }) -- simple to use language server installer
-	use({ "tamago324/nlsp-settings.nvim", after = "nvim-lspconfig" }) -- language server settings defined in json for
+	use({ "williamboman/nvim-lsp-installer"}) -- simple to use language server installer
+	use({ "tamago324/nlsp-settings.nvim"}) -- language server settings defined in json for
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
-		after = "nvim-lspconfig",
 		config = function()
 			require("user.lsp.null-ls")
 		end,
