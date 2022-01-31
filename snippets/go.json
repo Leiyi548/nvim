@@ -1,0 +1,6 @@
+{
+  "main": {
+    "prefix": "main",
+    "body": ["func main(){", "\t$0", "}"]
+  }
+}

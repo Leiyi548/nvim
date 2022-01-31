@@ -135,7 +135,8 @@ ls.snippets = {
 --require("luasnip/loaders/from_vscode").load({ paths = { "~/.config/nvim/extra/snippets" } }) -- Load snippets from my-snippets folder
 
 -- You can also use lazy loading so you only get in memory snippets of languages you use
-require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.config/lvim/vscodesnips" } })
+-- require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.config/lvim/vscodesnips" } })
+require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
 
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━❰ end configs ❱━━━━━━━━━━━━━━━━━--

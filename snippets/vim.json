@@ -1,0 +1,7 @@
+{
+  "function": {
+    "prefix": "func",
+    "body": ["function! s:$1($2) abort", "\t$3", "endfunction"],
+    "description": "Require module"
+  }
+}
