@@ -25,7 +25,7 @@ M.config = function()
 
 	local plugin_count = {
 		type = "text",
-		val = "Neovim loading.." .. num_plugins_loaded .. " plugins  ",
+		val = "Neovim loading..." .. num_plugins_loaded .. " plugins  ",
 		opts = {
 			position = "center",
 			hl = "String",
