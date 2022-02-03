@@ -45,9 +45,15 @@ keymap("n", "sl", "<cmd>HopLineStart<cr>", opts)
 keymap("v", "sl", "<cmd>HopLineStart<cr>", opts)
 keymap("n", "sw", "<cmd>HopWord<cr>", opts)
 keymap("v", "sw", "<cmd>HopWord<cr>", opts)
+
+-- Better toggle_colorscheme()
+keymap("n", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
+keymap("v", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
+
 -- Better file navigation(harpoon)
 keymap("n", "gn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', opts)
 keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)
+
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)

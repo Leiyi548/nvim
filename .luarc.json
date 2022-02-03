@@ -3,10 +3,12 @@
     "Lua.diagnostics.disable": [
         "unused-local",
         "undefined-global",
-        "different-requires"
+        "different-requires",
+        "unused-function"
     ],
     "Lua.diagnostics.globals": [
         "vim",
-        "builtin"
+        "builtin",
+        "toggle_colorscheme"
     ]
 }
