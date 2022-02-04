@@ -37,6 +37,11 @@ vim.cmd([[
  augroup end
 ]])
 
+-- Use relative & absolute line numbers in 'n' & 'i' modes respectively
+if builtin.smartNumber.active then
+	vim.cmd([[ au InsertEnter * set norelativenumber ]])
+	vim.cmd([[ au InsertLeave * set relativenumber ]])
+end
 
 -- Autoformat
 -- augroup _lsp
