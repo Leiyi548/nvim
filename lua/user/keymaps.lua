@@ -71,15 +71,20 @@ keymap("n", "L", "$", opts)
 keymap("v", "H", "^", opts)
 keymap("v", "L", "$", opts)
 
--- Better CodeAction
+-- Better lazygit keybinding
+keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
+keymap("i", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
+
+-- Better CodeAction (use telescope builtin code_action)
 keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
--- Resize with arrows
+
+-- Resize with arrows(left right up down)
 keymap("n", "<Up>", ":resize -2<CR>", opts)
 keymap("n", "<Down>", ":resize +2<CR>", opts)
 keymap("n", "<Left>", ":vertical resize -2<CR>", opts)
 keymap("n", "<Right>", ":vertical resize +2<CR>", opts)
 
--- Navigate buffers
+-- Navigate buffers(using tab and Shift-tab)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
