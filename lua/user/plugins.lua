@@ -136,12 +136,12 @@ return packer.startup(function(use)
 	use({ "olimorris/onedarkpro.nvim" })
 	use("Mofiqul/dracula.nvim")
 	use("projekt0n/github-nvim-theme")
+	-- use("sainnhe/gruvbox-material")
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
 	})
 	-- use({ "ellisonleao/gruvbox.nvim" })
-	-- use("sainnhe/gruvbox-material")
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
