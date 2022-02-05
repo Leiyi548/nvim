@@ -44,7 +44,11 @@ if builtin.smartNumber.active then
 end
 
 -- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+if builtin.format_on_save.active then
+	vim.cmd([[
+augroup _lsp
+  autocmd!
+  autocmd BufWritePre * lua vim.lsp.buf.formatting()
+augroup end
+]])
+end
