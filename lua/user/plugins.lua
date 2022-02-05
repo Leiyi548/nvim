@@ -345,10 +345,11 @@ return packer.startup(function(use)
 		config = function()
 			require("persistence").setup({
 				-- dir = ~/.config/nvim/sessions
-				dir = vim.fn.expand(get_cache_dir() .. "/sessions/"), -- directory where session files are saved
-				options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
+				-- dir = vim.fn.expand(get_cache_dir() .. "/sessions/"), -- directory where session files are saved
+				-- options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
 			})
 		end,
+    disable = not builtin.persistence.active,
 	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
