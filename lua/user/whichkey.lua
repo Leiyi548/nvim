@@ -100,7 +100,6 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
-
 	-- Whichkey-F
 	F = {
 		name = "Custom Find",
@@ -165,7 +164,7 @@ local mappings = {
 		c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
 		p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
 		o = { "<cmd>Bdelete other<cr>", "Close other buffer" },
-    v = { "<cmd>lua require('vscode').change_style('light')<cr>","Light theme"}
+		v = { "<cmd>lua require('vscode').change_style('light')<cr>", "Light theme" },
 	},
 	-- Whichkey-r
 	r = {
@@ -236,6 +235,7 @@ local mappings = {
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
@@ -252,10 +252,19 @@ local mappings = {
 		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
 		-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
+		g = { "<cmd>lua _GOTOP_TOGGLE()<CR>", "gotop" },
 		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
 		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
 	},
+
+	-- Whichkey-q
+  q = {
+    name = "Quit",
+		s = { [[<cmd>lua require("persistence").load()<cr>]], "session in dir" },
+		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
+		d = { [[<cmd>lua require("persistence").stop()<cr>]], "no session" },
+  }
 }
 
 which_key.setup(setup)
