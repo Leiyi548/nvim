@@ -50,6 +50,9 @@ keymap("v", "sw", "<cmd>HopWord<cr>", opts)
 keymap("n", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
 keymap("v", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
 
+-- Better persistence (sessions management)
+keymap("n", "<leader>sl", [[<cmd>lua require("persistence").load()<cr>]], opts)
+
 -- Better file navigation(harpoon)
 keymap("n", "gn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', opts)
 keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)

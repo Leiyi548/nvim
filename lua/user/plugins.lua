@@ -337,6 +337,20 @@ return packer.startup(function(use)
 	})
 	-- harpoon
 	use("ThePrimeagen/harpoon")
+	-- persistence (session management)
+	use({
+		"folke/persistence.nvim",
+		event = "BufReadPre", -- this will only start session saving when an actual file was opened
+		module = "persistence",
+		config = function()
+			require("persistence").setup({
+				-- dir = ~/.config/nvim/sessions
+				dir = vim.fn.expand(get_cache_dir() .. "/sessions/"), -- directory where session files are saved
+				options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
+			})
+		end,
+	})
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
