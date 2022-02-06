@@ -14,6 +14,18 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-    -- diagnostics.flake8 -- enable for python diagnostic
+		-- diagnostics.flake8 -- enable for python diagnostic
 	},
+	on_attach = function(client)
+		if client.resolved_capabilities.document_formatting then
+			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+		end
+		-- vim.cmd([[
+		--     augroup document_highlight
+		--       autocmd! * <buffer>
+		--       autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+		--       autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+		--     augroup END
+		--   ]])
+	end,
 })
