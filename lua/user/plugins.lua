@@ -36,11 +36,11 @@ packer.init({
 	--default_url_format = "https://github.cnpmjs.org/%s" },
 	--default_url_format = "https://hub.fastgit.org/%s" },
 	max_jobs = 50,
-	--[[ display = {
+	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "rounded" })
 		end,
-	}, ]]
+	},
 })
 
 -- Install your plugins here
@@ -145,7 +145,7 @@ return packer.startup(function(use)
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
-		event = "InsertEnter",
+		event = { "InsertEnter", "CmdLineEnter" },
 		config = function()
 			require("user.cmp")
 		end,
@@ -349,7 +349,7 @@ return packer.startup(function(use)
 				-- options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
 			})
 		end,
-    disable = not builtin.persistence.active,
+		disable = not builtin.persistence.active,
 	})
 
 	-- Automatically set up your configuration after cloning packer.nvim
