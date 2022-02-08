@@ -23,7 +23,6 @@ vim.cmd([[
   augroup _markdown
     autocmd!
     autocmd FileType markdown setlocal wrap
-    autocmd FileType markdown setlocal spell
   augroup end
 
   augroup _auto_resize
@@ -36,6 +35,8 @@ vim.cmd([[
    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
  augroup end
 ]])
+
+-- autocmd FileType markdown setlocal spell (markdown)
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 if builtin.smartNumber.active then
