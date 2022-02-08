@@ -44,10 +44,21 @@ if builtin.smartNumber.active then
 	vim.cmd([[ au InsertLeave * set relativenumber ]])
 end
 
--- Autoformat
--- 	vim.cmd([[
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
--- ]])
+-- set header comment
+vim.cmd([[
+" Add header comment for python file automatically.
+autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
+func SetTitle()
+if expand("%:e") == 'py'
+   call setline(1,'"""')
+   call setline(2,"# Author:         Leiyi548                        ")
+   call setline(3,"# Date:           ".strftime("%Y年%m月%d日-%T")."                      ")
+   call setline(4,"# Description:                              ")
+   call setline(5,'"""')
+   normal G
+   normal o
+   normal o
+endif
+endfunc
+autocmd BufNewFile * normal G
+]])
