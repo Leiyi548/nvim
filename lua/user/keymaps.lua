@@ -76,7 +76,6 @@ keymap("v", "L", "$", opts)
 
 -- Better lazygit keybinding
 keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
-keymap("i", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
 
 -- Better CodeAction (use telescope builtin code_action)
 keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
