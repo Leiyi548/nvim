@@ -32,13 +32,13 @@ end
 
 -- Have packer use a popup window
 packer.init({
-	git = { clone_timeout = 500, default_url_format = "https://github.com.cnpmjs.org/%s" },
+	git = { clone_timeout = 120, default_url_format = "https://github.com.cnpmjs.org/%s" },
 	--default_url_format = "https://github.cnpmjs.org/%s" },
 	--default_url_format = "https://hub.fastgit.org/%s" },
 	max_jobs = 50,
 	display = {
 		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
+			return require("packer.util").float({ border = "single" }) -- single rounded
 		end,
 	},
 })
