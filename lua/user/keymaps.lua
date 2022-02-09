@@ -50,6 +50,13 @@ keymap("v", "sl", "<cmd>HopLineStart<cr>", opts)
 keymap("n", "sw", "<cmd>HopWord<cr>", opts)
 keymap("v", "sw", "<cmd>HopWord<cr>", opts)
 
+-- Better snippets engine (luasnip)
+-- choice node
+vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
+keymap("i", "<C-j>", "<cmd>lua require('luasnip').jump(1)<cr>", opts)
+keymap("i", "<C-k>", "<cmd>lua require('luasnip').jump(-1)<cr>", opts)
+
 -- Better toggle_colorscheme()
 keymap("n", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
 keymap("v", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)

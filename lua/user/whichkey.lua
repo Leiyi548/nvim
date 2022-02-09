@@ -243,6 +243,7 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
+		p = { "<cmd>lua require('user.fancy_telescope').find_plugins()<cr>", "plugins" },
 	},
 
 	-- Whichkey-t
@@ -259,12 +260,12 @@ local mappings = {
 	},
 
 	-- Whichkey-q
-  q = {
-    name = "Quit",
+	q = {
+		name = "Quit",
 		s = { [[<cmd>lua require("persistence").load()<cr>]], "session in dir" },
 		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
 		d = { [[<cmd>lua require("persistence").stop()<cr>]], "no session" },
-  }
+	},
 }
 
 which_key.setup(setup)

@@ -8,45 +8,6 @@ local builtin = require("telescope.builtin")
 local finders = require("telescope.finders")
 local conf = require("telescope.config").values
 
-function M._multiopen(prompt_bufnr, open_cmd)
-  local picker = action_state.get_current_picker(prompt_bufnr)
-  ---@diagnostic disable-next-line: undefined-field
-  local num_selections = table.getn(picker:get_multi_selection())
-  local border_contents = picker.prompt_border.contents[1]
-  if not (string.find(border_contents, "Find Files") or string.find(border_contents, "Git Files")) then
-    actions.select_default(prompt_bufnr)
-    return
-  end
-  if num_selections > 1 then
-    vim.cmd "bw!"
-    for _, entry in ipairs(picker:get_multi_selection()) do
-      vim.cmd(string.format("%s %s", open_cmd, entry.value))
-    end
-    vim.cmd "stopinsert"
-  else
-    if open_cmd == "vsplit" then
-      actions.file_vsplit(prompt_bufnr)
-    elseif open_cmd == "split" then
-      actions.file_split(prompt_bufnr)
-    elseif open_cmd == "tabe" then
-      actions.file_tab(prompt_bufnr)
-    else
-      actions.file_edit(prompt_bufnr)
-    end
-  end
-end
-function M.multi_selection_open_vsplit(prompt_bufnr)
-  M._multiopen(prompt_bufnr, "vsplit")
-end
-function M.multi_selection_open_split(prompt_bufnr)
-  M._multiopen(prompt_bufnr, "split")
-end
-function M.multi_selection_open_tab(prompt_bufnr)
-  M._multiopen(prompt_bufnr, "tabe")
-end
-function M.multi_selection_open(prompt_bufnr)
-  M._multiopen(prompt_bufnr, "edit")
-end
 -- beautiful default layout for telescope prompt
 function M.layout_config()
 	return {
@@ -108,7 +69,7 @@ local function preview(prompt_bufnr)
 	vim.cmd(cmd)
 end
 
--- custom colorscheme
+-- custom telescope cmd to change colorscheme
 function M.colorscheme()
 	local before_color = vim.api.nvim_exec("colorscheme", true)
 	local need_restore = true
@@ -138,7 +99,7 @@ function M.colorscheme()
 		layout_config = {
 			width = 0.5,
 			height = 0.5,
-      prompt_position = "top", -- top bottom
+			prompt_position = "top", -- top bottom
 		},
 		attach_mappings = function(prompt_bufnr, map)
 			map("i", "<cr>", enter)
@@ -187,8 +148,6 @@ function M.findDotfile()
 			vertical = { preview_height = 0.75 },
 		},
 	}
-	-- layout_strategy = "horizontal",
-	-- layout_config = { preview_width = 0.65, width = 0.75 },
 	builtin.find_files(themes.get_dropdown(opts))
 end
 -- another file string search
@@ -396,6 +355,23 @@ function M.grep_string_visual()
 	require("telescope.builtin").live_grep({
 		default_text = visual_selection(),
 	})
+end
+
+function M.find_plugins()
+	local opts = {
+		prompt_title = "Find neovim installed plugins",
+		path_display = { "smart" },
+		prompt_position = "top",
+		cwd = "~/.local/share/nvim/site/pack/packer",
+		previewer = false,
+		layout_config = {
+			width = 0.5,
+			height = 0.5,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
+	}
+	builtin.find_files(themes.get_dropdown(opts))
 end
 
 return M
