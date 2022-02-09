@@ -36,6 +36,10 @@ keymap("n", "sc", "<C-w>c", opts)
 -- Better close buffer
 keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 
+-- Better open .html in Chrome
+keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
+keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
+
 -- Better easymotion (hop)
 keymap("n", "E", "<cmd>HopChar1<cr>", opts)
 keymap("v", "E", "<cmd>HopChar1<cr>", opts)
