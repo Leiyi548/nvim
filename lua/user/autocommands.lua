@@ -53,8 +53,7 @@ if expand("%:e") == 'py'
    call setline(1,'"""')
    call setline(2,"# Author:         Leiyi548                        ")
    call setline(3,"# Date:           ".strftime("%Y/%m/%d %H:%M ")."                      ")
-   call setline(4,"# Description:     ")
-   call setline(5,'"""')
+   call setline(4,'"""')
    normal G
    normal o
    normal o
