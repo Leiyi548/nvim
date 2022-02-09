@@ -136,10 +136,10 @@ end
 
 function M.findDotfile()
 	local opts = {
-		prompt_title = " Find Dotfile",
+		prompt_title = "Find custom Dotfile",
 		path_display = { "smart" },
 		prompt_position = "top",
-		cwd = "~/.config/nvim",
+		search_dirs = { "~/.config/nvim", "~/.config/nvim.bak" },
 		previewer = false,
 		layout_config = {
 			width = 0.5,
