@@ -9,8 +9,12 @@
 --━━━━━━━━━━━━━━━━━━━❰ configs ❱━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
-local ls = require("luasnip")
+local luasnip_status_ok, ls = pcall(require, "luasnip")
+if not luasnip_status_ok then
+	return
+end
 -- some shorthands...
+-- some nodes
 local s = ls.snippet
 local sn = ls.snippet_node
 local t = ls.text_node
@@ -19,7 +23,14 @@ local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
 
-local types = require("luasnip.util.types")
+-- luasnip setup
+ls.config.set_config({
+	history = true,
+	-- Update more often, :h events for more info.
+	updateevents = "TextChanged,TextChangedI",
+})
+-- virtual text to nodes
+--[[ local types = require("luasnip.util.types")
 
 require("luasnip").config.setup({
 	ext_opts = {
@@ -34,61 +45,17 @@ require("luasnip").config.setup({
 			},
 		},
 	},
-})
+}) ]]
 
---functions
-local date_input = function(args, state, fmt)
-	local fmt = fmt or "%Y-%m-%d"
-	return sn(nil, i(1, os.date(fmt)))
-end
-local date_output = function(format)
-	local format = format or "%Y-%m-%d"
-	return os.date(format)
-end
--- Every unspecified option will be set to the default.
-ls.config.set_config({
-	history = true,
-	-- Update more often, :h events for more info.
-	updateevents = "TextChanged,TextChangedI",
-})
+-- functions
+local author_cpp = [[
+
+]]
+-- end of functions
 
 ls.snippets = {
-
-	all = {
-		s("novel", {
-			t("It was a dark and stormy night on "),
-			d(1, date_input, {}, "%A, %B %d of %Y"),
-			t(" and the clocks were striking thirteen."),
-		}),
-		s("class", {
-			-- Choice: Switch between two different Nodes, first parameter is its position, second a list of nodes.
-			c(1, {
-				t("public "),
-				t("private "),
-			}),
-			t("class "),
-			i(2),
-			t(" "),
-			c(3, {
-				t("{"),
-				-- sn: Nested Snippet. Instead of a trigger, it has a position, just like insert-nodes. !!! These don't expect a 0-node!!!!
-				-- Inside Choices, Nodes don't need a position as the choice node is the one being jumped to.
-				sn(nil, {
-					t("extends "),
-					i(1),
-					t(" {"),
-				}),
-				sn(nil, {
-					t("implements "),
-					i(1),
-					t(" {"),
-				}),
-			}),
-			t({ "", "\t" }),
-			i(0),
-			t({ "", "}" }),
-		}),
-	},
+	-- Every unspecified option will be set to the default.
+	all = {},
 
 	cpp = {
 		s("author", {
@@ -124,18 +91,7 @@ ls.snippets = {
 	},
 }
 
---[[
--- Beside defining your own snippets you can also load snippets from "vscode-like" packages
--- that expose snippets in json files, for example <https://github.com/rafamadriz/friendly-snippets>.
--- Mind that this will extend  `ls.snippets` so you need to do it after your own snippets or you
--- will need to extend the table yourself instead of setting a new one.
-]]
-
---require("luasnip/loaders/from_vscode").load({ include = { "python" } }) -- Load only python snippets
---require("luasnip/loaders/from_vscode").load({ paths = { "~/.config/nvim/extra/snippets" } }) -- Load snippets from my-snippets folder
-
--- You can also use lazy loading so you only get in memory snippets of languages you use
--- require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.config/lvim/vscodesnips" } })
+-- load vscode style snippets
 require("luasnip/loaders/from_vscode").lazy_load({ paths = { "~/.config/nvim/snippets" } })
 
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
