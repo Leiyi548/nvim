@@ -147,6 +147,16 @@ function M.findDotfile()
 			horizontal = { width = { padding = 0.15 } },
 			vertical = { preview_height = 0.75 },
 		},
+		file_ignore_patterns = {
+			"vendor/*",
+			"node_modules",
+			"%.jpg",
+			"%.jpeg",
+			"%.png",
+			"%.svg",
+			"%.otf",
+			"%.ttf",
+		},
 	}
 	builtin.find_files(themes.get_dropdown(opts))
 end
