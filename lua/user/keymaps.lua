@@ -122,3 +122,20 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- Better create file
+keymap("n", "<leader>ne", ":edit ", opts)
+-- Better rename file
+vim.cmd([[
+function! RenameFile()
+    let old_name = expand('%')
+    let new_name = input('New file name: ')
+    if new_name != '' && new_name != old_name
+        exec ':saveas ' . new_name
+        exec ':silent !rm ' . old_name
+        exec ':bd ' . old_name
+        redraw!
+    endif
+endfunction
+nnoremap <leader>rn :call RenameFile()<cr>
+]])

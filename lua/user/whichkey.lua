@@ -171,6 +171,7 @@ local mappings = {
 		name = "Run",
 		-- a = { "<cmd>RnvimrToggle<cr>", "Ranger" },
 		r = { "<cmd>AsyncTask file-run<cr>", "Run on Terminal" },
+		n = { "Rename file" },
 		f = { "<cmd>AsyncTask file-run-floaterm<cr>", "Run on floaterm" },
 	},
 
@@ -271,6 +272,11 @@ local mappings = {
 	m = {
 		name = "Markdown",
 		i = { "<cmd>PasteImg<cr>", "PasteImg" },
+	},
+	-- Whichkey-n
+	n = {
+		name = "New",
+		e = { "New element" },
 	},
 }
 
