@@ -8,7 +8,8 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		"clone",
 		"--depth",
 		"1",
-		"https://github.com/wbthomason/packer.nvim",
+		"git@github.com:wbthomason/packer.nvim.git",
+		-- "https://github.com/wbthomason/packer.nvim",
 		install_path,
 	})
 	print("Installing packer close and reopen Neovim...")
@@ -32,10 +33,12 @@ end
 
 -- Have packer use a popup window
 packer.init({
-	git = { clone_timeout = 120, default_url_format = "https://github.com.cnpmjs.org/%s" },
-	--default_url_format = "https://github.cnpmjs.org/%s" },
-	--default_url_format = "https://hub.fastgit.org/%s" },
-	max_jobs = 50,
+	-- git = { clone_timeout = 288 },
+	git = { clone_timeout = 288, default_url_format = "git@github.com:%s" },
+	-- git = { clone_timeout = 288, default_url_format = "https://github.91chi.fun//https://github.com/%s" },
+	-- git = {clone_timeout = 288, default_url_format = "https://github.cnpmjs.org/%s" },
+	-- git = { clone_timeout = 288, default_url_format = "https://hub.fastgit.org/%s" },
+	max_jobs = 10,
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "single" }) -- single rounded
@@ -181,7 +184,7 @@ return packer.startup(function(use)
 		"L3MON4D3/LuaSnip",
 		after = "nvim-cmp",
 		config = function()
-			require("user.luasnipConfig")
+			require("user.luasnip")
 		end,
 	}) --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
@@ -310,7 +313,7 @@ return packer.startup(function(use)
 			vim.g.asynctasks_system = "macos"
 			vim.cmd([[
         let g:asynctasks_extra_config = [
-    \ '~/.config/lvim/tasks.ini',
+    \ '~/.config/nvim/tasks.ini',
     \ ]
         ]])
 		end,
@@ -351,7 +354,12 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.persistence.active,
 	})
-
+	-- markdown preview in google Chrome
+	use({
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		ft = "markdown",
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

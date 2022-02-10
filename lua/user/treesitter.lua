@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+-- mirror download
+--[[ for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
+	config.install_info.url = config.install_info.url:gsub("https://github.com/", "git@github.com:")
+end ]]
 configs.setup({
 	ensure_installed = { "lua", "python", "html", "javascript", "cpp" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
@@ -82,9 +86,3 @@ configs.setup({
 		},
 	},
 })
-
--- use fastgit to download treesitter parser
--- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
--- for _, value in pairs(parser_config) do
--- 	value.install_info.url = value.install_info.url:gsub("github.com", "hub.fastgit.org")
--- end
