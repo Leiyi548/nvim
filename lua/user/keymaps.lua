@@ -108,7 +108,8 @@ keymap("v", ">", ">gv", opts)
 keymap("n", ">", ">>", opts)
 keymap("n", "<", "<<", opts)
 
-keymap("v", "p", '"_dP', opts)
+-- have some troubles in luasnip (delete)
+-- keymap("v", "p", '"_dP', opts)
 
 -- Visual Block --
 -- Move text up and down
