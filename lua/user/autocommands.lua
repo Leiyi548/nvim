@@ -61,3 +61,13 @@ endif
 endfunc
 autocmd BufNewFile * normal G
 ]])
+
+-- indent for different filetype
+vim.cmd([[
+  autocmd FileType php,ruby,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4 
+  autocmd FileType php setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+  autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
+  autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
+  autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabst
+]])

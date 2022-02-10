@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup({
-	ensure_installed = { "lua", "python", "html" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = { "lua", "python", "html", "javascript", "cpp" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	matchup = {
@@ -19,7 +19,7 @@ configs.setup({
 		disable = { "" }, -- list of language that will be disabled
 		additional_vim_regex_highlighting = true,
 	},
-	indent = { enable = true, disable = { "yaml" } },
+	indent = { enable = true, disable = { "yaml", "python" } },
 	context_commentstring = {
 		enable = true,
 		config = {
@@ -38,7 +38,7 @@ configs.setup({
 		extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
 		max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
 	},
-  textobjects = {
+	textobjects = {
 		lookahead = true,
 		select = {
 			enable = true,
@@ -80,7 +80,7 @@ configs.setup({
 				["dF"] = "@class.outer",
 			},
 		},
-  }
+	},
 })
 
 -- use fastgit to download treesitter parser
