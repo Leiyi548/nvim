@@ -59,7 +59,6 @@ if expand("%:e") == 'py'
    normal o
 endif
 endfunc
-autocmd BufNewFile * normal G
 ]])
 
 -- indent for different filetype
