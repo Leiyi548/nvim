@@ -3,12 +3,30 @@ if not status_ok then
 	return
 end
 
+-- othre parser
+local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
+-- These two are optional and provide syntax highlighting
+-- for Neorg tables and the @document.meta tag
+parser_configs.norg_meta = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+}
+parser_configs.norg_table = {
+	install_info = {
+		url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
+		files = { "src/parser.c" },
+		branch = "main",
+	},
+}
 -- mirror download
 --[[ for _, config in pairs(require("nvim-treesitter.parsers").get_parser_configs()) do
 	config.install_info.url = config.install_info.url:gsub("https", "git")
 end ]]
 configs.setup({
-	ensure_installed = { "lua", "python", "html", "javascript", "cpp", "norg" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = { "lua", "python", "html", "javascript", "cpp", "norg", "norg_meta", "norg_table" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	matchup = {
@@ -86,22 +104,3 @@ configs.setup({
 		},
 	},
 })
-local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-
--- These two are optional and provide syntax highlighting
--- for Neorg tables and the @document.meta tag
-parser_configs.norg_meta = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-}
-
-parser_configs.norg_table = {
-	install_info = {
-		url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-		files = { "src/parser.c" },
-		branch = "main",
-	},
-}
