@@ -38,7 +38,7 @@ packer.init({
 	-- git = { clone_timeout = 288, default_url_format = "https://github.91chi.fun//https://github.com/%s" },
 	-- git = {clone_timeout = 288, default_url_format = "https://github.cnpmjs.org/%s" },
 	-- git = { clone_timeout = 288, default_url_format = "https://hub.fastgit.org/%s" },
-	max_jobs = 10,
+	max_jobs = 30,
 	display = {
 		open_fn = function()
 			return require("packer.util").float({ border = "single" }) -- single rounded
@@ -71,7 +71,7 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
-		cmd = "NvimTreeToggle",
+		-- cmd = { "NvimTreeToggle", "NvimTreeOpen" },
 		config = function()
 			require("user.nvim-tree")
 		end,
@@ -359,6 +359,15 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		ft = "markdown",
+	})
+	-- noteTaking use neorg
+	use({
+		"nvim-neorg/neorg",
+		ft = { "norg" },
+		-- config = function(){
+		--
+		-- }
+		disable = not builtin.neorg.active,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
