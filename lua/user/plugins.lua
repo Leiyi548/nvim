@@ -359,15 +359,41 @@ return packer.startup(function(use)
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
 		ft = "markdown",
+		config = function()
+			vim.g.mkdp_auto_start = 0
+			vim.g.mkdp_auto_close = 0
+			vim.g.mkdp_refresh_slow = 0
+			vim.g.mkdp_command_for_global = 0
+			vim.g.mkdp_browser = ""
+			vim.g.mkdp_highlight_css = ""
+			vim.g.mkdp_page_title = "「${name}」"
+			vim.g.mkdp_filetypes = { "markdown" }
+			vim.g.mkdp_preview_options = { hide_yaml_meta = 1, disable_filename = 1, theme = "light" }
+			vim.g.mkdp_markdown_css = "/Users/macos/.config/nvim/UI/markdown_style_github.css"
+			vim.g.vmt_auto_update_on_save = 1
+		end,
+	})
+	-- paste image from clipboard
+	use({
+		"ekickx/clipboard-image.nvim",
+		cmd = { "PasteImg" },
+		ft = { "markdown" },
+		config = function()
+			require("user.clipboard-image")
+		end,
 	})
 	-- noteTaking use neorg
 	use({
 		"nvim-neorg/neorg",
 		ft = { "norg" },
-		-- config = function(){
-		--
-		-- }
 		disable = not builtin.neorg.active,
+	})
+	use({
+		"folke/todo-comments.nvim",
+		event = "BufRead",
+		config = function()
+			require("user.todo-comments")
+		end,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

@@ -267,6 +267,11 @@ local mappings = {
 		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
 		d = { [[<cmd>lua require("persistence").stop()<cr>]], "no session" },
 	},
+	-- Whichkey-m
+	m = {
+		name = "Markdown",
+		i = { "<cmd>PasteImg<cr>", "PasteImg" },
+	},
 }
 
 which_key.setup(setup)

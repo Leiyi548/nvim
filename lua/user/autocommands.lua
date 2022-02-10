@@ -23,6 +23,7 @@ vim.cmd([[
   augroup _markdown
     autocmd!
     autocmd FileType markdown setlocal wrap
+    autocmd FileType markdown nnoremap j gj
   augroup end
 
   augroup _auto_resize

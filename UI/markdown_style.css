@@ -1,0 +1,238 @@
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  display: inline-block;
+  font-weight: 600;
+  font-style: normal;
+  font-variant: normal;
+  font-family: 'Font Awesome 5 Free';
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+  margin-top: 0.4rem;
+}
+ol p,
+ul p {
+  margin: 0 0 0.5rem;
+}
+ol ol,
+ul ol,
+ol ul,
+ul ul {
+  padding-left: 0.5rem;
+}
+ol li,
+ul li {
+  position: relative;
+  margin: 0.3rem 0;
+  padding-left: 0.3rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+h1:before,
+h2:before,
+h3:before,
+h4:before,
+h5:before,
+h6:before {
+  position: absolute;
+  top: calc(50% - 0.35rem);
+  color: #f47466;
+  content: '\f0c1';
+  line-height: 1;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+h1:hover:before,
+h2:hover:before,
+h3:hover:before,
+h4:hover:before,
+h5:hover:before,
+h6:hover:before {
+  color: #49b1f5;
+}
+h1 {
+  padding-left: 1.4rem;
+}
+h1 code {
+  font-size: 1rem;
+}
+h1:before {
+  margin-left: -1.2rem;
+  font-size: 1rem;
+}
+h1:hover {
+  padding-left: 1.6rem;
+}
+h2 {
+  padding-left: 1.3rem;
+}
+h2 code {
+  font-size: 0.9rem;
+}
+h2:before {
+  margin-left: -1.1rem;
+  font-size: 0.9rem;
+}
+h2:hover {
+  padding-left: 1.5rem;
+}
+h3 {
+  padding-left: 1.2rem;
+}
+h3 code {
+  font-size: 0.8rem;
+}
+h3:before {
+  margin-left: -1rem;
+  font-size: 0.8rem;
+}
+h3:hover {
+  padding-left: 1.4rem;
+}
+h4 {
+  padding-left: 1.1rem;
+}
+h4 code {
+  font-size: 0.7rem;
+}
+h4:before {
+  margin-left: -0.9rem;
+  font-size: 0.7rem;
+}
+h4:hover {
+  padding-left: 1.3rem;
+}
+h5 {
+  padding-left: 1rem;
+}
+h5 code {
+  font-size: 0.6rem;
+}
+h5:before {
+  margin-left: -0.8rem;
+  font-size: 0.6rem;
+}
+h5:hover {
+  padding-left: 1.2rem;
+}
+h6 {
+  padding-left: 1rem;
+}
+h6 code {
+  font-size: 0.6rem;
+}
+h6:before {
+  margin-left: -0.8rem;
+  font-size: 0.6rem;
+}
+h6:hover {
+  padding-left: 1.2rem;
+}
+ol,
+ul {
+  margin-top: 0.4rem;
+  padding: 0 0 0 0.8rem;
+  list-style: none;
+  counter-reset: li;
+}
+@media screen and (max-width: 768px) {
+  ol,
+  ul {
+    padding: 0 0 0 0.4rem;
+  }
+}
+ol p,
+ul p {
+  margin: 0 0 0.5rem;
+}
+ol ol,
+ul ol,
+ol ul,
+ul ul {
+  padding-left: 0.6rem;
+}
+@media screen and (max-width: 768px) {
+  ol ol,
+  ul ol,
+  ol ul,
+  ul ul {
+    padding-left: 0.2rem;
+  }
+}
+ol li:not(.tab),
+ul li:not(.tab) {
+  position: relative;
+  margin: 0.2rem 0;
+}
+ol li:hover:before,
+ul li:hover:before {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+ol li:before,
+ul li:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #49b1f5;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+ol > li:not(.tab) {
+  padding: 0.2em 0.2em 0.2em 1.8em;
+}
+ol > li:before {
+  margin-top: 0.65em;
+  width: 1.45em;
+  height: 1.45em;
+  border-radius: 0.725em;
+  content: counter(li);
+  counter-increment: li;
+  text-align: center;
+  font-size: 0.85em;
+  line-height: 1.45em;
+}
+ul > li:not(.tab) {
+  padding: 0.2em 0.2em 0.2em 1.4em;
+}
+ul > li:not(.tab):hover:before {
+  border-color: #ff7242;
+}
+ul > li:not(.tab):before {
+  top: 0.78em;
+  width: 0.42em;
+  height: 0.42em;
+  border: 0.21em solid #49b1f5;
+  border-radius: 0.42em;
+  background: transparent;
+  content: '';
+  line-height: 0.42em;
+}
