@@ -387,6 +387,10 @@ return packer.startup(function(use)
 		"nvim-neorg/neorg",
 		ft = { "norg" },
 		disable = not builtin.neorg.active,
+		config = function()
+			require("user.neorg")
+		end,
+		requires = "nvim-lua/plenary.nvim",
 	})
 	use({
 		"folke/todo-comments.nvim",

@@ -107,6 +107,7 @@ cmp.setup({
 				buffer = "[Buffer]",
 				path = "[Path]",
 				cmp_tabnine = "[Tabnine]",
+				neorg = "[Neorg]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -116,6 +117,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "neorg" },
 		{ name = "cmp_tabnine" },
 	},
 	confirm_opts = {
