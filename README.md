@@ -33,3 +33,11 @@ _✨ neovim lua config ✨_
 - [ ] Javascript
 - [ ] Typescript
 - [x] Python
+
+## Other Neovim configurations
+
+- [LunarVim](https://github.com/LunarVim/LunarVim)
+- [Nvchad](https://github.com/NvChad/NvChad)
+- [Allen191819/neovim](https://github.com/Allen191819/neovim)
+- [DoomVim](https://github.com/NTBBloodbath/doom-nvim)
+- [SpaceVim](https://github.com/SpaceVim/SpaceVim)
