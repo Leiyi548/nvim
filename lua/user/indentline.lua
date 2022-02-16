@@ -15,6 +15,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"Trouble",
 	"TelescopePrompt",
 	"TelescopeResults",
+	"org",
 }
 vim.g.indentLine_enabled = 1
 vim.g.indent_blankline_char = "│"
