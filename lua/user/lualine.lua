@@ -69,7 +69,7 @@ local mode = {
 
 local filetype = {
 	"filetype",
-	icons_enabled = true,
+	icons_enabled = false,
 	padding = { left = 0, right = 1 },
 	color = { bg = colors.blue },
 }
