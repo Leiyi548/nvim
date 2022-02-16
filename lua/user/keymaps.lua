@@ -134,6 +134,7 @@ function! RenameFile()
         exec ':saveas ' . new_name
         exec ':silent !rm ' . old_name
         exec ':bd ' . old_name
+        exec ':NvimTreeRefresh'
         redraw!
     endif
 endfunction

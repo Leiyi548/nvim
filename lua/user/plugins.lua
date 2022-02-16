@@ -133,18 +133,18 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	-- use("lunarvim/darkplus.nvim")
+	-- dark colorschemes
 	use("Mofiqul/vscode.nvim")
 	use({ "olimorris/onedarkpro.nvim" })
 	use("Mofiqul/dracula.nvim")
-	use("projekt0n/github-nvim-theme")
-	-- use("sainnhe/gruvbox-material")
 	use({
 		"rose-pine/neovim",
 		as = "rose-pine",
+		tag = "v1.*",
 	})
-	-- use({ "ellisonleao/gruvbox.nvim" })
+	-- light colorschemes
+	use("projekt0n/github-nvim-theme")
+
 	-- cmp plugins
 	use({
 		"hrsh7th/nvim-cmp",
@@ -391,6 +391,17 @@ return packer.startup(function(use)
 			require("user.neorg")
 		end,
 		requires = "nvim-lua/plenary.nvim",
+	})
+	-- noteTaking use orgmode.nvim
+	use({
+		"nvim-orgmode/orgmode.nvim",
+		keys = { "go", "gC" },
+		ft = { "org" },
+		config = function()
+			require("user.orgmode").setup()
+			vim.cmd("language en_US.UTF-8")
+		end,
+		disable = not builtin.orgmode.active,
 	})
 	use({
 		"folke/todo-comments.nvim",

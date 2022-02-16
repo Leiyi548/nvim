@@ -39,5 +39,6 @@ _✨ neovim lua config ✨_
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [Nvchad](https://github.com/NvChad/NvChad)
 - [Allen191819/neovim](https://github.com/Allen191819/neovim)
+- [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
 - [DoomVim](https://github.com/NTBBloodbath/doom-nvim)
 - [SpaceVim](https://github.com/SpaceVim/SpaceVim)
