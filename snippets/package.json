@@ -43,6 +43,10 @@
         "path": "./vim.json"
       },
       {
+        "language": "org",
+        "path": "./org.json"
+      },
+      {
         "language": [
           "shellscript",
           "shell",

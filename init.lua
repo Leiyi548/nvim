@@ -21,3 +21,7 @@ require("user.colorscheme")
 require("user.lualine")
 require("user.impatient")
 require("user.autocommands")
+
+-- Textobjects
+-- =========================================
+vim.cmd([[source ~/.config/nvim/textobjects.vim]])
