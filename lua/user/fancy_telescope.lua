@@ -8,6 +8,17 @@ local builtin = require("telescope.builtin")
 local finders = require("telescope.finders")
 local conf = require("telescope.config").values
 
+local file_ignore_patterns = {
+	"vendor/*",
+	"node_modules",
+	"%.jpg",
+	"%.jpeg",
+	"%.png",
+	"%.svg",
+	"%.otf",
+	"%.ttf",
+}
+
 -- beautiful default layout for telescope prompt
 function M.layout_config()
 	return {
@@ -147,16 +158,7 @@ function M.findDotfile()
 			horizontal = { width = { padding = 0.15 } },
 			vertical = { preview_height = 0.75 },
 		},
-		file_ignore_patterns = {
-			"vendor/*",
-			"node_modules",
-			"%.jpg",
-			"%.jpeg",
-			"%.png",
-			"%.svg",
-			"%.otf",
-			"%.ttf",
-		},
+		file_ignore_patterns = file_ignore_patterns,
 	}
 	builtin.find_files(themes.get_dropdown(opts))
 end
