@@ -27,7 +27,7 @@ M.setup = function()
 			},
 			org = {
 				org_toggle_checkbox = "g<cr>",
-				org_cycle = "gn",
+				-- org_cycle("gn"),
 				org_global_cycle = "gN",
 				org_timestamp_up = "+",
 				org_timestamp_down = "-",

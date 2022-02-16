@@ -108,6 +108,7 @@ cmp.setup({
 				path = "[Path]",
 				cmp_tabnine = "[Tabnine]",
 				neorg = "[Neorg]",
+				orgmode = "[Org]",
 			})[entry.source.name]
 			return vim_item
 		end,
@@ -118,6 +119,7 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "neorg" },
+		{ name = "orgmode" },
 		{ name = "cmp_tabnine" },
 	},
 	confirm_opts = {

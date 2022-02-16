@@ -6,8 +6,9 @@ builtin.emmet = { active = false } -- enable to use emmet-vim plugins
 builtin.tabnine = { active = false } -- enable to use emmet plugins
 builtin.smartNumber = { active = true } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.persistence = { active = true } -- enable to open persistence for session management
-builtin.neorg = { active = true } -- enable to open neorg to noteTaking
+builtin.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.orgmode = { active = true } -- enable to use orgmode plugins
+builtin.cmp_autopairs = { active = false } -- enable to open cmp_autopairs.on_confirm_done
 
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
