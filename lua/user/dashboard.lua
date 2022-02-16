@@ -35,7 +35,7 @@ M.config = function()
 	local heading = {
 		type = "text",
 		-- val = "  Today is " .. date .. "",
-		val =" 2022年" .. date,
+		val = " 2022年" .. date,
 		opts = {
 			position = "center",
 			hl = "Whichkey",
@@ -43,7 +43,7 @@ M.config = function()
 	}
 
 	-- local fortune = require("alpha.fortune")
-  local fortune = require("user.fortune")
+	local fortune = require("user.fortune")
 	local footer = {
 		type = "text",
 		val = fortune(),
@@ -86,7 +86,7 @@ M.config = function()
 		type = "group",
 		val = {
 			button("n", "    New file", ":ene <BAR> startinsert <cr>"), -- 
-			button("s", "   load last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
+			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
 			button("f", "   Find File ", ":Telescope find_files<cr>"),
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
 			button("w", "   Find word", "<cmd>Telescope live_grep<cr>"),
