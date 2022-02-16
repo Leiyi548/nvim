@@ -10,3 +10,12 @@ September(Sept) 九月
 October(Oct) 十月
 November(Nov) 十一月
 December(Dec) 十二月
+
+Monday(Mon) 周一
+Tuesday(Tue) 周二
+Wednesday(Wed) 周三
+Thursday(Thu) 周四
+Friday(Fri) 周五
+Saturday(Sat) 周六
+Sunday(Sun) 周末
+
