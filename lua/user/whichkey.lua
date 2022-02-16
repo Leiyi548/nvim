@@ -143,7 +143,7 @@ local mappings = {
 			"Marks",
 		},
 		n = {
-			"<cmd>lua require('user.telescope').find_note()<cr>",
+			"<cmd>lua require('user.fancy_telescope').find_note()<cr>",
 			"Notes",
 		},
 	},

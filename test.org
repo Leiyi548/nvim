@@ -1,0 +1,5 @@
+* TODO Tasks
+** TODO This is a orgmode.nvim example
+- [ ] fix some bug in orgmode
+- [ ] study javascript
+- [ ] write a blog in zhihu with neovim
