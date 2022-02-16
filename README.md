@@ -41,7 +41,7 @@ nvim # run :PackerSync
 
 ### Recommended Font
 
-- [FiraCode Nerd Font](firaCode): My preferred font
+- [FiraCode Nerd Font](https://github.com/tonsky/FiraCode/blob/master/README_CN.md): My preferred font
 - Any of the [Nerd Fonts]
 
 On macOS with Homebrew, choose one of the [Nerd Fonts],
@@ -78,7 +78,6 @@ brew install --cask font-hack-nerd-font
 ### plugins
 
 - [ ] [orgmode.nvim](https://github.com/nvim-orgmode/orgmode)
-- [ ] [neorg](https://github.com/nvim-neorg/neorg)
 - [ ] [harpoon](https://github.com/ThePrimeagen/harpoon)
 - [x] [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 
