@@ -47,6 +47,10 @@
         "path": "./org.json"
       },
       {
+        "language": "javascript",
+        "path": "./javascript.json"
+      },
+      {
         "language": [
           "shellscript",
           "shell",

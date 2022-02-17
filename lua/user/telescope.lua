@@ -71,7 +71,7 @@ telescope.setup({
 				["<C-n>"] = actions.move_selection_next,
 				["<C-p>"] = actions.move_selection_previous,
 
-				["<C-c>"] = actions.close,
+				-- ["<C-c>"] = actions.close,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
@@ -199,6 +199,7 @@ telescope.setup({
 				["i"] = {
 					-- your custom insert mode mappings
 					["<C-e>"] = actions.close,
+					["<C-c>"] = fb_action.create,
 				},
 				["n"] = {
 					-- your custom normal mode mappings
@@ -216,7 +217,11 @@ telescope.setup({
 				},
 			},
 		},
+		packer = {
+			-- theme = "dropdown", -- ivy,dropdown,cursor
+		},
 	},
 })
 require("telescope").load_extension("harpoon")
 require("telescope").load_extension("file_browser")
+require("telescope").load_extension("packer")

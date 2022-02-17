@@ -221,12 +221,16 @@ return packer.startup(function(use)
 		end,
 		cmd = "Telescope",
 	})
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "Leiyi548/telescope-packer.nvim" })
+	-- use({ "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" })
+	-- use({ "nvim-telescope/telescope-packer.nvim" })
 	use({
 		"ahmedkhalf/project.nvim",
 		config = function()
 			require("user.project")
 		end,
-		disable = true,
+		disable = not builtin.telescope_project,
 	})
 	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
 	-- Treesitter
@@ -410,7 +414,6 @@ return packer.startup(function(use)
 			require("user.todo-comments")
 		end,
 	})
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

@@ -244,7 +244,8 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		p = { "<cmd>lua require('user.fancy_telescope').find_plugins()<cr>", "plugins" },
+		p = { "<cmd>Telescope packer<cr>", "plugins" },
+		-- p = { "<cmd>lua require('user.fancy_telescope').find_plugins()<cr>", "plugins" },
 	},
 
 	-- Whichkey-t

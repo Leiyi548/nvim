@@ -115,7 +115,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "luasnip" },
+		{ name = "luasnip", priority = 999, max_item_count = 3 },
 		{ name = "buffer" },
 		{ name = "path" },
 		{ name = "neorg" },

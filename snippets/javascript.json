@@ -1,0 +1,7 @@
+{
+  "Get element by id": {
+    "prefix": "getid",
+    "body": ["const $1 = document.getElementById('$1');"],
+    "description": "Get dom element by id"
+  }
+}
