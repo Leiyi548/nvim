@@ -386,4 +386,20 @@ function M.find_plugins()
 	builtin.find_files(themes.get_dropdown(opts))
 end
 
+function M.findNote()
+	local opts = {
+		prompt_title = "Find Note",
+		path_display = { "smart" },
+		prompt_position = "top",
+		search_dirs = { "~/Dropbox/Orgzly/" },
+		layout_config = {
+			width = 0.5,
+			height = 0.8,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
+		file_ignore_patterns = file_ignore_patterns,
+	}
+	builtin.find_files(themes.get_ivy(opts))
+end
 return M

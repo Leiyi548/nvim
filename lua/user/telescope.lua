@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local fb_action = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
@@ -151,6 +152,20 @@ telescope.setup({
 		--   extension_config_key = value,
 		-- }
 		-- please take a look at the readme of the extension you want to configure
+		file_browser = {
+			theme = "dropdown", -- ivy,dropdown,cursor
+			mappings = {
+				["i"] = {
+					-- your custom insert mode mappings
+				},
+				["n"] = {
+					-- your custom normal mode mappings
+					["a"] = fb_action.create,
+					["c"] = false,
+				},
+			},
+		},
 	},
 })
 require("telescope").load_extension("harpoon")
+require("telescope").load_extension("file_browser")
