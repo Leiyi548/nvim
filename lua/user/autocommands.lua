@@ -70,5 +70,7 @@ vim.cmd([[
   autocmd FileType coffee,javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
   autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4 textwidth=120
   autocmd FileType org setlocal nofoldenable
+  autocmd FileType TelescopePrompt set nonumber
+  autocmd FileType TelescopePrompt set norelativenumber
 ]])
 -- autocmd FileType html,htmldjango,xhtml,haml setlocal tabstop=2 shiftwidth=2 softtabst

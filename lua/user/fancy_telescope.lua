@@ -19,36 +19,6 @@ local file_ignore_patterns = {
 	"%.ttf",
 }
 
--- beautiful default layout for telescope prompt
-function M.layout_config()
-	return {
-		width = 0.90,
-		height = 0.85,
-		preview_cutoff = 120,
-		prompt_position = "bottom",
-		horizontal = {
-			preview_width = function(_, cols, _)
-				if cols > 200 then
-					return math.floor(cols * 0.5)
-				else
-					return math.floor(cols * 0.6)
-				end
-			end,
-		},
-		vertical = {
-			width = 0.9,
-			height = 0.95,
-			preview_height = 0.5,
-		},
-
-		flex = {
-			horizontal = {
-				preview_width = 0.9,
-			},
-		},
-	}
-end
-
 local function enter(prompt_bufnr)
 	local selected = action_state.get_selected_entry()
 	local cmd = "colorscheme " .. selected[1]
@@ -57,6 +27,7 @@ local function enter(prompt_bufnr)
 	local config_dir = vim.fn.expand("~/.config/nvim/lua/user/nvimColorScheme.lua")
 	local job_cmd = "sed -i '' '$d' " .. config_dir .. " && echo '" .. lvimColor .. "'>>" .. config_dir
 	vim.fn.jobstart(job_cmd)
+	vim.api.nvim_command("luafile ~/.config/nvim/lua/user/highlight.lua")
 	actions.close(prompt_bufnr)
 end
 
@@ -97,7 +68,7 @@ function M.colorscheme()
 		end, vim.fn.getcompletion("", "color"))
 	)
 	local opts = {
-		prompt_title = " Find colorscheme",
+		prompt_title = " Select a Theme",
 		results_title = "Change colorscheme",
 		path_display = { "smart" },
 		-- finder = finders.new_table(colorthemes),
@@ -131,7 +102,7 @@ end
 function M.findBuffer()
 	local opts = {
 		prompt_title = " Find Buffer",
-		path_display = { "smart" },
+		path_display = { "tail" },
 		prompt_position = "top",
 		cwd = "~/.config/nvim",
 		previewer = false,
@@ -148,8 +119,9 @@ end
 function M.findDotfile()
 	local opts = {
 		prompt_title = "Find custom Dotfile",
-		path_display = { "smart" },
+		path_display = { "tail" },
 		prompt_position = "top",
+		sorting_strategy = "ascending",
 		search_dirs = { "~/.config/nvim", "~/.config/nvim.bak" },
 		previewer = false,
 		layout_config = {
@@ -372,7 +344,7 @@ end
 function M.find_plugins()
 	local opts = {
 		prompt_title = "Find neovim installed plugins",
-		path_display = { "smart" },
+		path_display = { "tail" },
 		prompt_position = "top",
 		cwd = "~/.local/share/nvim/site/pack/packer",
 		previewer = false,
@@ -389,9 +361,10 @@ end
 function M.findNote()
 	local opts = {
 		prompt_title = "Find Note",
-		path_display = { "smart" },
+		path_display = { "tail" },
 		prompt_position = "top",
 		search_dirs = { "~/Dropbox/Orgzly/" },
+		sorting_strategy = "ascending",
 		layout_config = {
 			width = 0.5,
 			height = 0.8,

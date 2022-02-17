@@ -154,3 +154,4 @@ end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 require("user.nvimColorScheme")
+require("user.highlight")

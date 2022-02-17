@@ -8,27 +8,60 @@ local fb_action = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
-		path_display = { "smart" },
+		path_display = { "truncate" }, -- hidden tail absolute smart shorten truncate
+		dynamic_preview_title = true, -- 动态更改预览窗口的名称 例如:预览窗口可以显示完整的文件名
+		prompt_prefix = " ",
+		selection_caret = " ",
+		selection_strategy = "reset", -- Determines how the cursor acts after each sort iteration.
+		sorting_strategy = "ascending", -- 按照升序排序
+		entry_prefix = " ",
+		initial_mode = "insert",
+		file_sorter = require("telescope.sorters").get_fuzzy_file,
+		generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
+		winblend = 0, -- Transparency
+		-- border = {},
+		-- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+		color_devicons = true,
+		use_less = true,
+		set_env = nil, -- default = nil
+		file_previewer = require("telescope.previewers").vim_buffer_cat.new,
+		grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
+		qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+		-- Developer configurations: Not meant for general override
+		buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+		preview = {
+			-- filesize_limit:The maximum file size in MB attempted to be previewed.
+			-- Set to false to attempt to preview any file size.
+			-- Default: 25
+			filesize_limit = 5,
+			-- timeout:Timeout the previewer if the preview did not
+			-- complete within `timeout` milliseconds.
+			-- Set to false to not timeout preview.
+			-- Default: 250
+			timeout = 300,
+			treesitter = true,
+		},
+		history = {
+			-- path:The path to the telescope history as string. default: stdpath("data")/telescope_history
+			-- path = defaults (~/.local/share/nvim/telescope_history)
+			-- limit:   The amount of entries that will be written in the history.
+			limit = 100,
+		},
+		layout_strategy = "horizontal",
 		layout_config = {
-			width = 0.95,
-			height = 0.85,
-			prompt_position = "top", -- bottom top
-			flex = {
-				flip_columns = 140,
+			-- preview_cutoff: When columns are less than this value, the preview will be disabled
+			-- preview_width: Change the width of Telescope's preview window
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
 			},
 			vertical = {
-				preview_cutoff = 40,
-				prompt_position = "bottom",
+				mirror = false,
 			},
-			horizontal = {
-				preview_width = function(_, cols, _)
-					if cols > 200 then
-						return math.floor(cols * 0.4)
-					else
-						return math.floor(cols * 0.6)
-					end
-				end,
-			},
+			width = 0.87,
+			height = 0.80,
+			preview_cutoff = 120,
 		},
 		mappings = {
 			i = {
@@ -43,6 +76,9 @@ telescope.setup({
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
 
+				["<C-Down>"] = actions.cycle_history_next,
+				["<C-Up>"] = actions.cycle_history_prev,
+
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
@@ -54,8 +90,10 @@ telescope.setup({
 				["<PageUp>"] = actions.results_scrolling_up,
 				["<PageDown>"] = actions.results_scrolling_down,
 
-				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+				["<Tab>"] = actions.move_selection_next,
+				["<S-Tab"] = actions.move_selection_previous,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
@@ -71,8 +109,10 @@ telescope.setup({
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
 
-				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+				-- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+				-- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+				["<Tab>"] = actions.move_selection_next,
+				["<S-Tab"] = actions.move_selection_previous,
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
@@ -154,7 +194,7 @@ telescope.setup({
 		-- }
 		-- please take a look at the readme of the extension you want to configure
 		file_browser = {
-			theme = "dropdown", -- ivy,dropdown,cursor
+			-- theme = "dropdown", -- ivy,dropdown,cursor
 			mappings = {
 				["i"] = {
 					-- your custom insert mode mappings
