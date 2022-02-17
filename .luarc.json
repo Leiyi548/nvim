@@ -9,6 +9,7 @@
     "Lua.diagnostics.globals": [
         "vim",
         "builtin",
-        "toggle_colorscheme"
+        "toggle_colorscheme",
+        "file_browser"
     ]
 }

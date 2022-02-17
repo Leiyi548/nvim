@@ -66,6 +66,7 @@ telescope.setup({
 				["<esc>"] = actions.close,
 				["q"] = actions.close,
 				["<CR>"] = actions.select_default,
+				["o"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
 				["<C-v>"] = actions.select_vertical,
 				["<C-t>"] = actions.select_tab,
@@ -157,11 +158,21 @@ telescope.setup({
 			mappings = {
 				["i"] = {
 					-- your custom insert mode mappings
+					["<C-e>"] = actions.close,
 				},
 				["n"] = {
 					-- your custom normal mode mappings
+					-- toggle file_browser.nvim
+					["<C-e>"] = actions.close,
 					["a"] = fb_action.create,
+					["r"] = fb_action.rename,
+					["l"] = actions.select_default,
+					["p"] = fb_action.goto_parent_dir,
+					["<BS>"] = fb_action.toggle_hidden,
+					-- remove defaults keybindings
+					["<esc>"] = false,
 					["c"] = false,
+					["e"] = false,
 				},
 			},
 		},
