@@ -10,6 +10,7 @@ local conf = require("telescope.config").values
 
 local file_ignore_patterns = {
 	"vendor/*",
+	".git/",
 	"node_modules",
 	"%.jpg",
 	"%.jpeg",
@@ -119,6 +120,7 @@ end
 function M.findDotfile()
 	local opts = {
 		prompt_title = "Find custom Dotfile",
+		hidden = true,
 		prompt_prefix = " > ",
 		path_display = { "tail" },
 		prompt_position = "top",

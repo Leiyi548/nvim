@@ -84,7 +84,6 @@ local mappings = {
 	["a"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add file" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-	-- ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
 	["1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
 	["2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
 	["3"] = { "<CMD>lua require('harpoon.ui').nav_file(3)<CR>", "goto3" },
@@ -108,7 +107,7 @@ local mappings = {
 		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
 		p = { "<cmd>lua require('user.fancy_telescope').project_search()<cr>", "Project" },
 		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
-		z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
+		z = { "<cmd>lua require('user.fancy_telescope').search_only_certain_files()<cr>", "Certain Filetype" },
 	},
 	-- Whichkey-f
 	f = {
@@ -125,7 +124,7 @@ local mappings = {
 		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", "Colorschemes" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
-		p = { "<cmd>Telescope projects<cr>", "Keymaps" },
+		p = { "<cmd>Telescope projects<cr>", "Project" },
 		h = { "<cmd>Telescope harpoon marks<cr>", "Harpoon" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		N = { "<cmd>enew<cr>", "New File" },

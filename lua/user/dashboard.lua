@@ -85,15 +85,13 @@ M.config = function()
 	local buttons = {
 		type = "group",
 		val = {
-			button("n", "    New file", ":ene <BAR> startinsert <cr>"), -- 
-			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
-			button("f", "   Find File ", ":Telescope find_files<cr>"),
-			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
 			button("w", "   Find word", "<cmd>Telescope live_grep<cr>"),
+			button("f", "   Find File ", ":Telescope find_files<cr>"),
+			button("p", "   Find project ", ":Telescope projects<cr>"),
+			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
+			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),
 			button("q", "   Quit", ":q<cr>"),
-			-- button("p", "   Recent Projects", ":Telescope projects<cr>"),
-			-- button("c", "   Colorscheme", "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>"),
 		},
 		opts = {
 			spacing = 1,
