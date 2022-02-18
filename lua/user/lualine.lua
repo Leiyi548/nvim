@@ -131,6 +131,7 @@ local spaces = {
 
 local filename = {
 	"filename",
+	path = 2,
 	color = { bg = colors.blue },
 	always_visible = true,
 }
