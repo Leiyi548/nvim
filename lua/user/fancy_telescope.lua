@@ -280,9 +280,15 @@ function M.git_status()
 	})
 
 	-- Can change the git icons using this.
-	-- opts.git_icons = {
-	--   changed = "M"
-	-- }
+	opts.git_icons = {
+		added = "A",
+		changed = "M",
+		copied = ">",
+		deleted = "D",
+		renamed = "➡",
+		unmerged = "",
+		untracked = "?",
+	}
 
 	builtin.git_status(opts)
 end

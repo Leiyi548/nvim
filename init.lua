@@ -9,7 +9,7 @@ builtin.persistence = { active = true } -- enable to open persistence for sessio
 builtin.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.orgmode = { active = true } -- enable to use orgmode plugins
 builtin.cmp_autopairs = { active = false } -- enable to open cmp_autopairs.on_confirm_done
-builtin.telescope_project = { active = false } -- enable to use project.nvim plugin
+builtin.telescope_project = { active = true } -- enable to use project.nvim plugin
 
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
