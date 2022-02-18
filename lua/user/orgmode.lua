@@ -34,6 +34,8 @@ M.setup = function()
 				org_global_cycle = "gN",
 				org_timestamp_up = "+",
 				org_timestamp_down = "-",
+				org_do_demote = ">j",
+				org_do_promote = ">k",
 			},
 		},
 	})
