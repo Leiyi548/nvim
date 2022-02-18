@@ -65,12 +65,8 @@ keymap("v", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
 keymap("n", "<leader>sl", [[<cmd>lua require("persistence").load()<cr>]], opts)
 
 -- Better file_browser use telescope.nvim
-keymap("n", "<C-e>", [[<cmd> lua file_browser()<cr>]], opts)
-function file_browser()
-	vim.api.nvim_command("Telescope file_browser")
-	vim.cmd("stopinsert!")
-	-- vim.cmd("startinsert!")
-end
+keymap("n", "<C-e>", [[<cmd> Telescope file_browser<cr>]], opts)
+
 -- Better file navigation(harpoon)
 keymap("n", "gn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', opts)
 keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)

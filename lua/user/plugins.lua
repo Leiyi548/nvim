@@ -226,7 +226,7 @@ return packer.startup(function(use)
 	-- use({ "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" })
 	-- use({ "nvim-telescope/telescope-packer.nvim" })
 	use({
-		"ahmedkhalf/project.nvim",
+		"Leiyi548/project.nvim", -- ahmedkhalf/project.nvim
 		config = function()
 			require("user.project")
 		end,

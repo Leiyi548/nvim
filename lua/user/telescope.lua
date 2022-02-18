@@ -195,6 +195,9 @@ telescope.setup({
 		-- please take a look at the readme of the extension you want to configure
 		file_browser = {
 			-- theme = "dropdown", -- ivy,dropdown,cursor
+			initial_mode = "normal",
+			path_display = { "absolute" }, -- hidden tail absolute smart shorten truncate
+			hide_parent_dir = true,
 			mappings = {
 				["i"] = {
 					-- your custom insert mode mappings
@@ -208,6 +211,7 @@ telescope.setup({
 					["a"] = fb_action.create,
 					["r"] = fb_action.rename,
 					["l"] = actions.select_default,
+					["h"] = fb_action.goto_parent_dir,
 					["p"] = fb_action.goto_parent_dir,
 					["<BS>"] = fb_action.toggle_hidden,
 					-- remove defaults keybindings
@@ -219,6 +223,11 @@ telescope.setup({
 		},
 		packer = {
 			-- theme = "dropdown", -- ivy,dropdown,cursor
+		},
+		projects = {
+			mappings = {
+				["n"] = {},
+			},
 		},
 	},
 })

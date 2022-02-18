@@ -1,15 +1,10 @@
 {
-    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-    "Lua.diagnostics.disable": [
-        "unused-local",
-        "undefined-global",
-        "different-requires",
-        "unused-function"
-    ],
-    "Lua.diagnostics.globals": [
-        "vim",
-        "builtin",
-        "toggle_colorscheme",
-        "file_browser"
-    ]
+  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+  "Lua.diagnostics.disable": [
+    "unused-local",
+    "undefined-global",
+    "different-requires",
+    "unused-function"
+  ],
+  "Lua.diagnostics.globals": ["vim", "builtin", "toggle_colorscheme"]
 }
