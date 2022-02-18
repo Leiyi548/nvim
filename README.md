@@ -79,7 +79,7 @@ brew install --cask font-hack-nerd-font
 
 - [ ] [orgmode.nvim](https://github.com/nvim-orgmode/orgmode)
 - [ ] [harpoon](https://github.com/ThePrimeagen/harpoon)
-- [ ] [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
+- [x] [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [x] [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 
 ### language development
