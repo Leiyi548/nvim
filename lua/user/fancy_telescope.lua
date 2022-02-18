@@ -122,6 +122,7 @@ function M.findDotfile()
 		prompt_title = "Find custom Dotfile",
 		hidden = true,
 		prompt_prefix = " > ",
+		selection_caret = " ",
 		path_display = { "tail" },
 		prompt_position = "top",
 		sorting_strategy = "ascending",
@@ -355,6 +356,7 @@ function M.findNote()
 	local opts = {
 		prompt_title = "Find Note",
 		prompt_prefix = " ",
+		selection_caret = " ", -- selection_caret = " ",
 		path_display = { "tail" },
 		prompt_position = "top",
 		search_dirs = { "~/Dropbox/Orgzly/" },

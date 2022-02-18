@@ -11,7 +11,7 @@ telescope.setup({
 		path_display = { "truncate" }, -- hidden tail absolute smart shorten truncate
 		dynamic_preview_title = true, -- 动态更改预览窗口的名称 例如:预览窗口可以显示完整的文件名
 		prompt_prefix = " ", --     
-		selection_caret = " ",
+		selection_caret = " ", -- selection_caret = " ",
 		selection_strategy = "reset", -- Determines how the cursor acts after each sort iteration.
 		sorting_strategy = "ascending", -- 按照升序排序
 		entry_prefix = " ",
