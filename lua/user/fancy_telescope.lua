@@ -119,6 +119,7 @@ end
 function M.findDotfile()
 	local opts = {
 		prompt_title = "Find custom Dotfile",
+		prompt_prefix = " > ",
 		path_display = { "tail" },
 		prompt_position = "top",
 		sorting_strategy = "ascending",
@@ -315,6 +316,7 @@ function M.git_files()
 	local opts = themes.get_dropdown({
 		winblend = 5,
 		previewer = false,
+		prompt_prefix = " > ",
 		shorten_path = false,
 		cwd = path,
 		layout_config = {
@@ -341,26 +343,10 @@ function M.grep_string_visual()
 	})
 end
 
-function M.find_plugins()
-	local opts = {
-		prompt_title = "Find neovim installed plugins",
-		path_display = { "tail" },
-		prompt_position = "top",
-		cwd = "~/.local/share/nvim/site/pack/packer",
-		previewer = false,
-		layout_config = {
-			width = 0.5,
-			height = 0.5,
-			horizontal = { width = { padding = 0.15 } },
-			vertical = { preview_height = 0.75 },
-		},
-	}
-	builtin.find_files(themes.get_dropdown(opts))
-end
-
 function M.findNote()
 	local opts = {
 		prompt_title = "Find Note",
+		prompt_prefix = " ",
 		path_display = { "tail" },
 		prompt_position = "top",
 		search_dirs = { "~/Dropbox/Orgzly/" },

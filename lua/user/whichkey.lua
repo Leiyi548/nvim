@@ -107,7 +107,7 @@ local mappings = {
 		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "Current Buffer" },
 		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
 		p = { "<cmd>lua require('user.fancy_telescope').project_search()<cr>", "Project" },
-		s = { "<cmd>lua require('user.telescope').git_status()<cr>", "Git Status" },
+		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
 		z = { "<cmd>lua require('user.telescope').search_only_certain_files()<cr>", "Certain Filetype" },
 	},
 	-- Whichkey-f
@@ -239,6 +239,7 @@ local mappings = {
 		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		t = { "<cmd>TodoQuickFix<cr>", "Todo" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
