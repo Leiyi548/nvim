@@ -136,7 +136,7 @@ return packer.startup(function(use)
 	-- Colorschemes
 	-- dark colorschemes
 	use({ "lunarvim/darkplus.nvim" })
-	use("Mofiqul/vscode.nvim")
+	use("Leiyi548/vscode.nvim")
 	use({ "olimorris/onedarkpro.nvim" })
 	use("Mofiqul/dracula.nvim")
 	use({
