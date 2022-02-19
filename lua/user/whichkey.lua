@@ -163,6 +163,8 @@ local mappings = {
 		c = { "<Cmd>BufferLinePickClose<CR>", "delete buffer" },
 		p = { "<Cmd>BufferLinePick<CR>", "pick buffer" },
 		o = { "<cmd>Bdelete other<cr>", "Close other buffer" },
+		l = { "<cmd>BufferLineCloseLeft<cr>", "Close left buffer" },
+		r = { "<cmd>BufferLineCloseRight<cr>", "Close right buffer" },
 		v = { "<cmd>lua require('vscode').change_style('light')<cr>", "Light theme" },
 	},
 	-- Whichkey-r

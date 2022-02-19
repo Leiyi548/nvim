@@ -199,6 +199,7 @@ return packer.startup(function(use)
 	}) -- enable LSP
 	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
 	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
+	use({ "b0o/schemastore.nvim" })
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
@@ -414,6 +415,8 @@ return packer.startup(function(use)
 			require("user.todo-comments")
 		end,
 	})
+	-- template header
+	use({ "tibabit/vim-templates" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

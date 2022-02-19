@@ -123,10 +123,10 @@ function M.findDotfile()
 		hidden = true,
 		prompt_prefix = " > ",
 		selection_caret = " ",
-		path_display = { "tail" },
+		path_display = { "shorten" },
 		prompt_position = "top",
 		sorting_strategy = "ascending",
-		search_dirs = { "~/.config/nvim", "~/.config/nvim.bak" },
+		search_dirs = { "~/.config/nvim", "~/.config/dotfiles" },
 		previewer = false,
 		layout_config = {
 			width = 0.5,

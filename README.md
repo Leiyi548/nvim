@@ -31,6 +31,10 @@ _✨ neovim lua config ✨_
   ```shell
   brew install node
   ```
+- [Lazygit](https://github.com/jesseduffield/lazygit)
+  ```shell
+  brew install lazygit
+  ```
   </details>
 
 ```shell
@@ -94,6 +98,7 @@ brew install --cask font-hack-nerd-font
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [Nvchad](https://github.com/NvChad/NvChad)
 - [Allen191819/neovim](https://github.com/Allen191819/neovim)
+- [denstiny/nvim-nanny](https://github.com/denstiny/nvim-nanny)
 - [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
 - [DoomVim](https://github.com/NTBBloodbath/doom-nvim)
 - [SpaceVim](https://github.com/SpaceVim/SpaceVim)
