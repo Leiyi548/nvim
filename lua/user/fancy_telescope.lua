@@ -10,6 +10,7 @@ local conf = require("telescope.config").values
 
 local file_ignore_patterns = {
 	"vendor/*",
+	"font/",
 	".git/",
 	"node_modules",
 	"%.jpg",

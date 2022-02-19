@@ -176,6 +176,7 @@ telescope.setup({
 			"%.met",
 			"smalljre_*/*",
 			".vale/",
+			"font/",
 		},
 	},
 	pickers = {
