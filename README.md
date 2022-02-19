@@ -99,6 +99,7 @@ brew install --cask font-hack-nerd-font
 - [Nvchad](https://github.com/NvChad/NvChad)
 - [Allen191819/neovim](https://github.com/Allen191819/neovim)
 - [denstiny/nvim-nanny](https://github.com/denstiny/nvim-nanny)
+- [ChristianChiarulli/nvim](https://github.com/ChristianChiarulli/nvim) 
 - [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
 - [DoomVim](https://github.com/NTBBloodbath/doom-nvim)
 - [SpaceVim](https://github.com/SpaceVim/SpaceVim)
