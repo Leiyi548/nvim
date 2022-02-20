@@ -35,13 +35,17 @@ _✨ neovim lua config ✨_
   ```shell
   brew install lazygit
   ```
-  </details>
 
 ```shell
 mv ~/.config/nvim ~/.config/nvim_bakcup
 git clone https://github.com/Leiyi548/nvim.git ~/.config/nvim
 nvim # run :PackerSync
 ```
+
+  </details>
+
+<details>
+  <summary><strong>Recommended download</strong> <small><i>(🔎 Click to expand/collapse)</i></small></summary>
 
 ### Recommended Font
 
@@ -59,6 +63,30 @@ brew install --cask font-victor-mono-nerd-font
 brew install --cask font-iosevka-nerd-font-mono
 brew install --cask font-hack-nerd-font
 ```
+
+### Recommended Linters
+
+```shell
+### cpp file
+# For .cpp file check linter error
+brew install cppcheck
+# For .cpp file format
+brew install clang-format
+### end cpp file
+
+### python file
+# For .py file check linter error
+brew install flake8
+# For .py file format
+brew install black
+### end python file
+
+### lua file
+# For .lua file format
+brew install stylua
+```
+
+</details>
 
 ## Overview
 
