@@ -6,6 +6,7 @@ vim.cmd([[
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
     autocmd FileType startuptime nnoremap <silent> <buffer> q :q<cr>" },
+    autocmd FileType null-ls-info nnoremap <silent> <buffer> q :q<cr>" },
   augroup end
 
   augroup _git

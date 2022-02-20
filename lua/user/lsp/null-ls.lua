@@ -14,8 +14,11 @@ null_ls.setup({
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.clang_format, -- enable for cpp format
 		formatting.stylua,
-		-- diagnostics.flake8 -- enable for python diagnostic
+		diagnostics.flake8, -- enable for python diagnostic
+		diagnostics.luacheck, -- enable for lua diagnostic
+		diagnostics.cppcheck, -- enable for cpp diagnostic
 	},
 	on_attach = function(client)
 		-- format on save
