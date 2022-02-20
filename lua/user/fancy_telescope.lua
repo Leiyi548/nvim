@@ -106,7 +106,6 @@ function M.findBuffer()
 		prompt_title = " Find Buffer",
 		path_display = { "tail" },
 		prompt_position = "top",
-		cwd = "~/.config/nvim",
 		previewer = false,
 		layout_config = {
 			width = 0.5,
