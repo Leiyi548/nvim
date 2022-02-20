@@ -135,7 +135,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	-- dark colorschemes
-	use({ "lunarvim/darkplus.nvim" })
+	-- use({ "lunarvim/darkplus.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use({ "olimorris/onedarkpro.nvim" })
 	use("Mofiqul/dracula.nvim")
@@ -225,9 +225,15 @@ return packer.startup(function(use)
 		cmd = "Telescope",
 	})
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({
+		"nvim-telescope/telescope-frecency.nvim",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+		requires = { "tami5/sqlite.lua" },
+		disable = not builtin.telescope_frency,
+	})
 	use({ "Leiyi548/telescope-packer.nvim" })
-	-- use({ "ikerurda/telescope-packer.nvim", branch = "fix/file-browser" })
-	-- use({ "nvim-telescope/telescope-packer.nvim" })
 	use({
 		"Leiyi548/project.nvim", -- ahmedkhalf/project.nvim
 		config = function()
@@ -235,7 +241,6 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.telescope_project,
 	})
-	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -418,7 +423,18 @@ return packer.startup(function(use)
 		end,
 	})
 	-- template header
-	use({ "tibabit/vim-templates" })
+	use({
+		"tibabit/vim-templates",
+		config = function()
+			vim.cmd([[
+      let g:tmpl_search_paths = [ "~/.config/nvim/templates" ]
+      let g:tmpl_author_name = "Leiyi548"
+      let g:tmpl_author_email = "1424630446@qq.com"
+      let g:tmpl_auto_initialize = 1
+      ]])
+		end,
+		disable = not builtin.templates,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

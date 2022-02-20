@@ -10,7 +10,8 @@ builtin.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.orgmode = { active = true } -- enable to use orgmode plugins
 builtin.cmp_autopairs = { active = true } -- enable to open cmp_autopairs.on_confirm_done
 builtin.telescope_project = { active = true } -- enable to use project.nvim plugin
-
+builtin.templates = { active = true } -- enable to use vim-template plugins to set file header
+builtin.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--

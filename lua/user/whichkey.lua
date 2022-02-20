@@ -142,7 +142,7 @@ local mappings = {
 			"Marks",
 		},
 		n = {
-			"<cmd>lua require('user.fancy_telescope').findNote()<cr>",
+			"<cmd>lua require('user.fancy_telescope').find_notes()<cr>",
 			"Notes",
 		},
 	},
@@ -237,6 +237,10 @@ local mappings = {
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		s = {
+			"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
+			"luasnip",
+		},
 		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
@@ -246,6 +250,7 @@ local mappings = {
 		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		p = { "<cmd>Telescope packer<cr>", "plugins" },
+		d = { "<cmd>lua require('user.fancy_telescope').find_diarys()<cr>", "plugins" },
 		-- p = { "<cmd>lua require('user.fancy_telescope').find_plugins()<cr>", "plugins" },
 	},
 

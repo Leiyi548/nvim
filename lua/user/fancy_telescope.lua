@@ -352,9 +352,9 @@ function M.grep_string_visual()
 	})
 end
 
-function M.findNote()
+function M.find_notes()
 	local opts = {
-		prompt_title = "Find Note",
+		prompt_title = "Find Notes",
 		prompt_prefix = " ",
 		selection_caret = " ", -- selection_caret = " ",
 		path_display = { "tail" },
@@ -370,5 +370,31 @@ function M.findNote()
 		file_ignore_patterns = file_ignore_patterns,
 	}
 	builtin.find_files(themes.get_ivy(opts))
+end
+
+local function now()
+	local today = os.date("%W_%Y-%m-%d")
+	return today
+end
+function M.find_diarys()
+	local opts = {
+		prompt_title = "Find diarys",
+		prompt_prefix = " > ",
+		default_text = now(),
+		selection_caret = " ",
+		sorting_strategy = "ascending",
+		path_display = { "tail" },
+		prompt_position = "top",
+		previewer = false,
+		search_dirs = { "~/Nutstore Files/我的坚果云/学习使用OBSIDIAN/0.日记" },
+		layout_config = {
+			width = 0.5,
+			height = 0.8,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
+		file_ignore_patterns = file_ignore_patterns,
+	}
+	builtin.find_files(themes.get_dropdown(opts))
 end
 return M

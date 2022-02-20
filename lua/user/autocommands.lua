@@ -49,7 +49,7 @@ end
 -- set header comment
 vim.cmd([[
 " Add header comment for python file automatically.
-autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
+" autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
 func SetTitle()
 if expand("%:e") == 'py'
    call setline(1,'"""')
