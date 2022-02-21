@@ -32,20 +32,15 @@ _✨ neovim lua config ✨_
   brew install node
   ```
 - [Lazygit](https://github.com/jesseduffield/lazygit)
+
   ```shell
   brew install lazygit
   ```
 
-```shell
-mv ~/.config/nvim ~/.config/nvim_bakcup
-git clone https://github.com/Leiyi548/nvim.git ~/.config/nvim
-nvim # run :PackerSync
-```
-
   </details>
 
 <details>
-  <summary><strong>Recommended download</strong> <small><i>(🔎 Click to expand/collapse)</i></small></summary>
+  <summary><strong>Recommend</strong> <small><i>(🔎 Click to expand/collapse)</i></small></summary>
 
 ### Recommended Font
 
@@ -88,6 +83,12 @@ brew install stylua
 
 </details>
 
+```shell
+mv ~/.config/nvim ~/.config/nvim_bakcup
+git clone https://github.com/Leiyi548/nvim.git ~/.config/nvim
+nvim # run :PackerSync
+```
+
 ## Overview
 
 <details>
@@ -109,8 +110,7 @@ brew install stylua
 
 ### plugins
 
-- [ ] [orgmode.nvim](https://github.com/nvim-orgmode/orgmode)
-- [ ] [harpoon](https://github.com/ThePrimeagen/harpoon)
+- [x] [harpoon](https://github.com/ThePrimeagen/harpoon)
 - [x] [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [x] [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 
@@ -119,7 +119,11 @@ brew install stylua
 - [ ] HTML
 - [ ] Javascript
 - [ ] Typescript
-- [x] Python
+- [ ] Python
+  - [x] lsp
+  - [x] format
+  - [x] diagnostic
+  - [ ] debug
 
 ## Other Neovim configurations
 
