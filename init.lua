@@ -15,7 +15,8 @@ builtin.plugins.telescope_project = { active = true } -- enable to use project.n
 builtin.plugins.templates = { active = false } -- enable to use vim-template plugins to set file header
 builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
 builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
-builtin.lsp.print_diagnostics_message = { active = false }
+builtin.plugins.dap = { active = true } -- enable to use dap plugins to debug
+builtin.lsp.print_diagnostics_message = { active = true }
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -29,7 +30,6 @@ require("user.colorscheme")
 require("user.lualine")
 require("user.impatient")
 require("user.autocommands")
-
 -- Textobjects
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])
