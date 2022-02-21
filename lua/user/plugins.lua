@@ -178,7 +178,7 @@ return packer.startup(function(use)
 			})
 		end,
 		event = "InsertEnter",
-		disable = builtin.tabnine,
+		disable = builtin.plugins.tabnine,
 	})
 
 	-- snippets
@@ -231,7 +231,7 @@ return packer.startup(function(use)
 			require("telescope").load_extension("frecency")
 		end,
 		requires = { "tami5/sqlite.lua" },
-		disable = not builtin.telescope_frency,
+		disable = not builtin.plugins.telescope_frency,
 	})
 	use({ "Leiyi548/telescope-packer.nvim" })
 	use({
@@ -239,7 +239,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.project")
 		end,
-		disable = not builtin.telescope_project,
+		disable = not builtin.plugins.telescope_project,
 	})
 	-- Treesitter
 	use({
@@ -293,7 +293,7 @@ return packer.startup(function(use)
 	use({
 		"mattn/emmet-vim",
 		ft = { "html", "css", "php", "jsp", "markdown" },
-		disable = not builtin.emmet.active,
+		disable = not builtin.plugins.emmet.active,
 		-- disable = true,
 	})
 
@@ -364,7 +364,7 @@ return packer.startup(function(use)
 				-- options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
 			})
 		end,
-		disable = not builtin.persistence.active,
+		disable = not builtin.plugins.persistence.active,
 	})
 	-- markdown preview in google Chrome
 	use({
@@ -398,7 +398,7 @@ return packer.startup(function(use)
 	use({
 		"nvim-neorg/neorg",
 		ft = { "norg" },
-		disable = not builtin.neorg.active,
+		disable = not builtin.plugins.neorg.active,
 		config = function()
 			require("user.neorg")
 		end,
@@ -413,7 +413,7 @@ return packer.startup(function(use)
 			require("user.orgmode").setup()
 			vim.cmd("language en_US.UTF-8")
 		end,
-		disable = not builtin.orgmode.active,
+		disable = not builtin.plugins.orgmode.active,
 	})
 	use({
 		"folke/todo-comments.nvim",
@@ -433,7 +433,7 @@ return packer.startup(function(use)
       let g:tmpl_auto_initialize = 1
       ]])
 		end,
-		disable = not builtin.templates.active,
+		disable = not builtin.plugins.templates.active,
 	})
 	use({
 		"rcarriga/nvim-notify",
@@ -441,7 +441,7 @@ return packer.startup(function(use)
 			require("user.notify")
 		end,
 		event = "BufRead",
-		disable = not builtin.notify.active,
+		disable = not builtin.plugins.notify.active,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
