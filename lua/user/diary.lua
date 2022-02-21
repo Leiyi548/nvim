@@ -37,13 +37,21 @@ local notify_information = function()
 		timeout = 5000,
 	})
 end
+
+local notify_telescope = function()
+	vim.notify = require("notify")
+	vim.notify("Find diary file", "info", {
+		title = "Telescope",
+		timeout = 500,
+	})
+end
 if file_exists(daily_name()) then
 	-- open file to edit
 	vim.api.nvim_command("lua require('user.fancy_telescope').find_diarys()")
-	notify_information()
+	notify_telescope()
 	-- vim.api.nvim_command("edit" .. daily_name())
 else
 	copyfile(templates_daily, daily_name())
-	notify_information()
 	vim.api.nvim_command("edit" .. daily_name())
+	notify_information()
 end
