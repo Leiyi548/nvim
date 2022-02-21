@@ -435,6 +435,14 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.templates,
 	})
+	use({
+		"rcarriga/nvim-notify",
+		disable = builtin.notify,
+		config = function()
+			require("user.notify")
+		end,
+		event = "BufRead",
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

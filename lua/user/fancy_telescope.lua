@@ -126,7 +126,11 @@ function M.findDotfile()
 		path_display = { "shorten" },
 		prompt_position = "top",
 		sorting_strategy = "ascending",
-		search_dirs = { "~/.config/nvim", "~/.config/dotfiles" },
+		search_dirs = {
+			"~/.config/nvim",
+			"~/.config/dotfiles",
+			"~/Nutstore Files/我的坚果云/学习使用OBSIDIAN/templates",
+		},
 		previewer = false,
 		layout_config = {
 			width = 0.5,

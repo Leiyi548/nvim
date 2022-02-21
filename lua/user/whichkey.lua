@@ -250,7 +250,8 @@ local mappings = {
 		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		p = { "<cmd>Telescope packer<cr>", "plugins" },
-		d = { "<cmd>lua require('user.fancy_telescope').find_diarys()<cr>", "plugins" },
+		-- d = { "<cmd>lua require('user.fancy_telescope').find_diarys()<cr>", "diary" },
+		d = { "<cmd>luafile" .. "~/.config/nvim/lua/user/diary.lua" .. "<cr>", "diary" },
 		-- p = { "<cmd>lua require('user.fancy_telescope').find_plugins()<cr>", "plugins" },
 	},
 
