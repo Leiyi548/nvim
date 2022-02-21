@@ -17,7 +17,7 @@ vim.cmd([[
 
   augroup _run
     autocmd!
-    autocmd TermOpen terminal nnoremap <silent> <buffer> q :bdelete!<cr>
+		autocmd TermOpen term://* nnoremap <silent> <buffer> q :bdelete!<cr> 
     autocmd FileType floaterm nnoremap <silent> <buffer> q :q<cr>" },
 
   augroup end
@@ -50,7 +50,7 @@ end
 -- set header comment
 vim.cmd([[
 " Add header comment for python file automatically.
-" autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
+autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
 func SetTitle()
 if expand("%:e") == 'py'
    call setline(1,'"""')
