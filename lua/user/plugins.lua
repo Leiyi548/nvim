@@ -462,8 +462,16 @@ return packer.startup(function(use)
   config = function()
       require("dapui").setup()
   end,
+  disable = not builtin.plugins.dap.active,
     })
 
+    use {
+    "theHamsta/nvim-dap-virtual-text",
+    config = function()
+        require("user.dapVirtualText")
+    end,
+    disable = not builtin.plugins.dap_virtual_text.active,
+    }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

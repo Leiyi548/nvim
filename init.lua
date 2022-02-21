@@ -16,6 +16,7 @@ builtin.plugins.templates = { active = false } -- enable to use vim-template plu
 builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
 builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
 builtin.plugins.dap = { active = true } -- enable to use dap plugins to debug
+builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.lsp.print_diagnostics_message = { active = true }
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
