@@ -21,9 +21,14 @@ null_ls.setup({
 		diagnostics.cppcheck, -- enable for cpp diagnostic
 	},
 	on_attach = function(client)
-		-- format on save
+		-- format file on save
 		if client.resolved_capabilities.document_formatting then
-			vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+			vim.cmd([[
+            augroup LspFormatting
+                autocmd! * <buffer>
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+            augroup END
+            ]])
 		end
 		-- vim.cmd([[
 		--     augroup document_highlight

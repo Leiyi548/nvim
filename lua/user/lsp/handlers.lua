@@ -15,7 +15,11 @@ M.setup = function()
 
 	local config = {
 		-- disable virtual text
-		virtual_text = true,
+		-- virtual_text = true,
+		virtual_text = {
+			source = "always", -- Show source in diagnostic
+			prefix = "■", -- Could be '●', '▎', 'x'
+		},
 		-- show signs
 		signs = {
 			active = signs,
@@ -42,6 +46,24 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
 	})
+
+	-- use nvim-notify to dispaly LSP message
+	vim.lsp.handlers["window/showMessage"] = function(_, result, ctx)
+		local client = vim.lsp.get_client_by_id(ctx.client_id)
+		local lvl = ({
+			"ERROR",
+			"WARN",
+			"INFO",
+			"DEBUG",
+		})[result.type]
+		notify({ result.message }, lvl, {
+			title = "LSP | " .. client.name,
+			timeout = 10000,
+			keep = function()
+				return lvl == "ERROR" or lvl == "WARN"
+			end,
+		})
+	end
 end
 
 local function lsp_highlight_document(client)
@@ -87,6 +109,7 @@ end
 M.on_attach = function(client, bufnr)
 	if client.name == "tsserver" or client.name == "html" or client_name == "jsonls" then
 		client.resolved_capabilities.document_formatting = false
+		client.resolved_capabilities.document_range_formatting = false
 	end
 	lsp_keymaps(bufnr)
 	-- lsp_highlight_document(client)

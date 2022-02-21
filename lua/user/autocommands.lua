@@ -101,6 +101,7 @@ if builtin.lsp.print_diagnostics_message.active then
 
 	vim.cmd([[ autocmd! CursorHold * lua PrintDiagnostics() ]])
 end
-if builtin.lsp.automatical_show_line_diagnostics then
+
+if builtin.lsp.automatical_show_line_diagnostics.active then
 	vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 end
