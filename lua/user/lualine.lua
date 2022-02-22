@@ -156,7 +156,12 @@ lualine.setup({
 	sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { branch, diagnostics, mode, mid, mid },
+		lualine_c = {
+			branch,
+			diagnostics,
+			--[[mode,]]
+			mid,
+		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { filename, treesitter, diff, spaces, encoding, filetype, location, progress },
 		lualine_y = {},

@@ -20,7 +20,7 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.clang_format, -- enable for cpp format
 		formatting.stylua, -- enable for lua format
-		diagnostics.flake8, -- enable for python diagnostic
+		-- diagnostics.flake8, -- enable for python diagnostic
 		diagnostics.luacheck, -- enable for lua diagnostic
 		diagnostics.cppcheck, -- enable for cpp diagnostic
 		-- code_actions.gitsigns, -- enable code_action for gitsigns

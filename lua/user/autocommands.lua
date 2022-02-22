@@ -54,8 +54,8 @@ autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
 func SetTitle()
 if expand("%:e") == 'py'
    call setline(1,'"""')
-   call setline(2,"# Author:         Leiyi548                        ")
-   call setline(3,"# Date:           ".strftime("%Y/%m/%d %H:%M ")."                      ")
+   call setline(2,"# Author:         Leiyi548")
+   call setline(3,"# Date:           ".strftime("%Y/%m/%d %H:%M")."")
    call setline(4,'"""')
    normal G
    normal o

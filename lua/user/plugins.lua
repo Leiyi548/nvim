@@ -445,12 +445,10 @@ return packer.startup(function(use)
 		config = function()
 			require("user.dap")
 		end,
-		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 	use({
 		"Pocco81/DAPInstall.nvim",
-		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 	use({
@@ -458,7 +456,6 @@ return packer.startup(function(use)
 		config = function()
 			require("dapui").setup()
 		end,
-		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 
@@ -467,7 +464,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.dapVirtualText")
 		end,
-		ft = { "python" },
 		disable = not builtin.plugins.dap_virtual_text.active,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
