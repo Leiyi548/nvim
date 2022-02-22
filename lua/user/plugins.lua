@@ -141,7 +141,7 @@ return packer.startup(function(use)
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
 	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
 
-	-- cmp plugins
+	-- cmp plugins (completion)
 	use({
 		"hrsh7th/nvim-cmp",
 		event = { "InsertEnter", "CmdLineEnter" },
@@ -174,7 +174,19 @@ return packer.startup(function(use)
 		event = "InsertEnter",
 		disable = builtin.plugins.tabnine,
 	})
+	use({
+		"github/copilot.vim",
+		config = function()
+			vim.g.copilot_no_tab_map = true
+			vim.cmd([[ 
+      let g:copilot_filetypes = {
+          \ 'xml': v:false,
+          \ }
 
+      imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
+    ]])
+		end,
+	})
 	-- snippets
 	use({
 		"L3MON4D3/LuaSnip",

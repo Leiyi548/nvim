@@ -126,6 +126,10 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+if builtin.plugins.copilot.active then
+	keymap("i", "<C-h>", [[copilot#Accept("\<CR>")]], { expr = true, script = true })
+end
+
 -- Better create file
 keymap("n", "<leader>ne", ":edit ", opts)
 -- Better rename file
