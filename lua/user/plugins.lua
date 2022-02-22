@@ -134,18 +134,12 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- dark colorschemes
 	-- use({ "lunarvim/darkplus.nvim" })
 	use("Leiyi548/vscode.nvim")
-	use({ "olimorris/onedarkpro.nvim" })
-	use("Mofiqul/dracula.nvim")
-	use({
-		"rose-pine/neovim",
-		as = "rose-pine",
-		tag = "v1.*",
-	})
-	-- light colorschemes
 	use("projekt0n/github-nvim-theme")
+	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
+	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
+	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
 
 	-- cmp plugins
 	use({
@@ -451,10 +445,12 @@ return packer.startup(function(use)
 		config = function()
 			require("user.dap")
 		end,
+		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 	use({
 		"Pocco81/DAPInstall.nvim",
+		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 	use({
@@ -462,6 +458,7 @@ return packer.startup(function(use)
 		config = function()
 			require("dapui").setup()
 		end,
+		ft = { "python" },
 		disable = not builtin.plugins.dap.active,
 	})
 
@@ -470,6 +467,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.dapVirtualText")
 		end,
+		ft = { "python" },
 		disable = not builtin.plugins.dap_virtual_text.active,
 	})
 	-- Automatically set up your configuration after cloning packer.nvim

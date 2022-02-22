@@ -91,7 +91,7 @@ local mappings = {
 	-- Whichkey-p
 	p = {
 		name = "Packer",
-		C = { "<cmd>PackerClean<cr>", "Compile" },
+		C = { "<cmd>PackerClean<cr>", "Clean" },
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
 		s = { "<cmd>PackerSync<cr>", "Sync" },

@@ -108,6 +108,19 @@ nvim # run :PackerSync
 
 ## TODO
 
+### CONFIG SETUP
+
+- [ ] removed unused plugins
+- [x] add format and linting
+- [ ] Debug
+- [x] fast tab/buffer navigation
+- [x] use vscode icon for nvim-cmp
+- [x] session management
+- [x] project management
+- [x] file management
+- [x] lazy load plugins
+- [x] Treesitter Setup
+
 ### plugins
 
 - [x] [harpoon](https://github.com/ThePrimeagen/harpoon)
