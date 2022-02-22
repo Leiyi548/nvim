@@ -82,6 +82,7 @@ local mappings = {
 	["<Space>"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon" },
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
 	["a"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add file" },
+	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },

@@ -126,6 +126,8 @@ nvim # run :PackerSync
 - [x] [harpoon](https://github.com/ThePrimeagen/harpoon)
 - [x] [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [x] [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
+- [x] [github/copilot.vim](https://github.com/github/copilot.vim)
+- [x] [stevearc/aerial.nvim](https://github.com/stevearc/aerial.nvim)
 
 ### language development
 
@@ -136,7 +138,7 @@ nvim # run :PackerSync
   - [x] lsp
   - [x] format
   - [x] diagnostic
-  - [ ] debug
+  - [x] debug
 
 ## Other Neovim configurations
 

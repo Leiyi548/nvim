@@ -478,6 +478,14 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.dap_virtual_text.active,
 	})
+	use({
+		"stevearc/aerial.nvim",
+		-- cmd = { "AerialToggle!", "AerialToggle" },
+		config = function()
+			require("user.outline")
+		end,
+		disable = not builtin.plugins.outline.active,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
