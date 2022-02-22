@@ -7,6 +7,10 @@ end
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/code_actions
+local code_actions = null_ls.builtins.code_actions
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/completion
+local completion = null_ls.builtins.completion
 
 null_ls.setup({
 	debug = false,
@@ -19,6 +23,9 @@ null_ls.setup({
 		diagnostics.flake8, -- enable for python diagnostic
 		diagnostics.luacheck, -- enable for lua diagnostic
 		diagnostics.cppcheck, -- enable for cpp diagnostic
+		code_actions.gitsigns, -- enable code_action for gitsigns
+		-- completion.luasnip, -- enable to use builtins completion sources for luasnip
+		-- completion.spell, -- enable to use builtins completion sources for spell
 	},
 	on_attach = function(client)
 		-- format file on save
