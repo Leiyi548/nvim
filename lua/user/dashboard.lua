@@ -91,7 +91,7 @@ M.config = function()
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
 			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),
-			button("q", "   Quit", ":q<cr>"),
+			-- button("q", "   Quit", ":q<cr>"),
 		},
 		opts = {
 			spacing = 1,

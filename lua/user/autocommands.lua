@@ -5,8 +5,7 @@ vim.cmd([[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
-    autocmd FileType startuptime nnoremap <silent> <buffer> q :q<cr>" 
-    autocmd FileType null-ls-info nnoremap <silent> <buffer> q :q<cr>"
+    autocmd FileType null-ls-info,alpha,startuptime nnoremap <silent> <buffer> q :q<cr>"
   augroup end
 
   augroup _git
