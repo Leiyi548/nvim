@@ -46,7 +46,7 @@ end
 if file_exists(daily_name()) then
 	-- open file to edit
 	vim.api.nvim_command("lua require('user.fancy_telescope').find_diarys()")
-	notify_telescope()
+	-- notify_telescope()
 	-- vim.api.nvim_command("edit" .. daily_name())
 else
 	copyfile(templates_daily, daily_name())

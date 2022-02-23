@@ -62,7 +62,35 @@ require("aerial").setup({
 	-- default collapsed icon. The default icon set is determined by the
 	-- "nerd_font" option below.
 	-- If you have lspkind-nvim installed, aerial will use it for icons.
-	icons = {},
+	icons = {
+		Class = " ",
+		Color = " ",
+		Constant = " ",
+		Constructor = " ",
+		Enum = " ",
+		EnumMember = " ",
+		Event = " ",
+		Field = " ",
+		File = " ",
+		Folder = " ",
+		Function = " ",
+		Interface = " ",
+		Keyword = " ",
+		Method = " ",
+		Module = " ",
+		Operator = " ",
+		Package = " ",
+		Property = " ",
+		Reference = " ",
+		Snippet = " ",
+		String = "s]",
+		Struct = " ",
+		Text = " ",
+		Unit = "",
+		Value = " ",
+		Variable = " ",
+		Collapsed = " ",
+	},
 
 	-- Control which windows and buffers aerial should ignore.
 	-- If close_behavior is "global", focusing an ignored window/buffer will
@@ -171,7 +199,7 @@ require("aerial").setup({
 		--   cursor - Opens float on top of the cursor
 		--   editor - Opens float centered in the editor
 		--   win    - Opens float centered in the window
-		relative = "cursor",
+		relative = "editor",
 
 		-- These control the height of the floating window.
 		-- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)

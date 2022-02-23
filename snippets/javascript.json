@@ -3,5 +3,10 @@
     "prefix": "getid",
     "body": ["const $1 = document.getElementById('$1');"],
     "description": "Get dom element by id"
+  },
+  "console log": {
+    "prefix": "log",
+    "body": ["console.log($1);"],
+    "description": "Log to console"
   }
 }

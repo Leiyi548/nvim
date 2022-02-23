@@ -1,6 +1,7 @@
 local M = {}
 local action_state = require("telescope.actions.state")
 local actions = require("telescope.actions")
+local action_set = require("telescope.actions.set")
 local sorters = require("telescope.sorters")
 local pickers = require("telescope.pickers")
 local themes = require("telescope.themes")
@@ -380,6 +381,22 @@ local function now()
 	local today = os.date("%W_%Y-%m-%d")
 	return today
 end
+
+local function notify_enter(prompt_bufnr)
+	local selected = action_state.get_selected_entry()
+	-- /Users/macos/Nutstore Files/我的坚果云/学习使用OBSIDIAN/0.日记/08_2022-02-23.md
+	local pattern = "%d+_%d+%-%d+%-%d+"
+	local pattern_result = selected[1]:match(pattern)
+	local msg = pattern_result .. "号的日记"
+	local path = selected[1]:gsub("/Users/macos", "~")
+	vim.notify = require("notify")
+	vim.notify("打开" .. msg, "info", {
+		title = "Diary",
+		timeout = 10000,
+	})
+	return action_set.select(prompt_bufnr, "default")
+end
+
 function M.find_diarys()
 	local opts = {
 		prompt_title = "Find diarys",
@@ -398,6 +415,10 @@ function M.find_diarys()
 			vertical = { preview_height = 0.75 },
 		},
 		file_ignore_patterns = file_ignore_patterns,
+		attach_mappings = function(prompt_bufnr, map)
+			map("i", "<cr>", notify_enter)
+			return true
+		end,
 	}
 	builtin.find_files(themes.get_dropdown(opts))
 end
