@@ -50,6 +50,10 @@ keymap("v", "sl", "<cmd>HopLineStart<cr>", opts)
 keymap("n", "sw", "<cmd>HopWord<cr>", opts)
 keymap("v", "sw", "<cmd>HopWord<cr>", opts)
 
+-- Better gitsign git_blame navigation
+keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", opts)
+keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", opts)
+
 -- Better snippets engine (luasnip)
 -- choice node
 vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>luasnip-next-choice", {})
