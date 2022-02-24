@@ -23,7 +23,7 @@ builtin.plugins.outline = { active = true } -- enable to use aerial plugins to d
 builtin.lsp.print_diagnostics_message = { active = false }
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
-builtin.colorscheme.rose_pine = { active = false } -- enable to use colorscheme rose-pine
+builtin.colorscheme.rose_pine = { active = true } -- enable to use colorscheme rose-pine
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
