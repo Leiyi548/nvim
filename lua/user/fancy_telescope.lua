@@ -382,6 +382,12 @@ local function now()
 	return today
 end
 
+local function Sleep(n)
+	local t0 = os.clock()
+	while os.clock() - t0 <= n do
+	end
+end
+
 local function notify_enter(prompt_bufnr)
 	local selected = action_state.get_selected_entry()
 	-- /Users/macos/Nutstore Files/我的坚果云/学习使用OBSIDIAN/0.日记/08_2022-02-23.md
@@ -417,6 +423,7 @@ function M.find_diarys()
 		file_ignore_patterns = file_ignore_patterns,
 		attach_mappings = function(prompt_bufnr, map)
 			map("i", "<cr>", notify_enter)
+			map("n", "<cr>", notify_enter)
 			return true
 		end,
 	}
