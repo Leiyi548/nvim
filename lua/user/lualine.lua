@@ -28,7 +28,7 @@ local diagnostics = {
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn" },
 	symbols = { error = " ", warn = " " },
-	cond = hide_in_width,
+	-- cond = hide_in_width,
 	colored = false,
 	color = { bg = colors.blue },
 	update_in_insert = false,

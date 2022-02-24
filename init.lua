@@ -18,7 +18,7 @@ builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope
 builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
 builtin.plugins.dap = { active = true } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
-builtin.plugins.copilot = { active = true } -- enable to use copilot plugins to completion
+builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
 builtin.lsp.print_diagnostics_message = { active = false }
 builtin.lsp.automatical_show_line_diagnostics = { active = false }

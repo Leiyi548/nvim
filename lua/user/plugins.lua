@@ -186,6 +186,7 @@ return packer.startup(function(use)
       imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
     ]])
 		end,
+		disable = not builtin.plugins.copilot.active,
 	})
 	-- snippets
 	use({
@@ -280,7 +281,7 @@ return packer.startup(function(use)
 	-- Color
 	use({
 		"norcalli/nvim-colorizer.lua",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.colorizer").config()
 		end,
