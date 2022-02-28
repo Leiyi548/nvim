@@ -142,6 +142,33 @@ onedarkpro.setup({
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+--━━━━━━━━━━━━━━━━━━━━━━━❰ github-theme configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+require("github-theme").setup({
+	theme_style = "light_default",
+	comment_style = "italic,bold",
+	function_style = "NONE",
+	sidebars = { "qf", "vista_kind", "terminal", "packer" },
+
+	-- Change the "hint" color to the "orange" color, and make the "error" color bright red
+	colors = { hint = "orange", error = "#ff0000" },
+
+	-- Overwrite the highlight groups
+	overrides = function(c)
+		return {
+			htmlTag = { fg = c.red, bg = "#282c34", sp = c.hint, style = "underline" },
+			Comment = { fg = "#5a115e", style = "bold,italic" },
+			DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
+			-- this will remove the highlight groups
+			TSField = {},
+		}
+	end,
+})
+--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+--━━━━━━━━━━━━━━━━━━━━━❰ end github-theme configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+
+--━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━❰ toggle_colorscheme configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 function toggle_colorscheme()

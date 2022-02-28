@@ -16,6 +16,7 @@ local colors = {
 	red = "#ec5f67",
 	vscPopupHighlightBlue = "#004b72",
 	vscFront = "#D4D4D4",
+	ghost = "#6a737d",
 	git = { change = "#0c7d9d", add = "#587c0c", delete = "#94151b", conflict = "#bb7a61" },
 }
 
