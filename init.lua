@@ -8,7 +8,7 @@ builtin.colorscheme = {}
 builtin.plugins = {}
 builtin.plugins.emmet = { active = false } -- enable to use emmet-vim plugins
 builtin.plugins.tabnine = { active = false } -- enable to use emmet plugins
-builtin.plugins.persistence = { active = true } -- enable to open persistence for session management
+builtin.plugins.persistence = { active = false } -- enable to open persistence for session management
 builtin.plugins.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.plugins.orgmode = { active = false } -- enable to use orgmode plugins
 builtin.plugins.cmp_autopairs = { active = true } -- enable to open cmp_autopairs.on_confirm_done
@@ -16,7 +16,7 @@ builtin.plugins.telescope_project = { active = true } -- enable to use project.n
 builtin.plugins.templates = { active = false } -- enable to use vim-template plugins to set file header
 builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
 builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
-builtin.plugins.dap = { active = true } -- enable to use dap plugins to debug
+builtin.plugins.dap = { active = false } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
