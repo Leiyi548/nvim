@@ -26,6 +26,7 @@ builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, i
 builtin.colorscheme.rose_pine = { active = true } -- enable to use colorscheme rose-pine
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
+builtin.colorscheme.tj = { active = flase } -- enable to use tj colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--

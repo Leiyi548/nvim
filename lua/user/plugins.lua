@@ -140,6 +140,17 @@ return packer.startup(function(use)
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
 	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
+	use({
+		"tjdevries/colorbuddy.nvim",
+		disable = not builtin.colorscheme.tj.active,
+	})
+	use({
+		"tjdevries/gruvbuddy.nvim",
+		config = function()
+			require("colorbuddy").colorscheme("gruvbuddy")
+		end,
+		disable = not builtin.colorscheme.tj.active,
+	})
 
 	-- cmp plugins (completion)
 	use({

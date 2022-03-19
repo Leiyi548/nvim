@@ -80,6 +80,7 @@ local opts = {
 
 local mappings = {
 	["<Space>"] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "Harpoon" },
+	["/"] = { "<cmd>Telescope live_grep<cr>", "Grep" },
 	[";"] = { "<cmd>Alpha<cr>", "Dashboard" },
 	["a"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add file" },
 	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
