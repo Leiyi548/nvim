@@ -134,7 +134,7 @@ nvim # run :PackerSync
 - [ ] HTML
 - [ ] Javascript
 - [ ] Typescript
-- [ ] Python
+- [x] Python
   - [x] lsp
   - [x] format
   - [x] diagnostic
@@ -146,6 +146,7 @@ nvim # run :PackerSync
 - [Nvchad](https://github.com/NvChad/NvChad)
 - [Allen191819/neovim](https://github.com/Allen191819/neovim)
 - [denstiny/nvim-nanny](https://github.com/denstiny/nvim-nanny)
+- [philopence/nvim](https://github.com/philopence/nvim)
 - [ChristianChiarulli/nvim](https://github.com/ChristianChiarulli/nvim)
 - [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
 - [DoomVim](https://github.com/NTBBloodbath/doom-nvim)
