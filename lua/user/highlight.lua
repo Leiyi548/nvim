@@ -36,3 +36,9 @@ local highlight_groups = {
 for _, hl in pairs(highlight_groups) do
 	vim.api.nvim_set_hl(0, hl[1], hl[2])
 end
+if builtin.custom.oneNumber.active then
+	vim.cmd([[
+hi cursorlinenr gui = bold
+hi LineNr guifg = bg
+]])
+end
