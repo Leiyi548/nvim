@@ -45,7 +45,7 @@ end
 -- treesitter config
 configs.setup({
 	-- ensure_installed = { "lua", "python", "html", "javascript", "cpp", "org", "norg", "norg_meta", "norg_table" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-	ensure_installed = { "lua", "python", "html", "javascript", "cpp", "org" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	ensure_installed = { "lua", "python", "html", "javascript", "cpp", "go", "gomod" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
 	sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 	ignore_install = { "" }, -- List of parsers to ignore installing
 	matchup = {
