@@ -504,6 +504,13 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.outline.active,
 	})
+	use({
+		"folke/zen-mode.nvim",
+		disable = not builtin.plugins.zenMode.active,
+		config = function()
+			require("user.zenMode").config()
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

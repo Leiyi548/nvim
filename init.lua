@@ -21,6 +21,7 @@ builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugi
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
 builtin.plugins.cursorWord = { active = false } -- enable to use vim-cursorword plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
+builtin.plugins.zenMode = { active = true } -- enable to use zenmode plugins
 builtin.plugins.dashboard = { active = true } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
 builtin.lsp.print_diagnostics_message = { active = false }
