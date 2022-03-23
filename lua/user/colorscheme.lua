@@ -65,7 +65,7 @@ end
 if builtin.colorscheme.rose_pine.active then
 	require("rose-pine").setup({
 		---@usage 'main'|'moon'
-		dark_variant = "moon",
+		dark_variant = "main",
 		bold_vert_split = false,
 		dim_nc_background = false,
 		disable_background = false,
@@ -181,7 +181,7 @@ require("catppuccin").setup({
 	styles = {
 		comments = "italic",
 		functions = "italic",
-		keywords = "NONE",
+		keywords = "italic",
 		strings = "NONE",
 		variables = "NONE",
 	},
