@@ -11,7 +11,7 @@ vim.g.indent_blankline_filetype_exclude = {
 	"alpha",
 	"packer",
 	"neogitstatus",
-	"NvimTree",
+	-- "NvimTree",
 	"Trouble",
 	"TelescopePrompt",
 	"TelescopeResults",

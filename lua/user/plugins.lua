@@ -71,7 +71,6 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
-		commit = "f183c7f31197ae499c3420341fb8b275636a49b8",
 		-- cmd = { "NvimTreeToggle", "NvimTreeOpen" },
 		config = function()
 			require("user.nvim-tree")
@@ -112,7 +111,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.indentline")
 		end,
@@ -123,6 +122,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.dashboard").config()
 		end,
+		disable = not builtin.plugins.dashboard.active,
 	})
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use({

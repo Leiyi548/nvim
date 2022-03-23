@@ -89,7 +89,7 @@ M.config = function()
 			button("f", "   Find File ", ":Telescope find_files<cr>"),
 			button("p", "   Find project ", ":Telescope projects<cr>"),
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
-			-- button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
+			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),
 			-- button("q", "   Quit", ":q<cr>"),
 		},
@@ -108,12 +108,12 @@ M.config = function()
 
 	local opts = {
 		layout = {
-			{ type = "padding", val = 3 },
+			{ type = "padding", val = 4 },
 			section.header,
-			{ type = "padding", val = 2 },
+			{ type = "padding", val = 1 },
 			section.heading,
 			section.footer,
-			{ type = "padding", val = 1 },
+			{ type = "padding", val = 2 },
 			section.buttons,
 			section.plugin_count,
 		},

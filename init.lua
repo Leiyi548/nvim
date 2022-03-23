@@ -20,6 +20,8 @@ builtin.plugins.dap = { active = false } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
+builtin.plugins.dashboard = { active = true } -- enable to use dashboard
+builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
 builtin.lsp.print_diagnostics_message = { active = false }
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
