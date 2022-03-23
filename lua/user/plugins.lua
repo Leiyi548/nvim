@@ -88,6 +88,7 @@ return packer.startup(function(use)
 	use({
 		"itchyny/vim-cursorword",
 		event = { "BufReadPre", "BufNewFile" },
+		disable = not builtin.plugins.cursorWord.active,
 	})
 	use({
 		"p00f/nvim-ts-rainbow",
@@ -137,6 +138,7 @@ return packer.startup(function(use)
 	-- use({ "lunarvim/darkplus.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
+	use("Leiyi548/monokai.nvim")
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
 	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
@@ -150,6 +152,10 @@ return packer.startup(function(use)
 			require("colorbuddy").colorscheme("gruvbuddy")
 		end,
 		disable = not builtin.colorscheme.tj.active,
+	})
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
 	})
 
 	-- cmp plugins (completion)

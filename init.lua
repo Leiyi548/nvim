@@ -19,6 +19,7 @@ builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
 builtin.plugins.dap = { active = false } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
+builtin.plugins.cursorWord = { active = false } -- enable to use vim-cursorword plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
 builtin.plugins.dashboard = { active = true } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
