@@ -85,6 +85,7 @@ local mappings = {
 	["a"] = { '<cmd>lua require("harpoon.mark").add_file()<cr>', "Add file" },
 	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["z"] = { "<cmd>ZenMode<cr>", "ZenMode" },
 	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
 	["1"] = { "<CMD>lua require('harpoon.ui').nav_file(1)<CR>", "goto1" },
 	["2"] = { "<CMD>lua require('harpoon.ui').nav_file(2)<CR>", "goto2" },
