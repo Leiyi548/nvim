@@ -84,7 +84,7 @@ cmp.setup({
 		["<C-n>"] = cmp.mapping.select_next_item(),
 		["<C-d>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
 		["<C-u>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-		["<C-y>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+		["<C-space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-]>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
 		["<C-e>"] = cmp.mapping({
 			i = cmp.mapping.abort(),
@@ -154,9 +154,6 @@ cmp.setup({
 	confirm_opts = {
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
-	},
-	documentation = {
-		border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
 	},
 	experimental = {
 		ghost_text = true,

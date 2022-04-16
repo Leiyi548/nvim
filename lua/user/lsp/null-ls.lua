@@ -16,14 +16,14 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
-		formatting.clang_format, -- enable for cpp format
-		formatting.stylua, -- enable for lua format
+		-- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
+		-- formatting.black.with({ extra_args = { "--fast" } }),
+		-- formatting.clang_format, -- enable for cpp format
+		-- formatting.stylua, -- enable for lua format
 		-- diagnostics.flake8, -- enable for python diagnostic
-		diagnostics.luacheck, -- enable for lua diagnostic
-		diagnostics.cppcheck, -- enable for cpp diagnostic
-		-- code_actions.gitsigns, -- enable code_action for gitsigns
+		-- diagnostics.luacheck, -- enable for lua diagnostic
+		-- diagnostics.cppcheck, -- enable for cpp diagnostic
+		code_actions.gitsigns, -- enable code_action for gitsigns
 		-- completion.luasnip, -- enable to use builtins completion sources for luasnip
 		-- completion.spell, -- enable to use builtins completion sources for spell
 	},

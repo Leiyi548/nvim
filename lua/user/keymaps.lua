@@ -75,6 +75,8 @@ keymap("n", "<C-e>", [[<cmd> Telescope file_browser<cr>]], opts)
 keymap("n", "gn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', opts)
 keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)
 
+-- Better telescope find lsp symbol
+keymap("n", "gs", '<cmd>Telescope lsp_document_symbols<cr>', opts)
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
@@ -99,10 +101,10 @@ keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
 keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
 
 -- Resize with arrows(left right up down)
-keymap("n", "<Up>", ":resize -2<CR>", opts)
-keymap("n", "<Down>", ":resize +2<CR>", opts)
-keymap("n", "<Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<Right>", ":vertical resize +2<CR>", opts)
+-- keymap("n", "<Up>", ":resize -2<CR>", opts)
+-- keymap("n", "<Down>", ":resize +2<CR>", opts)
+-- keymap("n", "<Left>", ":vertical resize -2<CR>", opts)
+-- keymap("n", "<Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers(using tab and Shift-tab)
 keymap("n", "<Tab>", ":bnext<CR>", opts)

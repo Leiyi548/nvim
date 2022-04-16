@@ -13,7 +13,7 @@ M.config = function()
 			hl = "Comment",
 		},
 	}
-	local num_plugins_loaded = #vim.fn.globpath("/Users/macos/.local/share/nvim/site/pack/packer/start", "*", 0, 1)
+	local num_plugins_loaded = #vim.fn.globpath("~/.local/share/nvim/site/pack/packer/start", "*", 0, 1)
 
 	-- local thingy = io.popen('echo "$(date +%a) $(date +%b) $(date +%d)" | tr -d "\n"')
 	local thingy = io.popen('echo "$(date +%b月)$(date +%d日~)$(date +星期%a)" | tr -d "\n"')
@@ -87,9 +87,9 @@ M.config = function()
 		val = {
 			button("w", "   Find word", "<cmd>Telescope live_grep<cr>"),
 			button("f", "   Find File ", ":Telescope find_files<cr>"),
-			button("p", "   Find project ", ":Telescope projects<cr>"),
 			button("r", "   Recent Files", ":Telescope oldfiles<cr>"),
-			button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
+			button("p", "   Find project ", ":Telescope projects<cr>"),
+			-- button("s", "   Last session", [[<cmd>lua require("persistence").load({last = true})<cr>]]),
 			button("o", "   Configure", ":e ~/.config/nvim/init.lua<cr>"),
 			-- button("q", "   Quit", ":q<cr>"),
 		},
@@ -112,7 +112,7 @@ M.config = function()
 			section.header,
 			{ type = "padding", val = 1 },
 			section.heading,
-			section.footer,
+			-- section.footer,
 			{ type = "padding", val = 2 },
 			section.buttons,
 			section.plugin_count,

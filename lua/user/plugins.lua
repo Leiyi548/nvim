@@ -311,6 +311,7 @@ return packer.startup(function(use)
 		config = function()
 			vim.g.smartim_default = "com.apple.keylayout.ABC"
 		end,
+    disable = not builtin.plugins.smartIm.active,
 	})
 
 	-- emmet
