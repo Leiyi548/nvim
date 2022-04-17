@@ -111,7 +111,7 @@ M.config = function()
 			{ type = "padding", val = 4 },
 			section.header,
 			{ type = "padding", val = 1 },
-			section.heading,
+			-- section.heading,
 			-- section.footer,
 			{ type = "padding", val = 2 },
 			section.buttons,

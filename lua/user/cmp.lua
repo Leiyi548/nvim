@@ -155,6 +155,12 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
+  window = {
+    -- documentation = "native",
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
+  },
 	experimental = {
 		ghost_text = true,
 		-- ghost_text = { hl_group = "ghost_text" },

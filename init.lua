@@ -15,7 +15,7 @@ builtin.plugins.cmp_autopairs = { active = true } -- enable to open cmp_autopair
 builtin.plugins.telescope_project = { active = true } -- enable to use project.nvim plugin
 builtin.plugins.templates = { active = false } -- enable to use vim-template plugins to set file header
 builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
-builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
+builtin.plugins.notify = { active = false } -- enable to use nvim-notify plugins
 builtin.plugins.dap = { active = false } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
@@ -25,7 +25,7 @@ builtin.plugins.zenMode = { active = true } -- enable to use zenmode plugins
 builtin.plugins.smartIm = { active = false } -- enable to use smartIm plugins
 builtin.plugins.dashboard = { active = true } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = false } -- enable to use sample header
-builtin.lsp.print_diagnostics_message = { active = false }
+builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.custom.oneNumber = { active = false } -- enable to use one number
@@ -48,7 +48,7 @@ require("user.autocommands")
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])
 -- wsl yanking to windows clipboard from nvim
-if vim.fn.has "wsl" then
+if vim.fn.has "wsl" == 1 then
 builtin.plugins.smartIm = { active = false }
 vim.g.clipboard = {
   name = "win32yank-wsl",

@@ -122,6 +122,7 @@ return packer.startup(function(use)
 		event = "BufWinEnter",
 		config = function()
 			require("user.dashboard").config()
+			vim.cmd("language en_US.UTF-8")
 		end,
 		disable = not builtin.plugins.dashboard.active,
 	})
