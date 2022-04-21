@@ -28,11 +28,7 @@ local function enter(prompt_bufnr)
 	vim.cmd(cmd)
 	local lvimColor = "vim.cmd([[colorscheme " .. " " .. selected[1] .. "]])"
 	local config_dir = vim.fn.expand("/home/chris/.config/nvim/lua/user/nvimColorScheme.lua")
-	local job_cmd = "sed -i '' '$d' " .. config_dir .. " && echo '" .. lvimColor .. "'>>" .. config_dir
-	vim.notify = require("notify")
-  vim.notify(config_dir)
-  vim.notify(lvimColor)
-  vim.notify(job_cmd)
+	local job_cmd = "sed -i '$d' " .. config_dir .. " && echo '" .. lvimColor .. "'>>" .. config_dir
 	vim.fn.jobstart(job_cmd)
 	vim.api.nvim_command("luafile ~/.config/nvim/lua/user/highlight.lua")
 	actions.close(prompt_bufnr)
