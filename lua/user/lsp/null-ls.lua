@@ -19,7 +19,7 @@ null_ls.setup({
 		-- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
 		-- formatting.black.with({ extra_args = { "--fast" } }),
 		-- formatting.clang_format, -- enable for cpp format
-		-- formatting.stylua, -- enable for lua format
+		formatting.stylua, -- enable for lua format
 		-- diagnostics.flake8, -- enable for python diagnostic
 		-- diagnostics.luacheck, -- enable for lua diagnostic
 		-- diagnostics.cppcheck, -- enable for cpp diagnostic

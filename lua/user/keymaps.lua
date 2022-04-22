@@ -37,8 +37,10 @@ keymap("n", "sc", "<C-w>c", opts)
 keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 
 -- Better open .html in Chrome
-keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
-keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
+if vim.fn.has("mac") == 1 then
+	keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
+	keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
+end
 
 -- Better easymotion (hop)
 keymap("n", "E", "<cmd>HopChar1<cr>", opts)
@@ -76,7 +78,7 @@ keymap("n", "gn", '<cmd>lua require("harpoon.ui").nav_next()<cr>', opts)
 keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)
 
 -- Better telescope find lsp symbol
-keymap("n", "gs", '<cmd>Telescope lsp_document_symbols<cr>', opts)
+keymap("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
@@ -101,14 +103,18 @@ keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
 keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
 
 -- Resize with arrows(left right up down)
--- keymap("n", "<Up>", ":resize -2<CR>", opts)
--- keymap("n", "<Down>", ":resize +2<CR>", opts)
--- keymap("n", "<Left>", ":vertical resize -2<CR>", opts)
--- keymap("n", "<Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize -2<CR>", opts)
+keymap("n", "<C-Down>", ":resize +2<CR>", opts)
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers(using tab and Shift-tab)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
+
+-- telescope Bookmarks
+keymap("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opts)
+keymap("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode

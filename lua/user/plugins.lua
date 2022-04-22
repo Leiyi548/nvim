@@ -169,7 +169,7 @@ return packer.startup(function(use)
 	}) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer completions
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path completions
-	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp",disable = true }) -- path completions
+	use({ "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp", disable = true }) -- path completions
 	use({
 		"hrsh7th/cmp-cmdline",
 		after = "nvim-cmp",
@@ -256,6 +256,7 @@ return packer.startup(function(use)
 		requires = { "tami5/sqlite.lua" },
 		disable = not builtin.plugins.telescope_frency,
 	})
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "Leiyi548/telescope-packer.nvim" })
 	use({
 		"Leiyi548/project.nvim", -- ahmedkhalf/project.nvim
@@ -264,6 +265,8 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.telescope_project,
 	})
+	use("tom-anders/telescope-vim-bookmarks.nvim")
+	use("MattesGroeger/vim-bookmarks")
 	-- Treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
@@ -310,7 +313,7 @@ return packer.startup(function(use)
 		config = function()
 			vim.g.smartim_default = "com.apple.keylayout.ABC"
 		end,
-    disable = not builtin.plugins.smartIm.active,
+		disable = not builtin.plugins.smartIm.active,
 	})
 
 	-- emmet
