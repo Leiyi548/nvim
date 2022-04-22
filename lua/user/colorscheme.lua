@@ -180,7 +180,7 @@ require("catppuccin").setup({
 	term_colors = false,
 	styles = {
 		comments = "italic",
-		functions = "italic",
+		functions = "NONE",
 		keywords = "italic",
 		strings = "NONE",
 		variables = "NONE",
@@ -190,10 +190,10 @@ require("catppuccin").setup({
 		native_lsp = {
 			enabled = true,
 			virtual_text = {
-				errors = "NONE",
-				hints = "NONE",
-				warnings = "NONE",
-				information = "NONE",
+				errors = "italic",
+				hints = "italic",
+				warnings = "italic",
+				information = "italic",
 			},
 			underlines = {
 				errors = "underline",
@@ -202,7 +202,7 @@ require("catppuccin").setup({
 				information = "underline",
 			},
 		},
-		lsp_trouble = false,
+		lsp_trouble = true,
 		cmp = true,
 		lsp_saga = false,
 		gitgutter = false,
