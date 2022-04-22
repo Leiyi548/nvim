@@ -28,6 +28,7 @@ keymap("n", "<C-h>", "<CMD>lua require('Navigator').left()<cr>", opts)
 keymap("n", "<C-j>", "<CMD>lua require('Navigator').down()<cr>", opts)
 keymap("n", "<C-k>", "<CMD>lua require('Navigator').up()<cr>", opts)
 keymap("n", "<C-l>", "<CMD>lua require('Navigator').right()<cr>", opts)
+
 -- Split window
 keymap("n", "sv", "<cmd>vsplit<cr>", opts)
 keymap("n", "sg", "<cmd>split<cr>", opts)
@@ -113,8 +114,18 @@ keymap("n", "<Tab>", ":bnext<CR>", opts)
 keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 -- telescope Bookmarks
-keymap("n", "ma", "<cmd>Telescope vim_bookmarks current_file<cr>", opts)
-keymap("n", "mA", "<cmd>Telescope vim_bookmarks all<cr>", opts)
+keymap(
+	"n",
+	"ma",
+	"<cmd>lua require('telescope').extensions.vim_bookmarks.current_file(require('telescope.themes').get_ivy({}))<cr>",
+	opts
+)
+keymap(
+	"n",
+	"mA",
+	"<cmd>lua require('telescope').extensions.vim_bookmarks.all(require('telescope.themes').get_ivy({}))<cr>",
+	opts
+)
 
 -- Visual --
 -- Stay in indent mode
