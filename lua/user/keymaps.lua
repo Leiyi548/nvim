@@ -127,6 +127,14 @@ keymap(
 	opts
 )
 
+-- use telescope luasnip to insert luasnip
+keymap(
+	"n",
+	"<M-s>",
+	"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
+	opts
+)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

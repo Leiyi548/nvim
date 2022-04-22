@@ -24,7 +24,7 @@ builtin.plugins.outline = { active = true } -- enable to use aerial plugins to d
 builtin.plugins.zenMode = { active = true } -- enable to use zenmode plugins
 builtin.plugins.smartIm = { active = true } -- enable to use smartIm plugins
 builtin.plugins.dashboard = { active = true } -- enable to use dashboard
-builtin.plugins.dashboard.simpleHead = { active = false } -- enable to use sample header
+builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
 builtin.plugins.markdown_preview = { active = true } -- enable to open markdown_preview.nvim
 builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
