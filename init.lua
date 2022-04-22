@@ -32,6 +32,7 @@ builtin.custom.oneNumber = { active = false } -- enable to use one number
 builtin.colorscheme.rose_pine = { active = false } -- enable to use colorscheme rose-pine
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
+builtin.colorscheme.monokai = { active = false } -- enable to use colorscheme monokai
 builtin.colorscheme.tj = { active = flase } -- enable to use tj colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -47,6 +48,9 @@ require("user.autocommands")
 -- Textobjects
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])
+--  notify
+-- =========================================
+vim.notify = require("notify")
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has("wsl") == 1 then
 	builtin.plugins.smartIm = { active = false }
