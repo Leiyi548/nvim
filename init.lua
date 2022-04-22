@@ -19,12 +19,13 @@ builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
 builtin.plugins.dap = { active = false } -- enable to use dap plugins to debug
 builtin.plugins.dap_virtual_text = { active = false } -- enable to use dap plugins to debug add dap_virtual_text
 builtin.plugins.copilot = { active = false } -- enable to use copilot plugins to completion
-builtin.plugins.cursorWord = { active = false } -- enable to use vim-cursorword plugins to completion
+builtin.plugins.cursorWord = { active = true } -- enable to use vim-cursorword plugins to completion
 builtin.plugins.outline = { active = true } -- enable to use aerial plugins to display information in outline
 builtin.plugins.zenMode = { active = true } -- enable to use zenmode plugins
-builtin.plugins.smartIm = { active = false } -- enable to use smartIm plugins
+builtin.plugins.smartIm = { active = true } -- enable to use smartIm plugins
 builtin.plugins.dashboard = { active = true } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = false } -- enable to use sample header
+builtin.plugins.markdown_preview = { active = true } -- enable to open markdown_preview.nvim
 builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
@@ -37,23 +38,10 @@ builtin.colorscheme.tj = { active = flase } -- enable to use tj colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-
-require("user.options")
-require("user.keymaps")
-require("user.plugins")
-require("user.colorscheme")
-require("user.lualine")
-require("user.impatient")
-require("user.autocommands")
--- Textobjects
--- =========================================
-vim.cmd([[source ~/.config/nvim/textobjects.vim]])
---  notify
--- =========================================
-vim.notify = require("notify")
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has("wsl") == 1 then
 	builtin.plugins.smartIm = { active = false }
+	builtin.plugins.markdown_preview = { active = false }
 	vim.g.clipboard = {
 		name = "win32yank-wsl",
 		copy = {
@@ -67,3 +55,17 @@ if vim.fn.has("wsl") == 1 then
 		cache_enable = 0,
 	}
 end
+---
+require("user.options")
+require("user.keymaps")
+require("user.plugins")
+require("user.colorscheme")
+require("user.lualine")
+require("user.impatient")
+require("user.autocommands")
+-- Textobjects
+-- =========================================
+vim.cmd([[source ~/.config/nvim/textobjects.vim]])
+--  notify
+-- =========================================
+vim.notify = require("notify")

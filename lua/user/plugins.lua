@@ -411,6 +411,7 @@ return packer.startup(function(use)
 			vim.g.mkdp_markdown_css = "/Users/macos/.config/nvim/UI/markdown_style_github.css"
 			vim.g.vmt_auto_update_on_save = 1
 		end,
+		disable = not builtin.plugins.markdown_preview.active,
 	})
 	-- paste image from clipboard
 	use({
