@@ -30,6 +30,7 @@ builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.custom.oneNumber = { active = false } -- enable to use one number
+builtin.custom.lualine_vscode = { active = false } -- enable to use style like vscode statue line
 builtin.colorscheme.rose_pine = { active = false } -- enable to use colorscheme rose-pine
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
@@ -60,9 +61,13 @@ require("user.options")
 require("user.keymaps")
 require("user.plugins")
 require("user.colorscheme")
-require("user.lualine")
 require("user.impatient")
 require("user.autocommands")
+if builtin.custom.lualine_vscode.active then
+	require("user.lualine")
+else
+	require("user.lualine_other")
+end
 -- Textobjects
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])

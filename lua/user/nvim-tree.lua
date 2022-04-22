@@ -4,6 +4,15 @@ vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
 	git = {
+		deleted = "",
+		ignored = "◌",
+		renamed = "➜",
+		staged = "✓",
+		unmerged = "",
+		unstaged = "✗",
+		untracked = "★",
+	},
+	--[[ git = {
 		unstaged = "M",
 		staged = "S",
 		unmerged = "",
@@ -11,7 +20,7 @@ vim.g.nvim_tree_icons = {
 		deleted = "D",
 		untracked = "?", -- U
 		ignored = "◌",
-	},
+	}, ]]
 	--[[ git = {
 		unstaged = "!",
 		staged = "✓",
@@ -35,6 +44,7 @@ vim.g.nvim_tree_icons = {
 
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
+	vim.notify("nvim-tree not found!!!")
 	return
 end
 

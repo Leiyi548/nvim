@@ -71,7 +71,7 @@ return packer.startup(function(use)
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"kyazdani42/nvim-tree.lua",
-		-- cmd = { "NvimTreeToggle", "NvimTreeOpen" },
+		cmd = { "NvimTreeToggle", "NvimTreeOpen" },
 		config = function()
 			require("user.nvim-tree")
 		end,
@@ -112,7 +112,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		-- event = "BufRead",
+		event = "BufRead",
 		config = function()
 			require("user.indentline")
 		end,
@@ -136,7 +136,8 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- use({ "lunarvim/darkplus.nvim" })
+	use({ "lunarvim/darkplus.nvim" })
+	use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
