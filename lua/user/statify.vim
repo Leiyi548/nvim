@@ -35,7 +35,7 @@ let g:startify_bookmarks            = [
         \]
 " custom footer
 let g:startify_custom_footer =
-     \ ['', "Vim is charityware. Please read ':help uganda'.", '']
+     \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
 " custom header
 " center header
 " let g:startify_custom_header =
