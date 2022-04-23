@@ -32,8 +32,8 @@ M.config = function()
 
 		fix_pos = true, -- set to true, the floating window will not auto-close until finish all parameters
 		hint_enable = true, -- virtual hint enable
-		hint_prefix = "🐼 ", -- Panda for parameter
-		-- hint_prefix = " ", -- bird for parameters
+		-- hint_prefix = "🐼 ", -- Panda for parameter
+		hint_prefix = " ", -- bird for parameters
 		hint_scheme = "String",
 		hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
 		max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down

@@ -28,7 +28,7 @@ null_ls.setup({
 		-- completion.spell, -- enable to use builtins completion sources for spell
 	},
 	on_attach = function(client)
-		-- format file on save
+		-- format on save
 		if client.resolved_capabilities.document_formatting then
 			vim.cmd([[
             augroup LspFormatting

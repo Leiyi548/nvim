@@ -27,6 +27,7 @@ builtin.plugins.dashboard = { active = true } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
 builtin.plugins.markdown_preview = { active = true } -- enable to open markdown_preview.nvim
 builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_print_diagnostic_message
+builtin.lsp.notify = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.custom.oneNumber = { active = false } -- enable to use one number
