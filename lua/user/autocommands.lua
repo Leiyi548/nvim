@@ -36,6 +36,17 @@ vim.cmd([[
    autocmd!
    autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
  augroup end
+
+ augroup _startify
+   autocmd!
+   autocmd User Startified  set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+ augroup end
+
+ augroup last_cursor_position
+    autocmd!
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
+  augroup END
 ]])
 
 -- autocmd FileType markdown setlocal spell (markdown)

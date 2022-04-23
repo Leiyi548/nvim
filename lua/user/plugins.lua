@@ -126,6 +126,15 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.dashboard.active,
 	})
+	use({
+		"mhinz/vim-startify",
+		event = "BufWinEnter",
+		-- branch = "center",
+		config = function()
+			vim.cmd([[source ~/.config/nvim/lua/user/statify.vim ]])
+		end,
+		disable = not builtin.plugins.startify.active,
+	})
 	use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
 	use({
 		"folke/which-key.nvim",
