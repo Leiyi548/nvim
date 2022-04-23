@@ -10,8 +10,10 @@ function! s:gitUntracked()
 endfunction
 
 "If you want numbers to start at 1 instead of 0, you could use this:
-let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+" let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+" file numbers
 let g:startify_files_number = 5
+" startify_lists
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['   MRU']            },
         \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
@@ -35,6 +37,7 @@ let g:startify_bookmarks            = [
 let g:startify_custom_footer =
      \ ['', "Vim is charityware. Please read ':help uganda'.", '']
 " custom header
+" center header
 " let g:startify_custom_header =
 "       \ 'startify#center(startify#fortune#cowsay())'
 let g:startify_custom_header_quotes = [
