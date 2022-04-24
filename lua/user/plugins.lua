@@ -326,6 +326,9 @@ return packer.startup(function(use)
 		disable = not builtin.plugins.smartIm.active,
 	})
 
+	-- im-select
+	use({ "brglng/vim-im-select", disable = not builtin.plugins.im_select.active })
+
 	-- emmet
 	use({
 		"mattn/emmet-vim",

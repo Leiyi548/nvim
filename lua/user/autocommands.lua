@@ -116,6 +116,12 @@ if builtin.lsp.automatical_show_line_diagnostics.active then
 	vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 end
 
+-- startify_Project
 vim.cmd([[
   autocmd BufEnter * lua startify_Project()
+]])
+
+-- vim中文输入法解决 退出插入模式自动切换到英文
+vim.cmd([[
+  autocmd InsertLeave * call system("im-select.exe 1033")
 ]])

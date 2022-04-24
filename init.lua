@@ -27,6 +27,7 @@ builtin.plugins.dashboard = { active = false } -- enable to use dashboard
 builtin.plugins.dashboard.simpleHead = { active = true } -- enable to use sample header
 builtin.plugins.startify = { active = not builtin.plugins.dashboard.active } -- enable to use startify plugins
 builtin.plugins.markdown_preview = { active = true } -- enable to open markdown_preview.nvim
+builtin.plugins.im_select = { active = false } -- enable to open im-select.vim
 builtin.lsp.print_diagnostics_message = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.notify = { active = false } -- enable to use lsp_print_diagnostic_message
 builtin.lsp.automatical_show_line_diagnostics = { active = false }
@@ -44,6 +45,7 @@ builtin.colorscheme.tj = { active = flase } -- enable to use tj colorscheme
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has("wsl") == 1 then
 	builtin.plugins.smartIm = { active = false }
+	builtin.plugins.im_select = { active = false }
 	builtin.plugins.markdown_preview = { active = false }
 	vim.g.clipboard = {
 		name = "win32yank-wsl",
