@@ -387,8 +387,6 @@ return packer.startup(function(use)
 			})
 		end,
 	})
-	-- harpoon
-	use("ThePrimeagen/harpoon")
 	-- persistence (session management)
 	use({
 		"folke/persistence.nvim",
