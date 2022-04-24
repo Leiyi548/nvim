@@ -11,6 +11,7 @@
         "builtin",
         "toggle_colorscheme",
         "toggle_checkbox",
-        "add_task"
+        "add_task",
+        "startify_Project"
     ]
 }

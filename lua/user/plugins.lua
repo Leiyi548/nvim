@@ -131,7 +131,7 @@ return packer.startup(function(use)
 		event = "BufWinEnter",
 		-- branch = "center",
 		config = function()
-			vim.cmd([[source ~/.config/nvim/lua/user/statify.vim ]])
+			vim.cmd([[source ~/.config/nvim/lua/user/startify.vim ]])
 		end,
 		disable = not builtin.plugins.startify.active,
 	})

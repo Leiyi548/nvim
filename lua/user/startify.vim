@@ -29,7 +29,7 @@ let g:startify_skiplist = [
       \ '^/tmp',
       \ '/project/.*/documentation',
       \ ]
-let g:startify_bookmarks            = [
+let g:startify_bookmarks = [
         \ '~/.config/nvim/init.lua',
         \ '~/.zshrc',
         \]

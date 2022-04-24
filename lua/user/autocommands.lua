@@ -115,3 +115,7 @@ end
 if builtin.lsp.automatical_show_line_diagnostics.active then
 	vim.cmd([[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]])
 end
+
+vim.cmd([[
+  autocmd BufEnter * lua startify_Project()
+]])
