@@ -4,6 +4,12 @@ if not status_ok then
 	return
 end
 
+local status_gps_ok, gps = pcall(require, "nvim-gps")
+if not status_gps_ok then
+	vim.notify("nvim-gps not found!")
+	return
+end
+
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
@@ -84,8 +90,14 @@ local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
--- add gps module to get the position information
--- local gps = require("nvim-gps")
+local nvim_gps = function()
+	local gps_location = gps.get_location()
+	if gps_location == "error" then
+		return ""
+	else
+		return gps.get_location()
+	end
+end
 
 lualine.setup({
 	options = {
@@ -98,11 +110,11 @@ lualine.setup({
 		globalstatus = true,
 	},
 	sections = {
-		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		-- lualine_c = {
-		--         { gps.get_location, cond = gps.is_available },
-		--     },
+		lualine_a = { branch },
+		lualine_b = { diagnostics },
+		lualine_c = {
+			{ nvim_gps, cond = hide_in_width },
+		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
@@ -111,7 +123,8 @@ lualine.setup({
 	inactive_sections = {
 		lualine_a = {},
 		lualine_b = {},
-		lualine_c = { "filename" },
+		lualine_c = {},
+		-- lualine_c = { "filename" },
 		lualine_x = { "location" },
 		lualine_y = {},
 		lualine_z = {},

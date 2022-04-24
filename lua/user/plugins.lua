@@ -527,6 +527,12 @@ return packer.startup(function(use)
 	})
 	use({ "kana/vim-textobj-entire", requires = { "kana/vim-textobj-user" } })
 	use("wellle/targets.vim")
+	use({
+		"SmiteshP/nvim-gps",
+		config = function()
+			require("user.gps")
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
