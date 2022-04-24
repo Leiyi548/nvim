@@ -4,23 +4,14 @@ vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
 	git = {
-		deleted = "",
-		ignored = "◌",
-		renamed = "➜",
-		staged = "✓",
-		unmerged = "",
-		unstaged = "✗",
-		untracked = "★",
-	},
-	--[[ git = {
-		unstaged = "M",
+		unstaged = "",
 		staged = "S",
 		unmerged = "",
 		renamed = "➜",
-		deleted = "D",
-		untracked = "?", -- U
+		deleted = "",
+		untracked = "U",
 		ignored = "◌",
-	}, ]]
+	},
 	--[[ git = {
 		unstaged = "!",
 		staged = "✓",

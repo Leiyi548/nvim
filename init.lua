@@ -58,7 +58,7 @@ if vim.fn.has("wsl") == 1 then
 		cache_enable = 0,
 	}
 end
----
+
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
