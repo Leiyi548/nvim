@@ -120,8 +120,3 @@ end
 vim.cmd([[
   autocmd BufEnter * lua startify_Project()
 ]])
-
--- vim中文输入法解决 退出插入模式自动切换到英文
-vim.cmd([[
-  autocmd InsertLeave * call system("im-select.exe 1033")
-]])
