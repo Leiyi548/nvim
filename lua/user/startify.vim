@@ -12,7 +12,7 @@ endfunction
 "If you want numbers to start at 1 instead of 0, you could use this:
 " let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
 " file numbers
-let g:startify_files_number = 5
+let g:startify_files_number = 10
 " startify_lists
 let g:startify_lists = [
         \ { 'type': 'files',     'header': ['   MRU']            },
