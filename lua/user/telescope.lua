@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
-local fb_action = require("telescope").extensions.file_browser.actions
+-- local fb_action = require("telescope").extensions.file_browser.actions
 
 telescope.setup({
 	defaults = {
@@ -189,7 +189,7 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		file_browser = {
+		--[[ file_browser = {
 			-- theme = "dropdown", -- ivy,dropdown,cursor
 			initial_mode = "normal",
 			path_display = { "absolute" }, -- hidden tail absolute smart shorten truncate
@@ -219,7 +219,7 @@ telescope.setup({
 		},
 		packer = {
 			-- theme = "dropdown", -- ivy,dropdown,cursor
-		},
+		}, ]]
 		projects = {
 			mappings = {
 				["n"] = {},
@@ -234,7 +234,7 @@ telescope.setup({
 		},
 	},
 })
-require("telescope").load_extension("file_browser")
-require("telescope").load_extension("packer")
+-- require("telescope").load_extension("file_browser")
+-- require("telescope").load_extension("packer")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("vim_bookmarks")

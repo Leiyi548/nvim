@@ -256,8 +256,9 @@ return packer.startup(function(use)
 			require("user.telescope")
 		end,
 		cmd = "Telescope",
+		commit = "5045d7e5e74208dbbf98271861b05ff42dc66360",
 	})
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim", disable = not builtin.plugins.telescope_file_browser.active })
 	use({
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
@@ -267,7 +268,7 @@ return packer.startup(function(use)
 		disable = not builtin.plugins.telescope_frency,
 	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use({ "Leiyi548/telescope-packer.nvim" })
+	use({ "Leiyi548/telescope-packer.nvim", disable = not builtin.plugins.telescope_packer.active })
 	use({
 		"Leiyi548/project.nvim", -- ahmedkhalf/project.nvim
 		config = function()
@@ -310,7 +311,7 @@ return packer.startup(function(use)
 	-- Color
 	use({
 		"norcalli/nvim-colorizer.lua",
-		-- event = "BufRead",
+		event = "BufRead",
 		config = function()
 			require("user.colorizer").config()
 		end,
@@ -327,7 +328,7 @@ return packer.startup(function(use)
 	})
 
 	-- im-select
-	use({ "brglng/vim-im-select", disable = not builtin.plugins.im_select.active })
+	use({ "Leiyi548/vim-im-select", disable = not builtin.plugins.im_select.active })
 
 	-- emmet
 	use({
