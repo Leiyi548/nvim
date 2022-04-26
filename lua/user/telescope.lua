@@ -220,6 +220,12 @@ telescope.setup({
 		packer = {
 			-- theme = "dropdown", -- ivy,dropdown,cursor
 		}, ]]
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown({
+				-- even more opts
+			}),
+		},
+
 		projects = {
 			mappings = {
 				["n"] = {},
@@ -238,3 +244,4 @@ telescope.setup({
 -- require("telescope").load_extension("packer")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("vim_bookmarks")
+require("telescope").load_extension("ui-select")

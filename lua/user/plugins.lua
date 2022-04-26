@@ -255,9 +255,9 @@ return packer.startup(function(use)
 		config = function()
 			require("user.telescope")
 		end,
-		cmd = "Telescope",
-		commit = "5045d7e5e74208dbbf98271861b05ff42dc66360",
+		-- cmd = "Telescope",
 	})
+	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim", disable = not builtin.plugins.telescope_file_browser.active })
 	use({
 		"nvim-telescope/telescope-frecency.nvim",

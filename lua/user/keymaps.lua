@@ -100,9 +100,6 @@ keymap("v", "L", "$", opts)
 -- Better lazygit keybinding
 keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
 
--- Better CodeAction (use telescope builtin code_action)
-keymap("n", "ga", "<cmd>lua require('user.fancy_telescope').code_actions()<CR>", opts)
-
 -- Resize with arrows(left right up down)
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
