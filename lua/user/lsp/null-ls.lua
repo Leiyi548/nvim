@@ -20,6 +20,7 @@ null_ls.setup({
 		-- formatting.black.with({ extra_args = { "--fast" } }),
 		-- formatting.clang_format, -- enable for cpp format
 		formatting.stylua, -- enable for lua format
+		formatting.goimports, -- enable for Update your Go import lines,adding missing ones and removing unreferenced ones
 		-- diagnostics.flake8, -- enable for python diagnostic
 		-- diagnostics.luacheck, -- enable for lua diagnostic
 		-- diagnostics.cppcheck, -- enable for cpp diagnostic
