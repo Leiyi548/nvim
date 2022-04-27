@@ -81,3 +81,4 @@ vim.cmd([[source ~/.config/nvim/textobjects.vim]])
 --  notify
 -- =========================================
 vim.notify = require("notify")
+vim.o.background = "dark"
