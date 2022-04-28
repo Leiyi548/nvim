@@ -36,7 +36,7 @@ builtin.lsp.automatical_show_line_diagnostics = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.custom.oneNumber = { active = false } -- enable to use one number
 builtin.custom.lualine_vscode = { active = false } -- enable to use style like vscode statue line
-builtin.colorscheme.rose_pine = { active = false } -- enable to use colorscheme rose-pine
+builtin.colorscheme.rose_pine = { active = true } -- enable to use colorscheme rose-pine
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
 builtin.colorscheme.monokai = { active = false } -- enable to use colorscheme monokai

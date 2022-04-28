@@ -46,12 +46,3 @@ if not tele_status_ok then
 end
 
 telescope.load_extension("projects")
-
-function startify_Project()
-	local recent_projects = project.get_recent_projects()
-	local startify_bookmarks_ = vim.g.startify_bookmarks
-	for i = 1, #recent_projects do
-		table.insert(startify_bookmarks_, #startify_bookmarks_ + 1, recent_projects[i])
-	end
-	vim.g.startify_bookmarks = startify_bookmarks_
-end
