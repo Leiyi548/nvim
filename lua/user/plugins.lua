@@ -208,7 +208,6 @@ return packer.startup(function(use)
       let g:copilot_filetypes = {
           \ 'xml': v:false,
           \ }
-
       imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
     ]])
 		end,
@@ -235,12 +234,7 @@ return packer.startup(function(use)
 	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
 	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
 	use({ "b0o/schemastore.nvim" })
-	use({
-		"jose-elias-alvarez/null-ls.nvim",
-		config = function()
-			require("user.lsp.null-ls")
-		end,
-	}) -- for formatters and linters
+	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({
 		"ray-x/lsp_signature.nvim",
 		event = "BufRead",
@@ -390,20 +384,6 @@ return packer.startup(function(use)
 				keys = "etovxqpdygfblzhckisuran",
 			})
 		end,
-	})
-	-- persistence (session management)
-	use({
-		"folke/persistence.nvim",
-		event = "BufReadPre", -- this will only start session saving when an actual file was opened
-		module = "persistence",
-		config = function()
-			require("persistence").setup({
-				-- dir = ~/.config/nvim/sessions
-				-- dir = vim.fn.expand(get_cache_dir() .. "/sessions/"), -- directory where session files are saved
-				-- options = { "buffers", "curdir", "tabpages", "winsize" }, -- sessionoptions used for saving
-			})
-		end,
-		disable = not builtin.plugins.persistence.active,
 	})
 	-- markdown preview in google Chrome
 	use({

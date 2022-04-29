@@ -8,7 +8,6 @@ builtin.colorscheme = {}
 builtin.plugins = {}
 builtin.plugins.emmet = { active = false } -- enable to use emmet-vim plugins
 builtin.plugins.tabnine = { active = false } -- enable to use emmet plugins
-builtin.plugins.persistence = { active = false } -- enable to open persistence for session management
 builtin.plugins.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.plugins.orgmode = { active = false } -- enable to use orgmode plugins
 builtin.plugins.cmp_autopairs = { active = true } -- enable to open cmp_autopairs.on_confirm_done

@@ -258,7 +258,7 @@ local mappings = {
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		p = { "<cmd>Telescope packer<cr>", "plugins" },
+		-- p = { "<cmd>Telescope packer<cr>", "plugins" },
 		-- d = { "<cmd>luafile" .. "~/.config/nvim/lua/user/diary.lua" .. "<cr>", "diary" },
 	},
 
@@ -276,26 +276,15 @@ local mappings = {
 		t = { "<cmd>ToggleTerm direction=tab<cr>", "New Tab" },
 	},
 
-	-- Whichkey-q
-	q = {
-		name = "Quit",
-		s = { [[<cmd>lua require("persistence").load()<cr>]], "session in dir" },
-		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
-		d = { [[<cmd>lua require("persistence").stop()<cr>]], "no session" },
-	},
 	-- whichkey-i
 	i = {
 		name = "Insert",
 		i = { "<cmd>PasteImg<cr>", "PasteImg" },
 		s = {
 			"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
-			"luasnip",
+			"Snippet",
 		},
-	},
-	-- Whichkey-m
-	m = {
-		name = "Markdown",
-		i = { "<cmd>PasteImg<cr>", "PasteImg" },
+		m = { "<cmd>PasteImg<cr>", "Image" },
 	},
 	-- Whichkey-n
 	n = {
