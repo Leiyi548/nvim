@@ -103,7 +103,6 @@ local mappings = {
 		b = { "<cmd>lua require('user.fancy_telescope').builtin()<cr>", "Builtin" },
 		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "Current Buffer" },
 		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
-		p = { "<cmd>lua require('user.fancy_telescope').project_search()<cr>", "Project" },
 		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
 		z = { "<cmd>lua require('user.fancy_telescope').search_only_certain_files()<cr>", "Certain Filetype" },
 	},
