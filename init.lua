@@ -56,8 +56,8 @@ if vim.fn.has("wsl") == 1 then
 			["*"] = "win32yank.exe -i --crlf",
 		},
 		paste = {
-			["+"] = "win32yank.exe -o --crlf",
-			["*"] = "win32yank.exe -o --crlf",
+			["+"] = "win32yank.exe -o --lf",
+			["*"] = "win32yank.exe -o --lf",
 		},
 		cache_enable = 0,
 	}

@@ -400,7 +400,7 @@ return packer.startup(function(use)
 			vim.g.mkdp_page_title = "「${name}」"
 			vim.g.mkdp_filetypes = { "markdown" }
 			vim.g.mkdp_preview_options = { hide_yaml_meta = 1, disable_filename = 1, theme = "light" }
-			vim.g.mkdp_markdown_css = "/Users/macos/.config/nvim/UI/markdown_style_github.css"
+			-- vim.g.mkdp_markdown_css = "/Users/macos/.config/nvim/UI/markdown_style_github.css"
 			vim.g.vmt_auto_update_on_save = 1
 		end,
 		disable = not builtin.plugins.markdown_preview.active,
