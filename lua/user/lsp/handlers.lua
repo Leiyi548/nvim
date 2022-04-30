@@ -112,6 +112,7 @@ M.on_attach = function(client, bufnr)
 		or client.name == "jsonls"
 		or client.name == "sumneko_lua"
 		or client.name == "html"
+		or client.name == "gopls"
 	then
 		client.resolved_capabilities.document_formatting = false
 		client.resolved_capabilities.document_range_formatting = false
