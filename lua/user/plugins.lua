@@ -249,7 +249,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.telescope")
 		end,
-		-- cmd = "Telescope",
 	})
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({ "nvim-telescope/telescope-file-browser.nvim", disable = not builtin.plugins.telescope_file_browser.active })
@@ -264,7 +263,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "Leiyi548/telescope-packer.nvim", disable = not builtin.plugins.telescope_packer.active })
 	use({
-		"Leiyi548/project.nvim", -- ahmedkhalf/project.nvim
+		"ahmedkhalf/project.nvim", -- ahmedkhalf/project.nvim
 		config = function()
 			require("user.project")
 		end,
@@ -441,19 +440,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.todo-comments")
 		end,
-	})
-	-- template header
-	use({
-		"tibabit/vim-templates",
-		config = function()
-			vim.cmd([[
-      let g:tmpl_search_paths = [ "~/.config/nvim/templates" ]
-      let g:tmpl_author_name = "Leiyi548"
-      let g:tmpl_author_email = "1424630446@qq.com"
-      let g:tmpl_auto_initialize = 1
-      ]])
-		end,
-		disable = not builtin.plugins.templates.active,
 	})
 	-- vim.notify
 	use({

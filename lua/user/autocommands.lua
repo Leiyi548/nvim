@@ -57,23 +57,6 @@ if builtin.custom.smartNumber.active then
 	vim.cmd([[ au InsertLeave * set relativenumber ]])
 end
 
--- set header comment
-vim.cmd([[
-" Add header comment for python file automatically.
-autocmd BufNewFile *.sh,*.py exec ":call SetTitle()"
-func SetTitle()
-if expand("%:e") == 'py'
-   call setline(1,'"""')
-   call setline(2,"# Author:         Leiyi548")
-   call setline(3,"# Date:           ".strftime("%Y/%m/%d %H:%M")."")
-   call setline(4,'"""')
-   normal G
-   normal o
-   normal o
-endif
-endfunc
-]])
-
 -- indent for different filetype
 vim.cmd([[
   autocmd FileType php,ruby,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
