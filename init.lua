@@ -38,7 +38,7 @@ builtin.colorscheme.rose_pine = { active = true } -- enable to use colorscheme r
 builtin.colorscheme.dracula = { active = false } -- enable to use colorscheme dracula
 builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme onedarkpro
 builtin.colorscheme.monokai = { active = false } -- enable to use colorscheme monokai
-builtin.colorscheme.tj = { active = flase } -- enable to use tj colorscheme
+builtin.colorscheme.tj = { active = false } -- enable to use tj colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--

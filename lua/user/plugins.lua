@@ -145,6 +145,11 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
+	use({
+		"RishabhRD/gruvy",
+		requires = { "rktjmp/lush.nvim" },
+	})
+	use("briones-gabriel/darcula-solid.nvim")
 	use({ "lunarvim/darkplus.nvim" })
 	use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
@@ -160,7 +165,7 @@ return packer.startup(function(use)
 	use({
 		"tjdevries/gruvbuddy.nvim",
 		config = function()
-			require("colorbuddy").colorscheme("gruvbuddy")
+			require("user.tj_colorscheme")
 		end,
 		disable = not builtin.colorscheme.tj.active,
 	})
