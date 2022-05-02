@@ -148,8 +148,16 @@ return packer.startup(function(use)
 	use({
 		"RishabhRD/gruvy",
 		requires = { "rktjmp/lush.nvim" },
+		disable = not builtin.colorscheme.tj.active,
 	})
-	use("briones-gabriel/darcula-solid.nvim")
+	use({
+		"mcchrish/zenbones.nvim",
+		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
+		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+		-- In Vim, compat mode is turned on as Lush only works in Neovim.
+		requires = "rktjmp/lush.nvim",
+	})
+	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
 	use({ "lunarvim/darkplus.nvim" })
 	use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
@@ -158,17 +166,6 @@ return packer.startup(function(use)
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
 	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
-	use({
-		"tjdevries/colorbuddy.nvim",
-		disable = not builtin.colorscheme.tj.active,
-	})
-	use({
-		"tjdevries/gruvbuddy.nvim",
-		config = function()
-			require("user.tj_colorscheme")
-		end,
-		disable = not builtin.colorscheme.tj.active,
-	})
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -284,6 +281,7 @@ return packer.startup(function(use)
 			require("user.treesitter")
 		end,
 	})
+	use("nvim-treesitter/playground")
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", event = "BufReadPost" })
 
 	-- Git
@@ -326,7 +324,11 @@ return packer.startup(function(use)
 	})
 
 	-- im-select
-	use({ "Leiyi548/vim-im-select", disable = not builtin.plugins.im_select.active })
+	use({
+		"Leiyi548/vim-im-select",
+		event = { "InsertEnter" },
+		disable = not builtin.plugins.im_select.active,
+	})
 
 	-- emmet
 	use({

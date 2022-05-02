@@ -32,6 +32,7 @@ let g:startify_skiplist = [
 let g:startify_bookmarks = [
         \ '~/.config/nvim/init.lua',
         \ '~/.zshrc',
+        \ '~/.config/nvim/lua/user/plugins.lua',
         \]
 " custom footer
 let g:startify_custom_footer =
