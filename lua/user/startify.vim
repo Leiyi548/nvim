@@ -33,6 +33,7 @@ let g:startify_bookmarks = [
         \ '~/.config/nvim/init.lua',
         \ '~/.zshrc',
         \ '~/.config/nvim/lua/user/plugins.lua',
+        \'/mnt/c/Users/9/AppData/Roaming/alacritty/alacritty.yml',
         \]
 " custom footer
 let g:startify_custom_footer =

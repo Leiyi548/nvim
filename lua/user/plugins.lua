@@ -146,7 +146,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use({
-		"RishabhRD/gruvy",
+		"Leiyi548/gruvy",
 		requires = { "rktjmp/lush.nvim" },
 		disable = not builtin.colorscheme.tj.active,
 	})
@@ -326,7 +326,7 @@ return packer.startup(function(use)
 	-- im-select
 	use({
 		"Leiyi548/vim-im-select",
-		event = { "InsertEnter" },
+		-- event = { "InsertEnter" },
 		disable = not builtin.plugins.im_select.active,
 	})
 
