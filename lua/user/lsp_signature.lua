@@ -27,20 +27,20 @@ M.config = function()
 		-- will set to true when fully tested, set to false will use whichever side has more space
 		-- this setting will be helpful if you do not want the PUM and floating win overlap
 
-		floating_window_off_x = 70, -- adjust float windows x position.
+		floating_window_off_x = 50, -- adjust float windows x position.
 		floating_window_off_y = 10, -- adjust float windows y position.
 
 		fix_pos = true, -- set to true, the floating window will not auto-close until finish all parameters
 		hint_enable = true, -- virtual hint enable
-		-- hint_prefix = "🐼 ", -- Panda for parameter
-		hint_prefix = " ", -- bird for parameters
+		hint_prefix = "🐼 ", -- Panda for parameter
+		-- hint_prefix = " ", -- bird for parameters
 		hint_scheme = "String",
 		hi_parameter = "LspSignatureActiveParameter", -- how your parameter will be highlight
 		max_height = 12, -- max height of signature floating_window, if content is more than max_height, you can scroll down
 		-- to view the hiding contents
-		max_width = 50, -- max_width of signature floating_window, line will be wrapped if exceed max_width
+		max_width = 80, -- max_width of signature floating_window, line will be wrapped if exceed max_width
 		handler_opts = {
-			border = "rounded", -- double, rounded, single, shadow, none
+			border = "single", -- double, rounded, single, shadow, none
 		},
 
 		always_trigger = false, -- sometime show signature on new line or in middle of parameter can be confusing, set it to false for #58

@@ -139,6 +139,9 @@ keymap("v", ">", ">gv", opts)
 keymap("n", ">", ">>", opts)
 keymap("n", "<", "<<", opts)
 
+-- better copy
+keymap("v", "p", '"0p', opts)
+-- keymap("n", "p", '"0p', opts)
 -- have some troubles in luasnip (delete)
 -- keymap("v", "p", '"_dP', opts)
 

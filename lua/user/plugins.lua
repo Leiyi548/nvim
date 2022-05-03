@@ -116,6 +116,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.indentline")
 		end,
+		disable = not builtin.plugins.indent_line.active,
 	})
 	use({
 		"goolord/alpha-nvim",
