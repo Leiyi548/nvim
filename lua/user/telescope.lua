@@ -68,6 +68,7 @@ telescope.setup({
 			i = {
 				["<C-j>"] = actions.cycle_history_next,
 				["<C-k>"] = actions.cycle_history_prev,
+				["<C-f>"] = actions.close,
 
 				["<C-n>"] = actions.move_selection_next,
 				["<C-p>"] = actions.move_selection_previous,
@@ -104,6 +105,7 @@ telescope.setup({
 			n = {
 				["<esc>"] = actions.close,
 				["q"] = actions.close,
+				["<C-f>"] = actions.close,
 				["<CR>"] = actions.select_default,
 				["o"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,

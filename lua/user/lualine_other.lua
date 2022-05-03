@@ -82,7 +82,7 @@ local progress = {
 		return chars[index]
 	end,
 	-- color = { fg = colors.yellow, bg = colors.blue },
-	color = { fg = colors.fg },
+	-- color = { fg = colors.fg },
 	padding = { left = 0, right = 0 },
 }
 

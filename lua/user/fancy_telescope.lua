@@ -384,4 +384,13 @@ function M.find_diarys()
 	}
 	builtin.find_files(themes.get_dropdown(opts))
 end
+
+function M.startify()
+	local opts = {
+		prompt_title = "startfiy",
+		path_display = { "smart" },
+		file_ignore_patterns = file_ignore_patterns,
+	}
+	builtin.find_files(themes.get_ivy(opts))
+end
 return M

@@ -80,6 +80,7 @@ keymap("n", "gp", '<cmd>lua require("harpoon.ui").nav_prev()<cr>', opts)
 
 -- Better telescope find lsp symbol
 keymap("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+keymap("n", "<C-f>", "<cmd>lua require('user.fancy_telescope').startify()<cr>", opts)
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)
@@ -96,9 +97,6 @@ keymap("n", "H", "^", opts)
 keymap("n", "L", "$", opts)
 keymap("v", "H", "^", opts)
 keymap("v", "L", "$", opts)
-
--- Better lazygit keybinding
-keymap("n", "<C-g>", "<cmd>lua _LAZYGIT_TOGGLE()<CR> ", opts)
 
 -- Resize with arrows(left right up down)
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)

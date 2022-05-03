@@ -151,13 +151,8 @@ return packer.startup(function(use)
 		requires = { "rktjmp/lush.nvim" },
 		disable = not builtin.colorscheme.tj.active,
 	})
-	use({
-		"mcchrish/zenbones.nvim",
-		-- Optionally install Lush. Allows for more configuration or extending the colorscheme
-		-- If you don't want to install lush, make sure to set g:zenbones_compat = 1
-		-- In Vim, compat mode is turned on as Lush only works in Neovim.
-		requires = "rktjmp/lush.nvim",
-	})
+	use("Leiyi548/gruvy.nvim")
+	use({ "shaunsingh/nord.nvim" })
 	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
 	use({ "lunarvim/darkplus.nvim" })
 	use({ "rebelot/kanagawa.nvim" })
