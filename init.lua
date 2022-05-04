@@ -41,22 +41,22 @@ builtin.colorscheme.darcula = { active = false } -- enable to use IntelijIdea bu
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has("wsl") == 1 then
-	builtin.plugins.smartIm = { active = false }
-	builtin.plugins.markdown_preview = { active = false }
-	builtin.plugins.im_select = { active = false }
-	builtin.plugins.markdown_preview = { active = false }
-	vim.g.clipboard = {
-		name = "win32yank-wsl",
-		copy = {
-			["+"] = "win32yank.exe -i --crlf",
-			["*"] = "win32yank.exe -i --crlf",
-		},
-		paste = {
-			["+"] = "win32yank.exe -o --lf",
-			["*"] = "win32yank.exe -o --lf",
-		},
-		cache_enable = 0,
-	}
+  builtin.plugins.smartIm = { active = false }
+  builtin.plugins.markdown_preview = { active = false }
+  builtin.plugins.im_select = { active = false }
+  builtin.plugins.markdown_preview = { active = false }
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
+    },
+    paste = {
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enable = 0,
+  }
 end
 
 require("user.options")
@@ -67,9 +67,9 @@ require("user.impatient")
 require("user.autocommands")
 require("user.lsp")
 if builtin.custom.lualine_vscode.active then
-	require("user.lualine")
+  require("user.lualine")
 else
-	require("user.lualine_other")
+  require("user.lualine_other")
 end
 -- Textobjects
 -- =========================================
