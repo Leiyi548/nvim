@@ -64,9 +64,6 @@ vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
 keymap("i", "<C-j>", "<cmd>lua require('luasnip').jump(1)<cr>", opts)
 keymap("i", "<C-k>", "<cmd>lua require('luasnip').jump(-1)<cr>", opts)
 
--- Better toggle_colorscheme()
-keymap("n", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
-keymap("v", "|", "<cmd>lua toggle_colorscheme()<cr>", opts)
 
 -- Better persistence (sessions management)
 keymap("n", "<leader>sl", [[<cmd>lua require("persistence").load()<cr>]], opts)

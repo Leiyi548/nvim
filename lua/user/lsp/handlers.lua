@@ -46,26 +46,6 @@ M.setup = function()
 	vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
 		border = "rounded",
 	})
-
-	-- use nvim-notify to dispaly LSP message
-	if builtin.lsp.notify.active then
-		vim.lsp.handlers["window/showMessage"] = function(_, result, ctx)
-			local client = vim.lsp.get_client_by_id(ctx.client_id)
-			local lvl = ({
-				"ERROR",
-				"WARN",
-				"INFO",
-				"DEBUG",
-			})[result.type]
-			notify({ result.message }, lvl, {
-				title = "LSP | " .. client.name,
-				timeout = 10000,
-				keep = function()
-					return lvl == "ERROR" or lvl == "WARN"
-				end,
-			})
-		end
-	end
 end
 
 local function lsp_highlight_document(client)
