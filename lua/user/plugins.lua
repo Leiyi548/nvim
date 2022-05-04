@@ -34,7 +34,7 @@ end
 -- Have packer use a popup window
 packer.init({
   git = { clone_timeout = 288, default_url_format = "git@github.com:%s" },
-  max_jobs = 30,
+  max_jobs = 50,
   display = {
     open_fn = function()
       return require("packer.util").float({ border = "single" }) -- single rounded
@@ -408,6 +408,7 @@ return packer.startup(function(use)
     config = function()
       require("user.clipboard-image")
     end,
+    disable = not builtin.plugins.paste_image.active,
   })
   use({
     "folke/todo-comments.nvim",
@@ -421,6 +422,7 @@ return packer.startup(function(use)
     "rcarriga/nvim-notify",
     config = function()
       require("user.notify")
+      vim.notify = require("notify")
     end,
     event = "BufRead",
     disable = not builtin.plugins.notify.active,
