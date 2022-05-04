@@ -112,7 +112,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.indentline")
 		end,

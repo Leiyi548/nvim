@@ -123,6 +123,7 @@ local mappings = {
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		p = { "<cmd>Telescope projects<cr>", "Project" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+		h = { "<cmd>Telescope highlights<cr>", "Keymaps" },
 		N = { "<cmd>enew<cr>", "New File" },
 		r = {
 			"<cmd>lua require'telescope.builtin'.oldfiles()<cr>",

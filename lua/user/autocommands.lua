@@ -40,6 +40,7 @@ vim.cmd([[
  augroup _startify
    autocmd!
    autocmd User Startified  set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
+   autocmd User Startified normal! zR
  augroup end
 
  augroup last_cursor_position

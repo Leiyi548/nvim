@@ -30,7 +30,7 @@ null_ls.setup({
 	},
 	on_attach = function(client)
 		-- format on save
-		if client.resolved_capabilities.document_formatting then
+		if client.server_capabilities.document_formatting then
 			vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>

@@ -114,8 +114,8 @@ M.on_attach = function(client, bufnr)
 		or client.name == "html"
 		or client.name == "gopls"
 	then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_range_formatting = false
 	end
 	lsp_keymaps(bufnr)
 	-- lsp_highlight_document(client)
