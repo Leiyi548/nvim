@@ -33,11 +33,7 @@ end
 
 -- Have packer use a popup window
 packer.init({
-	-- git = { clone_timeout = 288 },
 	git = { clone_timeout = 288, default_url_format = "git@github.com:%s" },
-	-- git = { clone_timeout = 288, default_url_format = "https://github.91chi.fun//https://github.com/%s" },
-	-- git = {clone_timeout = 288, default_url_format = "https://github.cnpmjs.org/%s" },
-	-- git = { clone_timeout = 288, default_url_format = "https://hub.fastgit.org/%s" },
 	max_jobs = 30,
 	display = {
 		open_fn = function()
@@ -112,7 +108,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		-- event = "BufRead",
+		event = "BufRead",
 		config = function()
 			require("user.indentline")
 		end,
@@ -152,10 +148,10 @@ return packer.startup(function(use)
 		disable = not builtin.colorscheme.tj.active,
 	})
 	use("Leiyi548/gruvy.nvim")
-	use({ "shaunsingh/nord.nvim" })
+	-- use({ "shaunsingh/nord.nvim" })
 	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
-	use({ "lunarvim/darkplus.nvim" })
-	use({ "rebelot/kanagawa.nvim" })
+	-- use({ "lunarvim/darkplus.nvim" })
+	-- use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
@@ -224,10 +220,6 @@ return packer.startup(function(use)
 	-- LSP
 	use({
 		"neovim/nvim-lspconfig",
-		-- event = "BufReadPre",
-		config = function()
-			require("user.lsp")
-		end,
 	}) -- enable LSP
 	use({ "williamboman/nvim-lsp-installer" }) -- simple to use language server installer
 	use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
@@ -249,7 +241,6 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "nvim-telescope/telescope-ui-select.nvim" })
-	use({ "nvim-telescope/telescope-file-browser.nvim", disable = not builtin.plugins.telescope_file_browser.active })
 	use({
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()
@@ -294,6 +285,7 @@ return packer.startup(function(use)
 		"dstein64/vim-startuptime",
 		cmd = "Startuptime",
 	})
+
 	-- vim-surround
 	use({
 		"tpope/vim-surround",
@@ -387,6 +379,7 @@ return packer.startup(function(use)
 			})
 		end,
 	})
+
 	-- markdown preview in google Chrome
 	use({
 		"iamcco/markdown-preview.nvim",
@@ -415,27 +408,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.clipboard-image")
 		end,
-	})
-	-- noteTaking use neorg
-	use({
-		"nvim-neorg/neorg",
-		ft = { "norg" },
-		disable = not builtin.plugins.neorg.active,
-		config = function()
-			require("user.neorg")
-		end,
-		requires = "nvim-lua/plenary.nvim",
-	})
-	-- noteTaking use orgmode.nvim
-	use({
-		"nvim-orgmode/orgmode.nvim",
-		keys = { "go", "gC" },
-		ft = { "org" },
-		config = function()
-			require("user.orgmode").setup()
-			vim.cmd("language en_US.UTF-8")
-		end,
-		disable = not builtin.plugins.orgmode.active,
 	})
 	use({
 		"folke/todo-comments.nvim",

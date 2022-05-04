@@ -12,35 +12,7 @@ end
 
 -- add othre parser
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
-if builtin.plugins.neorg.active then
-	-- These two are optional and provide syntax highlighting
-	-- for Neorg tables and the @document.meta tag
-	parser_configs.norg_meta = {
-		install_info = {
-			url = "https://github.com/nvim-neorg/tree-sitter-norg-meta",
-			files = { "src/parser.c" },
-			branch = "main",
-		},
-	}
-	parser_configs.norg_table = {
-		install_info = {
-			url = "https://github.com/nvim-neorg/tree-sitter-norg-table",
-			files = { "src/parser.c" },
-			branch = "main",
-		},
-	}
-end
 
-if builtin.plugins.orgmode.active then
-	parser_configs.org = {
-		install_info = {
-			url = "https://github.com/milisims/tree-sitter-org",
-			revision = "f110024d539e676f25b72b7c80b0fd43c34264ef",
-			files = { "src/parser.c", "src/scanner.cc" },
-		},
-		filetype = "org",
-	}
-end
 
 -- treesitter config
 configs.setup({

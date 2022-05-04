@@ -8,11 +8,9 @@ builtin.colorscheme = {}
 builtin.plugins = {}
 builtin.plugins.emmet = { active = false } -- enable to use emmet-vim plugins
 builtin.plugins.tabnine = { active = false } -- enable to use emmet plugins
-builtin.plugins.neorg = { active = false } -- enable to open neorg to noteTaking
 builtin.plugins.orgmode = { active = false } -- enable to use orgmode plugins
 builtin.plugins.cmp_autopairs = { active = true } -- enable to open cmp_autopairs.on_confirm_done
 builtin.plugins.telescope_project = { active = true } -- enable to use project.nvim plugin
-builtin.plugins.telescope_file_browser = { active = false }
 builtin.plugins.telescope_packer = { active = false }
 builtin.plugins.telescope_frceny = { active = false } -- enable to use telescope-france.nvim plugins
 builtin.plugins.notify = { active = true } -- enable to use nvim-notify plugins
