@@ -47,28 +47,8 @@ vim.cmd([[
     autocmd BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
   augroup END
-
-augroup LspFormatting
-    autocmd! * <buffer>
-    autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-augroup END
-
 ]])
 
--- autocmd FileType markdown setlocal spell (markdown)
-
-    vim.cmd [[
-    hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-    hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
-    augroup lsp_document_highlight
-      autocmd! * <buffer>
-      autocmd! CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-      autocmd! CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-
-      autocmd! CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-    augroup END
-  ]]
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 if builtin.custom.smartNumber.active then
   vim.cmd([[ au InsertEnter * set norelativenumber ]])
