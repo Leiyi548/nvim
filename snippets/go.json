@@ -2,5 +2,13 @@
   "main": {
     "prefix": "main",
     "body": ["func main(){", "\t$0", "}"]
+  },
+  "fmtprintln": {
+    "prefix": "pln",
+    "body": ["fmt.Println(\"$0\")"]
+  },
+  "fmtprintf": {
+    "prefix": "plf",
+    "body": ["fmt.Printf(\"$0\")"]
   }
 }
