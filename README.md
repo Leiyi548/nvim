@@ -135,6 +135,12 @@ nvim # run :PackerSync
 
 ### language development
 
+- [ ] go
+  - [x] lsp
+  - [x] format
+  - [x] diagnostic
+  - [x] autoimport
+  - [ ] debug
 - [ ] HTML
 - [ ] Javascript
 - [ ] Typescript

@@ -71,6 +71,9 @@ nvim_tree.setup({
 			custom_only = false,
 			list = {
 				-- user mappings go here
+				{ key = "[g", action = "prev_git_item" },
+				{ key = "]g", action = "next_git_item" },
+				{ key = "X", action = "collapse_all" },
 			},
 		},
 	},
@@ -92,8 +95,8 @@ nvim_tree.setup({
 		auto_open = true,
 	},
 	update_focused_file = {
-		enable = false,
-		update_cwd = false,
+		enable = true,
+		update_cwd = true,
 		ignore_list = {},
 	},
 	ignore_ft_on_setup = {},
@@ -158,3 +161,8 @@ nvim_tree.setup({
 		},
 	},
 })
+
+-- You can automatically close the tab/vim when nvim-tree is the last window in the tab.
+vim.cmd([[
+autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+]])
