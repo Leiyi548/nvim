@@ -161,9 +161,19 @@ cmp.setup({
 		behavior = cmp.ConfirmBehavior.Replace,
 		select = false,
 	},
+	-- window = {
+	-- 	completion = cmp.config.window.bordered(),
+	-- 	documentation = cmp.config.window.bordered(),
+	-- },
 	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
+		documentation = {
+			-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+		},
+		completion = {
+			border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+			winhighlight = "Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,Search:None",
+		},
 	},
 	experimental = {
 		ghost_text = true,
