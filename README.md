@@ -127,7 +127,6 @@ nvim # run :PackerSync
 
 ### plugins
 
-- [x] [harpoon](https://github.com/ThePrimeagen/harpoon)
 - [x] [telescope-file-browser.nvim](https://github.com/nvim-telescope/telescope-file-browser.nvim)
 - [x] [todo-comments.nvim](https://github.com/folke/todo-comments.nvim)
 - [x] [github/copilot.vim](https://github.com/github/copilot.vim)
