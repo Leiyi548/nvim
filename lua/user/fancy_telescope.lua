@@ -169,14 +169,11 @@ end
 -- show refrences to this using language server
 function M.lsp_references()
 	local opts = {
-		layout_strategy = "vertical",
-		layout_config = {
-			prompt_position = "top",
-		},
 		sorting_strategy = "ascending",
 		ignore_filename = false,
+		initial_mode = "normal",
 	}
-	builtin.lsp_references(opts)
+	builtin.lsp_references(themes.get_ivy(opts))
 end
 
 -- show implementations of the current thingy using language server
