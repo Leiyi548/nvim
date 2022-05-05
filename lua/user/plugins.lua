@@ -171,6 +171,7 @@ return packer.startup(function(use)
 			require("user.cmp")
 		end,
 		commit = "bba6fb67fdafc0af7c5454058dfbabc2182741f4",
+		-- commit = "bba6fb67fdafc0af7c5454058dfbabc2182741f4",
 	}) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer completions
 	use({ "hrsh7th/cmp-path", after = "nvim-cmp" }) -- path completions

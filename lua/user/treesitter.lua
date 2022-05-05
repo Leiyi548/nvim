@@ -13,7 +13,6 @@ end
 -- add othre parser
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 
-
 -- treesitter config
 configs.setup({
 	-- ensure_installed = { "lua", "python", "html", "javascript", "cpp", "org", "norg", "norg_meta", "norg_table" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
@@ -109,6 +108,7 @@ configs.setup({
 			border = "rounded",
 			peek_definition_code = {
 				["df"] = "@function.outer",
+				["gp"] = "@function.outer",
 				["dF"] = "@class.outer",
 			},
 		},

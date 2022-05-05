@@ -114,7 +114,7 @@ nvim # run :PackerSync
 
 ### CONFIG SETUP
 
-- [ ] removed unused plugins
+- [x] removed unused plugins
 - [x] add format and linting
 - [ ] Debug
 - [x] fast tab/buffer navigation
@@ -141,8 +141,17 @@ nvim # run :PackerSync
   - [x] autoimport
   - [ ] debug
 - [ ] HTML
+  - [ ] lsp
+  - [x] format
+  - [x] diagnostic
 - [ ] Javascript
+  - [ ] lsp
+  - [ ] format
+  - [ ] diagnostic
 - [ ] Typescript
+  - [ ] lsp
+  - [ ] format
+  - [ ] diagnostic
 - [x] Python
   - [x] lsp
   - [x] format
