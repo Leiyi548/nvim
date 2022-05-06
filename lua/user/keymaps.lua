@@ -41,6 +41,9 @@ keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
 keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
 
+-- Better trouble toggle like intelijdea
+keymap("n", "<M-6>", "<cmd>TroubleToggle<cr>", opts)
+
 -- Better easymotion (hop)
 keymap("n", "E", "<cmd>HopChar1<cr>", opts)
 keymap("v", "E", "<cmd>HopChar1<cr>", opts)

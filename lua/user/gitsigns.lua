@@ -6,7 +6,7 @@ end
 gitsigns.setup({
 	--[[
 color = {
-GitSignsAdd = #6A9955 
+GitSignsAdd = #6A9955
 GitSignsChange = #DCDCAA
 GitSignsDelete = #F44747
 GitSignsAddLn = #1E1E1E #6A9955

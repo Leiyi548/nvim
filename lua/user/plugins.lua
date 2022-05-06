@@ -151,7 +151,7 @@ return packer.startup(function(use)
 	-- use({ "shaunsingh/nord.nvim" })
 	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
 	-- use({ "lunarvim/darkplus.nvim" })
-	-- use({ "rebelot/kanagawa.nvim" })
+	use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
@@ -170,7 +170,6 @@ return packer.startup(function(use)
 		config = function()
 			require("user.cmp")
 		end,
-		commit = "bba6fb67fdafc0af7c5454058dfbabc2182741f4",
 		-- commit = "bba6fb67fdafc0af7c5454058dfbabc2182741f4",
 	}) -- The completion plugin
 	use({ "hrsh7th/cmp-buffer", after = "nvim-cmp" }) -- buffer completions
@@ -472,6 +471,19 @@ return packer.startup(function(use)
 		config = function()
 			require("user.gps")
 		end,
+	})
+	use({
+		"folke/trouble.nvim",
+		config = function()
+			require("trouble").setup({
+				auto_open = false,
+				auto_close = false,
+				padding = false,
+				height = 10,
+				use_diagnostic_signs = true,
+			})
+		end,
+		cmd = { "Trouble", "TroubleToggle" },
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
