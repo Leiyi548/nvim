@@ -304,6 +304,7 @@ if material_status_ok then
 			pythonTSParameter = { style = "bold" },
 			CmpItemAbbrMatch = { fg = "#87ddff", style = "bold,italic" },
 			TelescopeMatching = { fg = "#87ddff", style = "bold,italic" },
+			IndentBlanklineContextChar = { fg = "#87ddff" },
 		}, -- Overwrite highlights with your own
 	})
 	--Lua:
@@ -335,6 +336,5 @@ end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end material configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
-
 require("user.nvimColorScheme")
 require("user.highlight")
