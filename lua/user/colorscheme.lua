@@ -152,6 +152,7 @@ require("github-theme").setup({
 	theme_style = "light_default",
 	comment_style = "italic",
 	function_style = "NONE",
+	keyword_style = "bold",
 	sidebars = { "qf", "vista_kind", "terminal", "packer" },
 
 	-- Change the "hint" color to the "orange" color, and make the "error" color bright red
@@ -161,7 +162,6 @@ require("github-theme").setup({
 	overrides = function(c)
 		return {
 			htmlTag = { fg = c.red, bg = "#282c34", sp = c.hint, style = "underline" },
-			-- Comment = { fg = "#5a115e", style = "bold,italic" },
 			DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
 			-- this will remove the highlight groups
 			TSField = {},

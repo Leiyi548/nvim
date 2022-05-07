@@ -51,11 +51,11 @@ end
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
 	if client.resolved_capabilities.document_highlight then
-		vim.cmd([[
-      hi! LspReferenceRead cterm=bold ctermbg=red guibg=#33393f
-      hi! LspReferenceText cterm=bold ctermbg=red guibg=#33393f
-      hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#33393f
-    ]])
+		-- vim.cmd([[
+		--     hi! LspReferenceRead cterm=bold ctermbg=red guibg=#33393f
+		--     hi! LspReferenceText cterm=bold ctermbg=red guibg=#33393f
+		--     hi! LspReferenceWrite cterm=bold ctermbg=red guibg=#33393f
+		--   ]])
 		vim.api.nvim_create_augroup("lsp_document_highlight", {})
 		vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 			group = "lsp_document_highlight",
