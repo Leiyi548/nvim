@@ -17,3 +17,4 @@ vim.g.copilot_filetypes = {
 	typescriptreact = true,
 	terraform = true,
 }
+vim.api.nvim_set_keymap("i", "<C-h>", [[copilot#Accept("\<CR>")]], { expr = true, script = true })

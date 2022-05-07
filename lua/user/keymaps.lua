@@ -135,17 +135,18 @@ keymap("v", "p", '"0p', opts)
 -- have some troubles in luasnip (delete)
 -- keymap("v", "p", '"_dP', opts)
 
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+-- Move text up and down like vscode keybinding
+-- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+-- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+vim.cmd([[
+nnoremap <M-Down> :m .+1<CR>==
+nnoremap <M-Up> :m .-2<CR>==
+inoremap <M-Down> <Esc>:m .+1<CR>==gi
+inoremap <M-Up> <Esc>:m .-2<CR>==gi
+vnoremap <M-Down> :m '>+1<CR>gv=gv
+vnoremap <M-Up> :m '<-2<CR>gv=gv
+]])
 
-if builtin.plugins.copilot.active then
-	keymap("i", "<C-h>", [[copilot#Accept("\<CR>")]], { expr = true, script = true })
-end
-
--- Better create file
-keymap("n", "<leader>ne", ":edit ", opts)
 -- Better rename file
 vim.cmd([[
 function! RenameFile()
@@ -161,3 +162,5 @@ function! RenameFile()
 endfunction
 nnoremap <leader>rn :call RenameFile()<cr>
 ]])
+-- Better create file
+keymap("n", "<leader>ne", ":edit ", opts)
