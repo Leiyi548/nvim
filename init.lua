@@ -63,7 +63,7 @@ end
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
-require("user.colorscheme")
+require("user.theme")
 require("user.impatient")
 require("user.autocommands")
 require("user.lsp")
@@ -75,5 +75,3 @@ end
 -- Textobjects
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])
--- use dark background
-vim.o.background = "dark"

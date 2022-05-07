@@ -63,6 +63,7 @@ end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 -- Github:    https://github.com/rose-pine/neovim
 if builtin.colorscheme.rose_pine.active then
+	vim.o.background = "dark"
 	require("rose-pine").setup({
 		---@usage 'main'|'moon'
 		dark_variant = "main",
@@ -245,9 +246,9 @@ require("catppuccin").setup({
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━❰ material configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
+vim.g.material_style = "Darker" -- Oceanic, Deep ocean, Palenight, Lighter,Darker,deep ocean
 local material_status_ok, material = pcall(require, "material")
 if material_status_ok then
-	vim.g.material_style = "deep ocean" -- Oceanic, Deep ocean, Palenight, Lighter,Darker,deep ocean
 	material.setup({
 
 		contrast = {
@@ -265,7 +266,6 @@ if material_status_ok then
 
 		italics = {
 			comments = true, -- Enable italic comments
-
 			keywords = false, -- Enable italic keywords
 			functions = false, -- Enable italic functions
 			strings = false, -- Enable italic strings
@@ -303,9 +303,34 @@ if material_status_ok then
 			pythonTSMethod = { style = "bold" },
 			pythonTSParameter = { style = "bold" },
 			CmpItemAbbrMatch = { fg = "#87ddff", style = "bold,italic" },
-			-- CmpItemAbbrMatch = { style = "bold,italic" },
+			TelescopeMatching = { fg = "#87ddff", style = "bold,italic" },
 		}, -- Overwrite highlights with your own
 	})
+	--Lua:
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>mm",
+		[[<cmd>lua require('material.functions').toggle_style()<CR>]],
+		{ noremap = true, silent = true }
+	)
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>ml",
+		[[<Cmd>lua require('material.functions').change_style('lighter')<CR>]],
+		{ noremap = true, silent = true }
+	)
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>md",
+		[[<Cmd>lua require('material.functions').change_style('deep ocean')<CR>]],
+		{ noremap = true, silent = true }
+	)
+	vim.api.nvim_set_keymap(
+		"n",
+		"<leader>mo",
+		[[<Cmd>lua require('material.functions').change_style('oceanic')<CR>]],
+		{ noremap = true, silent = true }
+	)
 end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end material configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
