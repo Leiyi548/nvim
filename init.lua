@@ -75,3 +75,5 @@ end
 -- Textobjects
 -- =========================================
 vim.cmd([[source ~/.config/nvim/textobjects.vim]])
+-- set black background
+vim.o.background = "dark"

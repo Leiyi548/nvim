@@ -63,7 +63,6 @@ end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 -- Github:    https://github.com/rose-pine/neovim
 if builtin.colorscheme.rose_pine.active then
-	vim.o.background = "dark"
 	require("rose-pine").setup({
 		---@usage 'main'|'moon'
 		dark_variant = "main",
@@ -164,8 +163,9 @@ require("github-theme").setup({
 		return {
 			htmlTag = { fg = c.red, bg = "#282c34", sp = c.hint, style = "underline" },
 			DiagnosticHint = { link = "LspDiagnosticsDefaultHint" },
+			goImport = { style = "italic" },
 			-- this will remove the highlight groups
-			TSField = {},
+			-- TSField = {},
 		}
 	end,
 })
@@ -296,9 +296,15 @@ if material_status_ok then
 		async_loading = true, -- Load parts of the theme asyncronously for faster startup (turned on by default)
 
 		custom_highlights = {
+			LineNr = { fg = "#6e6a86" },
+			cursorLineNr = { style = "bold", fg = "#87ddff" },
 			goImport = { style = "italic" },
-			goTSMethod = { style = "bold" },
+			-- goTSMethod = { style = "bold" },
 			goTSParameter = { style = "bold" },
+			goTSType = { style = "italic" },
+			goTSKeywordFunction = { style = "bold" },
+			goTSRepeat = { style = "bold" },
+			goTSConditional = { style = "bold" },
 			pythonInclude = { style = "italic" },
 			pythonTSMethod = { style = "bold" },
 			pythonTSParameter = { style = "bold" },
