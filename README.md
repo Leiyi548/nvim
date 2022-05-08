@@ -62,27 +62,28 @@ brew install --cask font-hack-nerd-font
 ### Recommended Linters
 
 ```shell
-### cpp file
+### cpp
 # For .cpp file check linter error
 brew install cppcheck
 # For .cpp file format
 brew install clang-format
-### end cpp file
 
-### python file
+### python
 # For .py file check linter error
 brew install flake8
 # For .py file format
 brew install black
-### end python file
 
-### lua file
+### lua
 # For .lua file format
 brew install stylua
 
 ### markdown and html
 sudo npm install -g prettier
 sudo npm install -g ls_emmet
+
+### go
+brew install golangci-lint
 ```
 
 </details>
