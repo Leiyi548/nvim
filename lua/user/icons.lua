@@ -87,6 +87,8 @@ return {
 		TriangleLeft = " ",
 		TriangleRight = " ",
 		TriangleUp = " ",
+		NextArrow = " ",
+		RightArrow = " ",
 		Table = " ",
 		Calendar = " ",
 	},

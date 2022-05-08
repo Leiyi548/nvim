@@ -8,8 +8,8 @@ require("structrue-go").setup({
 	-- fold_close_icon = icons.ui.TriangleRight,
 	-- fold_open_icon = " ",
 	-- fold_close_icon = " ",
-	fold_open_icon = " ",
-	fold_close_icon = " ",
+	fold_open_icon = icons.ui.NextArrow,
+	fold_close_icon = icons.ui.RightArrow,
 	cursor_symbol_hl = "guibg=#393f48 ", -- symbol hl under cursor,
 	indent = "┠", -- Hierarchical indent icon, nil or empty will be a tab
 	position = "botright", -- window position,default botright,also can set float
