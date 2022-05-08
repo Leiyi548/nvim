@@ -166,7 +166,15 @@ function M.find_string()
 	builtin.live_grep(opts)
 end
 
--- show refrences to this using language server
+function M.lsp_definitions()
+	local opts = {
+		sorting_strategy = "ascending",
+		ignore_filename = false,
+		initial_mode = "normal",
+	}
+	builtin.lsp_definitions(themes.get_ivy(opts))
+end
+
 function M.lsp_references()
 	local opts = {
 		sorting_strategy = "ascending",
