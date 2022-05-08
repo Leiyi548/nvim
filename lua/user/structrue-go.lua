@@ -6,7 +6,7 @@ require("structrue-go").setup({
 	number = "no", -- show number: no | nu | rnu
 	fold_open_icon = " ",
 	fold_close_icon = " ",
-	cursor_symbol_hl = "guibg=Gray guifg=White", -- symbol hl under cursor,
+	cursor_symbol_hl = "guibg=#393f48 ", -- symbol hl under cursor,
 	indent = "┠", -- Hierarchical indent icon, nil or empty will be a tab
 	position = "botright", -- window position,default botright,also can set float
 	symbol = { -- symbol style
@@ -23,39 +23,39 @@ require("structrue-go").setup({
 			icon = icons.kind.Module,
 		},
 		const = {
-			hl = "guifg=Orange",
+			hl = "guifg=#75BEFF",
 			icon = icons.kind.Constant,
 		},
 		variable = {
-			hl = "guifg=Magenta",
+			hl = "guifg=#75BEFF",
 			icon = icons.kind.Variable,
 		},
 		func = {
-			hl = "guifg=#c792ea",
+			hl = "guifg=#B180D7",
 			icon = icons.kind.Function,
 		},
 		interface = {
-			hl = "guifg=Green",
+			hl = "guifg=#0195f7",
 			icon = icons.kind.Interface,
 		},
 		type = {
-			hl = "guifg=Purple",
+			hl = "guifg=#D4D4D4",
 			icon = icons.kind.TypeParameter,
 		},
 		struct = {
-			hl = "guifg=Purple",
+			hl = "guifg=#E8AB53",
 			icon = icons.kind.Struct,
 		},
 		field = {
-			hl = "guifg=DarkYellow",
+			hl = "guifg=#75BEFF",
 			icon = icons.kind.Field,
 		},
 		method_current = {
-			hl = "guifg=Purple",
+			hl = "guifg=#DCDCAA",
 			icon = icons.kind.Method,
 		},
 		method_others = {
-			hl = "guifg=Purple",
+			hl = "guifg=#DCDCAA",
 			icon = icons.kind.Method,
 		},
 	},

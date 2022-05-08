@@ -5,7 +5,7 @@ vim.cmd([[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200})
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
-    autocmd FileType null-ls-info,alpha,startuptime nnoremap <silent> <buffer> q :q<cr>"
+    autocmd FileType null-ls-info,alpha,startuptime,structrue-go nnoremap <silent> <buffer> q :q<cr>"
   augroup end
 
   augroup _git
@@ -51,8 +51,8 @@ vim.cmd([[
 
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 if builtin.custom.smartNumber.active then
-  vim.cmd([[ au InsertEnter * set norelativenumber ]])
-  vim.cmd([[ au InsertLeave * set relativenumber ]])
+	vim.cmd([[ au InsertEnter * set norelativenumber ]])
+	vim.cmd([[ au InsertLeave * set relativenumber ]])
 end
 -- indent for different filetype
 --[[ vim.cmd([[
