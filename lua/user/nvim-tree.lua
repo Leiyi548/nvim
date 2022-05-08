@@ -1,5 +1,7 @@
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
+local icons = require("user.icons")
+
 vim.g.nvim_tree_icons = {
 	default = "",
 	symlink = "",
@@ -24,8 +26,8 @@ vim.g.nvim_tree_icons = {
 	folder = {
 		arrow_open = "",
 		arrow_closed = "",
-		default = "",
-		open = "",
+		default = icons.documents.Folder,
+		open = icons.documents.OpenFolder,
 		empty = "",
 		empty_open = "",
 		symlink = "",

@@ -4,8 +4,12 @@ require("structrue-go").setup({
 	show_others_method = true, -- bool show methods of struct whose not in current file
 	show_filename = false, -- bool
 	number = "no", -- show number: no | nu | rnu
-	fold_open_icon = " ",
-	fold_close_icon = " ",
+	-- fold_open_icon = icons.ui.TriangleDown,
+	-- fold_close_icon = icons.ui.TriangleRight,
+	-- fold_open_icon = " ",
+	-- fold_close_icon = " ",
+	fold_open_icon = " ",
+	fold_close_icon = " ",
 	cursor_symbol_hl = "guibg=#393f48 ", -- symbol hl under cursor,
 	indent = "┠", -- Hierarchical indent icon, nil or empty will be a tab
 	position = "botright", -- window position,default botright,also can set float
