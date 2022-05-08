@@ -486,6 +486,21 @@ return packer.startup(function(use)
 		end,
 		cmd = { "Trouble", "TroubleToggle" },
 	})
+	use({
+		"ray-x/go.nvim",
+		-- ft = "go",
+		config = function()
+			require("user.go")
+		end,
+		disable = not builtin.plugins.gonvim.active,
+	})
+	use({
+		"crusj/structrue-go.nvim",
+		branch = "main",
+		config = function()
+			require("user.structrue-go")
+		end,
+	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then

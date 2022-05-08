@@ -173,6 +173,12 @@ local mappings = {
 		f = { "<cmd>AsyncTask file-run-floaterm<cr>", "Run on floaterm" },
 	},
 
+	-- whichkey-G
+	G = {
+		name = "Go",
+		a = { "<cmd>GoCmt<cr>", "Add comments" },
+	},
+
 	-- Whichkey-g
 	g = {
 		name = "Git",

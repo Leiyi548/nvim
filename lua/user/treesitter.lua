@@ -80,6 +80,9 @@ configs.setup({
 				["ic"] = "@class.inner",
 				["aC"] = "@conditional.outer",
 				["iC"] = "@conditional.inner",
+				["ad"] = "@comment.outer",
+				["am"] = "@call.outer",
+				["im"] = "@call.inner",
 			},
 		},
 		swap = {
