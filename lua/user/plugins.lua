@@ -476,15 +476,9 @@ return packer.startup(function(use)
 	use({
 		"folke/trouble.nvim",
 		config = function()
-			require("trouble").setup({
-				auto_open = false,
-				auto_close = false,
-				padding = false,
-				height = 10,
-				use_diagnostic_signs = true,
-			})
+			require("user.trouble")
 		end,
-		cmd = { "Trouble", "TroubleToggle" },
+		-- cmd = { "Trouble", "TroubleToggle" },
 	})
 	use({
 		"ray-x/go.nvim",
