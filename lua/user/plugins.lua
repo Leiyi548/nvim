@@ -143,6 +143,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	use("marko-cerovac/material.nvim")
+	use("luisiacc/gruvbox-baby")
 	use({
 		"Leiyi548/gruvy",
 		requires = { "rktjmp/lush.nvim" },
