@@ -298,6 +298,8 @@ if material_status_ok then
 		custom_highlights = {
 			LineNr = { fg = "#6e6a86" },
 			cursorLineNr = { style = "bold", fg = "#87ddff" },
+			BufferLineBufferSelected = { style = "italic,bold", fg = "#EEFFFF", bg = "##1e2227" },
+			BufferLineIndicatorSelected = { fg = "#87ddff" },
 			goImport = { style = "italic" },
 			-- goTSMethod = { style = "bold" },
 			goTSParameter = { style = "bold" },

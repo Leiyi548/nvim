@@ -24,7 +24,7 @@ null_ls.setup({
 		-- diagnostics.flake8, -- enable for python diagnostic
 		-- diagnostics.luacheck, -- enable for lua diagnostic
 		-- diagnostics.cppcheck, -- enable for cpp diagnostic
-		diagnostics.golangci_lint, -- enable for go diagnostic
+		-- diagnostics.golangci_lint, -- enable for go diagnostic
 		code_actions.gitsigns, -- enable code_action for gitsigns
 		-- completion.luasnip, -- enable to use builtins completion sources for luasnip
 		-- completion.spell, -- enable to use builtins completion sources for spell
