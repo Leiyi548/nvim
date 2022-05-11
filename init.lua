@@ -38,6 +38,7 @@ builtin.colorscheme.onedarkpro = { active = false } -- enable to use colorscheme
 builtin.colorscheme.monokai = { active = false } -- enable to use colorscheme monokai
 builtin.colorscheme.tj = { active = false } -- enable to use tj colorscheme
 builtin.colorscheme.darcula = { active = false } -- enable to use IntelijIdea builtin colorscheme
+builtin.colorscheme.catppuccin = { active = false } -- enable to use IntelijIdea builtin colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--

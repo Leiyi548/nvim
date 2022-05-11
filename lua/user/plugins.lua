@@ -144,26 +144,20 @@ return packer.startup(function(use)
 	-- Colorschemes
 	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
-	use({
-		"Leiyi548/gruvy",
-		requires = { "rktjmp/lush.nvim" },
-		disable = not builtin.colorscheme.tj.active,
-	})
-	use("Leiyi548/gruvy.nvim")
+	use({ "Leiyi548/gruvy.nvim", disable = not builtin.colorscheme.tj.active })
 	-- use({ "shaunsingh/nord.nvim" })
 	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
-	-- use({ "lunarvim/darkplus.nvim" })
 	use({ "rebelot/kanagawa.nvim" })
 	use("Leiyi548/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
-	-- use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
 	use({ "Leiyi548/rose-pine", disable = not builtin.colorscheme.rose_pine.active })
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
+		disable = not builtin.colorscheme.catppuccin.active,
 	})
 
 	-- cmp plugins (completion)
