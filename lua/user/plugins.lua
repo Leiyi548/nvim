@@ -108,7 +108,7 @@ return packer.startup(function(use)
 	use("nathom/filetype.nvim")
 	use({
 		"lukas-reineke/indent-blankline.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.indentline")
 		end,
@@ -125,7 +125,7 @@ return packer.startup(function(use)
 	})
 	use({
 		"mhinz/vim-startify",
-		event = "BufWinEnter",
+		-- event = "BufWinEnter",
 		-- branch = "center",
 		config = function()
 			vim.cmd([[source ~/.config/nvim/lua/user/startify.vim ]])
@@ -159,7 +159,8 @@ return packer.startup(function(use)
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
 	use({ "Mofiqul/dracula.nvim", disable = not builtin.colorscheme.dracula.active })
-	use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
+	-- use({ "rose-pine/neovim", as = "rose-pine", tag = "v1.*", disable = not builtin.colorscheme.rose_pine.active })
+	use({ "Leiyi548/rose-pine", disable = not builtin.colorscheme.rose_pine.active })
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
@@ -464,6 +465,12 @@ return packer.startup(function(use)
 		disable = not builtin.plugins.zenMode.active,
 		config = function()
 			require("user.zenMode").config()
+		end,
+	})
+	use({
+		"folke/twilight.nvim",
+		config = function()
+			require("user.twilight")
 		end,
 	})
 	use({ "kana/vim-textobj-entire", requires = { "kana/vim-textobj-user" } })

@@ -26,8 +26,10 @@ vim.g.nvim_tree_icons = {
 	folder = {
 		arrow_open = "",
 		arrow_closed = "",
-		default = icons.documents.Folder,
-		open = icons.documents.OpenFolder,
+		-- default = icons.documents.Folder,
+		-- open = icons.documents.OpenFolder,
+		default = "",
+		open = "",
 		empty = "",
 		empty_open = "",
 		symlink = "",
@@ -90,6 +92,7 @@ nvim_tree.setup({
 		},
 		icons = {
 			webdev_colors = true,
+			git_placement = "after", -- after | before
 		},
 	},
 	hijack_directories = {
@@ -107,13 +110,13 @@ nvim_tree.setup({
 		args = {},
 	},
 	diagnostics = {
-		enable = false,
+		enable = true,
 		show_on_dirs = false,
 		icons = {
-			hint = "",
-			info = "",
-			warning = "",
-			error = "",
+			hint = icons.diagnostics.Hint,
+			info = icons.diagnostics.Information,
+			warning = icons.diagnostics.Warning,
+			error = icons.diagnostics.Error,
 		},
 	},
 	filters = {
@@ -165,6 +168,6 @@ nvim_tree.setup({
 })
 
 -- You can automatically close the tab/vim when nvim-tree is the last window in the tab.
-vim.cmd([[
-autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
-]])
+-- vim.cmd([[
+-- autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+-- ]])

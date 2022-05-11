@@ -284,7 +284,7 @@ if material_status_ok then
 		},
 
 		disable = {
-			colored_cursor = false, -- Disable the colored cursor
+			colored_cursor = true, -- Disable the colored cursor
 			borders = false, -- Disable borders between verticaly split windows
 			background = false, -- Prevent the theme from setting the background (NeoVim then uses your teminal background)
 			term_colors = false, -- Prevent the theme from setting terminal colors
@@ -300,11 +300,11 @@ if material_status_ok then
 			cursorLineNr = { style = "bold", fg = "#87ddff" },
 			BufferLineBufferSelected = { style = "italic,bold", fg = "#EEFFFF", bg = "##1e2227" },
 			BufferLineIndicatorSelected = { fg = "#87ddff" },
-			goImport = { style = "italic" },
+			goImport = { style = "italic,bold" },
 			-- goTSMethod = { style = "bold" },
 			goTSParameter = { style = "bold" },
 			goTSType = { style = "italic" },
-			goTSKeywordFunction = { style = "bold" },
+			goTSKeywordFunction = { style = "bold,italic" },
 			goTSRepeat = { style = "bold" },
 			goTSConditional = { style = "bold" },
 			pythonInclude = { style = "italic" },

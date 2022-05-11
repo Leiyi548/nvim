@@ -26,6 +26,12 @@
     ],
     "description": "vscode style"
   },
+  "cdn_tailwind.min.css": {
+    "prefix": "cdn_tailwind",
+    "body": [
+      "<link href=\"https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css\" rel=\"stylesheet\">"
+    ]
+  },
   "cdn_vue2.6.14": {
     "prefix": "cdn_vue2.6.14",
     "body": [
