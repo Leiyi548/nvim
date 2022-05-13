@@ -312,8 +312,8 @@ if material_status_ok then
 			pythonInclude = { style = "italic" },
 			pythonTSMethod = { style = "bold" },
 			pythonTSParameter = { style = "bold" },
-			CmpItemAbbrMatch = { fg = "#87ddff", style = "bold,italic" },
-			TelescopeMatching = { fg = "#87ddff", style = "bold,italic" },
+			CmpItemAbbrMatch = { fg = "#87ddff", style = "bold" },
+			TelescopeMatching = { fg = "#87ddff", style = "bold" },
 			IndentBlanklineContextChar = { fg = "#87ddff" },
 		}, -- Overwrite highlights with your own
 	})
