@@ -171,8 +171,14 @@ function M.lsp_definitions()
 		sorting_strategy = "ascending",
 		ignore_filename = false,
 		initial_mode = "normal",
+		loyout_config = {
+			width = 0.3,
+			height = 0.5,
+			prompt_position = "top",
+			mirrot = true,
+		},
 	}
-	builtin.lsp_definitions(themes.get_ivy(opts))
+	builtin.lsp_definitions(themes.get_cursor(opts))
 end
 
 function M.lsp_references()
@@ -180,8 +186,14 @@ function M.lsp_references()
 		sorting_strategy = "ascending",
 		ignore_filename = false,
 		initial_mode = "normal",
+		loyout_config = {
+			width = 0.3,
+			height = 0.5,
+			prompt_position = "top",
+			mirrot = true,
+		},
 	}
-	builtin.lsp_references(themes.get_ivy(opts))
+	builtin.lsp_references(themes.get_cursor(opts))
 end
 
 -- show implementations of the current thingy using language server
