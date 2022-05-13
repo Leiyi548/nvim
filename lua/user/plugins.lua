@@ -142,6 +142,8 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
+	use("Leiyi548/solarized.nvim")
+	use("ful1e5/onedark.nvim")
 	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
 	use({ "Leiyi548/gruvy.nvim", disable = not builtin.colorscheme.tj.active })
@@ -286,7 +288,7 @@ return packer.startup(function(use)
 	use("tpope/vim-repeat")
 	use({
 		"norcalli/nvim-colorizer.lua",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.colorizer").config()
 		end,
