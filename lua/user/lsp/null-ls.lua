@@ -17,7 +17,7 @@ null_ls.setup({
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		-- formatting.prettier.with({ extra_args = { "--single-quote", "--jsx-single-quote" } }),
-		-- formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.black.with({ extra_args = { "--fast" } }), -- python format
 		-- formatting.clang_format, -- enable for cpp format
 		formatting.stylua, -- enable for lua format
 		formatting.goimports, -- enable for Update your Go import lines,adding missing ones and removing unreferenced ones
