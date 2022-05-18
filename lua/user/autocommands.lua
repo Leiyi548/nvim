@@ -54,6 +54,9 @@ if builtin.custom.smartNumber.active then
 	vim.cmd([[ au InsertEnter * set norelativenumber ]])
 	vim.cmd([[ au InsertLeave * set relativenumber ]])
 end
+vim.cmd([[
+  autocmd InsertLeave * call system("im-select.exe 1033")
+]])
 -- indent for different filetype
 --[[ vim.cmd([[
   autocmd FileType php,ruby,yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 textwidth=120
