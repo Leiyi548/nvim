@@ -84,6 +84,7 @@ keymap("v", "<leader>P", '"+P', opts)
 
 -- Better Quit
 keymap("n", "Q", ":qa!<cr>", opts)
+keymap("v", "Q", ":qa!<cr>", opts)
 
 -- Better ^ $
 keymap("n", "H", "^", opts)
