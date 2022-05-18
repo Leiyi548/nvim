@@ -124,7 +124,7 @@ local mappings = {
 		p = { "<cmd>Telescope projects<cr>", "Project" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		h = { "<cmd>Telescope highlights<cr>", "Keymaps" },
-		N = { "<cmd>enew<cr>", "New File" },
+		N = { "<cmd>Telescope notify<cr>", "View notify" },
 		r = {
 			"<cmd>lua require'telescope.builtin'.oldfiles()<cr>",
 			"Recent File",
