@@ -181,6 +181,12 @@ return packer.startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
 	use({
+		"wasden/cmp-flypy.nvim",
+		run = "make",
+		after = "nvim-cmp",
+		disable = true,
+	})
+	use({
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
 		config = function()
@@ -227,7 +233,7 @@ return packer.startup(function(use)
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({
 		"ray-x/lsp_signature.nvim",
-		event = "BufRead",
+		-- event = "BufRead",
 		config = function()
 			require("user.lsp_signature").config()
 		end,
