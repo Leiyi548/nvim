@@ -85,7 +85,7 @@ local mappings = {
 	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["z"] = { "<cmd>ZenMode<cr>", "ZenMode" },
-	["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+	["h"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Ts Highlight" },
 	-- Whichkey-p
 	p = {
 		name = "Packer",
@@ -123,7 +123,7 @@ local mappings = {
 		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		p = { "<cmd>Telescope projects<cr>", "Project" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		h = { "<cmd>Telescope highlights<cr>", "Keymaps" },
+		h = { "<cmd>Telescope highlights<cr>", "Highlight" },
 		N = { "<cmd>Telescope notify<cr>", "View notify" },
 		r = {
 			"<cmd>lua require'telescope.builtin'.oldfiles()<cr>",
