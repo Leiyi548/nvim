@@ -1,4 +1,5 @@
 -- Call the setup function to change the default behavior
+local icons = require("user.icons")
 require("aerial").setup({
 	-- Priority list of preferred backends for aerial.
 	-- This can be a filetype map (see :help aerial-filetype-map)
@@ -63,33 +64,31 @@ require("aerial").setup({
 	-- "nerd_font" option below.
 	-- If you have lspkind-nvim installed, aerial will use it for icons.
 	icons = {
-		Class = " ",
-		Color = " ",
-		Constant = " ",
-		Constructor = " ",
-		Enum = " ",
-		EnumMember = " ",
-		Event = " ",
-		Field = " ",
-		File = " ",
-		Folder = " ",
-		Function = " ",
-		Interface = " ",
-		Keyword = " ",
-		Method = " ",
-		Module = " ",
-		Operator = " ",
+		Class = icons.kind.Class,
+		Color = icons.kind.Color,
+		Constant = icons.kind.Constant,
+		Constructor = icons.kind.Constructor,
+		Enum = icons.kind.Enum,
+		EnumMember = icons.kind.EnumMember,
+		Event = icons.kind.Event,
+		Field = icons.kind.Field,
+		File = icons.kind.File,
+		Folder = icons.kind.Folder,
+		Function = icons.kind.Function,
+		Interface = icons.kind.Function,
+		Keyword = icons.kind.Keyword,
+		Method = icons.kind.Method,
+		Module = icons.kind.Module,
+		Operator = icons.kind.Operator,
 		Package = " ",
-		Property = " ",
-		Reference = " ",
-		Snippet = " ",
-		String = "s]",
-		Struct = " ",
-		Text = " ",
-		Unit = "",
-		Value = " ",
-		Variable = " ",
-		Collapsed = " ",
+		Property = icons.kind.Property,
+		Reference = icons.kind.Reference,
+		Struct = icons.kind.Struct,
+		Text = icons.kind.Text,
+		Unit = icons.kind.Unit,
+		Value = icons.kind.Value,
+		Variable = icons.kind.Variable,
+		Collapsed = icons.ui.RightArrow,
 	},
 
 	-- Control which windows and buffers aerial should ignore.
@@ -132,7 +131,7 @@ require("aerial").setup({
 
 	-- When you fold code with za, zo, or zc, update the aerial tree as well.
 	-- Only works when manage_folds = true
-	link_folds_to_tree = false,
+	link_folds_to_tree = true,
 
 	-- Fold code when you open/collapse symbols in the tree.
 	-- Only works when manage_folds = true
@@ -173,7 +172,7 @@ require("aerial").setup({
 	close_on_select = false,
 
 	-- Show box drawing characters for the tree hierarchy
-	show_guides = false,
+	show_guides = true,
 
 	-- The autocmds that trigger symbols update (not used for LSP backend)
 	update_events = "TextChanged,InsertLeave",
