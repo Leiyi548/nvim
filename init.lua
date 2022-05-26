@@ -46,7 +46,7 @@ builtin.colorscheme.catppuccin = { active = false } -- enable to use IntelijIdea
 if vim.fn.has("wsl") == 1 then
 	builtin.plugins.smartIm = { active = false }
 	builtin.plugins.paste_image = { active = false }
-	builtin.plugins.markdown_preview = { active = true }
+	builtin.plugins.markdown_preview = { active = false }
 	builtin.plugins.im_select = { active = false }
 	vim.g.clipboard = {
 		name = "win32yank-wsl",
