@@ -65,6 +65,7 @@ end
 require("user.options")
 require("user.keymaps")
 require("user.plugins")
+require("impatient")
 require("user.theme")
 require("user.impatient")
 require("user.autocommands")
