@@ -37,6 +37,11 @@ keymap("n", "sc", "<C-w>c", opts)
 -- Better close buffer
 keymap("n", "X", "<cmd>bdelete!<cr>", opts)
 
+-- Better save
+keymap("n", "<C-s>", "<cmd>w<cr>", opts)
+keymap("i", "<C-s>", "<cmd>w<cr>", opts)
+keymap("v", "<C-s>", "<cmd>w<cr>", opts)
+
 -- Better open .html in Chrome
 keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
 keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
@@ -137,8 +142,8 @@ keymap("v", "p", '"0p', opts)
 -- keymap("v", "p", '"_dP', opts)
 
 -- Move text up and down like vscode keybinding
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
+keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
+keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 vim.cmd([[
 nnoremap <M-Down> :m .+1<CR>==
 nnoremap <M-Up> :m .-2<CR>==

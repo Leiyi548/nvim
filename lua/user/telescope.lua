@@ -180,6 +180,7 @@ telescope.setup({
 			"smalljre_*/*",
 			".vale/",
 			"font/",
+			".DS_Store",
 		},
 	},
 	pickers = {
@@ -192,37 +193,6 @@ telescope.setup({
 		-- builtin picker
 	},
 	extensions = {
-		--[[ file_browser = {
-			-- theme = "dropdown", -- ivy,dropdown,cursor
-			initial_mode = "normal",
-			path_display = { "absolute" }, -- hidden tail absolute smart shorten truncate
-			hide_parent_dir = true,
-			mappings = {
-				["i"] = {
-					-- your custom insert mode mappings
-					["<C-e>"] = actions.close,
-					["<C-c>"] = fb_action.create,
-				},
-				["n"] = {
-					-- your custom normal mode mappings
-					-- toggle file_browser.nvim
-					["<C-e>"] = actions.close,
-					["a"] = fb_action.create,
-					["r"] = fb_action.rename,
-					["l"] = actions.select_default,
-					["h"] = fb_action.goto_parent_dir,
-					["p"] = fb_action.goto_parent_dir,
-					["<BS>"] = fb_action.toggle_hidden,
-					-- remove defaults keybindings
-					["<esc>"] = false,
-					["c"] = false,
-					["e"] = false,
-				},
-			},
-		},
-		packer = {
-			-- theme = "dropdown", -- ivy,dropdown,cursor
-		}, ]]
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown({
 				-- even more opts
@@ -243,8 +213,6 @@ telescope.setup({
 		},
 	},
 })
--- require("telescope").load_extension("file_browser")
--- require("telescope").load_extension("packer")
 require("telescope").load_extension("fzf")
 require("telescope").load_extension("vim_bookmarks")
 require("telescope").load_extension("ui-select")

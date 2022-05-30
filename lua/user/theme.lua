@@ -177,6 +177,7 @@ require("github-theme").setup({
 --━━━━━━━━━━━━━━━━━━━━━━━❰ catppuccin  configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 if builtin.colorscheme.catppuccin.active then
+	vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
 	require("catppuccin").setup({
 		transparent_background = false,
 		term_colors = false,

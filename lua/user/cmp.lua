@@ -143,6 +143,7 @@ cmp.setup({
 				luasnip = "(Snippet)",
 				buffer = "(Buffer)",
 				path = "(Path)",
+				-- flypy = "(Flypy)",
 				-- cmp_tabnine = "[Tabnine]",
 				-- neorg = "[Neorg]",
 				-- orgmode = "[Org]",
@@ -155,6 +156,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 		{ name = "path" },
+		{ name = "flypy" },
 		-- { name = "luasnip", priority = 999, max_item_count = 3 },
 		-- { name = "nvim_lsp_signature_help"},
 	},
@@ -163,8 +165,8 @@ cmp.setup({
 		select = false,
 	},
 	-- window = {
-	-- 	completion = cmp.config.window.bordered(),
-	-- 	documentation = cmp.config.window.bordered(),
+	-- completion = cmp.config.window.bordered(),
+	-- documentation = cmp.config.window.bordered(),
 	-- },
 	window = {
 		documentation = {
@@ -182,13 +184,6 @@ cmp.setup({
 		native_menu = false,
 	},
 })
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
--- cmp.setup.cmdline('/', {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = {
---     { name = 'buffer' }
---   }
--- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(":", {

@@ -102,28 +102,11 @@ function M.colorscheme()
 	colorschemes:find()
 end
 
-function M.findBuffer()
-	local opts = {
-		prompt_title = " Find Buffer",
-		path_display = { "tail" },
-		prompt_position = "top",
-		previewer = false,
-		layout_config = {
-			width = 0.5,
-			height = 0.5,
-			horizontal = { width = { padding = 0.15 } },
-			vertical = { preview_height = 0.75 },
-		},
-	}
-	builtin.buffers(themes.get_dropdown(opts))
-end
-
 function M.findDotfile()
 	local opts = {
 		prompt_title = "Find custom Dotfile",
 		hidden = true,
 		prompt_prefix = " > ",
-		selection_caret = " ",
 		path_display = { "shorten" },
 		prompt_position = "top",
 		sorting_strategy = "ascending",
@@ -138,32 +121,6 @@ function M.findDotfile()
 		file_ignore_patterns = file_ignore_patterns,
 	}
 	builtin.find_files(themes.get_dropdown(opts))
-end
--- another file string search
-function M.find_string()
-	local opts = {
-		border = true,
-		previewer = false,
-		shorten_path = false,
-		layout_strategy = "flex",
-		layout_config = {
-			width = 0.9,
-			height = 0.8,
-			horizontal = { width = { padding = 0.15 } },
-			vertical = { preview_height = 0.75 },
-		},
-		file_ignore_patterns = {
-			"vendor/*",
-			"node_modules",
-			"%.jpg",
-			"%.jpeg",
-			"%.png",
-			"%.svg",
-			"%.otf",
-			"%.ttf",
-		},
-	}
-	builtin.live_grep(opts)
 end
 
 function M.lsp_definitions()
@@ -209,16 +166,6 @@ function M.lsp_implementations()
 	builtin.lsp_implementations(opts)
 end
 
--- find files in the upper directory
-function M.find_updir()
-	local up_dir = vim.fn.getcwd():gsub("(.*)/.*$", "%1")
-	local opts = {
-		cwd = up_dir,
-	}
-
-	builtin.find_files(opts)
-end
-
 function M.grep_last_search(opts)
 	opts = opts or {}
 
@@ -231,24 +178,6 @@ function M.grep_last_search(opts)
 	opts.search = register
 
 	builtin.grep_string(opts)
-end
-
-function M.project_search()
-	builtin.find_files({
-		previewer = false,
-		layout_strategy = "vertical",
-		cwd = require("lsp.config/utils").root_pattern(".git")(vim.fn.expand("%:p")),
-	})
-end
-
-function M.curbuf()
-	local opts = themes.get_dropdown({
-		winblend = 10,
-		border = true,
-		previewer = false,
-		shorten_path = false,
-	})
-	builtin.current_buffer_fuzzy_find(opts)
 end
 
 function M.git_status()
@@ -271,17 +200,6 @@ function M.git_status()
 	}
 
 	builtin.git_status(opts)
-end
-
-function M.search_only_certain_files()
-	builtin.find_files({
-		find_command = {
-			"rg",
-			"--files",
-			"--type",
-			vim.fn.input("Type: "),
-		},
-	})
 end
 
 function M.builtin()
@@ -308,6 +226,7 @@ function M.git_files()
 		layout_config = {
 			width = width,
 		},
+		file_ignore_patterns = file_ignore_patterns,
 	})
 
 	opts.file_ignore_patterns = {
@@ -404,10 +323,17 @@ end
 
 function M.startify()
 	local opts = {
-		prompt_title = "startfiy",
+		prompt_title = "vscode style find file",
 		path_display = { "smart" },
+		previewer = false,
+		layout_config = {
+			width = 0.5,
+			height = 0.8,
+			horizontal = { width = { padding = 0.15 } },
+			vertical = { preview_height = 0.75 },
+		},
 		file_ignore_patterns = file_ignore_patterns,
 	}
-	builtin.find_files(themes.get_ivy(opts))
+	builtin.find_files(themes.get_dropdown(opts))
 end
 return M

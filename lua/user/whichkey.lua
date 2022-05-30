@@ -85,7 +85,8 @@ local mappings = {
 	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	["z"] = { "<cmd>ZenMode<cr>", "ZenMode" },
-	["h"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Ts Highlight" },
+	["h"] = { "<cmd>nohl<cr>", "Highlight" },
+	["H"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Ts Highlight" },
 	-- Whichkey-p
 	p = {
 		name = "Packer",
@@ -100,27 +101,20 @@ local mappings = {
 	-- Whichkey-F
 	F = {
 		name = "Custom Find",
-		b = { "<cmd>lua require('user.fancy_telescope').builtin()<cr>", "Builtin" },
 		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "Current Buffer" },
 		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
 		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
-		z = { "<cmd>lua require('user.fancy_telescope').search_only_certain_files()<cr>", "Certain Filetype" },
 	},
 	-- Whichkey-f
 	f = {
 		name = "Find",
-		--[[ f = {
-			"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-      "Files"
-		},
-		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" }, ]]
-		b = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "FuzzyFind" },
+		b = { "<cmd>lua require('user.fancy_telescope').builtin()<cr>", "Builtin" },
+		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
 		e = { "<cmd>Telescope file_browser<cr>", "File_browser" },
 		d = { "<cmd>lua require('user.fancy_telescope').findDotfile()<cr>", "Dotfiles" },
 		f = { "<cmd>Telescope find_files<cr>", "Files" },
-		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", "Colorschemes" },
+		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		g = { "<cmd>Telescope live_grep<cr>", "Grep" },
 		p = { "<cmd>Telescope projects<cr>", "Project" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
 		h = { "<cmd>Telescope highlights<cr>", "Highlight" },
@@ -263,7 +257,7 @@ local mappings = {
 		t = { "<cmd>TodoQuickFix<cr>", "Todo" },
 		r = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		c = { "<cmd>nohlsearch<CR>", "No Highlight" },
+		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", "Colorschemes" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
 		-- p = { "<cmd>Telescope packer<cr>", "plugins" },
 		-- d = { "<cmd>luafile" .. "~/.config/nvim/lua/user/diary.lua" .. "<cr>", "diary" },
