@@ -143,9 +143,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	-- use("Lunarvim/darkplus.nvim")
-	-- use("Leiyi548/solarized.nvim")
 	-- use("ful1e5/onedark.nvim")
-	use("rmehri01/onenord.nvim")
 	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
 	use({ "Leiyi548/gruvy.nvim", disable = not builtin.colorscheme.tj.active })
@@ -161,6 +159,7 @@ return packer.startup(function(use)
 		as = "catppuccin",
 		disable = not builtin.colorscheme.catppuccin.active,
 	})
+	use("glepnir/zephyr-nvim")
 
 	-- cmp plugins (completion)
 	use({
