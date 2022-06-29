@@ -44,5 +44,5 @@ local tele_status_ok, telescope = pcall(require, "telescope")
 if not tele_status_ok then
 	return
 end
-vim.api.nvim_set_keymap("n", "<c-P>", "<cmd>Telescope projects<cr>", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<c-P>", "<cmd>Telescope projects<cr>", { noremap = true, silent = true })
 telescope.load_extension("projects")

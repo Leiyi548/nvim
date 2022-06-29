@@ -57,7 +57,7 @@ require("nvim-tree").setup({ -- BEGIN_DEFAULT_OPTS
 		},
 		icons = {
 			webdev_colors = true,
-			git_placement = "after", -- before | after
+			git_placement = "before", -- before | after
 			padding = " ",
 			symlink_arrow = " ➛ ",
 			show = {

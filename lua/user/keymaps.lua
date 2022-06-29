@@ -78,7 +78,7 @@ keymap("n", "<leader>sl", [[<cmd>lua require("persistence").load()<cr>]], opts)
 
 -- Better telescope find lsp symbol
 keymap("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<C-f>", "<cmd>lua require('user.fancy_telescope').startify()<cr>", opts)
+keymap("n", "<C-p>", "<cmd>lua require('user.fancy_telescope').startify()<cr>", opts)
 -- Better copy and paste
 keymap("n", "<leader>y", '"+y', opts)
 keymap("n", "<leader>p", '"+p', opts)

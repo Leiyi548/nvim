@@ -142,8 +142,7 @@ return packer.startup(function(use)
 	})
 
 	-- Colorschemes
-	-- use("Lunarvim/darkplus.nvim")
-	-- use("ful1e5/onedark.nvim")
+	use("Lunarvim/darkplus.nvim")
 	use("marko-cerovac/material.nvim")
 	use("luisiacc/gruvbox-baby")
 	use({ "Leiyi548/gruvy.nvim", disable = not builtin.colorscheme.tj.active })
@@ -235,6 +234,13 @@ return packer.startup(function(use)
 		-- event = "BufRead",
 		config = function()
 			require("user.lsp_signature").config()
+		end,
+	})
+	use({
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		config = function()
+			require("user.lspsaga")
 		end,
 	})
 
