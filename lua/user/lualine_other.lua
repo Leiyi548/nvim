@@ -117,7 +117,7 @@ lualine.setup({
 		lualine_a = { branch },
 		lualine_b = { diagnostics },
 		lualine_c = {
-			{ nvim_gps, cond = hide_in_width },
+			-- { nvim_gps, cond = hide_in_width },
 		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },

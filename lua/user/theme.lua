@@ -137,7 +137,7 @@ if builtin.colorscheme.onedarkpro.active then
 			window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
 		},
 	})
-	onedarkpro.load()
+	-- onedarkpro.load()
 end
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end onedarkpro configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--

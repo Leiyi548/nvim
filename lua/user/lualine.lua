@@ -160,7 +160,7 @@ lualine.setup({
 		lualine_c = {
 			branch,
 			diagnostics,
-			--[[mode,]]
+			mode,
 			mid,
 		},
 		-- lualine_x = { "encoding", "fileformat", "filetype" },

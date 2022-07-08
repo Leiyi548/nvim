@@ -251,7 +251,7 @@ return packer.startup(function(use)
 			require("user.telescope")
 		end,
 	})
-	use({ "nvim-telescope/telescope-ui-select.nvim" })
+	-- use({ "nvim-telescope/telescope-ui-select.nvim" })
 	use({
 		"nvim-telescope/telescope-frecency.nvim",
 		config = function()

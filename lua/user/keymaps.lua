@@ -42,6 +42,14 @@ keymap("n", "<C-s>", "<cmd>w<cr>", opts)
 keymap("i", "<C-s>", "<cmd>w<cr>", opts)
 keymap("v", "<C-s>", "<cmd>w<cr>", opts)
 
+-- Better find buffer
+keymap("n", "<C-t>", "<cmd>lua require('user.fancy_telescope').findBuffer()<cr>", opts)
+
+-- Better toggle terminal (horizontal && vertical)
+keymap("n", "<M-i>", "<cmd>ToggleTerm direction=float<cr>", opts)
+keymap("n", "<M-h>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
+keymap("n", "<M-v>", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts)
+
 -- Better open .html in Chrome
 keymap("n", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
 keymap("i", "<M-b>", "<cmd>AsyncTask Application<cr>", opts)
@@ -88,8 +96,8 @@ keymap("n", "<leader>P", '"+P', opts)
 keymap("v", "<leader>P", '"+P', opts)
 
 -- Better Quit
-keymap("n", "Q", ":qa!<cr>", opts)
-keymap("v", "Q", ":qa!<cr>", opts)
+-- keymap("n", "Q", ":qa!<cr>", opts)
+-- keymap("v", "Q", ":qa!<cr>", opts)
 
 -- Better ^ $
 keymap("n", "H", "^", opts)

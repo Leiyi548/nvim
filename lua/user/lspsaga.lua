@@ -64,6 +64,6 @@ saga.init_lsp_saga({
 })
 
 -- set keymap here
-vim.keymap.set("n", "gh", require("lspsaga.finder").lsp_finder, { silent = true, noremap = true })
+vim.keymap.set("n", "gr", require("lspsaga.finder").lsp_finder, { silent = true, noremap = true })
 vim.keymap.set("n", "ga", "<cmd>Lspsaga code_action<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>", { silent = true, noremap = true })

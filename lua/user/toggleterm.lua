@@ -5,7 +5,7 @@ end
 
 toggleterm.setup({
 	size = 20,
-	open_mapping = [[<c-t>]],
+	open_mapping = [[<M-i>]],
 	hide_numbers = true,
 	shade_filetypes = {},
 	shade_terminals = true,
@@ -33,6 +33,9 @@ function _G.set_terminal_keymaps()
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
 	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
+	vim.api.nvim_buf_set_keymap(0, "t", "<M-h>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>", opts)
+	vim.api.nvim_buf_set_keymap(0, "t", "<M-v>", "<cmd>ToggleTerm size=80 direction=vertical<cr>", opts)
+	vim.api.nvim_buf_set_keymap(0, "t", "<M-i>", "<cmd>ToggleTerm direction=float<cr>", opts)
 end
 
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")

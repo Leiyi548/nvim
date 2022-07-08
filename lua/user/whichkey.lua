@@ -87,6 +87,7 @@ local mappings = {
 	["z"] = { "<cmd>ZenMode<cr>", "ZenMode" },
 	["h"] = { "<cmd>nohl<cr>", "Highlight" },
 	["H"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Ts Highlight" },
+	["q"] = { "<cmd>qa!<cr>", "Quit Neovim" },
 	-- Whichkey-p
 	p = {
 		name = "Packer",
