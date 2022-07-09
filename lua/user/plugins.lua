@@ -148,6 +148,7 @@ return packer.startup(function(use)
 	use({ "Leiyi548/gruvy.nvim", disable = not builtin.colorscheme.tj.active })
 	use({ "Leiyi548/darcula-solid.nvim", disable = not builtin.colorscheme.darcula.active })
 	use("Leiyi548/vscode.nvim")
+	-- use("Mofiqul/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use({ "Leiyi548/monokai.nvim", disable = not builtin.colorscheme.monokai.active })
 	use({ "olimorris/onedarkpro.nvim", disable = not builtin.colorscheme.onedarkpro.active })
@@ -178,39 +179,6 @@ return packer.startup(function(use)
 	}) -- cmdline completions
 	use({ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" })
-	use({
-		"wasden/cmp-flypy.nvim",
-		run = "make",
-		after = "nvim-cmp",
-		disable = true,
-	})
-	use({
-		"tzachar/cmp-tabnine",
-		run = "./install.sh",
-		config = function()
-			local tabnine = require("cmp_tabnine.config")
-			tabnine:setup({
-				max_lines = 1000,
-				max_num_results = 10,
-				sort = true,
-			})
-		end,
-		event = "InsertEnter",
-		disable = builtin.plugins.tabnine,
-	})
-	use({
-		"github/copilot.vim",
-		config = function()
-			vim.g.copilot_no_tab_map = true
-			vim.cmd([[ 
-      let g:copilot_filetypes = {
-          \ 'xml': v:false,
-          \ }
-      imap <silent><script><expr> <C-h> copilot#Accept("\<CR>")
-    ]])
-		end,
-		disable = not builtin.plugins.copilot.active,
-	})
 	-- snippets
 	use({
 		"L3MON4D3/LuaSnip",
@@ -252,14 +220,6 @@ return packer.startup(function(use)
 		end,
 	})
 	-- use({ "nvim-telescope/telescope-ui-select.nvim" })
-	use({
-		"nvim-telescope/telescope-frecency.nvim",
-		config = function()
-			require("telescope").load_extension("frecency")
-		end,
-		requires = { "tami5/sqlite.lua" },
-		disable = not builtin.plugins.telescope_frency,
-	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "Leiyi548/telescope-packer.nvim", disable = not builtin.plugins.telescope_packer.active })
 	use({
@@ -322,14 +282,6 @@ return packer.startup(function(use)
 		disable = not builtin.plugins.im_select.active,
 	})
 
-	-- emmet
-	use({
-		"mattn/emmet-vim",
-		ft = { "html", "css", "php", "jsp", "markdown" },
-		disable = not builtin.plugins.emmet.active,
-		-- disable = true,
-	})
-
 	-- Run code
 	use({
 		"voldikss/vim-floaterm",
@@ -371,6 +323,7 @@ return packer.startup(function(use)
 			require("Navigator").setup()
 		end,
 	})
+
 	-- easymotion
 	use({
 		"phaazon/hop.nvim",
@@ -404,6 +357,7 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.markdown_preview.active,
 	})
+
 	-- paste image from clipboard
 	use({
 		"ekickx/clipboard-image.nvim",
@@ -412,7 +366,7 @@ return packer.startup(function(use)
 		config = function()
 			require("user.clipboard-image")
 		end,
-		disable = not builtin.plugins.paste_image.active,
+		disable = not builtin.plugins.markdown_preview.active,
 	})
 	use({
 		"folke/todo-comments.nvim",
@@ -440,6 +394,7 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.dap.active,
 	})
+
 	use({
 		"Pocco81/DAPInstall.nvim",
 		disable = not builtin.plugins.dap.active,
@@ -459,6 +414,7 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.dap_virtual_text.active,
 	})
+
 	use({
 		"stevearc/aerial.nvim",
 		-- cmd = { "AerialToggle!", "AerialToggle" },
@@ -467,6 +423,7 @@ return packer.startup(function(use)
 		end,
 		disable = not builtin.plugins.outline.active,
 	})
+
 	use({
 		"folke/zen-mode.nvim",
 		disable = not builtin.plugins.zenMode.active,
@@ -474,35 +431,32 @@ return packer.startup(function(use)
 			require("user.zenMode").config()
 		end,
 	})
+
 	use({
 		"folke/twilight.nvim",
 		config = function()
 			require("user.twilight")
 		end,
 	})
+
 	use({ "kana/vim-textobj-entire", requires = { "kana/vim-textobj-user" } })
+
 	use("wellle/targets.vim")
+
 	use({
 		"SmiteshP/nvim-gps",
 		config = function()
 			require("user.gps")
 		end,
 	})
+
 	use({
 		"folke/trouble.nvim",
 		config = function()
 			require("user.trouble")
 		end,
-		-- cmd = { "Trouble", "TroubleToggle" },
 	})
-	use({
-		"ray-x/go.nvim",
-		-- ft = "go",
-		config = function()
-			require("user.go")
-		end,
-		disable = not builtin.plugins.gonvim.active,
-	})
+
 	use({
 		"crusj/structrue-go.nvim",
 		branch = "main",

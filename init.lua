@@ -27,8 +27,6 @@ builtin.plugins.startify = { active = not builtin.plugins.dashboard.active } -- 
 builtin.plugins.markdown_preview = { active = true } -- enable to open markdown_preview.nvim
 builtin.plugins.im_select = { active = false } -- enable to open im-select.vim
 builtin.plugins.indent_line = { active = true } -- enable to open indent_line
-builtin.plugins.paste_image = { active = true }
-builtin.plugins.gonvim = { active = false }
 builtin.custom.smartNumber = { active = false } -- enable to open smartNumber, insert mode close relative number,normal mode open relative number
 builtin.custom.oneNumber = { active = false } -- enable to use one number
 builtin.custom.lualine_vscode = { active = false } -- enable to use style like vscode statue line

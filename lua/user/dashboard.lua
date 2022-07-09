@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 local M = {}
 
 M.config = function()
@@ -46,7 +47,7 @@ M.config = function()
 	local fortune = require("user.fortune")
 	local footer = {
 		type = "text",
-		val = fortune(),
+		val = fortue(),
 		opts = {
 			position = "center",
 			-- hl = "Comment",

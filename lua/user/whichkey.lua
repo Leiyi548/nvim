@@ -79,18 +79,19 @@ local opts = {
 }
 
 local mappings = {
-	["/"] = { "<cmd>Telescope live_grep<cr>", "Grep" },
-	-- [";"] = { "<cmd>Alpha<cr>", "Dashboard" },
-	[";"] = { "<cmd>Startify<cr>", "Startify" },
-	["o"] = { "<cmd>AerialToggle<cr>", "Outline" },
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-	["z"] = { "<cmd>ZenMode<cr>", "ZenMode" },
+	-- no prefix mapping
+	["/"] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", " Comment" },
+	["e"] = { "<cmd>NvimTreeToggle<cr>", " Explorer" },
+	["w"] = { "<cmd>w!<cr>", " Save" },
 	["h"] = { "<cmd>nohl<cr>", "Highlight" },
 	["H"] = { "<cmd>TSHighlightCapturesUnderCursor<cr>", "Ts Highlight" },
-	["q"] = { "<cmd>qa!<cr>", "Quit Neovim" },
+	["o"] = { "<cmd>AerialToggle<cr>", " Outline" },
+	["q"] = { "<cmd>qa!<cr>", " Quit Neovim" },
+	["S"] = { "<cmd>Startify<cr>", "舘Startify" },
+	["z"] = { "<cmd>ZenMode<cr>", " ZenMode" },
 	-- Whichkey-p
 	p = {
-		name = "Packer",
+		name = " Packer",
 		C = { "<cmd>PackerClean<cr>", "Clean" },
 		c = { "<cmd>PackerCompile<cr>", "Compile" },
 		i = { "<cmd>PackerInstall<cr>", "Install" },
@@ -101,14 +102,14 @@ local mappings = {
 
 	-- Whichkey-F
 	F = {
-		name = "Custom Find",
+		name = " Custom Find",
 		f = { "<cmd>lua require('user.fancy_telescope').curbuf()<cr>", "Current Buffer" },
 		g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", "Git Files" },
 		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
 	},
 	-- Whichkey-f
 	f = {
-		name = "Find",
+		name = " Find",
 		b = { "<cmd>lua require('user.fancy_telescope').builtin()<cr>", "Builtin" },
 		s = { "<cmd>lua require('user.fancy_telescope').git_status()<cr>", "Git Status" },
 		e = { "<cmd>Telescope file_browser<cr>", "File_browser" },
@@ -141,7 +142,7 @@ local mappings = {
 
 	-- Whichkey-b
 	b = {
-		name = "Buffer",
+		name = "﩯Buffer",
 		["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "goto 1" },
 		["2"] = { "<Cmd>BufferLineGoToBuffer 2<CR>", "goto 2" },
 		["3"] = { "<Cmd>BufferLineGoToBuffer 3<CR>", "goto 3" },
@@ -161,37 +162,31 @@ local mappings = {
 	},
 	-- Whichkey-r
 	r = {
-		name = "Run",
+		name = " Run",
 		-- a = { "<cmd>RnvimrToggle<cr>", "Ranger" },
 		r = { "<cmd>AsyncTask file-run<cr>", "Run on Terminal" },
 		n = { "Rename file" },
 		f = { "<cmd>AsyncTask file-run-floaterm<cr>", "Run on floaterm" },
 	},
 
-	-- whichkey-G
-	G = {
-		name = "Go",
-		a = { "<cmd>GoCmt<cr>", "Add comments" },
-	},
-
 	-- Whichkey-g
 	g = {
-		name = "Git",
-		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
-		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		name = " Git",
+		g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", " Lazygit" },
+		j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", " Next Hunk" },
+		k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", " Prev Hunk" },
+		l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", " Blame" },
+		p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", " Preview Hunk" },
+		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", " Reset Hunk" },
+		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", " Reset Buffer" },
+		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", " Stage Hunk" },
 		u = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-			"Undo Stage Hunk",
+			" Undo Stage Hunk",
 		},
-		o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+		o = { "<cmd>Telescope git_status<cr>", " Open changed file" },
+		b = { "<cmd>Telescope git_branches<cr>", " Checkout branch" },
+		c = { "<cmd>Telescope git_commits<cr>", " Checkout commit" },
 		d = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
@@ -200,40 +195,40 @@ local mappings = {
 
 	-- Whichkey-l
 	l = {
-		name = "LSP",
-		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+		name = "  LSP",
+		a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "  Code Action" },
 		d = {
 			"<cmd>Telescope lsp_document_diagnostics<cr>",
-			"Document Diagnostics",
+			"  Document Diagnostics",
 		},
 		w = {
 			"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-			"Workspace Diagnostics",
+			"  Workspace Diagnostics",
 		},
-		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-		i = { "<cmd>LspInfo<cr>", "Info" },
-		I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+		f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "  Format" },
+		i = { "<cmd>LspInfo<cr>", "  Info" },
+		I = { "<cmd>LspInstallInfo<cr>", "  Installer Info" },
 		j = {
 			"<cmd>lua vim.diagnostic.goto_next()<cr>",
-			"Next Diagnostic",
+			" Next Diagnostic",
 		},
 		k = {
 			"<cmd>lua vim.diagnostic.goto_prev()<cr>",
-			"Prev Diagnostic",
+			" Prev Diagnostic",
 		},
-		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "  CodeLens Action" },
+		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "  Quickfix" },
 		r = { name = "Rename" },
-		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+		s = { "<cmd>Telescope lsp_document_symbols<cr>", "  Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			"Workspace Symbols",
+			"  Workspace Symbols",
 		},
 	},
 
 	-- whichkey -d
 	d = {
-		name = "Debug",
+		name = " Debug",
 		t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
 		b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
 		c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
@@ -250,48 +245,38 @@ local mappings = {
 	},
 	-- Whichkey-s
 	s = {
-		name = "Search",
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		l = { [[<cmd>lua require("persistence").load({last = true})<cr>]], "last session" },
-		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+		name = " Search",
+		b = { "<cmd>Telescope git_branches<cr>", " Checkout branch" },
+		h = { "<cmd>Telescope help_tags<cr>", " Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
 		t = { "<cmd>TodoQuickFix<cr>", "Todo" },
 		r = { "<cmd>Telescope registers<cr>", "Registers" },
-		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", "Colorschemes" },
+		k = { "<cmd>Telescope keymaps<cr>", " Keymaps" },
+		c = { "<cmd>lua require('user.fancy_telescope').colorscheme()<cr>", " Colorschemes" },
 		C = { "<cmd>Telescope commands<cr>", "Commands" },
-		-- p = { "<cmd>Telescope packer<cr>", "plugins" },
-		-- d = { "<cmd>luafile" .. "~/.config/nvim/lua/user/diary.lua" .. "<cr>", "diary" },
 	},
 
 	-- Whichkey-t
 	t = {
-		name = "Terminal",
+		name = " Terminal",
 		n = { "<cmd>lua _NODE_TOGGLE()<cr>", "Node" },
-		-- u = { "<cmd>lua _NCDU_TOGGLE()<cr>", "NCDU" },
-		-- t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		p = { "<cmd>lua _PYTHON_TOGGLE()<cr>", "Python" },
 		g = { "<cmd>lua _GOTOP_TOGGLE()<CR>", "gotop" },
-		f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		f = { "<cmd>ToggleTerm direction=float<cr>", " Float" },
+		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", " Horizontal" },
+		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", " Vertical" },
 		t = { "<cmd>ToggleTerm direction=tab<cr>", "New Tab" },
 	},
 
 	-- whichkey-i
 	i = {
-		name = "Insert",
+		name = " Insert",
 		i = { "<cmd>PasteImg<cr>", "PasteImg" },
 		s = {
 			"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
 			"Snippet",
 		},
 		m = { "<cmd>PasteImg<cr>", "Image" },
-	},
-	-- Whichkey-n
-	n = {
-		name = "New",
-		e = { "New element" },
 	},
 }
 

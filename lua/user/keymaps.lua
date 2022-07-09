@@ -35,7 +35,12 @@ keymap("n", "sg", "<cmd>split<cr>", opts)
 keymap("n", "sc", "<C-w>c", opts)
 
 -- Better close buffer
-keymap("n", "X", "<cmd>bdelete!<cr>", opts)
+keymap("n", "x", "<cmd>bdelete!<cr>", opts)
+
+-- Better close buffer
+keymap("n", "<C-_>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("i", "<C-_>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
+keymap("v", "<C-_>", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
 
 -- Better save
 keymap("n", "<C-s>", "<cmd>w<cr>", opts)
@@ -77,9 +82,6 @@ vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
 keymap("i", "<C-j>", "<cmd>lua require('luasnip').jump(1)<cr>", opts)
 keymap("i", "<C-k>", "<cmd>lua require('luasnip').jump(-1)<cr>", opts)
-
--- Better persistence (sessions management)
-keymap("n", "<leader>sl", [[<cmd>lua require("persistence").load()<cr>]], opts)
 
 -- Better file_browser use telescope.nvim
 -- keymap("n", "<C-e>", [[<cmd> Telescope file_browser<cr>]], opts)
@@ -176,5 +178,3 @@ function! RenameFile()
 endfunction
 nnoremap <leader>rn :call RenameFile()<cr>
 ]])
--- Better create file
-keymap("n", "<leader>ne", ":edit ", opts)
