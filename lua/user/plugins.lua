@@ -458,6 +458,18 @@ return packer.startup(function(use)
 	})
 
 	use({
+		"mg979/vim-visual-multi",
+		branch = "master",
+		disable = true,
+		config = function()
+			vim.cmd([[ 
+        let g:VM_maps['Find Under']         = '<M-n>'           " replace C-n
+        let g:VM_maps['Find Subword Under'] = '<M-n>'           " replace visual C-n
+      ]])
+		end,
+	})
+
+	use({
 		"crusj/structrue-go.nvim",
 		branch = "main",
 		config = function()

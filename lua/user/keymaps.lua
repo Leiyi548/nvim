@@ -107,6 +107,10 @@ keymap("n", "L", "$", opts)
 keymap("v", "H", "^", opts)
 keymap("v", "L", "$", opts)
 
+-- Better muliple cursor
+keymap("i", "<M-C-Up>", "<ESC>:call vm#commands#add_cursor_up(0,1)<CR>", opts)
+keymap("i", "<M-C-Down>", "<ESC>:call vm#commands#add_cursor_down(0,1)<CR>", opts)
+
 -- Resize with arrows(left right up down)
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
 keymap("n", "<C-Down>", ":resize +2<CR>", opts)
