@@ -80,6 +80,8 @@ keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<cr>", opts)
 -- choice node
 vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>luasnip-next-choice", {})
 vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
+keymap("i", "<Tab>", "<cmd>lua require('luasnip').jump(1)<cr>", opts)
+keymap("i", "<S-Tab>", "<cmd>lua require('luasnip').jump(-1)<cr>", opts)
 keymap("i", "<C-j>", "<cmd>lua require('luasnip').jump(1)<cr>", opts)
 keymap("i", "<C-k>", "<cmd>lua require('luasnip').jump(-1)<cr>", opts)
 
@@ -112,10 +114,10 @@ keymap("i", "<M-C-Up>", "<ESC>:call vm#commands#add_cursor_up(0,1)<CR>", opts)
 keymap("i", "<M-C-Down>", "<ESC>:call vm#commands#add_cursor_down(0,1)<CR>", opts)
 
 -- Resize with arrows(left right up down)
-keymap("n", "<C-Up>", ":resize -2<CR>", opts)
-keymap("n", "<C-Down>", ":resize +2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<Up>", ":resize -2<CR>", opts)
+keymap("n", "<Down>", ":resize +2<CR>", opts)
+keymap("n", "<Left>", ":vertical resize -2<CR>", opts)
+keymap("n", "<Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers(using tab and Shift-tab)
 keymap("n", "<Tab>", ":bnext<CR>", opts)
@@ -123,24 +125,24 @@ keymap("n", "<S-Tab>", ":bprevious<CR>", opts)
 
 -- telescope Bookmarks
 keymap(
-	"n",
-	"ma",
-	"<cmd>lua require('telescope').extensions.vim_bookmarks.current_file(require('telescope.themes').get_ivy({}))<cr>",
-	opts
+  "n",
+  "ma",
+  "<cmd>lua require('telescope').extensions.vim_bookmarks.current_file(require('telescope.themes').get_ivy({}))<cr>",
+  opts
 )
 keymap(
-	"n",
-	"mA",
-	"<cmd>lua require('telescope').extensions.vim_bookmarks.all(require('telescope.themes').get_ivy({}))<cr>",
-	opts
+  "n",
+  "mA",
+  "<cmd>lua require('telescope').extensions.vim_bookmarks.all(require('telescope.themes').get_ivy({}))<cr>",
+  opts
 )
 
 -- use telescope luasnip to insert luasnip
 keymap(
-	"n",
-	"<M-s>",
-	"<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
-	opts
+  "n",
+  "<M-s>",
+  "<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
+  opts
 )
 
 -- Visual --

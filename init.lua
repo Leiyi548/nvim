@@ -36,7 +36,7 @@ builtin.colorscheme.onedarkpro = { active = true } -- enable to use colorscheme 
 builtin.colorscheme.monokai = { active = false } -- enable to use colorscheme monokai
 builtin.colorscheme.tj = { active = false } -- enable to use tj colorscheme
 builtin.colorscheme.darcula = { active = false } -- enable to use IntelijIdea builtin colorscheme
-builtin.colorscheme.catppuccin = { active = false } -- enable to use IntelijIdea builtin colorscheme
+builtin.colorscheme.catppuccin = { active = true } -- enable to use IntelijIdea builtin colorscheme
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━❰ end  builtin configs ❱━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
 --━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━--
@@ -68,6 +68,7 @@ require("user.theme")
 require("user.impatient")
 require("user.autocommands")
 require("user.lsp")
+-- require("user.winbar")
 if builtin.custom.lualine_vscode.active then
 	require("user.lualine")
 else

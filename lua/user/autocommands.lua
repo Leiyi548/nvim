@@ -49,10 +49,17 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.cmd([[
+  augroup format_on_save
+    autocmd! 
+    autocmd BufWritePre * lua vim.lsp.buf.format({ async = true }) 
+  augroup end
+]])
+
 -- Use relative & absolute line numbers in 'n' & 'i' modes respectively
 if builtin.custom.smartNumber.active then
-	vim.cmd([[ au InsertEnter * set norelativenumber ]])
-	vim.cmd([[ au InsertLeave * set relativenumber ]])
+  vim.cmd([[ au InsertEnter * set norelativenumber ]])
+  vim.cmd([[ au InsertLeave * set relativenumber ]])
 end
 vim.cmd([[
   autocmd InsertLeave * call system("im-select.exe 1033")
@@ -68,3 +75,9 @@ vim.cmd([[
   autocmd FileType TelescopePrompt set nonumber
   autocmd FileType TelescopePrompt set norelativenumber
 ]]
+
+  vim.api.nvim_create_autocmd({ "CursorMoved", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" }, {
+    callback = function()
+      require("user.winbar").get_winbar()
+    end,
+  })

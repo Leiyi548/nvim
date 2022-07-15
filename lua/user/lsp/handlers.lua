@@ -50,7 +50,7 @@ end
 
 local function lsp_highlight_document(client)
 	-- Set autocommands conditional on server_capabilities
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.document_highlight then
 		-- vim.cmd([[
 		--     hi! LspReferenceRead cterm=bold ctermbg=red guibg=#33393f
 		--     hi! LspReferenceText cterm=bold ctermbg=red guibg=#33393f
@@ -111,8 +111,8 @@ M.on_attach = function(client, bufnr)
 		or client.name == "html"
 		or client.name == "gopls"
 	then
-		client.resolved_capabilities.document_formatting = false
-		client.resolved_capabilities.document_range_formatting = false
+		client.server_capabilities.document_formatting = false
+		client.server_capabilities.document_range_formatting = false
 	end
 	lsp_keymaps(bufnr)
 	if not builtin.plugins.cursorWord.active then

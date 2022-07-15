@@ -328,7 +328,7 @@ function M.startify()
 		previewer = false,
 		layout_config = {
 			width = 0.5,
-			height = 0.8,
+			height = 0.5,
 			horizontal = { width = { padding = 0.15 } },
 			vertical = { preview_height = 0.75 },
 		},
