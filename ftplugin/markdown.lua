@@ -1,4 +1,9 @@
-function toggle_checkbox()
+-- author: Leiyi548 https://github.com/Leiyi548
+-- date: 2022-07-18
+-- License: MIT
+
+
+function G_toggle_checkbox()
 	local r = vim.api.nvim_win_get_cursor(0)
 	local line = vim.fn.getline(".")
 	local line_number = vim.fn.line(".")
@@ -20,4 +25,4 @@ function toggle_checkbox()
 end
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<cr>", "<cmd>lua toggle_checkbox()<cr> ", opts)
+vim.api.nvim_set_keymap("n", "<cr>", "<cmd>lua G_toggle_checkbox()<cr> ", opts)

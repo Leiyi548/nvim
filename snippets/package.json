@@ -1,67 +1,10 @@
 {
-  "name": "nvim-snippets",
-  "author": "abzcoding",
-  "engines": {
-    "vscode": "^1.11.0"
-  },
   "contributes": {
     "snippets": [
       {
         "language": "lua",
         "path": "./lua.json"
       },
-      {
-        "language": "html",
-        "path": "./vue.json"
-      },
-      {
-        "language": "vue",
-        "path": "./vue.json"
-      },
-      {
-        "language": "python",
-        "path": "./python.json"
-      },
-      {
-        "language": "html",
-        "path": "./bootstrap4.json"
-      },
-      {
-        "language": "html",
-        "path": "./html.json"
-      },
-      {
-        "language": "cpp",
-        "path": "./cpp.json"
-      },
-      {
-        "language": "go",
-        "path": "./go.json"
-      },
-      {
-        "language": "vim",
-        "path": "./vim.json"
-      },
-      {
-        "language": "org",
-        "path": "./org.json"
-      },
-      {
-        "language": "markdown",
-        "path": "./markdown.json"
-      },
-      {
-        "language": "javascript",
-        "path": "./javascript.json"
-      },
-      {
-        "language": [
-          "shellscript",
-          "shell",
-          "sh"
-        ],
-        "path": "./shell.json"
-      }
     ]
   }
 }
