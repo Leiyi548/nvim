@@ -87,7 +87,7 @@ local mappings = {
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
-  ['q'] = { '<cmd>lua require("modules.utils.function").smart_quit()<cr>', ' Quit Neovim' },
+  ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['S'] = { '<cmd>Startify<cr>', '舘Startify' },
   ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
   -- Whichkey-p
@@ -110,6 +110,7 @@ local mappings = {
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     g = { "<cmd>lua require('user.fancy_telescope').git_files()<cr>", 'Git Files' },
+    c = { "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>", 'Configration' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { '<cmd>Telescope projects<cr>', 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },

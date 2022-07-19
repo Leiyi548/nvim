@@ -121,7 +121,6 @@ function M.findConfiguration()
     prompt_title = 'configuration',
     search_dirs = {
       '/mnt/c/Users/9/AppData/Roaming/alacritty',
-      '/mnt/wsl/.tmux.conf',
     },
     -- path_display = { "smart" },
     previewer = false,

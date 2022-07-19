@@ -60,7 +60,7 @@ function config.alpha()
       "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>"
     ),
     startify.button('u', ' Update Plugins', '<cmd>PackerSync<cr>'),
-    startify.button('q', ' Quit Neovim', "<cmd>q<cr>"),
+    startify.button('q', ' Quit Neovim', '<cmd>q<cr>'),
   }
   startify.section.footer.val = {
     {
@@ -127,6 +127,7 @@ function config.nvim_tree()
       highlight_git = true,
       highlight_opened_files = 'none',
       root_folder_modifier = ':~',
+      -- root_folder_modifier = ':t',
       indent_markers = {
         enable = false,
         icons = {
