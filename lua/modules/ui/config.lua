@@ -9,7 +9,7 @@ function config.github()
   require('github-theme').setup({
     theme_style = 'light',
     function_style = 'italic',
-    comment_style = 'NONE',
+    comment_style = 'italic',
     keyword_style = 'NONE',
     variable_style = 'NONE',
     sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },

@@ -38,10 +38,10 @@ nmap({
   { '<Tab>', cmd('bn'), opts(noremap) },
   { '<S-Tab>', cmd('bp'), opts(noremap) },
   -- window jump
-  { '<C-h>', '<C-w>h', opts(noremap) },
-  { '<C-l>', '<C-w>l', opts(noremap) },
-  { '<C-j>', '<C-w>j', opts(noremap) },
-  { '<C-k>', '<C-w>k', opts(noremap) },
+  { '<C-h>', cmd('NavigatorLeft'), opts(noremap) },
+  { '<C-l>', cmd('NavigatorRight'), opts(noremap) },
+  { '<C-j>', cmd('NavigatorDown'), opts(noremap) },
+  { '<C-k>', cmd('NavigatorUp'), opts(noremap) },
   -- split windows
   { 'sv', cmd('vsplit'), opts(noremap) },
   { 'sg', cmd('split'), opts(noremap) },
@@ -52,9 +52,11 @@ nmap({
 })
 
 xmap({
-  -- Stay in indent mode
+  -- I hate click this key
   { '<', '<gv', opts(noremap) },
   { '>', '>gv', opts(noremap) },
+  { 'H', '^', opts(noremap) },
+  { 'L', '$', opts(noremap) },
   -- move line like vscode
   -- { 'J', ":move '>+1<CR>gv-gv", opts(noremap) },
   -- { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },

@@ -50,6 +50,14 @@ plugin({
 })
 
 plugin({
+  'numToStr/Navigator.nvim',
+  event = 'BufRead',
+   config = function()
+        require('Navigator').setup()
+    end
+})
+
+plugin({
   'lewis6991/gitsigns.nvim',
   event = 'BufRead',
   config = conf.gitsigns,
