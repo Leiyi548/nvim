@@ -9,6 +9,8 @@ local conf = require('modules.ui.config')
 plugin({ 'lunarvim/onedarker.nvim' })
 plugin({ 'lunarvim/darkplus.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
+plugin({ 'olimorris/onedarkpro.nvim' })
+-- plugin({ '~/study/neovim/onedarkpro' })
 
 -- startup plugin
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard, disable = true })
@@ -16,8 +18,8 @@ plugin({ 'goolord/alpha-nvim', config = conf.alpha, requires = 'kyazdani42/nvim-
 
 -- statusline
 plugin({
-'nvim-lualine/lualine.nvim',
- config = conf.lualine,
+  'nvim-lualine/lualine.nvim',
+  config = conf.lualine,
 })
 
 -- tabline

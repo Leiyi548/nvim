@@ -71,6 +71,11 @@ plugin({
 })
 
 plugin({
+  'nvim-pack/nvim-spectre',
+  config = conf.spectre
+})
+
+plugin({
   'skywind3000/asynctasks.vim',
   cmd = { 'AsyncTask' },
   requires = {

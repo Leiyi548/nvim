@@ -29,6 +29,38 @@ function config.github()
   })
 end
 
+function config.onedarkpro()
+  local onedarkpro_ok, onedarkpro = pcall(require, 'onedarkpro')
+  if not onedarkpro_ok then
+    return
+  end
+
+  onedarkpro.setup({
+    styles = { -- Choose from "bold,italic,underline"
+      strings = 'NONE', -- Style that is applied to strings.
+      comments = 'italic', -- Style that is applied to comments
+      keywords = 'NONE', -- Style that is applied to keywords
+      functions = 'italic', -- Style that is applied to functions
+      variables = 'NONE', -- Style that is applied to variables
+      virtual_text = 'italic', -- Style that is applied to virtual text
+    },
+    options = {
+
+      bold = true, -- Use the themes opinionated bold styles?
+      italic = true, -- Use the themes opinionated italic styles?
+      underline = true, -- Use the themes opinionated underline styles?
+      undercurl = true, -- Use the themes opinionated undercurl styles?
+      cursorline = true, -- Use cursorline highlighting?
+      transparency = true, -- Use a transparent background?
+      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+      window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
+    },
+    hlgroups = {
+      IncSearch = { fg = '#ad4539', bg = '#22252c' },
+    },
+  })
+end
+
 function config.onedarker()
   local colorscheme = 'onedarker'
   local ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
@@ -40,16 +72,18 @@ end
 function config.alpha()
   local alpha = require('alpha')
   local startify = require('alpha.themes.startify')
+  -- get neovim plugins count
   local handle = io.popen('fd -d 2 . $HOME"/.local/share/nvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" ')
   ---@diagnostic disable-next-line: need-check-nil
   local plugins = handle:read('*a')
   local plugins_count = plugins:gsub('^%s*(.-)%s*$', '%1')
 
   alpha.setup(startify.config)
+  startify.nvim_web_devicons.enabled = true
+  -- disable top_buttons
   startify.section.top_buttons.val = {}
   startify.section.bottom_buttons.val = {
     { type = 'padding', val = 1 },
-    -- f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     startify.button('e', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
     startify.button('r', ' Recent Files', "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>"),
     startify.button('t', ' Find Text', '<cmd>Telescope live_grep<CR>'),

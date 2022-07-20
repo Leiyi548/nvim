@@ -1,6 +1,6 @@
 local statusline_ok, lualine = pcall(require, 'lualine')
 if not statusline_ok then
-  vim.notify("lualine not found!")
+  vim.notify('lualine not found!')
   return
 end
 
@@ -41,30 +41,30 @@ local hide_in_width_100 = function()
 end
 
 local mode_color = {
-  n = "#519fdf",
-  i = "#c18a56",
-  v = "#b668cd",
----@diagnostic disable-next-line: duplicate-index
-  [""] = "#b668cd",
-  V = "#b668cd",
+  n = '#519fdf',
+  i = '#c18a56',
+  v = '#b668cd',
+  ---@diagnostic disable-next-line: duplicate-index
+  [''] = '#b668cd',
+  V = '#b668cd',
   -- c = '#B5CEA8',
   -- c = '#D7BA7D',
-  c = "#46a6b2",
-  no = "#D16D9E",
-  s = "#88b369",
-  S = "#c18a56",
----@diagnostic disable-next-line: duplicate-index
-  [""] = "#c18a56",
-  ic = "#d05c65",
-  R = "#D16D9E",
-  Rv = "#d05c65",
-  cv = "#519fdf",
-  ce = "#519fdf",
-  r = "#d05c65",
-  rm = "#46a6b2",
-  ["r?"] = "#46a6b2",
-  ["!"] = "#46a6b2",
-  t = "#d05c65",
+  c = '#46a6b2',
+  no = '#D16D9E',
+  s = '#88b369',
+  S = '#c18a56',
+  ---@diagnostic disable-next-line: duplicate-index
+  [''] = '#c18a56',
+  ic = '#d05c65',
+  R = '#D16D9E',
+  Rv = '#d05c65',
+  cv = '#519fdf',
+  ce = '#519fdf',
+  r = '#d05c65',
+  rm = '#46a6b2',
+  ['r?'] = '#46a6b2',
+  ['!'] = '#46a6b2',
+  t = '#d05c65',
 }
 
 local mode = {
@@ -124,6 +124,7 @@ local diagnostics = {
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
+  color = { bg = 'none' },
   update_in_insert = false,
   always_visible = true,
 }
@@ -147,17 +148,18 @@ local colors = {
 
 local diff = {
   'diff',
-  colored = false,
+  colored = true,
   symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
   cond = hide_in_width_60,
   -- separator = '%#SLSeparator#' .. '│ ' .. '%*',
-  separator =' │',
+  separator = ' │',
 }
 
 local branch = {
   'branch',
   icons_enabled = true,
   -- icon = '%#SLGitIcon#' .. '' .. '%*' .. '%#SLBranchName#',
+  color = { bg = '#0366d6' },
   icon = icons.git.SourceControl,
   colored = false,
 }
@@ -204,7 +206,7 @@ local spaces = {
   end,
   padding = 0,
   -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  separator =' │',
+  separator = ' │',
   cond = hide_in_width_100,
 }
 
@@ -287,7 +289,7 @@ local language_server = {
   padding = 0,
   cond = hide_in_width,
   -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  separator =' │',
+  separator = ' │',
 }
 
 lualine.setup({
@@ -309,7 +311,6 @@ lualine.setup({
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_x = { diff, language_server, spaces, filetype },
     lualine_y = { progress },
-
   },
   inactive_sections = {
     lualine_a = {},

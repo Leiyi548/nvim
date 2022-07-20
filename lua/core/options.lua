@@ -78,7 +78,7 @@ vim.opt.equalalways = false
 vim.opt.laststatus = 3
 vim.opt.display = 'lastline'
 vim.opt.showbreak = '↳  '
-vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
+-- vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
 vim.opt.pumblend = 10
 vim.opt.winblend = 10
 
@@ -101,6 +101,8 @@ vim.opt.foldenable = true
 vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'niv'
+-- set background = dark
+vim.opt.background = "dark"
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has("wsl") == 1 then
 	vim.g.clipboard = {
