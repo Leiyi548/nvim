@@ -1,4 +1,8 @@
 require('core')
+-- textobject
+vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])
+
+
 vim.cmd([[set background=dark]])
 -- auto change colorscheme base on time.
 _G_colorscheme = '' -- github_light github_dark onedarker catppuccin

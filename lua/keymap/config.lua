@@ -6,6 +6,7 @@
 local keymap = require('core.keymap')
 ---@diagnostic disable-next-line: unused-local
 local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
+---@diagnostic disable-next-line: unused-local
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -22,7 +23,6 @@ nmap({
   -- noremal remap
   -- close buffer
   -- { 'x', cmd('bdelete!'), opts(noremap, silent) },
-  -- save
   { '<C-s>', cmd('write'), opts(noremap) },
   -- yank
   { 'Y', 'y$', opts(noremap) },

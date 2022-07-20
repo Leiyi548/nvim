@@ -30,7 +30,6 @@ nmap({
   -- gitsign
   { '[g', cmd('lua require "gitsigns".prev_hunk()<cr>'), opts(noremap, silent) },
   { ']g', cmd('lua require "gitsigns".next_hunk()<cr>'), opts(noremap, silent) },
-
 })
 
 -- luasnip jump
@@ -40,8 +39,8 @@ imap({
 })
 
 -- luasnip
-vim.api.nvim_set_keymap("i", "<C-l>", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
+vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>luasnip-next-choice', {})
+vim.api.nvim_set_keymap('s', '<C-l>', '<Plug>luasnip-next-choice', {})
 
 -- smart_dd
 -- smart deletion, dd
@@ -49,8 +48,11 @@ vim.api.nvim_set_keymap("s", "<C-l>", "<Plug>luasnip-next-choice", {})
 -- Code above will check if u are deleting empty line, if so - use black hole register.
 -- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
 local function smart_dd()
-	if vim.api.nvim_get_current_line():match("^%s*$") then
-		return "\"_dd"
-	else return "dd" end
+  if vim.api.nvim_get_current_line():match('^%s*$') then
+    return '"_dd'
+  else
+    return 'dd'
+  end
 end
-vim.keymap.set("n", "dd", smart_dd, { noremap = true, expr = true })
+
+vim.keymap.set('n', 'dd', smart_dd, { noremap = true, expr = true })

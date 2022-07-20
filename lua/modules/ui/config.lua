@@ -151,6 +151,8 @@ function config.nvim_tree()
           { key = '[g', action = 'prev_git_item' },
           { key = ']g', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
+          { key = 's', action = 'vsplit' },
+          { key = 'O', action = 'system_open' },
         },
       },
     },
@@ -158,7 +160,7 @@ function config.nvim_tree()
 
       add_trailing = false,
       group_empty = false,
-      highlight_git = true,
+      highlight_git = false,
       highlight_opened_files = 'none',
       root_folder_modifier = ':~',
       -- root_folder_modifier = ':t',

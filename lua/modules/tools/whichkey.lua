@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-  -- no prefix mapping
+  -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
   ['b'] = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
@@ -90,6 +90,7 @@ local mappings = {
   ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['S'] = { '<cmd>Startify<cr>', '舘Startify' },
+  ['x'] = { '<cmd>Bdelete!', 'close buffer' },
   ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
   -- Whichkey-p
   p = {

@@ -65,7 +65,7 @@ function autocmd.load_autocmds()
       { 'FileType', 'make', 'set noexpandtab shiftwidth=8 softtabstop=0' },
       {
         'FileType',
-        'qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel',
+        'qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo',
         'nnoremap <silent> <buffer> q :q<cr>',
       },
       { 'FileType', 'dap-repl', "lua require('dap.ext.autocompl').attach()" },
@@ -84,5 +84,16 @@ function autocmd.load_autocmds()
 
   autocmd.nvim_create_augroups(definitions)
 end
+
+--if vim.fn.has "nvim-0.8" == 1 then
+--  vim.api.nvim_create_autocmd(
+--    { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+--    {
+--      callback = function()
+--        require("modules.ui.winbar").get_winbar()
+--      end,
+--    }
+--  )
+--end
 
 autocmd.load_autocmds()

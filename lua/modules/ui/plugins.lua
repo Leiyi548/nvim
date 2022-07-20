@@ -7,7 +7,7 @@ local conf = require('modules.ui.config')
 
 -- colorscheme
 plugin({ 'lunarvim/onedarker.nvim' })
-plugin({ 'lunarvim/darkplus.nvim' })
+plugin({ 'lunarvim/darkplus.nvim', disable = true })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim' })
 -- plugin({ '~/study/neovim/onedarkpro' })
