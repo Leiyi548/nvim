@@ -124,7 +124,7 @@ local diagnostics = {
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
-  color = { bg = 'none' },
+  color = { bg = 'none', fg = 'none' },
   update_in_insert = false,
   always_visible = true,
 }
@@ -159,7 +159,8 @@ local branch = {
   'branch',
   icons_enabled = true,
   -- icon = '%#SLGitIcon#' .. '' .. '%*' .. '%#SLBranchName#',
-  color = { bg = '#0366d6' },
+  -- color = { bg = '#0366d6' },
+  color = { bg = 'none', fg = '#fff' },
   icon = icons.git.SourceControl,
   colored = false,
 }
@@ -176,7 +177,7 @@ local location = {
 -- cool function for progress
 local progress = {
   'progress',
-  -- color = 'SLProgress',
+  color = { bg = 'none', fg = 'none' },
 }
 
 local spaces = {
@@ -311,13 +312,14 @@ lualine.setup({
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_x = { diff, language_server, spaces, filetype },
     lualine_y = { progress },
+    lualine_z = { location},
   },
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {},
     -- lualine_c = { "filename" },
-    lualine_x = { location },
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {},
   },
