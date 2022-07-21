@@ -101,11 +101,11 @@ local filetype = {
     if str == 'toggleterm' then
       -- 
       local term = '%#SLTermIcon#'
-        .. ' '
-        .. '%*'
-        .. '%#SLFG#'
-        .. vim.api.nvim_buf_get_var(0, 'toggle_number')
-        .. '%*'
+          .. ' '
+          .. '%*'
+          .. '%#SLFG#'
+          .. vim.api.nvim_buf_get_var(0, 'toggle_number')
+          .. '%*'
       return term
     end
 
@@ -177,7 +177,10 @@ local location = {
 -- cool function for progress
 local progress = {
   'progress',
-  color = { bg = 'none', fg = 'none' },
+  color = function()
+    -- return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
+    return { fg = '#1E232A', bg = mode_color[vim.fn.mode()] }
+  end,
 }
 
 local spaces = {
@@ -312,7 +315,7 @@ lualine.setup({
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_x = { diff, language_server, spaces, filetype },
     lualine_y = { progress },
-    lualine_z = { location},
+    lualine_z = { location },
   },
   inactive_sections = {
     lualine_a = {},

@@ -85,15 +85,15 @@ function autocmd.load_autocmds()
   autocmd.nvim_create_augroups(definitions)
 end
 
---if vim.fn.has "nvim-0.8" == 1 then
---  vim.api.nvim_create_autocmd(
---    { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
---    {
---      callback = function()
---        require("modules.ui.winbar").get_winbar()
---      end,
---    }
---  )
---end
+if vim.fn.has "nvim-0.8" == 1 then
+ vim.api.nvim_create_autocmd(
+   { "CursorMoved", "CursorHold", "BufWinEnter", "BufFilePost", "InsertEnter", "BufWritePost", "TabClosed" },
+   {
+     callback = function()
+       require("modules.ui.winbar").get_winbar()
+     end,
+   }
+ )
+end
 
 autocmd.load_autocmds()
