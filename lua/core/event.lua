@@ -68,7 +68,7 @@ function autocmd.load_autocmds()
         'qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo',
         'nnoremap <silent> <buffer> q :q<cr>',
       },
-      { 'FileType', 'dap-repl', "lua require('dap.ext.autocompl').attach()" },
+      { 'FileType', 'alpha', "set nocursorline" },
       { 'FileType', '*', [[setlocal formatoptions-=cro]] },
       { 'TermOpen', 'term://*', 'nnoremap <silent><buffer>q :bdelete<cr>' },
     },

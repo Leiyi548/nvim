@@ -8,10 +8,12 @@ _G_colorscheme = '' -- github_light github_dark onedarker catppuccin
 local time = os.date('*t')
 local min = time.min
 local hour = time.hour
-if hour <= 18 then
-  if hour == 18  and min < 30 then
+local limit_hour = 19
+local limit_min = 0
+if hour <= limit_hour then
+  if hour == limit_hour  and min < limit_min then
     _G_colorscheme = 'github_light'
-  elseif hour == 18 and min > 30 then
+  elseif hour == limit_hour and min > limit_min then
     _G_colorscheme = 'onedarker'
   end
 else
