@@ -7,3 +7,4 @@ end
 require ("modules.lsp.lsp-installer")
 require ("modules.lsp.handles").setup()
 require ("modules.lsp.null-ls")
+require ("modules.lsp.navic")

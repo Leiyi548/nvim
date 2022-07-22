@@ -28,6 +28,10 @@ local function contains(t, value)
   return false
 end
 
+local hl_str = function(str, hl)
+  return "%#" .. hl .. "#" .. str .. "%*"
+end
+
 local hide_in_width_60 = function()
   return vim.o.columns > 60
 end
@@ -177,10 +181,7 @@ local location = {
 -- cool function for progress
 local progress = {
   'progress',
-  color = function()
-    -- return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
-    return { fg = '#1E232A', bg = mode_color[vim.fn.mode()] }
-  end,
+  padding = 0,
 }
 
 local spaces = {

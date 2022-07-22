@@ -69,7 +69,7 @@ function config.onedarker()
   end
 end
 
-function config.alpha()
+function config.alpha_startify()
   local alpha = require('alpha')
   local startify = require('alpha.themes.startify')
   -- get neovim plugins count
@@ -84,7 +84,7 @@ function config.alpha()
   startify.section.top_buttons.val = {}
   startify.section.bottom_buttons.val = {
     { type = 'padding', val = 1 },
-    startify.button('e', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
+    startify.button('f', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
     startify.button('r', ' Recent Files', "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>"),
     startify.button('t', ' Find Text', '<cmd>Telescope live_grep<CR>'),
     startify.button('d', ' Find Dotfiles', "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>"),
@@ -107,6 +107,48 @@ function config.alpha()
       },
     },
   }
+end
+
+function config.alpha_dashboard()
+  local alpha = require('alpha')
+  local dashboard = require('alpha.themes.dashboard')
+  -- get neovim plugins count
+  local handle = io.popen('fd -d 2 . $HOME"/.local/share/nvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" ')
+  ---@diagnostic disable-next-line: need-check-nil
+  local plugins = handle:read('*a')
+  local plugins_count = plugins:gsub('^%s*(.-)%s*$', '%1')
+  dashboard.section.header.val = {
+    [[                               __                ]],
+    [[  ___     ___    ___   __  __ /\_\    ___ ___    ]],
+    [[ / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
+    [[/\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
+    [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
+    [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+  }
+  dashboard.section.buttons.val = {
+    dashboard.button('f', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
+    dashboard.button(
+      'r',
+      ' Recent Files',
+      "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>"
+    ),
+    dashboard.button('t', ' Find Text', '<cmd>Telescope live_grep<CR>'),
+    dashboard.button('d', ' Find Dotfiles', "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>"),
+    dashboard.button(
+      'c',
+      ' Find Configuration',
+      "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>"
+    ),
+    dashboard.button('u', ' Update Plugins', '<cmd>PackerSync<cr>'),
+    dashboard.button('q', ' Quit Neovim', '<cmd>q<cr>'),
+  }
+  dashboard.section.footer.val = 'neovim load ' .. plugins_count .. ' plugins'
+
+  dashboard.config.opts.noautocmd = true
+
+  vim.cmd([[autocmd User AlphaReady echo 'ready']])
+
+  alpha.setup(dashboard.config)
 end
 
 function config.lualine()

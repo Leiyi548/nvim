@@ -12,10 +12,10 @@ if hour <= 18 then
   if hour == 18  and min < 30 then
     _G_colorscheme = 'github_light'
   elseif hour == 18 and min > 30 then
-    _G_colorscheme = 'onedarkpro'
+    _G_colorscheme = 'onedarker'
   end
 else
-  _G_colorscheme = 'onedarkpro'
+    _G_colorscheme = 'onedarker'
 end
 
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)

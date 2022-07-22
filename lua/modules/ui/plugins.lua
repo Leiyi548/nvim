@@ -9,12 +9,12 @@ local conf = require('modules.ui.config')
 plugin({ 'lunarvim/onedarker.nvim' })
 plugin({ 'lunarvim/darkplus.nvim', disable = true })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
-plugin({ 'olimorris/onedarkpro.nvim' })
+plugin({ 'olimorris/onedarkpro.nvim',disable = true })
 -- plugin({ '~/study/neovim/onedarkpro' })
 
 -- startup plugin
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard, disable = true })
-plugin({ 'goolord/alpha-nvim', config = conf.alpha, requires = 'kyazdani42/nvim-web-devicons' })
+plugin({ 'goolord/alpha-nvim', config = conf.alpha_dashboard, requires = 'kyazdani42/nvim-web-devicons' })
 
 -- statusline
 plugin({

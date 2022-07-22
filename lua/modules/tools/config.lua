@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-doc-name
 -- author: glepnr https://github.com/glepnir
 -- date: 2022-07-02
 -- License: MIT

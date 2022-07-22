@@ -5,5 +5,6 @@ plugin({ "williamboman/nvim-lsp-installer", })
 plugin({ "jose-elias-alvarez/null-ls.nvim", })
 plugin({ "RRethy/vim-illuminate" })
 plugin({ "SmiteshP/nvim-navic" })
+-- plugin({ "glepnir/lspsaga.nvim" })
 
 

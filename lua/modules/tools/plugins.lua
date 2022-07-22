@@ -52,9 +52,9 @@ plugin({
 plugin({
   'numToStr/Navigator.nvim',
   event = 'BufRead',
-   config = function()
-        require('Navigator').setup()
-    end
+  config = function()
+    require('Navigator').setup()
+  end,
 })
 
 plugin({
@@ -71,8 +71,19 @@ plugin({
 })
 
 plugin({
+  'kana/vim-textobj-entire',
+  requires = {
+    { 'kana/vim-textobj-user' },
+  },
+})
+
+plugin({
   'nvim-pack/nvim-spectre',
-  config = conf.spectre
+  config = conf.spectre,
+})
+
+plugin({
+  'Asheq/close-buffers.vim',
 })
 
 plugin({
