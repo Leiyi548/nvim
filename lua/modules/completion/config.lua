@@ -64,6 +64,8 @@ function config.nvim_cmp()
           if not entry then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
             cmp.confirm()
+          else
+            cmp.confirm()
           end
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
