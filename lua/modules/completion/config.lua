@@ -86,20 +86,6 @@ function config.nvim_cmp()
           fallback()
         end
       end, { 'i', 's', 'c' }),
-      -- ['<Tab>'] = cmp.mapping(function(fallback)
-      --   if cmp.visible() then
-      --     local entry = cmp.get_selected_entry()
-      --     if not entry then
-      --       cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-      --       cmp.confirm()
-      --   elseif luasnip.expand_or_jumpable() then
-      --     luasnip.expand_or_jump()
-      --   elseif has_words_before() then
-      --     cmp.complete()
-      --   else
-      --     fallback()
-      --   end
-      -- end, { 'i', 's' })
     }),
     formatting = {
       fields = { 'kind', 'abbr', 'menu' },
@@ -216,6 +202,17 @@ function config.auto_pairs()
     return
   end
   cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+end
+
+function config.flypy()
+  require('flypy').setup({
+    dict_name = 'flypy', -- 选择码表：flypy为小鹤音形，wubi98为98五笔
+    comment = true, -- 在所有文件类型的注释下开启
+    filetype = { 'markdown' }, -- 在指定文件类型下开启
+
+    num_filter = true, -- 数字筛选
+    source_code = false, -- 显示原码
+  })
 end
 
 return config

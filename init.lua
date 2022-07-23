@@ -13,7 +13,7 @@ local limit_min = 0
 if hour <= limit_hour then
   if hour == limit_hour  and min < limit_min then
     _G_colorscheme = 'github_light'
-  elseif hour == limit_hour and min > limit_min then
+  elseif hour == limit_hour and min >= limit_min then
     _G_colorscheme = 'onedarker'
   end
 else

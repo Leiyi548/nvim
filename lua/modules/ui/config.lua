@@ -110,8 +110,8 @@ function config.alpha_startify()
 end
 
 function config.alpha_dashboard()
----@diagnostic disable-next-line: unused-local
-  local ascii = {
+  ---@diagnostic disable-next-line: unused-local
+  local ascii_dragon = {
     '   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
     '    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
     '          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
@@ -124,6 +124,25 @@ function config.alpha_dashboard()
     '      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
     '       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
   }
+  ---@diagnostic disable-next-line: unused-local
+  local ascii_ASTROV = {
+    '             \\                                      [            ',
+    '              @                 ⟡                  ╢             ',
+    '      /       ╣▒                                  ]▒       \\     ',
+    '     ╔       ]Ñ▒                                  ╟╣┐       ▓    ',
+    '    ╢╣       ╣▓            √          t            ▓╣       ▓╣   ',
+    '   ▓╣▒╖    ╓╫╜           ╥▓   ASTROν   ▓@           ╙▓╖    ╔╣╢║  ',
+    '   ▓▓▓▓  ,p▓,,,,,,      ╜╙▓▄╖,      ,╓╥╜╙╙    ,,,,,,,,▓▓,  ▀▓▓╣U ',
+    '   ▀▓Ö   ╙█▓▓▓▓▓▓╢╫╣▓▓▓▓▓╦, ▀▓▓╗  g╢▓╝ ,╓H╢╢╢╢╢╢▓▓▓▓▓▓▒▓╜   ]▓▓  ',
+    '    ▓▓▓╦╥╖ ╙╙╙╙`     `""▀▓▓@ ▐█▓L]▓╫╛ Æ▒╨╜"       ""╙╙` ╓╖∩▒▒▓   ',
+    ' ╒▓▒╜""╙▀▓▓                ▀  █▒Γ▐▓▓  ╩                ▓╢╜""╙▀█╫L',
+    ' ▐▌`      └╝                  ▓▒` █▓                  ╜       └█▓',
+    '▐▓                            ▓▒  █╢                           ▐▓',
+    ' ▐Γ                            ╛  ▐"                           ▐[',
+    ' ¬U                                                            jU',
+    '  C                                                            j ',
+    '   L                                                          ]  ',
+  }
   local alpha = require('alpha')
   local dashboard = require('alpha.themes.dashboard')
   -- get neovim plugins count
@@ -131,7 +150,7 @@ function config.alpha_dashboard()
   ---@diagnostic disable-next-line: need-check-nil
   local plugins = handle:read('*a')
   local plugins_count = plugins:gsub('^%s*(.-)%s*$', '%1')
-  -- dashboard.section.header.val = ascii
+  -- dashboard.section.header.val = ascii_ASTROV
   dashboard.section.buttons.val = {
     dashboard.button('f', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
     dashboard.button(
