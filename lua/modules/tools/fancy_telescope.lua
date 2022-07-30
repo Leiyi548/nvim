@@ -33,7 +33,7 @@ function M.findDotfile()
     path_display = { 'absolute' },
     prompt_position = 'top',
     sorting_strategy = 'ascending',
-    search_dirs = { '~/.config/nvim' },
+    search_dirs = { '~/.config/nvim','~/.dotfile' },
     previewer = false,
     layout_config = {
       width = 0.5,

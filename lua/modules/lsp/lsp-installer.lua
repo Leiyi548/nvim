@@ -8,7 +8,8 @@ local servers = {
   'html',
   'emmet_ls',
   'cssls',
-  "clangd"
+  "clangd",
+  "bashls"
 }
 local settings = {
   ensure_installed = servers,

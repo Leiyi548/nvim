@@ -5,10 +5,11 @@ end
 
 bufferline.setup({
   options = {
+    mode = "buffers",
     numbers = 'ordinal', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
-    close_command = 'Bdelete! %d', -- can be a string | function, see "Mouse actions"
-    right_mouse_command = 'veqrtical sbuffer %d', -- can be a string | function, see "Mouse actions"
-    left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
+    close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
     middle_mouse_command = 'nil', -- can be a string | function, see "Mouse actions"
     indicator_icon = '▎',
     buffer_close_icon = '',
@@ -48,6 +49,6 @@ bufferline.setup({
     separator_style = 'thin', -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
-    custom_areas = {},
+    -- custom_areas = {},
   },
 })

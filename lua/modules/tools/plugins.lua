@@ -84,6 +84,7 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
+  disable = false
 })
 
 plugin({
