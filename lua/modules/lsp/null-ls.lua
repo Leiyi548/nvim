@@ -41,7 +41,7 @@ null_ls.setup({
 
     diagnostics.flake8, -- enable for python diagnostics
 
-    code_actions.gitsigns, -- enable code_action for gitsigns
+    -- code_actions.gitsigns, -- enable code_action for gitsigns
   },
 })
 

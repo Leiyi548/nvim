@@ -6,8 +6,10 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 -- colorscheme
-plugin({ 'Leiyi548/onedarker.nvim' })
-plugin({ 'lunarvim/darkplus.nvim', disable = true })
+-- plugin({ 'Leiyi548/onedarker.nvim' })
+plugin({ 'lunarvim/onedarker.nvim' })
+plugin({ 'lunarvim/horizon.nvim', disable = false })
+plugin({ 'lunarvim/darkplus.nvim', disable = false })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim',disable = true })
 -- plugin({ '~/study/neovim/onedarkpro' })

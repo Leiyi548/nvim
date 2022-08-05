@@ -179,6 +179,7 @@ end
 
 function config.lualine()
   require('modules.ui.statusline')
+  -- require('modules.ui.lualine')
 end
 
 function config.bufferline()

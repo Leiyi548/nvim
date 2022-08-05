@@ -56,6 +56,19 @@ function config.nvim_cmp()
         behavior = cmp.ConfirmBehavior.Insert,
         select = true,
       }),
+      -- 预选中时空格上屏配置（nvim-cmp)
+      ["<Space>"] = cmp.mapping(function(fallback)
+        if cmp.visible() then
+          local selected_entry = cmp.core.view:get_selected_entry()
+          if selected_entry
+              and selected_entry.source.name == "flypy"
+              and not cmp.confirm({ select = true }) then
+            return fallback()
+          end
+        end
+        fallback()
+      end,
+        { "i", "s", }),
       -- like vscode tab behavior
       ['<Tab>'] = cmp.mapping(function(fallback)
         -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
