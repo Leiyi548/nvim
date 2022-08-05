@@ -31,7 +31,7 @@ M.winbar_filetype_exclude = {
 }
 
 M.get_filename = function()
-  local foldname = vim.fn.expand "%:e"
+  local foldname = vim.api.nvim_eval("$PWD == $HOME ? '~' : substitute($PWD, '\\v(.*/)*', '', 'g')") .. ' '
   local filename = vim.fn.expand "%:t"
   local extension = vim.fn.expand "%:e"
   local f = require "utils.function"
@@ -52,7 +52,8 @@ M.get_filename = function()
     end
     vim.api.nvim_set_hl(0, "Winbar", { fg = "#6b737f" })
 
-    return "  "..foldname ..  "  " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
+    return "  " ..
+        foldname .. " " .. "%#" .. hl_group .. "#" .. file_icon .. "%*" .. " " .. "%#Winbar#" .. filename .. "%*"
   end
 end
 
