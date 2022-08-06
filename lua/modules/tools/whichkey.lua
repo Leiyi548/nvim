@@ -81,14 +81,15 @@ local opts = {
 local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
-  ['b'] = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Buffer' },
-  ['c'] = { "<Cmd>BufferLinePickClose<CR>", '﩯Buffer' },
+  ['b'] = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Find Buffer' },
+  ['c'] = { "<cmd>BufferLinePickClose<CR>", '﩯Close Buffer' },
+  ['o'] = { "<cmd>BufferLinePick<cr>", '﩯Open Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
   ['w'] = { '<cmd>w!<cr>', ' Save' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
-  ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
+  -- ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['S'] = { '<cmd>Startify<cr>', '舘Startify' },
   ['x'] = { '<cmd>Bdelete!', 'close buffer' },
