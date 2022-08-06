@@ -82,6 +82,7 @@ local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
   ['b'] = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Buffer' },
+  ['c'] = { "<Cmd>BufferLinePickClose<CR>", '﩯Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },

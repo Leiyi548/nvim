@@ -33,7 +33,6 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
-  event = 'BufWinEnter',
   config = conf.toggleterm,
 })
 

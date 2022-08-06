@@ -5,6 +5,7 @@ end
 
 -- require ("modules.lsp.lsp-signature")
 require ("modules.lsp.lsp-installer")
+-- require ("modules.lsp.mason")
 require ("modules.lsp.handles").setup()
 require ("modules.lsp.null-ls")
 require ("modules.lsp.navic")
