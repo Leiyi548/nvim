@@ -37,7 +37,7 @@ null_ls.setup({
     formatting.black.with({ extra_args = { '--fast' } }), -- enable for python format
     formatting.stylua, -- enable for lua format
     formatting.goimports, -- enable for Update your Go import lines,adding missing ones and removing unreferenced ones
-    formatting.google_java_format, -- enable for java format
+    -- formatting.google_java_format, -- enable for java format
 
     diagnostics.flake8, -- enable for python diagnostics
 

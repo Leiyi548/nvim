@@ -224,6 +224,17 @@ function config.nvim_tree()
           { key = 'O', action = 'system_open' },
         },
       },
+      float = {
+        enable = true,
+        open_win_config = {
+          relative = "editor",
+          border = "rounded",
+          width = 30,
+          height = 30,
+          row = 1,
+          col = 1,
+        },
+      }
     },
     renderer = {
 

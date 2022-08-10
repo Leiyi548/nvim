@@ -4,7 +4,7 @@ vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])
 
 vim.cmd([[set background=dark]])
 -- auto change colorscheme base on time.
-_G_colorscheme = 'onedarker' -- github_light github_dark onedarker catppuccin horizon
+_G_colorscheme = 'github_light' -- github_light github_dark onedarker catppuccin horizon
 -- local time = os.date('*t')
 -- local min = time.min
 -- local hour = time.hour
