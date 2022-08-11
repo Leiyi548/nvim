@@ -81,13 +81,12 @@ local opts = {
 local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
-  ['b'] = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Find Buffer' },
   ['c'] = { "<cmd>BufferLinePickClose<CR>", '﩯Close Buffer' },
   ['o'] = { "<cmd>BufferLinePick<cr>", '﩯Open Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
-  ['w'] = { '<cmd>w!<cr>', ' Save' },
+  -- ['w'] = { '<cmd>w!<cr>', ' Save' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   -- ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
@@ -110,7 +109,8 @@ local mappings = {
     name = ' Find',
     t = { '<cmd>Telescope live_grep<cr>', ' Text' },
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
-    s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
+    -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
+    s = { "<cmd>w!<cr>", ' Save' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
@@ -132,12 +132,13 @@ local mappings = {
   },
 
   -- Whichkey-B
-  B = {
+  b = {
     name = '﩯Buffer',
-    c = { '<Cmd>BufferLinePickClose<CR>', 'delete buffer' },
+    k = { '<Cmd>BufferLinePickClose<CR>', 'kill buffer' },
     p = { '<Cmd>BufferLinePick<CR>', 'pick buffer' },
     h = { '<cmd>Bdelete hidden<cr>', 'Close hidden buffer' },
     o = { '<cmd>Bdelete other<cr>', 'Close other buffer' },
+    b = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Find Buffer' },
     -- h = { '<cmd>BufferLineCloseLeft<cr>', 'Close left buffer' },
     -- l = { '<cmd>BufferLineCloseRight<cr>', 'Close right buffer' },
   },

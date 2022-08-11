@@ -225,7 +225,7 @@ function config.nvim_tree()
         },
       },
       float = {
-        enable = true,
+        enable = false,
         open_win_config = {
           relative = "editor",
           border = "rounded",

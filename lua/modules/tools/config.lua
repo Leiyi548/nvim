@@ -71,7 +71,7 @@ function config.telescope()
       'static/*',
     },
   })
-  require('telescope').load_extension('fzy_native')
+  -- require('telescope').load_extension('fzy_native')
 end
 
 function config.whichkey()
