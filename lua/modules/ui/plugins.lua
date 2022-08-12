@@ -18,7 +18,6 @@ plugin({ 'glepnir/zephyr-nvim'})
 
 -- startup plugin
 plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard, requires = 'kyazdani42/nvim-web-devicons', disable = false })
-plugin({ 'goolord/alpha-nvim', config = conf.alpha_dashboard, requires = 'kyazdani42/nvim-web-devicons',disable=true })
 
 -- statusline
 plugin({

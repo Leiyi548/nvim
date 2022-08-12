@@ -73,15 +73,15 @@ function config.dashboard()
   local home = os.getenv('HOME') -- /home/ewell
   local db = require('dashboard')
   -- macos
-  db.preview_command = 'cat | lolcat -F 0.3'
+  -- db.preview_command = 'cat | lolcat -F 0.3'
   -- linux
   -- db.preview_command = 'ueberzug'
-  db.preview_command = 'cat | lolcat -F 0.3'
+  -- db.preview_command = 'cat | lolcat -F 0.3'
   --
   -- db.preview_file_path = home .. '/.dotfile/wallpaper/01.png'
-  db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  db.preview_file_height = 12
-  db.preview_file_width = 80
+  -- db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
+  -- db.preview_file_height = 12
+  -- db.preview_file_width = 80
   db.custom_center = {
       {icon = '  ',
       desc = 'Recently latest session                 ',
@@ -104,114 +104,28 @@ function config.dashboard()
       action = "lua require('modules.tools.fancy_telescope').findDotfile()",
       shortcut = 'SPC f d'},
     }
-end
-
-function config.alpha_startify()
-  local alpha = require('alpha')
-  local startify = require('alpha.themes.startify')
-  -- get neovim plugins count
-  local handle = io.popen('fd -d 2 . $HOME"/.local/share/nvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" ')
-  ---@diagnostic disable-next-line: need-check-nil
-  local plugins = handle:read('*a')
-  local plugins_count = plugins:gsub('^%s*(.-)%s*$', '%1')
-
-  alpha.setup(startify.config)
-  startify.nvim_web_devicons.enabled = true
-  -- disable top_buttons
-  startify.section.top_buttons.val = {}
-  startify.section.bottom_buttons.val = {
-    { type = 'padding', val = 1 },
-    startify.button('f', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
-    startify.button('r', ' Recent Files', "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>"),
-    startify.button('t', ' Find Text', '<cmd>Telescope live_grep<CR>'),
-    startify.button('d', ' Find Dotfiles', "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>"),
-    startify.button(
-      'c',
-      ' Find Configuration',
-      "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>"
-    ),
-    startify.button('u', ' Update Plugins', '<cmd>PackerSync<cr>'),
-    startify.button('q', ' Quit Neovim', '<cmd>q<cr>'),
+  db.custom_header= {
+    "                                                                              ",
+    "=================     ===============     ===============   ========  ========",
+    "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
+    "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
+    "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
+    "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
+    "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
+    "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
+    "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
+    "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
+    "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
+    "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
+    "||            .===' `===.         .==='.`===.         .===' /==. |  \\/  |   ||",
+    "||         .=='   \\_|-_ `===. .==='   _|_   `===. .===' _-|/   `==  \\/  |   ||",
+    "||      .=='    _-'    `-_  `='    _-'   `-_    `='  _-'   `-_  /|  \\/  |   ||",
+    "||   .=='    _-'          `-__\\._-'         `-_./__-'         `' |. /|  |   ||",
+    "||.=='    _-'                                                     `' |  /==.||",
+    "=='    _-'                        N E O V I M                         \\/   `==",
+    "\\   _-'                                                                `-_   /",
+    " `''                                                                      ``'  ",
   }
-  startify.section.footer.val = {
-    {
-      type = 'text',
-      val = 'neovim load ' .. plugins_count .. ' plugins',
-      opts = {
-        position = 'left',
-        hl = 'Comment',
-        hl_shortcut = 'Comment',
-      },
-    },
-  }
-end
-
-function config.alpha_dashboard()
-  ---@diagnostic disable-next-line: unused-local
-  local ascii_dragon = {
-    '   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣿⣶⣿⣦⣼⣆          ',
-    '    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
-    '          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷    ⠻⠿⢿⣿⣧⣄     ',
-    '           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
-    '          ⢠⣿⣿⣿⠈    ⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
-    '   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘  ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
-    '  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
-    ' ⣠⣿⠿⠛ ⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
-    ' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇ ⠛⠻⢷⣄ ',
-    '      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
-    '       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
-  }
-  ---@diagnostic disable-next-line: unused-local
-  local ascii_ASTROV = {
-    '             \\                                      [            ',
-    '              @                 ⟡                  ╢             ',
-    '      /       ╣▒                                  ]▒       \\     ',
-    '     ╔       ]Ñ▒                                  ╟╣┐       ▓    ',
-    '    ╢╣       ╣▓            √          t            ▓╣       ▓╣   ',
-    '   ▓╣▒╖    ╓╫╜           ╥▓   ASTROν   ▓@           ╙▓╖    ╔╣╢║  ',
-    '   ▓▓▓▓  ,p▓,,,,,,      ╜╙▓▄╖,      ,╓╥╜╙╙    ,,,,,,,,▓▓,  ▀▓▓╣U ',
-    '   ▀▓Ö   ╙█▓▓▓▓▓▓╢╫╣▓▓▓▓▓╦, ▀▓▓╗  g╢▓╝ ,╓H╢╢╢╢╢╢▓▓▓▓▓▓▒▓╜   ]▓▓  ',
-    '    ▓▓▓╦╥╖ ╙╙╙╙`     `""▀▓▓@ ▐█▓L]▓╫╛ Æ▒╨╜"       ""╙╙` ╓╖∩▒▒▓   ',
-    ' ╒▓▒╜""╙▀▓▓                ▀  █▒Γ▐▓▓  ╩                ▓╢╜""╙▀█╫L',
-    ' ▐▌`      └╝                  ▓▒` █▓                  ╜       └█▓',
-    '▐▓                            ▓▒  █╢                           ▐▓',
-    ' ▐Γ                            ╛  ▐"                           ▐[',
-    ' ¬U                                                            jU',
-    '  C                                                            j ',
-    '   L                                                          ]  ',
-  }
-  local alpha = require('alpha')
-  local dashboard = require('alpha.themes.dashboard')
-  -- get neovim plugins count
-  local handle = io.popen('fd -d 2 . $HOME"/.local/share/nvim/site/pack/packer" | grep pack | wc -l | tr -d "\n" ')
-  ---@diagnostic disable-next-line: need-check-nil
-  local plugins = handle:read('*a')
-  local plugins_count = plugins:gsub('^%s*(.-)%s*$', '%1')
-  -- dashboard.section.header.val = ascii_ASTROV
-  dashboard.section.buttons.val = {
-    dashboard.button('f', ' Find Files', "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>"),
-    dashboard.button(
-      'r',
-      ' Recent Files',
-      "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>"
-    ),
-    dashboard.button('t', ' Find Text', '<cmd>Telescope live_grep<CR>'),
-    dashboard.button('d', ' Find Dotfiles', "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>"),
-    dashboard.button(
-      'c',
-      ' Find Configuration',
-      "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>"
-    ),
-    dashboard.button('u', ' Update Plugins', '<cmd>PackerSync<cr>'),
-    dashboard.button('q', ' Quit Neovim', '<cmd>q<cr>'),
-  }
-  dashboard.section.footer.val = 'neovim load ' .. plugins_count .. ' plugins'
-
-  dashboard.config.opts.noautocmd = true
-
-  vim.cmd([[autocmd User AlphaReady echo 'ready']])
-
-  alpha.setup(dashboard.config)
 end
 
 function config.lualine()
