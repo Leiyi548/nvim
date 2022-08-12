@@ -13,6 +13,10 @@ plugin({
 })
 plugin({ 'nvim-treesitter/nvim-treesitter-textobjects'})
 plugin({ 'nvim-treesitter/playground'})
+plugin({
+  'nvim-treesitter/nvim-treesitter-context',
+  config = conf.nvim_treesitter_content,
+})
 plugin({ 'p00f/nvim-ts-rainbow'})
 plugin({ 'windwp/nvim-ts-autotag'})
 

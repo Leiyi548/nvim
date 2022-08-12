@@ -82,7 +82,6 @@ local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
   ['c'] = { "<cmd>BufferLinePickClose<CR>", '﩯Close Buffer' },
-  ['o'] = { "<cmd>BufferLinePick<cr>", '﩯Open Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
@@ -93,7 +92,7 @@ local mappings = {
   ['S'] = { '<cmd>Startify<cr>', '舘Startify' },
   ['x'] = { '<cmd>Bdelete!', 'close buffer' },
   ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
-  -- Whichkey-p
+  -- whichkey-p
   p = {
     name = ' Packer',
     C = { '<cmd>PackerClean<cr>', 'Clean' },
@@ -104,7 +103,13 @@ local mappings = {
     u = { '<cmd>PackerUpdate<cr>', 'Update' },
   },
 
-  -- Whichkey-f
+  o = {
+    name = ' Open',
+    b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
+    t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
+  },
+
+  -- whichkey-f
   f = {
     name = ' Find',
     t = { '<cmd>Telescope live_grep<cr>', ' Text' },
@@ -131,18 +136,18 @@ local mappings = {
     R = { '<cmd>Telescope registers<cr>', 'Registers' },
   },
 
-  -- Whichkey-B
+  -- whichkey-b
   b = {
     name = '﩯Buffer',
-    k = { '<Cmd>BufferLinePickClose<CR>', 'kill buffer' },
-    p = { '<Cmd>BufferLinePick<CR>', 'pick buffer' },
+    k = { '<cmd>bdelete!<cr>', 'kill buffer' },
+    p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
     h = { '<cmd>Bdelete hidden<cr>', 'Close hidden buffer' },
     o = { '<cmd>Bdelete other<cr>', 'Close other buffer' },
     b = { "<cmd>lua require('modules.tools.fancy_telescope').findBuffers()<cr>", '﩯Find Buffer' },
     -- h = { '<cmd>BufferLineCloseLeft<cr>', 'Close left buffer' },
     -- l = { '<cmd>BufferLineCloseRight<cr>', 'Close right buffer' },
   },
-  -- Whichkey-r
+  -- whichkey-r
   r = {
     name = ' Run or Rename',
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
@@ -150,7 +155,7 @@ local mappings = {
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
   },
 
-  -- Whichkey-g
+  -- whichkey-g
   g = {
     name = ' Git',
     l = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
@@ -177,7 +182,7 @@ local mappings = {
     },
   },
 
-  -- Whichkey-l
+  -- whichkey-l
   l = {
     name = '  LSP',
     a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', '  Code Action' },
@@ -227,7 +232,7 @@ local mappings = {
     s = { "<cmd>lua require'dap'.continue()<cr>", 'Start' },
     q = { "<cmd>lua require'dap'.close()<cr>", 'Quit' },
   },
-  -- Whichkey-s
+  -- whichkey-s
   s = {
     name = ' Search',
     b = { '<cmd>Telescope git_branches<cr>', ' Checkout branch' },
@@ -240,7 +245,7 @@ local mappings = {
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
   },
 
-  -- Whichkey-t
+  -- whichkey-t
   t = {
     name = ' Terminal',
     n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
