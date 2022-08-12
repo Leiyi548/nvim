@@ -31,6 +31,7 @@ plugin({
   'X3eRo0/dired.nvim',
   requires = "MunifTanjim/nui.nvim",
   config = conf.dired,
+  disable = true,
 })
 
 plugin({
