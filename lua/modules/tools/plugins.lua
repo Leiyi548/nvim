@@ -16,6 +16,15 @@ plugin({
 })
 
 plugin({
+  'TimUntersberger/neogit',
+  requires = {
+    'sindrets/diffview.nvim',
+    'nvim-lua/plenary.nvim',
+  },
+  config = conf.neogit,
+})
+
+plugin({
   'folke/which-key.nvim',
   event = 'BufWinEnter',
   config = conf.whichkey,
