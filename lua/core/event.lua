@@ -68,6 +68,11 @@ function autocmd.load_autocmds()
         'qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo',
         'nnoremap <silent> <buffer> q :q<cr>',
       },
+      {
+        'FileType',
+        'DiffviewFileHistory,DiffviewFiles',
+        'nnoremap <silent> <buffer> q :DiffviewClose<cr>',
+      },
       { 'FileType', 'alpha', "set nocursorline" },
       { 'FileType', '*', [[setlocal formatoptions-=cro]] },
       { 'TermOpen', 'term://*', 'nnoremap <silent><buffer>q :bdelete<cr>' },

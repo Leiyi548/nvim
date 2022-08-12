@@ -153,7 +153,8 @@ local mappings = {
   -- Whichkey-g
   g = {
     name = ' Git',
-    l = { '<cmd>lua _LAZYGIT_TOGGLE()<CR>', ' Lazygit' },
+    l = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
+    h = { "<cmd>DiffviewFileHistory<cr>", ' History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", ' Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", ' Prev Hunk' },
     g = { "<cmd>Neogit<cr>", ' Neogit' },
@@ -171,7 +172,7 @@ local mappings = {
     b = { '<cmd>Telescope git_branches<cr>', ' Checkout branch' },
     c = { '<cmd>Telescope git_commits<cr>', ' Checkout commit' },
     d = {
-      '<cmd>Gitsigns diffthis HEAD<cr>',
+      '<cmd>DiffviewOpen<cr>',
       'Diff',
     },
   },

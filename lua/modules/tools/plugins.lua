@@ -18,10 +18,19 @@ plugin({
 plugin({
   'TimUntersberger/neogit',
   requires = {
-    'sindrets/diffview.nvim',
-    'nvim-lua/plenary.nvim',
+    {'nvim-lua/plenary.nvim'},
+    {
+      'sindrets/diffview.nvim',
+      config = conf.diffview
+    },
   },
   config = conf.neogit,
+})
+
+plugin({
+  'X3eRo0/dired.nvim',
+  requires = "MunifTanjim/nui.nvim",
+  config = conf.dired,
 })
 
 plugin({
