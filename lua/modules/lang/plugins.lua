@@ -25,3 +25,6 @@ plugin({ 'christianchiarulli/lua-dev.nvim' })
 
 -- markdown
 plugin({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', ft = 'markdown' })
+
+-- neorg
+plugin({ 'nvim-neorg/neorg', config = conf.neorg })
