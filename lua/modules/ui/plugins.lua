@@ -8,16 +8,22 @@ local conf = require('modules.ui.config')
 -- colorscheme
 -- plugin({ 'Leiyi548/onedarker.nvim' })
 plugin({ 'lunarvim/onedarker.nvim' })
-plugin({ 'lunarvim/horizon.nvim', disable = false })
-plugin({ 'lunarvim/darkplus.nvim', disable = false })
+plugin({ 'lunarvim/horizon.nvim' })
+plugin({ 'lunarvim/darkplus.nvim' })
+plugin({ 'lunarvim/synthwave84.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
-plugin({ 'olimorris/onedarkpro.nvim',disable = true })
-plugin({ 'rose-pine/neovim'})
-plugin({ 'glepnir/zephyr-nvim'})
+plugin({ 'olimorris/onedarkpro.nvim', disable = true })
+-- plugin({ 'rose-pine/neovim'})
+-- plugin({ 'glepnir/zephyr-nvim'})
 -- plugin({ '~/study/neovim/onedarkpro' })
 
 -- startup plugin
-plugin({ 'glepnir/dashboard-nvim', config = conf.dashboard, requires = 'kyazdani42/nvim-web-devicons', disable = false })
+plugin({
+  'glepnir/dashboard-nvim',
+  config = conf.dashboard,
+  requires = 'kyazdani42/nvim-web-devicons',
+  disable = false,
+})
 
 -- statusline
 plugin({

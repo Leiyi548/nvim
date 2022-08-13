@@ -103,8 +103,10 @@ local mappings = {
     u = { '<cmd>PackerUpdate<cr>', 'Update' },
   },
 
+  -- whichkey-o
   o = {
     name = ' Open',
+    o = { '<cmd>LSoutlineToggle<cr>', 'Outline'},
     b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
   },

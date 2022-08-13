@@ -27,9 +27,9 @@ nmap({
   { '<M-h>', cmd('ToggleTerm size=10  direction=horizontal'), opts(noremap, silent) },
   { '<M-v>', cmd('ToggleTerm size=80  direction=vertical'), opts(noremap, silent) },
 
-  -- gitsign
-  { '[g', cmd('lua require "gitsigns".prev_hunk()<cr>'), opts(noremap, silent) },
-  { ']g', cmd('lua require "gitsigns".next_hunk()<cr>'), opts(noremap, silent) },
+  -- gitsign jump to hunk
+  { '[d', cmd('lua require "gitsigns".prev_hunk()<cr>'), opts(noremap, silent) },
+  { ']d', cmd('lua require "gitsigns".next_hunk()<cr>'), opts(noremap, silent) },
 
   -- bufferline
   { '<leader>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },

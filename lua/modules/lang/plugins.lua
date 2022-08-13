@@ -19,4 +19,5 @@ plugin({
 })
 plugin({ 'p00f/nvim-ts-rainbow'})
 plugin({ 'windwp/nvim-ts-autotag'})
+plugin({ 'christianchiarulli/lua-dev.nvim'})
 

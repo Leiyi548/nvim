@@ -11,17 +11,17 @@ plugin({
   requires = {
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
-    -- { 'nvim-telescope/telescope-fzy-native.nvim' },
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
   },
 })
 
 plugin({
   'TimUntersberger/neogit',
   requires = {
-    {'nvim-lua/plenary.nvim'},
+    { 'nvim-lua/plenary.nvim' },
     {
       'sindrets/diffview.nvim',
-      config = conf.diffview
+      config = conf.diffview,
     },
   },
   config = conf.neogit,
@@ -29,7 +29,7 @@ plugin({
 
 plugin({
   'X3eRo0/dired.nvim',
-  requires = "MunifTanjim/nui.nvim",
+  requires = 'MunifTanjim/nui.nvim',
   config = conf.dired,
   disable = true,
 })
@@ -102,7 +102,7 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
-  disable = false
+  disable = false,
 })
 
 plugin({

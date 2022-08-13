@@ -83,37 +83,47 @@ function config.dashboard()
   -- db.preview_file_height = 12
   -- db.preview_file_width = 80
   db.custom_center = {
-      {icon = '  ',
+    {
+      icon = '  ',
       desc = 'Recently latest session                 ',
       shortcut = 'SPC s l',
-      action ='SessionLoad'},
-      {icon = '  ',
+      action = 'SessionLoad',
+    },
+    {
+      icon = '  ',
       desc = 'Recently opened files                   ',
-      action =  "lua require('modules.tools.fancy_telescope').findRecentFiles()",
-      shortcut = 'SPC f r'},
-      {icon = '  ',
+      action = "lua require('modules.tools.fancy_telescope').findRecentFiles()",
+      shortcut = 'SPC f r',
+    },
+    {
+      icon = '  ',
       desc = 'Find  File                              ',
       action = "lua require('modules.tools.fancy_telescope').findFiles()",
-      shortcut = 'SPC f f'},
-      {icon = '  ',
+      shortcut = 'SPC f f',
+    },
+    {
+      icon = '  ',
       desc = 'Find  Text                              ',
       action = 'Telescope live_grep',
-      shortcut = 'SPC f t'},
-      {icon = '  ',
+      shortcut = 'SPC f t',
+    },
+    {
+      icon = '  ',
       desc = 'Open Personal dotfiles                  ',
       action = "lua require('modules.tools.fancy_telescope').findDotfile()",
-      shortcut = 'SPC f d'},
-    }
-  db.custom_header= {
-    "                                                                              ",
-    "=================     ===============     ===============   ========  ========",
-    "\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //",
-    "||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||",
-    "|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||",
-    "||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||",
-    "|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||",
+      shortcut = 'SPC f d',
+    },
+  }
+  db.custom_header = {
+    '                                                                              ',
+    '=================     ===============     ===============   ========  ========',
+    '\\\\ . . . . . . .\\\\   //. . . . . . .\\\\   //. . . . . . .\\\\  \\\\. . .\\\\// . . //',
+    '||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||',
+    '|| . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||',
+    '||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||',
+    '|| . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\\ . . . . ||',
     "||. . ||   ||-'  || ||  `-||   || . .|| ||. . ||   ||-'  || ||  `|\\_ . .|. .||",
-    "|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||",
+    '|| . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\\ `-_/| . ||',
     "||_-' ||  .|/    || ||    \\|.  || `-_|| ||_-' ||  .|/    || ||   | \\  / |-_.||",
     "||    ||_-'      || ||      `-_||    || ||    ||_-'      || ||   | \\  / |  `||",
     "||    `'         || ||         `'    || ||    `'         || ||   | \\  / |   ||",
@@ -178,14 +188,14 @@ function config.nvim_tree()
       float = {
         enable = false,
         open_win_config = {
-          relative = "editor",
-          border = "rounded",
+          relative = 'editor',
+          border = 'rounded',
           width = 30,
           height = 30,
           row = 1,
           col = 1,
         },
-      }
+      },
     },
     renderer = {
 

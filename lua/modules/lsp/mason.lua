@@ -22,9 +22,9 @@ local settings = {
   ui = {
     border = "rounded",
     icons = {
-      package_installed = " ",
-      server_pending = ' ',
-      package_uninstalled = " ﮊ",
+      package_installed = "◍",
+      package_pending = "◍",
+      package_uninstalled = "◍",
     },
   },
   log_level = vim.log.levels.INFO,
@@ -46,20 +46,28 @@ local opts = {}
 
 for _, server in pairs(servers) do
   opts = {
-    on_attach = require("modules.lsp.handlers").on_attach,
-    capabilities = require("modules.lsp.handlers").capabilities,
+    on_attach = require("modules.lsp.handles").on_attach,
+    capabilities = require("modules.lsp.handles").capabilities
+    -- capabilities = require("modules.lsp.handlers").capabilities,
   }
 
   server = vim.split(server, "@")[1]
-
   if server == "sumneko_lua" then
-    local sumneko_lua_opts = require "modules.lsp.settings.sumneko_lua"
-    opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
-  end
-
-  if server == "tsserver" then
-    local tsserver_opts = require "modules.lsp.settings.tsserver"
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
+    local l_status_ok, lua_dev = pcall(require, "lua-dev")
+    if not l_status_ok then
+      return
+    end
+    local luadev = lua_dev.setup {
+      --   -- add any options here, or leave empty to use the default settings
+      -- lspconfig = opts,
+      lspconfig = {
+        on_attach = opts.on_attach,
+        capabilities = opts.capabilities,
+        --   -- settings = opts.settings,
+      },
+    }
+    lspconfig.sumneko_lua.setup(luadev)
+    goto continue
   end
 
   if server == "pyright" then
