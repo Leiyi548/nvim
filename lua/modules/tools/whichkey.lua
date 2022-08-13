@@ -133,7 +133,7 @@ local mappings = {
       "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
       'Jumplist',
     },
-    R = { '<cmd>Telescope registers<cr>', 'Registers' },
+    y = { '<cmd>Telescope registers<cr>', 'Registers' },
   },
 
   -- whichkey-b

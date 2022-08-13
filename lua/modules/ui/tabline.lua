@@ -8,9 +8,9 @@ bufferline.setup({
     mode = "buffers",
     numbers = 'ordinal', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
-    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+    right_mouse_command = "lua require('modules.tools.fancy_telescope').showBuffers()", -- can be a string | function, see "Mouse actions"
     left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
-    middle_mouse_command = 'nil', -- can be a string | function, see "Mouse actions"
+    middle_mouse_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
@@ -25,8 +25,8 @@ bufferline.setup({
     end,
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
-    tab_size = 10,
-    diagnostics = 'nvim_lsp', -- | "nvim_lsp" | "coc",
+    tab_size = 15,
+    diagnostics = 'none', -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     offsets = {
       {

@@ -57,7 +57,7 @@ function config.nvim_cmp()
         select = true,
       }),
       -- 预选中时空格上屏配置（nvim-cmp)
-      ["<Space>"] = cmp.mapping(function(fallback)
+      --[[ ["<Space>"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           local selected_entry = cmp.core.view:get_selected_entry()
           if selected_entry
@@ -68,7 +68,7 @@ function config.nvim_cmp()
         end
         fallback()
       end,
-        { "i", "s", }),
+        { "i", "s", }), ]]
       -- like vscode tab behavior
       ['<Tab>'] = cmp.mapping(function(fallback)
         -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item

@@ -49,9 +49,26 @@ end
 function M.findBuffers()
   local opts = {
     prompt_title = 'Buffers',
-    path_display = { 'absolute' },
+    -- path_display = { 'absolute' },
     prompt_position = 'top',
     previewer = false,
+    layout_config = {
+      width = 0.5,
+      height = 0.5,
+      horizontal = { width = { padding = 0.15 } },
+      vertical = { preview_height = 0.75 },
+    },
+  }
+  builtin.buffers(themes.get_dropdown(opts))
+end
+
+function M.showBuffers()
+  local opts = {
+    prompt_title = 'Buffers',
+    -- path_display = { 'smart' },
+    prompt_position = 'top',
+    previewer = false,
+    initial_mode = "normal",
     layout_config = {
       width = 0.5,
       height = 0.5,
