@@ -5,27 +5,50 @@
 local config = {}
 
 function config.github()
-  -- Example config in Lua
-  require('github-theme').setup({
-    theme_style = 'light',
-    function_style = 'italic',
-    comment_style = 'italic',
-    keyword_style = 'NONE',
-    variable_style = 'NONE',
-    sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
+  if _G_colorscheme == 'github_light' then
+    -- Example config in Lua
+    require('github-theme').setup({
+      theme_style = 'light',
+      function_style = 'italic',
+      comment_style = 'italic',
+      keyword_style = 'NONE',
+      variable_style = 'NONE',
+      sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
 
-    -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-    colors = { hint = 'orange', error = '#ff0000' },
+      -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+      colors = { hint = 'orange', error = '#ff0000' },
 
-    -- Overwrite the highlight groups
-    overrides = function(c)
-      return {
-        htmlTag = { fg = c.red, bg = '#282c34', sp = c.hint, style = 'underline' },
-        DiagnosticHint = { link = 'LspDiagnosticsDefaultHint' },
-        -- this will remove the highlight groups
-        TSField = {},
-      }
-    end,
+      -- Overwrite the highlight groups
+      overrides = function(c)
+        return {
+          htmlTag = { fg = c.red, bg = '#282c34', sp = c.hint, style = 'underline' },
+          DiagnosticHint = { link = 'LspDiagnosticsDefaultHint' },
+          -- this will remove the highlight groups
+          TSField = {},
+        }
+      end,
+    })
+  end
+end
+
+function config.kanagawa()
+  -- Default options:
+  require('kanagawa').setup({
+    undercurl = true, -- enable undercurls
+    commentStyle = { italic = true },
+    functionStyle = { italic = true },
+    keywordStyle = { italic = false },
+    statementStyle = { bold = true },
+    typeStyle = {},
+    variablebuiltinStyle = { italic = true },
+    specialReturn = true, -- special highlight for the return keyword
+    specialException = true, -- special highlight for exception handling keywords
+    transparent = false, -- do not set background color
+    dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+    globalStatus = false, -- adjust window separators highlight for laststatus=3
+    terminalColors = true, -- define vim.g.terminal_color_{0,17}
+    colors = {},
+    overrides = {},
   })
 end
 
@@ -178,8 +201,8 @@ function config.nvim_tree()
         custom_only = false,
         list = {
           -- user mappings go here
-          { key = '[g', action = 'prev_git_item' },
-          { key = ']g', action = 'next_git_item' },
+          { key = '[d', action = 'prev_git_item' },
+          { key = ']d', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
           { key = 's', action = 'vsplit' },
           { key = 'O', action = 'system_open' },
