@@ -162,8 +162,8 @@ function config.dashboard()
 end
 
 function config.lualine()
-  require('modules.ui.statusline')
-  -- require('modules.ui.lualine')
+  -- require('modules.ui.statusline')
+  require('modules.ui.sample_lualine')
 end
 
 function config.bufferline()
