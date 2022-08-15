@@ -95,6 +95,7 @@ local mappings = {
   -- whichkey-p
   p = {
     name = ' Packer',
+    p = { '<cmd>Telescope registers<cr>', 'Registers' },
     C = { '<cmd>PackerClean<cr>', 'Clean' },
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
     i = { '<cmd>PackerInstall<cr>', 'Install' },
@@ -135,7 +136,6 @@ local mappings = {
       "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
       'Jumplist',
     },
-    y = { '<cmd>Telescope registers<cr>', 'Registers' },
   },
 
   -- whichkey-b
@@ -267,6 +267,12 @@ local mappings = {
       'Snippet',
     },
     m = { '<cmd>PasteImg<cr>', 'Image' },
+  },
+
+  -- whichkey-m
+  m = {
+    name = ' Markdown/Mark',
+    p = {"<cmd>MarkdownPreview<cr>","MarkdownPreview"}
   },
 }
 

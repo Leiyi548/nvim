@@ -57,7 +57,7 @@ function config.nvim_cmp()
         select = true,
       }),
       -- 预选中时空格上屏配置（nvim-cmp)
-      --[[ ["<Space>"] = cmp.mapping(function(fallback)
+      [";"] = cmp.mapping(function(fallback)
         if cmp.visible() then
           local selected_entry = cmp.core.view:get_selected_entry()
           if selected_entry
@@ -68,7 +68,7 @@ function config.nvim_cmp()
         end
         fallback()
       end,
-        { "i", "s", }), ]]
+        { "i", "s", }),
       -- like vscode tab behavior
       ['<Tab>'] = cmp.mapping(function(fallback)
         -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
@@ -221,7 +221,7 @@ function config.flypy()
   require('flypy').setup({
     dict_name = 'flypy', -- 选择码表：flypy为小鹤音形，wubi98为98五笔
     comment = true, -- 在所有文件类型的注释下开启
-    filetype = { 'markdown' }, -- 在指定文件类型下开启
+    filetype = { 'markdown','NeogitCommitMessage' }, -- 在指定文件类型下开启
 
     num_filter = true, -- 数字筛选
     source_code = false, -- 显示原码
