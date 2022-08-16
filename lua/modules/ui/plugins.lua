@@ -14,7 +14,7 @@ plugin({ 'lunarvim/synthwave84.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim', disable = true })
 plugin({ 'rebelot/kanagawa.nvim'})
--- plugin({ 'rose-pine/neovim'})
+plugin({ 'rose-pine/neovim'})
 -- plugin({ 'glepnir/zephyr-nvim'})
 -- plugin({ '~/study/neovim/onedarkpro' })
 

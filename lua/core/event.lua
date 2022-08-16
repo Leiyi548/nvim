@@ -65,7 +65,7 @@ function autocmd.load_autocmds()
       { 'FileType', 'make', 'set noexpandtab shiftwidth=8 softtabstop=0' },
       {
         'FileType',
-        'qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo,dashboard,lspsagaoutline',
+        'sagahover,qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo,dashboard,lspsagaoutline',
         'nnoremap <silent> <buffer> q :q<cr>',
       },
       {

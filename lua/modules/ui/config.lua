@@ -205,12 +205,16 @@ function config.nvim_tree()
           { key = '[d', action = 'prev_git_item' },
           { key = ']d', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
-          { key = 's', action = 'vsplit' },
           { key = 'O', action = 'system_open' },
+          { key = 'h', action = 'parent_node' },
+          { key = 'i', action = 'split' },
+          { key = 's', action = 'vsplit' },
+          -- { key = 'J', action = 'next_sibling' },
+          -- { key = 'K', action = 'prev_sibling' },
         },
       },
       float = {
-        enable = false,
+        enable = true,
         open_win_config = {
           relative = 'editor',
           border = 'rounded',
