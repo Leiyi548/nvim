@@ -102,7 +102,10 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
-  disable = false,
+})
+
+plugin({
+  'voldikss/vim-translator',
 })
 
 plugin({

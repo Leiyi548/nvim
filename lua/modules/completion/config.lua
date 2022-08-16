@@ -57,18 +57,15 @@ function config.nvim_cmp()
         select = true,
       }),
       -- 预选中时空格上屏配置（nvim-cmp)
-      [";"] = cmp.mapping(function(fallback)
+      [';'] = cmp.mapping(function(fallback)
         if cmp.visible() then
           local selected_entry = cmp.core.view:get_selected_entry()
-          if selected_entry
-              and selected_entry.source.name == "flypy"
-              and not cmp.confirm({ select = true }) then
+          if selected_entry and selected_entry.source.name == 'flypy' and not cmp.confirm({ select = true }) then
             return fallback()
           end
         end
         fallback()
-      end,
-        { "i", "s", }),
+      end, { 'i', 's' }),
       -- like vscode tab behavior
       ['<Tab>'] = cmp.mapping(function(fallback)
         -- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
@@ -105,6 +102,13 @@ function config.nvim_cmp()
       format = function(entry, vim_item)
         -- Kind icons
         vim_item.kind = string.format('%s', kind_icons[vim_item.kind])
+        -- add icon
+        if entry.source.name == 'emoji' then
+          vim_item.kind = icons.misc.Smiley
+        end
+        if entry.source.name == 'flypy' then
+          vim_item.kind = icons.misc.flypy
+        end
         vim_item.menu = ({
           -- nvim_lsp = "(LSP)",
           -- luasnip = "(Snippet)",
@@ -221,7 +225,7 @@ function config.flypy()
   require('flypy').setup({
     dict_name = 'flypy', -- 选择码表：flypy为小鹤音形，wubi98为98五笔
     comment = true, -- 在所有文件类型的注释下开启
-    filetype = { 'markdown','NeogitCommitMessage' }, -- 在指定文件类型下开启
+    filetype = { 'markdown', 'NeogitCommitMessage' }, -- 在指定文件类型下开启
 
     num_filter = true, -- 数字筛选
     source_code = false, -- 显示原码

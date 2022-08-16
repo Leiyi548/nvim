@@ -30,11 +30,11 @@ function autocmd.load_autocmds()
         [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
       },
       -- format on save
-      -- {
-      --   'BufWritePost',
-      --   '*',
-      --   'lua vim.lsp.buf.format{async = true}'
-      -- },
+      {
+        'BufWritePost',
+        '*',
+        'lua vim.lsp.buf.format{async = true}',
+      },
     },
     wins = {
       -- Highlight current line only on focused window
@@ -73,6 +73,11 @@ function autocmd.load_autocmds()
         'DiffviewFileHistory,DiffviewFiles',
         'nnoremap <silent> <buffer> q :DiffviewClose<cr>',
       },
+      {
+        'FileType',
+        'toggleterm',
+        'nnoremap <silent> <buffer> q :hide<cr>',
+      },
       { 'FileType', 'alpha', 'set nocursorline' },
       { 'FileType', '*', [[setlocal formatoptions-=cro]] },
       { 'TermOpen', 'term://*', 'nnoremap <silent><buffer>q :bdelete<cr>' },
@@ -103,13 +108,13 @@ end
 
 -- 解决 cmp 乱跳
 function G_leave_snippet()
-    if
-        ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
-        and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
-        and not require('luasnip').session.jump_active
-    then
-        require('luasnip').unlink_current()
-    end
+  if
+    ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+    and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+    and not require('luasnip').session.jump_active
+  then
+    require('luasnip').unlink_current()
+  end
 end
 
 -- stop snippets when you leave to normal mode
