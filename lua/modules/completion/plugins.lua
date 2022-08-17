@@ -15,7 +15,7 @@ plugin({
     { 'saadparwaiz1/cmp_luasnip' },
     { 'hrsh7th/cmp-cmdline' },
     { 'hrsh7th/cmp-emoji' },
-    { 'wasden/cmp-flypy.nvim',run = "make", config = conf.flypy },
+    { 'Leiyi548/cmp-flypy.nvim', run = 'make', config = conf.flypy },
   },
 })
 plugin({ 'L3MON4D3/LuaSnip', config = conf.lua_snip })

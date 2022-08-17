@@ -73,6 +73,7 @@ plugin({
   config = function()
     require('Navigator').setup()
   end,
+  disable = true,
 })
 
 plugin({

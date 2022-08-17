@@ -81,7 +81,7 @@ local opts = {
 local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
-  ['c'] = { "<cmd>BufferLinePickClose<CR>", '﩯Close Buffer' },
+  ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
@@ -92,6 +92,7 @@ local mappings = {
   ['S'] = { '<cmd>Startify<cr>', '舘Startify' },
   ['x'] = { '<cmd>Bdelete!', 'close buffer' },
   ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
+
   -- whichkey-p
   p = {
     name = ' Packer',
@@ -104,10 +105,21 @@ local mappings = {
     u = { '<cmd>PackerUpdate<cr>', 'Update' },
   },
 
+  -- whichkey-w
+  w = {
+    name = ' Window',
+    h = { '<C-w><C-h>', 'Left window' },
+    j = { '<C-w><C-j>', 'Down window' },
+    k = { '<C-w><C-k>', 'Up window' },
+    l = { '<C-w><C-l>', 'Right window' },
+    s = { '<cmd>split<cr>', 'Split' },
+    v = { '<cmd>vsplit<cr>', 'Vsplit' },
+    c = { '<C-w>c', 'Close window' },
+  },
   -- whichkey-o
   o = {
     name = ' Open',
-    o = { '<cmd>LSoutlineToggle<cr>', 'Outline'},
+    o = { '<cmd>LSoutlineToggle<cr>', 'Outline' },
     b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
   },
@@ -118,7 +130,7 @@ local mappings = {
     t = { '<cmd>Telescope live_grep<cr>', ' Text' },
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
-    s = { "<cmd>w!<cr>", ' Save' },
+    s = { '<cmd>w!<cr>', ' Save' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
@@ -161,10 +173,10 @@ local mappings = {
   g = {
     name = ' Git',
     l = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
-    h = { "<cmd>DiffviewFileHistory<cr>", ' History' },
+    h = { '<cmd>DiffviewFileHistory<cr>', ' History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", ' Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", ' Prev Hunk' },
-    g = { "<cmd>Neogit<cr>", ' Neogit' },
+    g = { '<cmd>Neogit<cr>', ' Neogit' },
     -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame' },
     p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", ' Preview Hunk' },
 
@@ -272,7 +284,7 @@ local mappings = {
   -- whichkey-m
   m = {
     name = ' Markdown/Mark',
-    p = {"<cmd>MarkdownPreview<cr>","MarkdownPreview"}
+    p = { '<cmd>MarkdownPreview<cr>', 'MarkdownPreview' },
   },
 }
 

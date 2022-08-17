@@ -14,10 +14,10 @@ local cmd = key.cmd
 -- usage of plugins
 nmap({
   -- hop
-  { 'E', cmd('HopChar1'), opts(noremap, silent) },
-  { 'sw', cmd('HopWord'), opts(noremap, silent) },
-  { 'sl', cmd('HopLineStart'), opts(noremap, silent) },
-  { 'ss', cmd('HopChar2'), opts(noremap, silent) },
+  -- { 'E', cmd('HopChar1'), opts(noremap, silent) },
+  { 's', cmd('HopChar2'), opts(noremap, silent) },
+  { 'S', cmd('HopWord'), opts(noremap, silent) },
+  -- { 'l', cmd('HopLineStart'), opts(noremap, silent) },
 
   -- telescope
   { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },
@@ -41,7 +41,6 @@ nmap({
   { '<leader>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
   { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
-
 })
 
 -- luasnip jump

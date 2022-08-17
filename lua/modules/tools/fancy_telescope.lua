@@ -33,7 +33,7 @@ function M.findDotfile()
     path_display = { 'truncate' },
     prompt_position = 'top',
     sorting_strategy = 'ascending',
-    search_dirs = { '~/.config/nvim','~/.dotfile' },
+    search_dirs = { '~/.config/nvim', '~/.dotfile' },
     previewer = false,
     layout_config = {
       width = 0.5,
@@ -68,7 +68,7 @@ function M.showBuffers()
     -- path_display = { 'smart' },
     prompt_position = 'top',
     previewer = false,
-    initial_mode = "normal",
+    initial_mode = 'normal',
     layout_config = {
       width = 0.5,
       height = 0.5,
@@ -84,12 +84,12 @@ function M.findFiles()
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
-    layout_config = {
-      width = 0.5,
-      height = 0.5,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
+    -- layout_config = {
+    --   width = 0.5,
+    --   height = 0.5,
+    --   horizontal = { width = { padding = 0.15 } },
+    --   vertical = { preview_height = 0.75 },
+    -- },
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
