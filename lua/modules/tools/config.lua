@@ -58,6 +58,17 @@ function config.telescope()
         case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
         -- the default case_mode is "smart_case"
       },
+      project = {
+        base_dirs = {
+          -- '~/dev/src',
+          -- { '~/dev/src2' },
+          -- { '~/dev/src3', max_depth = 4 },
+          -- { path = '~/dev/src4' },
+          -- { path = '~/dev/src5', max_depth = 2 },
+        },
+        hidden_files = true, -- default: false
+        theme = 'dropdown',
+      },
     },
     mappings = {
       i = {
@@ -75,6 +86,7 @@ function config.telescope()
     },
   })
   require('telescope').load_extension('fzf')
+  require('telescope').load_extension('project')
 end
 
 function config.whichkey()

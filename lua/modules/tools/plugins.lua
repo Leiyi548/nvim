@@ -12,6 +12,7 @@ plugin({
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    { 'nvim-telescope/telescope-project.nvim' },
   },
 })
 
