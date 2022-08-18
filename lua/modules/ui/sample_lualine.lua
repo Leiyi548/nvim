@@ -72,7 +72,8 @@ local diagnostics = {
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
   update_in_insert = false,
-  always_visible = true,
+  cond = hide_in_width_80,
+  always_visible = false,
 }
 
 local diff = {
