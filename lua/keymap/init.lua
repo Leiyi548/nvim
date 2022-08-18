@@ -41,6 +41,7 @@ nmap({
   { '<leader>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
   { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
+  { ';b', cmd('BufferLinePick'), opts(noremap, silent) },
 })
 
 -- luasnip jump

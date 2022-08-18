@@ -225,6 +225,7 @@ function config.flypy()
   require('flypy').setup({
     dict_name = 'flypy', -- 选择码表：flypy为小鹤音形，wubi98为98五笔
     comment = true, -- 在所有文件类型的注释下开启
+    string = true, -- 在所有文件类型的 string 下开启
     filetype = { 'markdown', 'NeogitCommitMessage', 'm4' }, -- 在指定文件类型下开启
 
     num_filter = true, -- 数字筛选
