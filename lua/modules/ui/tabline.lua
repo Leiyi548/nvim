@@ -8,7 +8,7 @@ bufferline.setup({
     mode = 'buffers',
     numbers = 'ordinal', -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
-    right_mouse_command = 'NeoTreeFloatToggle buffers', -- can be a string | function, see "Mouse actions"
+    right_mouse_command = 'NvimTreeToggle', -- can be a string | function, see "Mouse actions"
     left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
     middle_mouse_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     indicator_icon = '▎',

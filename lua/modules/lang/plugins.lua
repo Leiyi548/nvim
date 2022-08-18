@@ -28,3 +28,4 @@ plugin({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', ft = 'ma
 
 -- neorg
 plugin({ 'nvim-neorg/neorg', config = conf.neorg })
+

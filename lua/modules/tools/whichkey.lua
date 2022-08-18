@@ -82,8 +82,8 @@ local mappings = {
   -- basic mapping no prefix
   ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
   ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
-  -- ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
-  ['e'] = { '<cmd>NeoTreeFloatToggle<cr>', 'NeoTreeFloatToggle' },
+  ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
+  -- ['e'] = { '<cmd>NeoTreeFloatToggle<cr>', 'NeoTreeFloatToggle' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
   -- ['w'] = { '<cmd>w!<cr>', ' Save' },
@@ -121,8 +121,8 @@ local mappings = {
   o = {
     name = ' Open',
     b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
-    e = { '<cmd>NeoTreeFocusToggle<cr>', ' Explorer' },
-    g = { '<cmd>NeoTreeFocusToggle git_status<cr>', ' Git Explorer ' },
+    -- e = { '<cmd>NeoTreeFocusToggle<cr>', ' Explorer' },
+    -- g = { '<cmd>NeoTreeFocusToggle git_status<cr>', ' Git Explorer ' },
     o = { '<cmd>LSoutlineToggle<cr>', ' Outline' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
   },

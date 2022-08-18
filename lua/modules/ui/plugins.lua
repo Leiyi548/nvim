@@ -43,7 +43,7 @@ plugin({
   'kyazdani42/nvim-tree.lua',
   config = conf.nvim_tree,
   requires = 'kyazdani42/nvim-web-devicons',
-  disable = true
+  disable = false,
 })
 
 plugin({
@@ -55,6 +55,7 @@ plugin({
     'MunifTanjim/nui.nvim',
   },
   config = conf.neo_tree,
+  disable = true,
 })
 
 plugin({
@@ -64,6 +65,8 @@ plugin({
 plugin({
   'lukas-reineke/indent-blankline.nvim',
   config = conf.indent_blankline,
+  event = 'BufRead',
+  -- after = 'nvim-treesitter',
 })
 
 plugin({
