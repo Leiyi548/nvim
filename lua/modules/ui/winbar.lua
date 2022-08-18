@@ -8,6 +8,7 @@ M.winbar_filetype_exclude = {
   'neogitstatus',
 
   'NvimTree',
+  'neo-tree',
   'Trouble',
   'alpha',
   'lir',

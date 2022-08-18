@@ -1,5 +1,5 @@
--- author: glepnr https://github.com/glepnir
--- date: 2022-07-02
+-- author: Leyi548 https://github.com/Leyi548
+-- date: 2022-08-18
 -- License: MIT
 
 local config = {}
@@ -171,198 +171,6 @@ function config.bufferline()
   require('modules.ui.tabline')
 end
 
-function config.nvim_tree()
-  local icons = require('modules.ui.icons')
-  require('nvim-tree').setup({
-    auto_reload_on_write = true,
-    create_in_closed_folder = false,
-    disable_netrw = false,
-    hijack_cursor = false,
-    hijack_netrw = true,
-    hijack_unnamed_buffer_when_opening = false,
-    ignore_buffer_on_setup = false,
-    open_on_setup = false,
-    open_on_setup_file = false,
-    open_on_tab = false,
-    sort_by = 'name',
-    update_cwd = true,
-    reload_on_bufenter = false,
-    respect_buf_cwd = false,
-
-    view = {
-      width = 30,
-      height = 30,
-      hide_root_folder = false,
-      side = 'left',
-      preserve_window_proportions = false,
-      number = false,
-      relativenumber = false,
-      signcolumn = 'yes',
-      mappings = {
-        custom_only = false,
-        list = {
-          -- user mappings go here
-          { key = '[d', action = 'prev_git_item' },
-          { key = ']d', action = 'next_git_item' },
-          { key = 'X', action = 'collapse_all' },
-          { key = 'O', action = 'system_open' },
-          { key = 'h', action = 'parent_node' },
-          { key = 'i', action = 'split' },
-          { key = 's', action = 'vsplit' },
-          -- { key = 'J', action = 'next_sibling' },
-          -- { key = 'K', action = 'prev_sibling' },
-        },
-      },
-      float = {
-        enable = true,
-        open_win_config = {
-          relative = 'editor',
-          border = 'rounded',
-          width = 30,
-          height = 30,
-          row = 1,
-          col = 1,
-        },
-      },
-    },
-    renderer = {
-
-      add_trailing = false,
-      group_empty = false,
-      highlight_git = false,
-      highlight_opened_files = 'none',
-      root_folder_modifier = ':~',
-      -- root_folder_modifier = ':t',
-      indent_markers = {
-        enable = false,
-        icons = {
-          corner = '└ ',
-          edge = '│ ',
-          none = '  ',
-        },
-      },
-      icons = {
-        webdev_colors = true,
-
-        git_placement = 'before', -- before | after
-        padding = ' ',
-        symlink_arrow = ' ➛ ',
-        show = {
-          file = true,
-          folder = true,
-          folder_arrow = true,
-          git = true,
-        },
-
-        glyphs = {
-          default = '',
-          symlink = '',
-          folder = {
-
-            arrow_closed = '',
-            arrow_open = '',
-            default = '',
-            open = '',
-            empty = '',
-            empty_open = '',
-            symlink = '',
-            symlink_open = '',
-          },
-          git = {
-            unstaged = '',
-            staged = 'S',
-            unmerged = '',
-            renamed = '➜',
-            deleted = '',
-            untracked = 'U',
-            ignored = '◌',
-          },
-        },
-      },
-      special_files = { 'Cargo.toml', 'Makefile', 'README.md', 'readme.md' },
-    },
-    hijack_directories = {
-      enable = true,
-      auto_open = true,
-    },
-    update_focused_file = {
-      enable = true,
-      update_cwd = true,
-      ignore_list = {},
-    },
-    ignore_ft_on_setup = {},
-    system_open = {
-      cmd = '',
-      args = {},
-    },
-    diagnostics = {
-      enable = true,
-      show_on_dirs = true,
-      icons = {
-
-        hint = icons.diagnostics.Hint,
-        info = icons.diagnostics.Information,
-        warning = icons.diagnostics.Warning,
-        error = icons.diagnostics.Error,
-      },
-    },
-    filters = {
-      dotfiles = false,
-      custom = {},
-      exclude = {},
-    },
-    git = {
-      enable = true,
-      ignore = true,
-      timeout = 400,
-    },
-    actions = {
-      use_system_clipboard = true,
-      change_dir = {
-        enable = true,
-        global = false,
-        restrict_above_cwd = false,
-      },
-      open_file = {
-
-        quit_on_open = false,
-
-        resize_window = true,
-        window_picker = {
-          enable = true,
-          chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
-          exclude = {
-            filetype = { 'notify', 'packer', 'qf', 'diff', 'fugitive', 'fugitiveblame' },
-            buftype = { 'nofile', 'terminal', 'help' },
-          },
-        },
-      },
-    },
-    trash = {
-      cmd = 'trash',
-      require_confirm = true,
-    },
-    live_filter = {
-
-      prefix = '[FILTER]: ',
-      always_show_folders = true,
-    },
-    log = {
-      enable = false,
-      truncate = false,
-      types = {
-        all = false,
-        config = false,
-        copy_paste = false,
-
-        diagnostics = false,
-        git = false,
-        profile = false,
-      },
-    },
-  })
-end
-
 function config.indent_blankline()
   local ok, indent_blankline = pcall(require, 'indent_blankline')
   if not ok then
@@ -439,6 +247,206 @@ function config.colorizer()
     css_fn = false, -- Enable all CSS *functions*: rgb_fn, hsl_fn
     -- Available modes: foreground, background, virtualtext
     mode = 'background', -- Set the display mode.)
+  })
+end
+
+function config.neo_tree()
+  local icons = require('modules.ui.icons')
+  require('neo-tree').setup({
+    close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+    popup_border_style = 'rounded',
+    enable_git_status = true,
+    enable_diagnostics = true,
+    sort_case_insensitive = false, -- used when sorting files and directories in the tree
+    sort_function = nil, -- use a custom function for sorting files and directories in the tree
+    -- sort_function = function (a,b)
+    --       if a.type == b.type then
+    --           return a.path > b.path
+    --       else
+    --           return a.type > b.type
+    --       end
+    --   end , -- this sorts files and directories descendantly
+    default_component_configs = {
+      container = {
+        enable_character_fade = true,
+      },
+      indent = {
+        indent_size = 2,
+        padding = 1, -- extra padding on left hand side
+        -- indent guides
+        with_markers = true,
+        indent_marker = '│',
+        last_indent_marker = '└',
+        highlight = 'NeoTreeIndentMarker',
+        -- expander config, needed for nesting files
+        with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+        expander_collapsed = '',
+        expander_expanded = '',
+        expander_highlight = 'NeoTreeExpander',
+      },
+      icon = {
+        folder_closed = '',
+        folder_open = '',
+        folder_empty = 'ﰊ',
+        -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
+        -- then these will never be used.
+        default = '*',
+        highlight = 'NeoTreeFileIcon',
+      },
+      modified = {
+        symbol = '[+]',
+        highlight = 'NeoTreeModified',
+      },
+      name = {
+        trailing_slash = false,
+        use_git_status_colors = true,
+        highlight = 'NeoTreeFileName',
+      },
+      git_status = {
+        symbols = {
+          -- Change type
+          added = icons.git.Add, -- or "✚", but this is redundant info if you use git_status_colors on the name
+          modified = icons.git.Mod, -- or "", but this is redundant info if you use git_status_colors on the name
+          deleted = icons.git.delete, -- this can only be used in the git_status source
+          renamed = icons.git.renamed, -- this can only be used in the git_status source
+          -- Status type
+          untracked = icons.git.untracked,
+          ignored = icons.git.Ignore,
+          unstaged = icons.git.unstaged,
+          staged = icons.git.staged,
+          conflict = icons.git.conflict,
+        },
+      },
+    },
+    window = {
+      position = 'left',
+      width = 40,
+      mapping_options = {
+        noremap = true,
+        nowait = true,
+      },
+      mappings = {
+        ['<space>'] = {
+          'toggle_node',
+          nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
+        },
+        ['<2-LeftMouse>'] = 'open',
+        ['<cr>'] = 'open',
+        ['o'] = 'open',
+        ['i'] = 'open_split',
+        ['s'] = 'open_vsplit',
+        -- ["S"] = "split_with_window_picker",
+        -- ["s"] = "vsplit_with_window_picker",
+        ['t'] = 'open_tabnew',
+        ['w'] = 'open_with_window_picker',
+        ['C'] = 'close_node',
+        ['X'] = 'close_all_nodes',
+        ['O'] = 'expand_all_nodes',
+        ['a'] = {
+          'add',
+          -- some commands may take optional config options, see `:h neo-tree-mappings` for details
+          config = {
+            show_path = 'relative', -- "none", "relative", "absolute"
+          },
+        },
+        ['A'] = 'add_directory', -- also accepts the optional config.show_path option like "add".
+        ['d'] = 'delete',
+        ['r'] = 'rename',
+        ['y'] = 'copy_to_clipboard',
+        ['x'] = 'cut_to_clipboard',
+        ['p'] = 'paste_from_clipboard',
+        ['c'] = 'copy', -- takes text input for destination, also accepts the optional config.show_path option like "add":
+        -- ["c"] = {
+        --  "copy",
+        --  config = {
+        --    show_path = "none" -- "none", "relative", "absolute"
+        --  }
+        --}
+        ['m'] = 'move', -- takes text input for destination, also accepts the optional config.show_path option like "add".
+        ['q'] = 'close_window',
+        ['R'] = 'refresh',
+        ['?'] = 'show_help',
+        ['<'] = 'prev_source',
+        ['>'] = 'next_source',
+      },
+    },
+    nesting_rules = {},
+    source_selector = {
+      winbar = false,
+      statusline = false,
+    },
+    filesystem = {
+      filtered_items = {
+        visible = false, -- when true, they will just be displayed differently than normal items
+        hide_dotfiles = true,
+        hide_gitignored = true,
+        hide_hidden = true, -- only works on Windows for hidden files/directories
+        hide_by_name = {
+          --"node_modules"
+        },
+        hide_by_pattern = { -- uses glob style patterns
+          --"*.meta",
+          --"*/src/*/tsconfig.json",
+        },
+        always_show = { -- remains visible even if other settings would normally hide it
+          --".gitignored",
+        },
+        never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
+          --".DS_Store",
+          --"thumbs.db"
+        },
+      },
+      follow_current_file = false, -- This will find and focus the file in the active buffer every
+      -- time the current file is changed while the tree is open.
+      group_empty_dirs = false, -- when true, empty folders will be grouped together
+      hijack_netrw_behavior = 'open_default', -- netrw disabled, opening a directory opens neo-tree
+      -- in whatever position is specified in window.position
+      -- "open_current",  -- netrw disabled, opening a directory opens within the
+      -- window like netrw would, regardless of window.position
+      -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
+      use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
+      -- instead of relying on nvim autocmd events.
+      window = {
+        mappings = {
+          ['<bs>'] = 'navigate_up',
+          ['.'] = 'set_root',
+          ['H'] = 'toggle_hidden',
+          ['/'] = 'fuzzy_finder',
+          ['D'] = 'fuzzy_finder_directory',
+          ['f'] = 'filter_on_submit',
+          ['<c-x>'] = 'clear_filter',
+          ['[g'] = 'prev_git_modified',
+          [']g'] = 'next_git_modified',
+        },
+      },
+    },
+    buffers = {
+      follow_current_file = true, -- This will find and focus the file in the active buffer every
+      -- time the current file is changed while the tree is open.
+      group_empty_dirs = true, -- when true, empty folders will be grouped together
+      show_unloaded = true,
+      window = {
+        mappings = {
+          ['bd'] = 'buffer_delete',
+          ['<bs>'] = 'navigate_up',
+          ['.'] = 'set_root',
+        },
+      },
+    },
+    git_status = {
+      window = {
+        position = 'float',
+        mappings = {
+          ['A'] = 'git_add_all',
+          ['gu'] = 'git_unstage_file',
+          ['ga'] = 'git_add_file',
+          ['gr'] = 'git_revert_file',
+          ['gc'] = 'git_commit',
+          ['gp'] = 'git_push',
+          ['gg'] = 'git_commit_and_push',
+        },
+      },
+    },
   })
 end
 

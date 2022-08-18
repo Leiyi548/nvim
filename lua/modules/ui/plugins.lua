@@ -13,8 +13,8 @@ plugin({ 'lunarvim/darkplus.nvim' })
 plugin({ 'lunarvim/synthwave84.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim', disable = true })
-plugin({ 'rebelot/kanagawa.nvim'})
-plugin({ 'rose-pine/neovim'})
+plugin({ 'rebelot/kanagawa.nvim' })
+plugin({ 'rose-pine/neovim' })
 -- plugin({ 'glepnir/zephyr-nvim'})
 -- plugin({ '~/study/neovim/onedarkpro' })
 
@@ -43,6 +43,22 @@ plugin({
   'kyazdani42/nvim-tree.lua',
   config = conf.nvim_tree,
   requires = 'kyazdani42/nvim-web-devicons',
+  disable = true
+})
+
+plugin({
+  'nvim-neo-tree/neo-tree.nvim',
+  branch = 'v2.x',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
+    'MunifTanjim/nui.nvim',
+  },
+  config = conf.neo_tree,
+})
+
+plugin({
+  'MunifTanjim/nui.nvim',
 })
 
 plugin({
