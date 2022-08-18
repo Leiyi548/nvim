@@ -90,7 +90,7 @@ local mappings = {
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   -- ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
-  ['x'] = { '<cmd>Bdelete!', 'close buffer' },
+  ['x'] = { '<cmd>Telescope diagnostic', 'close buffer' },
   ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
 
   -- whichkey-p
