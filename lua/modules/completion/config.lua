@@ -1,5 +1,5 @@
--- author: glepnr https://github.com/glepnir
--- date: 2022-07-02
+-- author: Leiyi548 https://github.com/Leiyi548
+-- date: 2022-08-19
 -- License: MIT
 
 local config = {}
@@ -73,9 +73,15 @@ function config.nvim_cmp()
           local entry = cmp.get_selected_entry()
           if not entry then
             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-            cmp.confirm()
+            cmp.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            })
           else
-            cmp.confirm()
+            cmp.confirm({
+              behavior = cmp.ConfirmBehavior.Replace,
+              select = true,
+            })
           end
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()

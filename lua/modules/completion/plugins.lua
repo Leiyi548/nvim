@@ -19,7 +19,7 @@ plugin({
   },
 })
 plugin({ 'L3MON4D3/LuaSnip', config = conf.lua_snip })
-plugin({ 'rafamadriz/friendly-snippets' })
+plugin({ 'Leiyi548/friendly-snippets' })
 plugin({
   'windwp/nvim-autopairs',
   config = conf.auto_pairs,
