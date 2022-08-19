@@ -92,6 +92,27 @@ function config.onedarker()
   end
 end
 
+function config.gruvbox_material()
+  -- more information please see :help gruvbox-material
+  vim.g.gruvbox_material_background = 'material'
+  vim.g.gruvbox_material_better_performance = 1
+  vim.g.gruvbox_material_background = 'hard'
+  vim.g.gruvbox_material_disable_italic_comment = 1
+  -- -- enable bold function name
+  vim.g.gruvbox_material_enable_bold = 1
+  vim.g.gruvbox_material_enable_italic = 1
+end
+
+function config.gruvbox_baby()
+    vim.g.gruvbox_baby_background_color = 'dark'
+    vim.g.gruvbox_baby_keyword_style = 'NONE'
+    vim.g.gruvbox_baby_comment_style = 'italic'
+    vim.g.gruvbox_baby_string_style = 'italic'
+    vim.g.gruvbox_baby_function_style = 'italic'
+    vim.g.gruvbox_baby_keyword_style = 'italic'
+    vim.g.gruvbox_baby_keyword_style = 'italic'
+end
+
 function config.dashboard()
   local home = os.getenv('HOME') -- /home/ewell
   local db = require('dashboard')

@@ -5,7 +5,8 @@
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
 vim.opt.termguicolors = true
-vim.opt.mouse = 'nv'
+-- vim.opt.mouse = 'nv'
+vim.opt.mouse = 'a'
 vim.opt.errorbells = true
 vim.opt.visualbell = true
 vim.opt.hidden = true
@@ -102,19 +103,19 @@ vim.opt.signcolumn = 'yes'
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = 'niv'
 -- set background = dark
-vim.opt.background = "dark"
+vim.opt.background = 'dark'
 -- wsl yanking to windows clipboard from nvim
-if vim.fn.has("wsl") == 1 then
-	vim.g.clipboard = {
-		name = "win32yank-wsl",
-		copy = {
-			["+"] = "win32yank.exe -i --crlf",
-			["*"] = "win32yank.exe -i --crlf",
-		},
-		paste = {
-			["+"] = "win32yank.exe -o --lf",
-			["*"] = "win32yank.exe -o --lf",
-		},
-		cache_enable = 0,
-	}
+if vim.fn.has('wsl') == 1 then
+  vim.g.clipboard = {
+    name = 'win32yank-wsl',
+    copy = {
+      ['+'] = 'win32yank.exe -i --crlf',
+      ['*'] = 'win32yank.exe -i --crlf',
+    },
+    paste = {
+      ['+'] = 'win32yank.exe -o --lf',
+      ['*'] = 'win32yank.exe -o --lf',
+    },
+    cache_enable = 0,
+  }
 end

@@ -24,8 +24,21 @@ plugin({ 'windwp/nvim-ts-autotag' })
 plugin({ 'christianchiarulli/lua-dev.nvim' })
 
 -- markdown
-plugin({ 'iamcco/markdown-preview.nvim', run = 'cd app && npm install', ft = 'markdown' })
+plugin({
+  'iamcco/markdown-preview.nvim',
+  run = 'cd app && npm install',
+  ft = 'markdown',
+  config = function()
+    -- set to 1,nvim will open the preview window after entering the markdown buffer
+    vim.g.mkdp_auto_start = 0
+    -- set to 1, the nvim will auto close current preview window when change
+    -- from markdown buffer to another buffer
+    vim.g.mkdp_auto_close = 0
+    -- " set default theme (dark or light)
+    -- " By default the theme is define according to the preferences of the system
+    vim.g.mkdp_theme = 'light'
+  end,
+})
 
 -- neorg
 plugin({ 'nvim-neorg/neorg', config = conf.neorg })
-
