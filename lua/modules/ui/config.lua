@@ -97,20 +97,20 @@ function config.gruvbox_material()
   vim.g.gruvbox_material_background = 'material'
   vim.g.gruvbox_material_better_performance = 1
   vim.g.gruvbox_material_background = 'hard'
-  vim.g.gruvbox_material_disable_italic_comment = 1
+  vim.g.gruvbox_material_disable_italic_comment = 0
   -- -- enable bold function name
   vim.g.gruvbox_material_enable_bold = 1
   vim.g.gruvbox_material_enable_italic = 1
 end
 
 function config.gruvbox_baby()
-    vim.g.gruvbox_baby_background_color = 'dark'
-    vim.g.gruvbox_baby_keyword_style = 'NONE'
-    vim.g.gruvbox_baby_comment_style = 'italic'
-    vim.g.gruvbox_baby_string_style = 'italic'
-    vim.g.gruvbox_baby_function_style = 'italic'
-    vim.g.gruvbox_baby_keyword_style = 'italic'
-    vim.g.gruvbox_baby_keyword_style = 'italic'
+  vim.g.gruvbox_baby_background_color = 'dark'
+  vim.g.gruvbox_baby_keyword_style = 'NONE'
+  vim.g.gruvbox_baby_comment_style = 'italic'
+  vim.g.gruvbox_baby_string_style = 'italic'
+  vim.g.gruvbox_baby_function_style = 'italic'
+  vim.g.gruvbox_baby_keyword_style = 'italic'
+  vim.g.gruvbox_baby_keyword_style = 'italic'
 end
 
 function config.dashboard()

@@ -134,6 +134,7 @@ local mappings = {
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     s = { '<cmd>w!<cr>', ' Save' },
+    S = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
@@ -170,6 +171,7 @@ local mappings = {
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
     n = { 'Rename file' },
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
+    l = { '<cmd>luafile%<cr>', 'luafile%' },
   },
 
   -- whichkey-g
@@ -232,7 +234,7 @@ local mappings = {
     },
   },
 
-  -- whichkey -d
+  -- whichkey-d
   d = {
     name = ' Debug',
     t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", 'Toggle Breakpoint' },

@@ -6,6 +6,21 @@ end
 
 local icons = require('modules.ui.icons')
 
+-- set highlight
+vim.api.nvim_set_hl(0, 'SLGitIcon', { fg = '#E8AB53', bg = '#32363e' })
+vim.api.nvim_set_hl(0, 'SLTermIcon', { fg = '#b668cd', bg = '#282c34' })
+vim.api.nvim_set_hl(0, 'SLBranchName', { fg = '#abb2bf', bg = '#32363e', bold = false })
+-- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
+vim.api.nvim_set_hl(0, 'SLProgress', { fg = '#abb2bf', bg = '#32363e' })
+vim.api.nvim_set_hl(0, 'SLFG', { fg = '#abb2bf', bg = '#282c34' })
+vim.api.nvim_set_hl(0, 'SLSeparator', { fg = '#6b727f', bg = '#33373e' })
+vim.api.nvim_set_hl(0, 'SLLSP', { fg = '#5e81ac', bg = '#282c34' })
+vim.api.nvim_set_hl(0, 'SLCopilot', { fg = '#6CC644', bg = '#282c34' })
+
+local hl_str = function(str, hl)
+  return '%#' .. hl .. '#' .. str .. '%*'
+end
+
 -- check if value in table
 local function contains(t, value)
   for _, v in pairs(t) do
@@ -72,7 +87,7 @@ local diagnostics = {
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
   update_in_insert = false,
-  cond = hide_in_width_80,
+  cond = hide_in_width,
   always_visible = false,
 }
 
@@ -147,7 +162,7 @@ local spaces = {
   cond = hide_in_width_100,
 }
 
-local language_server = {
+local lanuage_server = {
   function()
     local buf_ft = vim.bo.filetype
     local ui_filetypes = {
@@ -161,24 +176,28 @@ local language_server = {
       'spectre_panel',
       'toggleterm',
       'DressingSelect',
-      '',
+      'TelescopePrompt',
+      'lspinfo',
+      'lsp-installer',
+      'mason',
     }
 
     if contains(ui_filetypes, buf_ft) then
-      return M.language_servers
+      if M.language_servers == nil then
+        return 'null'
+      else
+        return M.language_servers
+      end
     end
 
     local clients = vim.lsp.get_active_clients()
     local client_names = {}
-    local copilot_active = false
 
     -- add client
     for _, client in pairs(clients) do
-      if client.name ~= 'copilot' and client.name ~= 'null-ls' then
+      if client.name ~= 'null-ls' then
+        -- insert lsp client name
         table.insert(client_names, client.name)
-      end
-      if client.name == 'copilot' then
-        copilot_active = true
       end
     end
 
@@ -209,24 +228,34 @@ local language_server = {
     local language_servers = ''
     local client_names_str_len = #client_names_str
     if client_names_str_len ~= 0 then
-      -- language_servers = '%#SLLSP#' .. '[' .. client_names_str .. ']' .. '%*'
-      language_servers = '[' .. client_names_str .. ']'
-    end
-    if copilot_active then
-      language_servers = language_servers .. '%#SLCopilot#' .. ' ' .. icons.git.Octoface .. '%*'
+      language_servers = hl_str('', 'SLSep') .. hl_str(client_names_str, 'SLSeparator') .. hl_str('', 'SLSep')
     end
 
-    if client_names_str_len == 0 and not copilot_active then
-      return ''
+    if client_names_str_len == 0 then
+      return 'null'
     else
       M.language_servers = language_servers
+      -- return language_servers:gsub(', anonymous source', '')
       return language_servers
     end
   end,
   padding = 0,
-  cond = hide_in_width,
-  -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  separator = ' │',
+  always_visible = true,
+  -- cond = hide_in_width,
+}
+
+-- cool function for progress
+local super_progress = {
+  function()
+    local current_line = vim.fn.line('.')
+    local total_lines = vim.fn.line('$')
+    local chars = { '__', '▁▁', '▂▂', '▃▃', '▄▄', '▅▅', '▆▆', '▇▇', '██' }
+    local line_ratio = current_line / total_lines
+    local index = math.ceil(line_ratio * #chars)
+    return chars[index]
+  end,
+  -- color = { fg = colors.yellow, bg = colors.blue },
+  padding = { left = 0, right = 0 },
 }
 
 lualine.setup({
@@ -242,20 +271,31 @@ lualine.setup({
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt' },
     always_divide_middle = true,
+
+    refresh = { -- sets how often lualine should refreash it's contents (in ms)
+      statusline = 1000, -- The refresh option sets minimum time that lualine tries
+      tabline = 1000, -- to maintain between refresh. It's not guarantied if situation
+      winbar = 1000, -- arises that lualine needs to refresh itself before this time
+      -- it'll do it.
+
+      -- Also you can force lualine's refresh by calling refresh function
+      -- like require('lualine').refresh()
+    },
   },
   sections = {
     lualine_a = { branch },
     lualine_b = { filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { diff },
+    lualine_x = { lanuage_server, diff },
     lualine_y = { diagnostics },
     lualine_z = { progress },
   },
+  -- 没有聚焦的窗口
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
+    lualine_c = { filename },
     -- lualine_c = { "filename" },
     lualine_x = {},
     lualine_y = {},

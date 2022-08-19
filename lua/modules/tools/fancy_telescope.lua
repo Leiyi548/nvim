@@ -35,12 +35,12 @@ function M.findDotfile()
     sorting_strategy = 'ascending',
     search_dirs = { '~/.config/nvim', '~/.dotfile' },
     previewer = false,
-    layout_config = {
-      width = 0.5,
-      height = 0.8,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
+    -- layout_config = {
+    --   width = 0.5,
+    --   height = 0.8,
+    --   horizontal = { width = { padding = 0.15 } },
+    --   vertical = { preview_height = 0.75 },
+    -- },
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
@@ -52,12 +52,12 @@ function M.findBuffers()
     -- path_display = { 'absolute' },
     prompt_position = 'top',
     previewer = false,
-    layout_config = {
-      width = 0.5,
-      height = 0.5,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
+    -- layout_config = {
+    --   width = 0.5,
+    --   height = 0.5,
+    --   horizontal = { width = { padding = 0.15 } },
+    --   vertical = { preview_height = 0.75 },
+    -- },
   }
   builtin.buffers(themes.get_dropdown(opts))
 end
@@ -100,12 +100,12 @@ function M.findRecentFiles()
     prompt_title = 'Recent Files',
     path_display = { 'absolute' },
     previewer = false,
-    layout_config = {
-      width = 0.5,
-      height = 0.5,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
+    -- layout_config = {
+    --   width = 0.5,
+    --   height = 0.5,
+    --   horizontal = { width = { padding = 0.15 } },
+    --   vertical = { preview_height = 0.75 },
+    -- },
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.oldfiles(themes.get_dropdown(opts))
@@ -141,15 +141,27 @@ function M.findConfiguration()
     },
     -- path_display = { "smart" },
     previewer = false,
-    layout_config = {
-      width = 0.5,
-      height = 0.5,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
+    -- layout_config = {
+    --   width = 0.5,
+    --   height = 0.5,
+    --   horizontal = { width = { padding = 0.15 } },
+    --   vertical = { preview_height = 0.75 },
+    -- },
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
 
+function M.findSnippets()
+  local opts = {
+    prompt_title = 'friendlysnippets',
+    search_dirs = {
+      '~/.local/share/nvim/site/pack/packer/start/friendly-snippets',
+    },
+    path_display = { 'tail' },
+    previewer = false,
+    file_ignore_patterns = file_ignore_patterns,
+  }
+  builtin.find_files(themes.get_dropdown(opts))
+end
 return M
