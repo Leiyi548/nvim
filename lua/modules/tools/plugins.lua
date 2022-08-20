@@ -17,6 +17,10 @@ plugin({
 })
 
 plugin({
+  'h-hg/fcitx.nvim',
+})
+
+plugin({
   'TimUntersberger/neogit',
   requires = {
     { 'nvim-lua/plenary.nvim' },
