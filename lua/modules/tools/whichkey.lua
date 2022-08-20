@@ -125,6 +125,7 @@ local mappings = {
     -- g = { '<cmd>NeoTreeFocusToggle git_status<cr>', ' Git Explorer ' },
     o = { '<cmd>LSoutlineToggle<cr>', ' Outline' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
+    s = { '<cmd>AsyncTask Application<cr>', ' System open' },
   },
 
   -- whichkey-f

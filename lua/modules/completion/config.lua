@@ -149,7 +149,7 @@ function config.nvim_cmp()
       },
       completion = {
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
       },
     },
     experimental = {
@@ -184,6 +184,7 @@ function config.lua_snip()
       },
     },
   })
+  -- ~/.config/nvim/snippets/
   require('luasnip.loaders.from_lua').lazy_load({ paths = vim.fn.stdpath('config') .. '/snippets' })
   require('luasnip.loaders.from_vscode').lazy_load()
   require('luasnip.loaders.from_vscode').lazy_load({
