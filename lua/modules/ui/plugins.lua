@@ -14,6 +14,7 @@ plugin({ 'lunarvim/horizon.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim', disable = true })
 plugin({ 'rebelot/kanagawa.nvim' })
+plugin({ 'catppuccin/nvim', config = conf.catppuccin })
 plugin({ 'rose-pine/neovim' })
 plugin({
   'sainnhe/gruvbox-material',
