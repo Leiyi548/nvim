@@ -149,7 +149,7 @@ function config.nvim_cmp()
       },
       completion = {
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
       },
     },
     experimental = {

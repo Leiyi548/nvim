@@ -14,7 +14,8 @@ plugin({ 'lunarvim/horizon.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim', disable = true })
 plugin({ 'rebelot/kanagawa.nvim' })
-plugin({ 'catppuccin/nvim', config = conf.catppuccin })
+-- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin })
 plugin({ 'rose-pine/neovim' })
 plugin({
   'sainnhe/gruvbox-material',

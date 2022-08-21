@@ -114,9 +114,10 @@ function config.gruvbox_baby()
 end
 
 function config.catppuccin()
-  -- latte,macchiato like tokynight
-  -- frapper,mocha is light colorscheme,I think mocha is better
-  vim.g.catppuccin_flavour = 'macchiato' -- latte, frappe, macchiato, mocha
+  -- frappe（dark like） like tokynight
+  -- macchiato,mocha是个深色主题
+  -- latte is light colorscheme,I think mocha is better
+  vim.g.catppuccin_flavour = 'latte' -- latte, frappe, macchiato, mocha
 
   require('catppuccin').setup({
     dim_inactive = {
