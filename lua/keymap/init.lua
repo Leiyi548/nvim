@@ -21,6 +21,7 @@ nmap({
 
   -- telescope
   { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },
+  { '<leader>r', '<cmd>Telescope registers<cr>', opts(noremap) },
 
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },

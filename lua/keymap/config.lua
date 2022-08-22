@@ -24,11 +24,11 @@ nmap({
   -- close buffer
   -- { 'x', cmd('bdelete!'), opts(noremap, silent) },
   { '<C-s>', cmd('write'), opts(noremap) },
-  -- yank
+  -- yank paste
   { 'Y', 'y$', opts(noremap) },
-  { '<leader>y', '"+y', opts(noremap) },
-  { '<leader>p', '"+p', opts(noremap) },
-  { '<leader>P', '"+P', opts(noremap) },
+  -- { '<leader>y', '"+y', opts(noremap) },
+  -- { '<leader>p', '"+p', opts(noremap) },
+  -- { '<leader>P', '"+P', opts(noremap) },
   -- I hate click this key
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
@@ -62,10 +62,10 @@ xmap({
   -- { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
   { '<M-Up>', ':m .-2<CR>==', opts(noremap) },
   { '<M-Down>', ':m .+1<CR>==', opts(noremap) },
-  -- yank
-  { '<leader>y', '"+y', opts(noremap) },
-  { '<leader>p', '"+p', opts(noremap) },
-  { '<leader>P', '"+P', opts(noremap) },
+  -- yank paste
+  -- { '<leader>y', '"+y', opts(noremap) },
+  -- { '<leader>p', '"+p', opts(noremap) },
+  -- { '<leader>P', '"+P', opts(noremap) },
 })
 
 imap({

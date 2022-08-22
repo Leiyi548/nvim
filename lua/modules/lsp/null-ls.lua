@@ -39,7 +39,7 @@ null_ls.setup({
     formatting.goimports, -- enable for Update your Go import lines,adding missing ones and removing unreferenced ones
     -- formatting.google_java_format, -- enable for java format
 
-    diagnostics.flake8, -- enable for python diagnostics
+    -- diagnostics.flake8, -- enable for python diagnostics
 
     -- code_actions.gitsigns, -- enable code_action for gitsigns
   },

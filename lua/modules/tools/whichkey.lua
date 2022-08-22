@@ -96,7 +96,7 @@ local mappings = {
   -- whichkey-p
   p = {
     name = ' Packer',
-    p = { '<cmd>Telescope registers<cr>', 'Registers' },
+    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Registers' },
     C = { '<cmd>PackerClean<cr>', 'Clean' },
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
     i = { '<cmd>PackerInstall<cr>', 'Install' },
@@ -178,7 +178,6 @@ local mappings = {
   -- whichkey-g
   g = {
     name = ' Git',
-    l = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
     h = { '<cmd>DiffviewFileHistory<cr>', ' History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", ' Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", ' Prev Hunk' },
@@ -221,6 +220,7 @@ local mappings = {
       '<cmd>lua vim.diagnostic.goto_next()<cr>',
       ' Next Diagnostic',
     },
+    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
     k = {
       '<cmd>lua vim.diagnostic.goto_prev()<cr>',
       ' Prev Diagnostic',
@@ -294,5 +294,22 @@ local mappings = {
   },
 }
 
+-- visual mode
+
+local v_opts = {
+  mode = 'v', -- NORMAL mode
+  prefix = '<leader>',
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+
+local v_mappings = {
+  ['/'] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", ' Comment' },
+  ['p'] = { '<cmd>Telescope registers<cr>', ' Clipboard' },
+}
+
+which_key.register(v_mappings, v_opts)
 which_key.setup(setup)
 which_key.register(mappings, opts)
