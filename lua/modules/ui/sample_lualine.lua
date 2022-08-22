@@ -103,7 +103,7 @@ local diff = {
 local branch = {
   'branch',
   icons_enabled = true,
-  icon = icons.git.SourceControl,
+  icon = icons.git.Github_nvchad,
   colored = false,
 }
 
@@ -160,6 +160,19 @@ local spaces = {
   -- separator = '%#SLSeparator#' .. ' │' .. '%*',
   separator = ' │',
   cond = hide_in_width_100,
+}
+
+local LSP_status = {
+  function()
+    if rawget(vim, 'lsp') then
+      for _, client in ipairs(vim.lsp.get_active_clients()) do
+        if client.attached_buffers[vim.api.nvim_get_current_buf()] then
+          return ('   LSP ~ ' .. client.name .. ' ') or '   LSP '
+        end
+      end
+    end
+  end,
+  cond = hide_in_width,
 }
 
 local lanuage_server = {
@@ -287,7 +300,7 @@ lualine.setup({
     lualine_b = { filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { lanuage_server, diff },
+    lualine_x = { LSP_status, diff },
     lualine_y = { diagnostics },
     lualine_z = { progress },
   },

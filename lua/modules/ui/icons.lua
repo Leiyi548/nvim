@@ -56,6 +56,7 @@ return {
     Repo = ' ',
     Merge = '',
     GithubAlt = ' ',
+    Github_nvchad = ' ',
     Github = ' ',
     Branch = '',
     SourceControl = '',

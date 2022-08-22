@@ -21,6 +21,10 @@ plugin({
 })
 
 plugin({
+  'lambdalisue/suda.vim',
+})
+
+plugin({
   'TimUntersberger/neogit',
   requires = {
     { 'nvim-lua/plenary.nvim' },

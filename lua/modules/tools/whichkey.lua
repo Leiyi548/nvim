@@ -149,6 +149,8 @@ local mappings = {
       "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
       'Recent File',
     },
+    R = { '<cmd>SudaRead<cr>', 'View Read with sudo' },
+    W = { '<cmd>SudaWrite<cr>', 'Write Read with sudo' },
     j = {
       "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
       'Jumplist',
