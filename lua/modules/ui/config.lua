@@ -287,8 +287,8 @@ end
 
 function config.lualine()
   -- require('modules.ui.statusline')
-  -- require('modules.ui.sample_lualine')
-  require('modules.ui.nvchad_statusline')
+  require('modules.ui.sample_lualine')
+  -- require('modules.ui.nvchad_statusline')
 end
 
 function config.bufferline()

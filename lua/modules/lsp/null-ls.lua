@@ -5,11 +5,9 @@ end
 
 local lsp_formatting = function(bufnr)
   vim.lsp.buf.format({
-
-    filter = function(clients)
-      return vim.tbl_filter(function(client)
-        return client.name == 'null-ls' or client.name == 'clangd'
-      end, clients)
+    filter = function(client)
+      -- apply whatever logic you want (in this example, we'll only use null-ls)
+      return client.name == 'null-ls'
     end,
     bufnr = bufnr,
   })
@@ -31,7 +29,9 @@ null_ls.setup({
   debug = false,
   sources = {
     formatting.prettier.with({
-      extra_filetypes = { 'toml', 'solidity' },
+      -- filetypes = { 'markdown' },
+      disabled_filetypes = { 'html' },
+      -- extra_filetypes = { 'toml', 'solidity', 'html' },
       extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
     }), -- enable for html and markdown format
     formatting.black.with({ extra_args = { '--fast' } }), -- enable for python format
@@ -43,6 +43,25 @@ null_ls.setup({
 
     -- code_actions.gitsigns, -- enable code_action for gitsigns
   },
+  on_attach = function(client, bufnr)
+    if client.supports_method('textDocument/formatting') then
+      local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+      vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        group = augroup,
+        buffer = bufnr,
+        callback = function()
+          -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            callbacks = function()
+              lsp_formatting(bufnr)
+            end,
+          })
+        end,
+      })
+    end
+  end,
 })
 
 local unwrap = {

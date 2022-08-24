@@ -30,11 +30,11 @@ function autocmd.load_autocmds()
         [[if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif]],
       },
       -- format on save
-      {
-        'BufWritePost',
-        '*',
-        'lua vim.lsp.buf.format{async = true}',
-      },
+      -- {
+      --   'BufWritePost',
+      --   '*',
+      --   'lua vim.lsp.buf.format{async = true}',
+      -- },
     },
     wins = {
       -- Highlight current line only on focused window
