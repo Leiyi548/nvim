@@ -51,7 +51,7 @@ fast speed and modernity.
 ## Structure
 
 ```
-├── init.lua  
+├── init.lua
 ├── lua
 │   ├── core                       heart of cosynvim provide api
 │   │   ├── init.lua
@@ -75,7 +75,7 @@ fast speed and modernity.
 │           ├── config.lua
 │           ├── eviline.lua
 │           └── plugins.lua
-├── snippets                       snippets 
+├── snippets                       snippets
 │   ├── lua.json
 │   └── package.json
 └── static                         dashboard logo
@@ -121,17 +121,17 @@ plugins.lua file too long. Recommend lazyload plugins. Check the usage in `modul
 
 start speed. `lazyload` is not magic, it just generate your config into some `autocmds` , you can check the
 
-`packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder  So i set
+`packer_compiled.lua` to check it. I don't like the default path config in packer it use `plugins` folder So i set
 
 compiled file path to `~/.local/share/nvim/site/lua`, you can find compiled file in this path. Use `:h autocmd`
 
 to know more about. When you edit the config and open neovim and it does not take effect. Please try
 
- `PackerCompile` to generate a new compile file with your new change. In my personal config i have a function that
+`PackerCompile` to generate a new compile file with your new change. In my personal config i have a function that
 
- can auto compiled . when i edit the lua file that in this path `~/.config/nvim`. But it will make some noise so I didn't
+can auto compiled . when i edit the lua file that in this path `~/.config/nvim`. But it will make some noise so I didn't
 
- use it in cosynvim. when i have a newimplement I will update it to cosynvim core.
+use it in cosynvim. when i have a newimplement I will update it to cosynvim core.
 
 ```lua
 

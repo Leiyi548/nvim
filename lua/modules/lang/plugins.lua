@@ -41,4 +41,4 @@ plugin({
 })
 
 -- neorg
-plugin({ 'nvim-neorg/neorg', config = conf.neorg })
+plugin({ 'nvim-neorg/neorg', config = conf.neorg, disable = true })

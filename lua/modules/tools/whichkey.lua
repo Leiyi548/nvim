@@ -160,6 +160,7 @@ local mappings = {
   -- whichkey-b
   b = {
     name = '﩯Buffer',
+    s = { '<cmd>BufferLineSortByExtension<cr>', 'sort buffer by extensions' },
     k = { '<cmd>bdelete!<cr>', 'kill buffer' },
     p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
     h = { '<cmd>Bdelete hidden<cr>', 'Close hidden buffer' },
@@ -313,6 +314,6 @@ local v_mappings = {
   ['p'] = { '<cmd>Telescope registers<cr>', ' Clipboard' },
 }
 
+which_key.register(mappings, opts)
 which_key.register(v_mappings, v_opts)
 which_key.setup(setup)
-which_key.register(mappings, opts)

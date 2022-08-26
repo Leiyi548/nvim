@@ -86,7 +86,7 @@ function config.nvim_cmp()
         elseif luasnip.expand_or_jumpable() then
           luasnip.expand_or_jump()
         elseif has_words_before() then
-          cmp.complete()
+          return '<Tab>'
         else
           fallback()
         end
@@ -97,7 +97,7 @@ function config.nvim_cmp()
         elseif luasnip.expand_or_jumpable() then
           luasnip.jump(-1)
         elseif has_words_before() then
-          cmp.complete()
+          return '<S-Tab>'
         else
           fallback()
         end
@@ -145,11 +145,11 @@ function config.nvim_cmp()
       documentation = {
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
       },
       completion = {
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
       },
     },
     experimental = {

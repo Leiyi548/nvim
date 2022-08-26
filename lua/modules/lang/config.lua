@@ -5,7 +5,7 @@ function config.nvim_treesitter()
   -- vim.api.nvim_command('set foldexpr=nvim_treesitter#foldexpr()')
   require('nvim-treesitter.configs').setup({
     ensure_installed = 'all',
-    ignore_install = { 'phpdoc' },
+    ignore_install = { 'phpdoc', 'markdown', 'markdown_inline' },
     highlight = {
       enable = true,
       disable = { 'markdown' },
@@ -114,39 +114,39 @@ end
 function config.neorg()
   require('neorg').setup({
     load = {
-    ["core.defaults"] = {},
-    ["core.keybinds"] = {
-      config = {
-        default_keybinds = true,
-        neorg_leader = ",o",
-      },
-    },
-    ["core.norg.concealer"] = {},
-    ["core.norg.qol.toc"] = {},
-    ["core.norg.dirman"] = {
-      config = {
-        workspaces = {
-          main = "~/neorg",
-          gtd = "~/neorg/gtd",
-          -- doom_docs = string.format("%s/doc", doom_root),
+      ['core.defaults'] = {},
+      ['core.keybinds'] = {
+        config = {
+          default_keybinds = true,
+          neorg_leader = ',o',
         },
-        autodetect = true,
-        autochdir = true,
+      },
+      ['core.norg.concealer'] = {},
+      ['core.norg.qol.toc'] = {},
+      ['core.norg.dirman'] = {
+        config = {
+          workspaces = {
+            main = '~/neorg',
+            gtd = '~/neorg/gtd',
+            -- doom_docs = string.format("%s/doc", doom_root),
+          },
+          autodetect = true,
+          autochdir = true,
+        },
+      },
+      ['core.norg.esupports.metagen'] = {
+        config = { type = 'auto' },
+      },
+      ['core.export'] = {},
+      ['core.export.markdown'] = {
+        config = { extensions = 'all' },
+      },
+      ['core.gtd.base'] = {
+        config = {
+          workspace = 'gtd',
+        },
       },
     },
-    ["core.norg.esupports.metagen"] = {
-      config = { type = "auto" },
-    },
-    ["core.export"] = {},
-    ["core.export.markdown"] = {
-      config = { extensions = "all" },
-    },
-    ["core.gtd.base"] = {
-      config = {
-        workspace = "gtd",
-      },
-    },
-  },
   })
 end
 

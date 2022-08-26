@@ -1,0 +1,7 @@
+{
+  "const statement plus": {
+    "prefix": "con",
+    "body": "const ${1:name} = ${0:value}",
+    "description": "const statement plus"
+  }
+}

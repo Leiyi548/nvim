@@ -71,12 +71,14 @@ plugin({
 
 plugin({
   'MunifTanjim/nui.nvim',
+  disable = true,
 })
 
 plugin({
   'lukas-reineke/indent-blankline.nvim',
   config = conf.indent_blankline,
   event = 'BufRead',
+  disable = true,
   -- after = 'nvim-treesitter',
 })
 
