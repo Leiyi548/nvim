@@ -49,6 +49,7 @@ nmap({
   { ';b', cmd('BufferLinePick'), opts(noremap, silent) },
 
   -- telescope
+  { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
   { ';f', cmd('lua require("modules.tools.fancy_telescope").findBuffers()'), opts(noremap, silent) },
 })
 
