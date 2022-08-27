@@ -32,8 +32,9 @@ nmap({
   { '<M-v>', cmd('ToggleTerm size=80  direction=vertical'), opts(noremap, silent) },
 
   -- gitsign jump to hunk
-  { '[d', cmd('lua require "gitsigns".prev_hunk()<cr>'), opts(noremap, silent) },
-  { ']d', cmd('lua require "gitsigns".next_hunk()<cr>'), opts(noremap, silent) },
+  { '[d', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
+  { ']d', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
+  { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
   -- bufferline
   { '<leader>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },
@@ -46,6 +47,9 @@ nmap({
   { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
   { ';b', cmd('BufferLinePick'), opts(noremap, silent) },
+
+  -- telescope
+  { ';f', cmd('lua require("modules.tools.fancy_telescope").findBuffers()'), opts(noremap, silent) },
 })
 
 -- luasnip jump

@@ -229,14 +229,14 @@ function config.dashboard()
   -- db.preview_file_height = 12
   -- db.preview_file_width = 80
   db.custom_center = {
+    -- {
+    --   icon = '  ',
+    --   desc = 'Recently latest session                 ',
+    --   shortcut = 'SPC s l',
+    --   action = 'SessionLoad',
+    -- },
     {
       icon = '  ',
-      desc = 'Recently latest session                 ',
-      shortcut = 'SPC s l',
-      action = 'SessionLoad',
-    },
-    {
-      icon = '  ',
       desc = 'Recently opened files                   ',
       action = "lua require('modules.tools.fancy_telescope').findRecentFiles()",
       shortcut = 'SPC f r',

@@ -58,7 +58,7 @@ function config.nvim_treesitter()
         border = 'rounded',
         peek_definition_code = {
           ['df'] = '@function.outer',
-          ['gp'] = '@function.outer',
+          -- ['gp'] = '@function.outer',
           ['dF'] = '@class.outer',
         },
       },
