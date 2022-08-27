@@ -7,8 +7,8 @@ local conf = require('modules.ui.config')
 
 -- colorscheme
 -- plugin({ 'Leiyi548/onedarker.nvim' })
-plugin({ 'lunarvim/onedarker.nvim' })
-plugin({ 'lunarvim/horizon.nvim' })
+-- plugin({ 'lunarvim/onedarker.nvim' })
+-- plugin({ 'lunarvim/horizon.nvim' })
 -- plugin({ 'lunarvim/darkplus.nvim' })
 -- plugin({ 'lunarvim/synthwave84.nvim' })
 plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
@@ -26,8 +26,11 @@ plugin({
   'luisiacc/gruvbox-baby',
   config = conf.gruvbox_baby,
 })
+plugin({
+  'marko-cerovac/material.nvim',
+  config = conf.material,
+})
 -- plugin({ 'glepnir/zephyr-nvim'})
--- plugin({ '~/study/neovim/onedarkpro' })
 
 -- startup plugin
 plugin({
