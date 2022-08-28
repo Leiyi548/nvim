@@ -80,7 +80,7 @@ local opts = {
 
 local mappings = {
   -- basic mapping no prefix
-  ['/'] = { "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", ' Comment' },
+  ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
   ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   -- ['e'] = { '<cmd>NeoTreeFloatToggle<cr>', 'NeoTreeFloatToggle' },
@@ -310,7 +310,7 @@ local v_opts = {
 }
 
 local v_mappings = {
-  ['/'] = { "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", ' Comment' },
+  ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment' },
   ['p'] = { '<cmd>Telescope registers<cr>', ' Clipboard' },
 }
 
