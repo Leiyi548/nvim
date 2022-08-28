@@ -14,10 +14,8 @@ local cmd = key.cmd
 -- usage of plugins
 nmap({
   -- hop
-  -- { 'E', cmd('HopChar1'), opts(noremap, silent) },
   { 's', cmd('HopChar2'), opts(noremap, silent) },
   { 'S', cmd('HopWord'), opts(noremap, silent) },
-  -- { 'l', cmd('HopLineStart'), opts(noremap, silent) },
 
   -- telescope
   { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },

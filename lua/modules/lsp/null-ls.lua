@@ -54,9 +54,9 @@ null_ls.setup({
           -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
           vim.lsp.buf.format({
             bufnr = bufnr,
-            callbacks = function()
-              lsp_formatting(bufnr)
-            end,
+            -- callbacks = function()
+            --   lsp_formatting(bufnr)
+            -- end,
           })
         end,
       })

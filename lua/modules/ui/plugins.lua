@@ -75,7 +75,7 @@ plugin({
   'lukas-reineke/indent-blankline.nvim',
   config = conf.indent_blankline,
   event = 'BufRead',
-  disable = true,
+  disable = false,
   -- after = 'nvim-treesitter',
 })
 

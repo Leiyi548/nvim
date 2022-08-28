@@ -181,6 +181,11 @@ function config.lua_snip()
           virt_text = { { '<- choiceNode', 'Comment' } },
         },
       },
+      [types.insertNode] = {
+        active = {
+          virt_text = { { '<- insertNode', 'Comment' } },
+        },
+      },
     },
   })
   -- ~/.config/nvim/snippets/
