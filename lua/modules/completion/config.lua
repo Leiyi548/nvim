@@ -17,9 +17,8 @@ function config.nvim_cmp()
   if not cmp_ok then
     return
   end
-  local lusnip_ok, luasnip = pcall(require, 'luasnip')
-  if not lusnip_ok then
-    vim.notify('luasnip not found')
+  local luasnip_ok, luasnip = pcall(require, 'luasnip')
+  if not luasnip_ok then
     return
   end
 

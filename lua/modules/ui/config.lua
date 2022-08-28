@@ -376,7 +376,7 @@ function config.nvim_tree()
     open_on_setup = false,
     open_on_setup_file = false,
     open_on_tab = false,
-    sort_by = 'extension',
+    sort_by = 'name',
     update_cwd = true,
     reload_on_bufenter = false,
     respect_buf_cwd = false,
@@ -426,7 +426,7 @@ function config.nvim_tree()
       root_folder_modifier = ':~',
       -- root_folder_modifier = ':t',
       indent_markers = {
-        enable = true,
+        enable = false,
         icons = {
           corner = '└ ',
           edge = '│ ',

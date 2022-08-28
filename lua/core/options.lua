@@ -103,7 +103,7 @@ vim.opt.signcolumn = 'yes'
 -- vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'niv'
 -- set background = dark
--- vim.opt.background = 'dark'
+vim.opt.background = 'dark'
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {

@@ -103,7 +103,7 @@ local diff = {
 local branch = {
   'branch',
   icons_enabled = true,
-  icon = icons.git.Github_nvchad,
+  icon = icons.git.SourceControl,
   colored = false,
 }
 
