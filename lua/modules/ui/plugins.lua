@@ -11,13 +11,12 @@ local conf = require('modules.ui.config')
 -- plugin({ 'lunarvim/horizon.nvim' })
 -- plugin({ 'lunarvim/darkplus.nvim' })
 -- plugin({ 'lunarvim/synthwave84.nvim' })
-plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
 plugin({ 'olimorris/onedarkpro.nvim', disable = true })
-plugin({ 'rebelot/kanagawa.nvim' })
+plugin({ 'projekt0n/github-nvim-theme', config = conf.github })
+plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa })
 -- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
 plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin })
-plugin({ 'rose-pine/neovim' })
-plugin({ 'ellisonleao/gruvbox.nvim' })
+plugin({ 'rose-pine/neovim', as = 'rose-pine' })
 plugin({
   'sainnhe/gruvbox-material',
   config = conf.gruvbox_material,
@@ -69,11 +68,6 @@ plugin({
     'MunifTanjim/nui.nvim',
   },
   config = conf.neo_tree,
-  disable = true,
-})
-
-plugin({
-  'MunifTanjim/nui.nvim',
   disable = true,
 })
 

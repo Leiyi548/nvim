@@ -14,7 +14,7 @@ plugin({
     { 'hrsh7th/cmp-buffer' },
     { 'saadparwaiz1/cmp_luasnip' },
     { 'hrsh7th/cmp-cmdline' },
-    { 'hrsh7th/cmp-emoji' },
+    -- { 'hrsh7th/cmp-emoji' },
     -- { 'Leiyi548/cmp-flypy.nvim', run = 'make', config = conf.flypy },
   },
 })

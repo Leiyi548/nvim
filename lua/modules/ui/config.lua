@@ -6,7 +6,6 @@ local config = {}
 
 function config.github()
   if _G_colorscheme == 'github_light' then
-    -- Example config in Lua
     require('github-theme').setup({
       theme_style = 'light',
       function_style = 'italic',
@@ -178,8 +177,7 @@ function config.gruvbox_baby()
   vim.g.gruvbox_baby_comment_style = 'italic'
   vim.g.gruvbox_baby_string_style = 'italic'
   vim.g.gruvbox_baby_function_style = 'italic'
-  vim.g.gruvbox_baby_keyword_style = 'italic'
-  vim.g.gruvbox_baby_keyword_style = 'italic'
+  vim.g.gruvbox_baby_keyword_style = 'NONE'
 end
 
 function config.catppuccin()
@@ -377,7 +375,7 @@ function config.nvim_tree()
     open_on_setup = false,
     open_on_setup_file = false,
     open_on_tab = false,
-    sort_by = 'name',
+    sort_by = 'extension',
     update_cwd = true,
     reload_on_bufenter = false,
     respect_buf_cwd = false,
