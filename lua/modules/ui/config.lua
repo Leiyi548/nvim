@@ -48,6 +48,7 @@ function config.kanagawa()
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     colors = {},
     overrides = {},
+    theme = 'default',
   })
 end
 
@@ -425,7 +426,7 @@ function config.nvim_tree()
       root_folder_modifier = ':~',
       -- root_folder_modifier = ':t',
       indent_markers = {
-        enable = false,
+        enable = true,
         icons = {
           corner = '└ ',
           edge = '│ ',

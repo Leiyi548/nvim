@@ -116,6 +116,7 @@ plugin({
 
 plugin({
   'voldikss/vim-translator',
+  disable = true,
 })
 
 plugin({
