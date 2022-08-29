@@ -140,6 +140,7 @@ local mappings = {
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     c = { "<cmd>lua require('modules.tools.fancy_telescope').findConfiguration()<cr>", 'Configration' },
+    l = { '<cmd>VisitLinkInBuffer<cr>', 'Links' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },

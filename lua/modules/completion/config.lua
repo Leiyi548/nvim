@@ -145,10 +145,11 @@ function config.nvim_cmp()
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
         -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,Search:None',
       },
       completion = {
         border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
+        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
       },
     },
     experimental = {

@@ -13,6 +13,7 @@ plugin({
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'nvim-telescope/telescope-project.nvim' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
   },
 })
 
@@ -22,6 +23,11 @@ plugin({
 
 plugin({
   'lambdalisue/suda.vim',
+})
+
+plugin({
+  'xiyaowong/link-visitor.nvim',
+  config = conf.visitor,
 })
 
 plugin({

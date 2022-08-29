@@ -8,7 +8,7 @@ function config.github()
   if _G_colorscheme == 'github_light' then
     require('github-theme').setup({
       theme_style = 'light',
-      function_style = 'italic',
+      function_style = 'NONE',
       comment_style = 'italic',
       keyword_style = 'NONE',
       variable_style = 'NONE',
@@ -35,11 +35,11 @@ function config.kanagawa()
   require('kanagawa').setup({
     undercurl = true, -- enable undercurls
     commentStyle = { italic = true },
-    functionStyle = { italic = true },
+    functionStyle = { italic = false },
     keywordStyle = { italic = false },
     statementStyle = { bold = false },
     typeStyle = {},
-    variablebuiltinStyle = { italic = true },
+    variablebuiltinStyle = {},
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = false, -- do not set background color
@@ -63,7 +63,7 @@ function config.onedarkpro()
       strings = 'NONE', -- Style that is applied to strings.
       comments = 'italic', -- Style that is applied to comments
       keywords = 'NONE', -- Style that is applied to keywords
-      functions = 'italic', -- Style that is applied to functions
+      functions = 'NONE', -- Style that is applied to functions
       variables = 'NONE', -- Style that is applied to variables
       virtual_text = 'italic', -- Style that is applied to virtual text
     },
@@ -84,14 +84,6 @@ function config.onedarkpro()
   })
 end
 
-function config.onedarker()
-  local colorscheme = 'onedarker'
-  local ok, _ = pcall(vim.cmd, 'colorscheme ' .. colorscheme)
-  if not ok then
-    return
-  end
-end
-
 function config.material()
   vim.g.material_style = 'darker' -- lighter darker oceanic palenight deep ocean
   require('material').setup({
@@ -109,7 +101,7 @@ function config.material()
     italics = {
       comments = true, -- Enable italic comments
       keywords = false, -- Enable italic keywords
-      functions = true, -- Enable italic functions
+      functions = false, -- Enable italic functions
       strings = false, -- Enable italic strings
       variables = false, -- Enable italic variables
     },
@@ -176,8 +168,8 @@ function config.gruvbox_baby()
   vim.g.gruvbox_baby_background_color = 'dark'
   vim.g.gruvbox_baby_keyword_style = 'NONE'
   vim.g.gruvbox_baby_comment_style = 'italic'
-  vim.g.gruvbox_baby_string_style = 'italic'
-  vim.g.gruvbox_baby_function_style = 'italic'
+  vim.g.gruvbox_baby_string_style = 'NONE'
+  vim.g.gruvbox_baby_function_style = 'NONE'
   vim.g.gruvbox_baby_keyword_style = 'NONE'
 end
 
@@ -202,9 +194,9 @@ function config.catppuccin()
     },
     styles = {
       comments = { 'italic' },
-      conditionals = { 'italic' },
+      conditionals = {},
       loops = {},
-      functions = { 'italic' },
+      functions = {},
       keywords = {},
       strings = {},
       variables = {},

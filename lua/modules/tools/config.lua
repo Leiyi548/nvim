@@ -69,6 +69,10 @@ function config.telescope()
         hidden_files = true, -- default: false
         theme = 'dropdown',
       },
+      -- ["ui-select"] = {
+      -- require("telescope.themes").get_dropdown {
+      --   -- even more opts
+      -- }
     },
     mappings = {
       i = {
@@ -87,6 +91,7 @@ function config.telescope()
   })
   require('telescope').load_extension('fzf')
   require('telescope').load_extension('project')
+  require('telescope').load_extension('ui-select')
 end
 
 function config.whichkey()
@@ -779,6 +784,12 @@ function config.diffview()
         ['q'] = actions.close,
       },
     },
+  })
+end
+
+function config.visitor()
+  require('link-visitor').setup({
+    open_cmd = 'google-chrome-stable',
   })
 end
 

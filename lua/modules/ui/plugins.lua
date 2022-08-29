@@ -29,7 +29,7 @@ plugin({
   'marko-cerovac/material.nvim',
   config = conf.material,
 })
--- plugin({ 'glepnir/zephyr-nvim'})
+plugin({ 'glepnir/zephyr-nvim' })
 
 -- startup plugin
 plugin({
