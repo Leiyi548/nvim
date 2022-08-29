@@ -1,4 +1,6 @@
-_G_colorscheme = 'zephyr' -- github_light github_dark onedarker catppuccin horizon zephyr rose-pine synthwave84 kanagawa gruvbox-baby gruvbox-material catppuccin gruvbox material
+-- Aviable Colorscheme
+-- | 'github_light' | 'github_dark' | 'onedarker' | 'catppuccin' | 'zephyr' | 'rose-pine' | 'kanagawa' | 'gruvbox-baby' | 'gruvbox-material' | 'catppuccin' | 'gruvbox' | 'material'
+_G_colorscheme = 'zephyr'
 require('core')
 -- textobject
 vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])

@@ -26,6 +26,11 @@ plugin({
 })
 
 plugin({
+  'rcarriga/nvim-notify',
+  config = conf.notify,
+})
+
+plugin({
   'xiyaowong/link-visitor.nvim',
   config = conf.visitor,
 })
