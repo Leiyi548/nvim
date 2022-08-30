@@ -142,12 +142,12 @@ function config.material()
       sidebar_nvim = true,
       lsp_saga = true,
       nvim_dap = true,
-      nvim_navic = true,
+      nvim_navic = false,
       which_key = true,
       sneak = true,
       hop = true,
       indent_blankline = true,
-      nvim_illuminate = false,
+      nvim_illuminate = true,
       mini = true,
     },
   })
@@ -428,7 +428,7 @@ function config.nvim_tree()
       icons = {
         webdev_colors = true,
 
-        git_placement = 'before', -- before | after
+        git_placement = 'after', -- before | after
         padding = ' ',
         symlink_arrow = ' ➛ ',
         show = {

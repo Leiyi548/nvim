@@ -20,6 +20,7 @@ nmap({
   -- telescope
   { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<leader>r', '<cmd>Telescope registers<cr>', opts(noremap) },
+  { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
 
   -- nvim-tree
   { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
@@ -44,11 +45,7 @@ nmap({
   { '<leader>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
   { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
-  { ';b', cmd('BufferLinePick'), opts(noremap, silent) },
-
-  -- telescope
-  { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
-  { ';f', cmd('lua require("modules.tools.fancy_telescope").findBuffers()'), opts(noremap, silent) },
+  { ';o', cmd('BufferLinePick'), opts(noremap, silent) },
 
   -- Vistitlink
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },

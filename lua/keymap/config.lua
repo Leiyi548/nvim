@@ -35,13 +35,18 @@ nmap({
   { '<', '<<', opts(noremap) },
   { '>', '>>', opts(noremap) },
   -- buffer jump
-  { ';s', cmd('bp'), opts(noremap) },
-  { ';w', cmd('bn'), opts(noremap) },
+  { ';f', cmd('bn'), opts(noremap) },
+  { ';h', cmd('bp'), opts(noremap) },
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
+  -- spliw window
+  { ';s', cmd('split'), opts(noremap) },
+  { ';v', cmd('vsplit'), opts(noremap) },
+  -- close window
+  { ';q', cmd('close'), opts(noremap) },
   -- split windows
   -- { 'sv', cmd('vsplit'), opts(noremap) },
   -- { 'sg', cmd('split'), opts(noremap) },

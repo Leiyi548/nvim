@@ -22,6 +22,11 @@ plugin({
 })
 
 plugin({
+  'bkad/CamelCaseMotion',
+  config = conf.CamelCaseMotion
+})
+
+plugin({
   'lambdalisue/suda.vim',
 })
 
