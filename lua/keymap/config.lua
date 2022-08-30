@@ -35,8 +35,8 @@ nmap({
   { '<', '<<', opts(noremap) },
   { '>', '>>', opts(noremap) },
   -- buffer jump
-  { ';f', cmd('bn'), opts(noremap) },
-  { ';h', cmd('bp'), opts(noremap) },
+  { '<S-Tab>', cmd('bp'), opts(noremap) },
+  { '<Tab>', cmd('bn'), opts(noremap) },
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
