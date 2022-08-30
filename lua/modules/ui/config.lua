@@ -95,7 +95,7 @@ function config.material()
       sign_column = false, -- Enable contrast background for the sign column
       cursor_line = true, -- Enable darker background for the cursor line
       non_current_windows = false, -- Enable darker background for non-current windows
-      popup_menu = true, -- Enable lighter background for the popup menu
+      popup_menu = false, -- Enable lighter background for the popup menu
     },
 
     italics = {
