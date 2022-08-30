@@ -29,8 +29,8 @@ plugin({
   'marko-cerovac/material.nvim',
   config = conf.material,
 })
-plugin({ 'glepnir/zephyr-nvim' })
-
+plugin({ 'Leiyi548/zephyr-nvim' })
+plugin({ 'kaiuri/nvim-juliana' })
 -- startup plugin
 plugin({
   'glepnir/dashboard-nvim',
@@ -83,4 +83,13 @@ plugin({
   'NvChad/nvim-colorizer.lua',
   config = conf.colorizer,
   -- event = 'BufRead',
+})
+
+plugin({
+  'kevinhwang91/nvim-ufo',
+  requires = {
+    'kevinhwang91/promise-async',
+  },
+  config = conf.ufo,
+  disable = true,
 })

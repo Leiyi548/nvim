@@ -147,7 +147,7 @@ function config.material()
       sneak = true,
       hop = true,
       indent_blankline = true,
-      nvim_illuminate = true,
+      nvim_illuminate = false,
       mini = true,
     },
   })
@@ -177,7 +177,7 @@ function config.catppuccin()
   -- frappe（dark like） like tokynight
   -- macchiato,mocha是个深色主题
   -- latte is light colorscheme,I think mocha is better
-  vim.g.catppuccin_flavour = 'latte' -- latte, frappe, macchiato, mocha
+  vim.g.catppuccin_flavour = 'frappe' -- latte, frappe, macchiato, mocha
 
   require('catppuccin').setup({
     dim_inactive = {

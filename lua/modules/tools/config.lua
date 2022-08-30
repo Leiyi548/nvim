@@ -78,11 +78,15 @@ function config.telescope()
       i = {
         ['<Down>'] = actions.move_selection_next,
         ['<Up>'] = actions.move_selection_previous,
+        ['<PageUp>'] = actions.preview_scrolling_up,
+        ['<PageDown>'] = actions.preview_scrolling_down,
       },
       n = {
         ['<esc>'] = actions.close,
         ['q'] = actions.close,
         ['?'] = actions.which_key,
+        ['<PageUp>'] = actions.preview_scrolling_up,
+        ['<PageDown>'] = actions.preview_scrolling_down,
       },
     },
     file_ignore_patterns = {
@@ -287,7 +291,6 @@ end
 function config.todo_comments()
   local todo_comments_ok, todo_comments = pcall(require, 'todo-comments')
   if not todo_comments_ok then
-    vim.notify('todo-comments not found')
     return
   end
 
@@ -808,7 +811,7 @@ function config.notify()
     minimum_width = 50,
     render = 'default',
     stages = 'fade_in_slide_out',
-    timeout = 5000,
+    timeout = 1000,
   })
 end
 

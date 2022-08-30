@@ -133,25 +133,6 @@ function M.git_status()
   builtin.git_status(opts)
 end
 
-function M.findConfiguration()
-  local opts = {
-    prompt_title = 'configuration',
-    search_dirs = {
-      '/mnt/c/Users/9/AppData/Roaming/alacritty',
-    },
-    -- path_display = { "smart" },
-    previewer = false,
-    -- layout_config = {
-    --   width = 0.5,
-    --   height = 0.5,
-    --   horizontal = { width = { padding = 0.15 } },
-    --   vertical = { preview_height = 0.75 },
-    -- },
-    file_ignore_patterns = file_ignore_patterns,
-  }
-  builtin.find_files(themes.get_dropdown(opts))
-end
-
 function M.findSnippets()
   local opts = {
     prompt_title = 'friendlysnippets',

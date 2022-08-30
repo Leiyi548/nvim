@@ -48,7 +48,7 @@ M.get_filename = function()
     end
     vim.api.nvim_set_hl(0, 'Winbar', { fg = '#6b737f' })
 
-    return '  '
+    return '  '
       .. foldname
       .. ' '
       .. '%#'

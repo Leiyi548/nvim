@@ -1,5 +1,5 @@
 -- Aviable Colorscheme
--- | 'github_light' | 'github_dark' | 'onedarker' | 'catppuccin' | 'zephyr' | 'rose-pine' | 'kanagawa' | 'gruvbox-baby' | 'gruvbox-material' | 'catppuccin' | 'gruvbox' | 'material'
+-- | 'github_light' | 'github_dark' | 'onedarker' | 'catppuccin' | 'zephyr' | 'rose-pine' | 'kanagawa' | 'gruvbox-baby' | 'gruvbox-material' | 'catppuccin' | 'gruvbox' | 'material' | 'juliana'
 _G_colorscheme = 'zephyr'
 require('core')
 -- textobject
