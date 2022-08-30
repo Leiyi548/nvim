@@ -44,10 +44,11 @@ null_ls.setup({
     -- code_actions.gitsigns, -- enable code_action for gitsigns
   },
   on_attach = function(client, bufnr)
+    -- format on save
     if client.supports_method('textDocument/formatting') then
       local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
       vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-      vim.api.nvim_create_autocmd('BufWritePost', {
+      vim.api.nvim_create_autocmd('BufWritePre', {
         group = augroup,
         buffer = bufnr,
         callback = function()
