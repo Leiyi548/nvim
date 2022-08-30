@@ -43,10 +43,10 @@ nmap({
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
   -- spliw window
-  { ';s', cmd('split'), opts(noremap) },
-  { ';v', cmd('vsplit'), opts(noremap) },
+  { 'sg', cmd('split'), opts(noremap) },
+  { 'sv', cmd('vsplit'), opts(noremap) },
   -- close window
-  { ';q', cmd('close'), opts(noremap) },
+  { 'sc', cmd('close'), opts(noremap) },
   -- split windows
   -- { 'sv', cmd('vsplit'), opts(noremap) },
   -- { 'sg', cmd('split'), opts(noremap) },
