@@ -177,7 +177,7 @@ function config.catppuccin()
   -- frappe（dark like） like tokynight
   -- macchiato,mocha是个深色主题
   -- latte is light colorscheme,I think mocha is better
-  vim.g.catppuccin_flavour = 'frappe' -- latte, frappe, macchiato, mocha
+  vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
 
   require('catppuccin').setup({
     dim_inactive = {
@@ -276,7 +276,7 @@ function config.catppuccin()
 end
 
 function config.dashboard()
-  local home = os.getenv('HOME') -- /home/ewell
+  -- local home = os.getenv('HOME') -- /home/ewell
   local db = require('dashboard')
   -- macos
   -- db.preview_command = 'cat | lolcat -F 0.3'
@@ -341,7 +341,7 @@ function config.dashboard()
     [[                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
     [[                          ▓▓▓▓▓▓▓      ]],
     [[                                       ]],
-    [[             Start Editing             ]],
+    -- [[             Start Editing             ]],
   }
 end
 

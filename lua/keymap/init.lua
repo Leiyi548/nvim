@@ -16,6 +16,7 @@ nmap({
   -- hop
   { 'ss', cmd('HopChar2'), opts(noremap, silent) },
   { 'sw', cmd('HopWord'), opts(noremap, silent) },
+  { 'S', cmd('HopWord'), opts(noremap, silent) },
   { 'sl', cmd('HopLine'), opts(noremap, silent) },
 
   -- telescope

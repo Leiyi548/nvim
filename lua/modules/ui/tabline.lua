@@ -71,7 +71,8 @@ bufferline.setup({
     separator_style = 'slant', -- slant | padded_slant | thick | thin
     enforce_regular_tabs = true,
     always_show_bufferline = true,
-    sort_by = 'insert_after_current', --insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+    -- sort will change number,I don't need this.
+    -- sort_by = 'insert_after_current', --insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
     -- custom_areas = {},
   },
 })

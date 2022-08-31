@@ -1,8 +1,8 @@
--- Aviable Colorscheme
+-- Available Colorscheme
 -- | 'github_light' | 'github_dark' | 'onedarker' | 'catppuccin' | 'zephyr' | 'rose-pine' | 'kanagawa' | 'gruvbox-baby' | 'gruvbox-material' | 'catppuccin' | 'gruvbox' | 'material' | 'juliana'
-_G_colorscheme = 'material'
+_G_colorscheme = 'juliana'
 require('core')
--- textobject
+-- Custom textobject
 vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])
 
 -- vim.cmd([[set background=dark]])
