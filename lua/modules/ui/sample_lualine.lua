@@ -104,7 +104,15 @@ local branch = {
   'branch',
   icons_enabled = true,
   icon = icons.git.SourceControl,
+  -- icon = '%#SLGitIcon#' .. ' ',
   colored = false,
+  -- padding = 0,
+  fmt = function(str)
+    if str == '' or str == nil then
+      return '!=vcs'
+    end
+    return str
+  end,
 }
 
 -- cool function for progress
@@ -142,7 +150,12 @@ local filename = {
     file_icon = file_icon .. ' '
     vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
     local size = require('lualine.components.filesize')()
-    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str .. ' [' .. size .. ']'
+    if size == '' then
+      size = ''
+    else
+      size = ' [' .. size .. ']'
+    end
+    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str .. size
   end,
 }
 
