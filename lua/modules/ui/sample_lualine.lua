@@ -129,6 +129,20 @@ local filename = {
     unnamed = ' ', -- Text to show for unnamed buffers.
     newfile = ' ', -- Text to show for new created file before first writting
   },
+  fmt = function(str)
+    ---@diagnostic disable-next-line: missing-parameter
+    local filename = vim.fn.expand('%:t')
+    ---@diagnostic disable-next-line: missing-parameter
+    local extension = vim.fn.expand('%:e')
+    ---@diagnostic disable-next-line: unused-local
+    local file_icon, file_icon_color =
+      require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
+    local hl_group = 'LualineFileIconColor' .. extension
+    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    file_icon = file_icon .. ' '
+    vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
+    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str
+  end,
 }
 
 local spaces = {
@@ -271,17 +285,22 @@ local super_progress = {
   padding = { left = 0, right = 0 },
 }
 
+local encoding = {
+  'encoding',
+  cond = hide_in_width_100,
+}
+
 lualine.setup({
   options = {
     icons_enabled = true,
     globalstatus = true,
     theme = 'auto',
-    -- component_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     -- section_separators = { left = '', right = '' },
     -- section_separators = { left = '', right = '' },
     -- component_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    -- component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt' },
     always_divide_middle = true,
 
@@ -302,7 +321,7 @@ lualine.setup({
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { diff },
-    lualine_y = { diagnostics },
+    lualine_y = { diagnostics, spaces, encoding },
     lualine_z = { progress },
   },
   -- 没有聚焦的窗口

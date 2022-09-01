@@ -37,7 +37,8 @@ M.get_filename = function()
   local f = require('utils.function')
 
   if not f.isempty(filename) then
-    local file_icon, file_icon_color = require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
+    local file_icon, file_icon_color =
+      require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
 
     local hl_group = 'FileIconColor' .. extension
 
@@ -111,7 +112,7 @@ M.get_winbar = function()
 
   if not f.isempty(value) and f.get_buf_option('mod') then
     -- local mod = '%#LspCodeLens#' .. require('modules.ui.icons').ui.Circle .. '%*'
-    local mod = '%#LspCodeLens#' .. "●" .. '%*'
+    local mod = '%#LspCodeLens#' .. '●' .. '%*'
     if gps_added then
       value = value .. ' ' .. mod
     else
