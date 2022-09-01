@@ -141,7 +141,8 @@ local filename = {
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     file_icon = file_icon .. ' '
     vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
-    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str
+    local size = require('lualine.components.filesize')()
+    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str .. ' [' .. size .. ']'
   end,
 }
 
