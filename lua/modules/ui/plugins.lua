@@ -67,18 +67,6 @@ plugin({
 })
 
 plugin({
-  'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v2.x',
-  requires = {
-    'nvim-lua/plenary.nvim',
-    'kyazdani42/nvim-web-devicons', -- not strictly required, but recommended
-    'MunifTanjim/nui.nvim',
-  },
-  config = conf.neo_tree,
-  disable = true,
-})
-
-plugin({
   'lukas-reineke/indent-blankline.nvim',
   config = conf.indent_blankline,
   event = 'BufRead',
