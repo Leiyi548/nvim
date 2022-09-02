@@ -39,11 +39,11 @@ function config.nvim_cmp()
     mapping = cmp.mapping.preset.insert({
       ['<Up>'] = cmp.mapping.select_prev_item(),
       ['<Down>'] = cmp.mapping.select_next_item(),
-      ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-d>'] = cmp.mapping.scroll_docs(4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
       ['<PageUp>'] = cmp.mapping.scroll_docs(4),
       ['<PageDown>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-h>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+      ['<C-y'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
       ['<C-]>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
       ['<C-e>'] = cmp.mapping({
         i = cmp.mapping.abort(),
@@ -158,9 +158,96 @@ function config.nvim_cmp()
     },
   })
 
+  -- more information please see ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/config/mapping.lua
+  local keymap = require('cmp.utils.keymap')
+  local feedkeys = require('cmp.utils.feedkeys')
   -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
   cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
+    mapping = cmp.mapping.preset.cmdline({
+      ['<C-j>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<C-k>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<Down>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<Up>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<Tab>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<S-Tab>'] = {
+        c = function()
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            feedkeys.call(keymap.t('<C-z>'), 'n')
+          end
+        end,
+      },
+      ['<C-n>'] = {
+        c = function(fallback)
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end,
+      },
+      ['<C-p>'] = {
+        c = function(fallback)
+          local cmp = require('cmp')
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end,
+      },
+      ['<C-e>'] = {
+        c = cmp.mapping.close(),
+      },
+    }),
     sources = cmp.config.sources({
       { name = 'path' },
     }, {
