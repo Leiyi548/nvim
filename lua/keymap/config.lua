@@ -10,6 +10,7 @@ local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xma
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
+local expr = keymap.expr
 
 -- Use space as leader key
 vim.g.mapleader = ' '
@@ -21,33 +22,40 @@ xmap({ ' ', '', opts(noremap) })
 -- usage example
 nmap({
   -- noremal remap
-  -- close buffer
-  -- { 'x', cmd('bdelete!'), opts(noremap, silent) },
   { '<C-s>', cmd('write'), opts(noremap) },
+
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
-  -- { '<leader>y', '"+y', opts(noremap) },
-  -- { '<leader>p', '"+p', opts(noremap) },
-  -- { '<leader>P', '"+P', opts(noremap) },
+
   -- I hate click this key
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
   { '<', '<<', opts(noremap) },
   { '>', '>>', opts(noremap) },
+
+  -- buffer jump
+  { ']b', cmd('bn'), opts(noremap) },
+  { '[b', cmd('bp'), opts(noremap) },
+
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
+
   -- spliw window
   { 'sg', cmd('split'), opts(noremap) },
   { 'sv', cmd('vsplit'), opts(noremap) },
+
   -- close window
   { 'sc', cmd('close'), opts(noremap) },
-  -- split windows
-  -- { 'sv', cmd('vsplit'), opts(noremap) },
-  -- { 'sg', cmd('split'), opts(noremap) },
-  -- { 'sc', '<C-w>c', opts(noremap) },
+
+  -- resize window
+  { '<M-[>', cmd('vertical resize -5'), opts(noremap, silent) },
+  { '<M-]>', cmd('resize +5'), opts(noremap, silent) },
+  { '<M-,>', cmd('resize -5'), opts(noremap, silent) },
+  { '<M-.>', cmd('resize +5'), opts(noremap, silent) },
+
   -- like vscode move line
   { '<M-Up>', ':m .-2<CR>==', opts(noremap) },
   { '<M-Down>', ':m .+1<CR>==', opts(noremap) },
@@ -73,12 +81,33 @@ xmap({
 imap({
   -- insert mode
   { '<C-s>', cmd('write'), opts(noremap) },
+  -- vscode move line
   { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
+  -- emacs keybinding
+  -- deleate a word before
+  { '<C-w>', '<C-[>diwa', opts(noremap) },
+  { '<C-h>', '<Bs>', opts(noremap) },
+  { '<C-d>', '<Del>', opts(noremap) },
+  -- redo like nomal mode u
+  { '<C-u>', '<C-G>u<C-u>', opts(noremap) },
+  { '<C-p>', '<Up>', opts(noremap) },
+  { '<C-n>', '<Down>', opts(noremap) },
+  { '<C-b>', '<Left>', opts(noremap) },
+  { '<C-f>', '<Right>', opts(noremap) },
+  { '<C-a>', '<Esc>^i', opts(noremap) },
+  { '<C-e>', '<End>', opts(noremap) },
 })
 
--- commandline remap
--- cmap({ '<C-b>', '<Left>', opts(noremap) })
+-- commandline remap (emacs keybinding)
+cmap({
+  { '<C-b>', '<Left>', opts(noremap) },
+  { '<C-f>', '<Right>', opts(noremap) },
+  { '<C-a>', '<Home>', opts(noremap) },
+  { '<C-e>', '<End>', opts(noremap) },
+  { '<C-d>', '<Del>', opts(noremap) },
+  { '<C-h>', '<BS>', opts(noremap) },
+})
 
 _G.smart_C_j = function()
   local ls = require('luasnip')
@@ -95,6 +124,15 @@ _G.smart_C_k = function()
     return "<cmd>lua require('luasnip').jump(-1)<cr>"
   else
     return '<Up>'
+  end
+end
+
+_G.smart_C_h = function()
+  local ls = require('luasnip')
+  if ls.expand_or_jumpable() then
+    return "<cmd>lua require('luasnip').jump(-1)<cr>"
+  else
+    return '<Left>'
   end
 end
 

@@ -20,10 +20,10 @@ nmap({
   { 'sl', cmd('HopLine'), opts(noremap, silent) },
 
   -- telescope
-  { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },
-  { '<leader>r', '<cmd>Telescope registers<cr>', opts(noremap) },
+  { ';v', '<cmd>Telescope registers<cr>', opts(noremap) },
   { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
   { ';s', cmd("lua require('modules.tools.fancy_telescope').selectBuffers()"), opts(noremap, silent) },
+  { ';f', cmd("lua require('modules.tools.fancy_telescope').findFiles()"), opts(noremap, silent) },
 
   -- nvim-tree
   { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
