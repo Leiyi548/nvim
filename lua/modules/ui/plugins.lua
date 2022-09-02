@@ -39,6 +39,12 @@ plugin({
   disable = false,
 })
 
+-- icon
+plugin({
+  'yamatsum/nvim-nonicons',
+  requires = { 'kyazdani42/nvim-web-devicons' },
+})
+
 -- statusline
 plugin({
   'nvim-lualine/lualine.nvim',

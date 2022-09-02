@@ -412,7 +412,6 @@ function config.nvim_tree()
       },
     },
     renderer = {
-
       add_trailing = false,
       group_empty = false,
       highlight_git = false,
@@ -429,7 +428,6 @@ function config.nvim_tree()
       },
       icons = {
         webdev_colors = true,
-
         git_placement = 'after', -- before | after
         padding = ' ',
         symlink_arrow = ' ➛ ',
@@ -444,7 +442,6 @@ function config.nvim_tree()
           default = '',
           symlink = '',
           folder = {
-
             arrow_closed = '',
             arrow_open = '',
             default = '',
