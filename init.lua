@@ -1,6 +1,6 @@
 -- Available Colorscheme
 -- | 'github_light' | 'github_dark' | 'onedarker' | 'catppuccin' | 'zephyr' | 'rose-pine' | 'kanagawa' | 'gruvbox-baby' | 'gruvbox-material' | 'catppuccin' | 'gruvbox' | 'material' | 'juliana'
-_G_colorscheme = 'juliana'
+_G_colorscheme = 'github_light'
 require('core')
 -- Custom textobject
 vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])

@@ -32,7 +32,7 @@ nmap({
   { '<M-h>', cmd('ToggleTerm size=10  direction=horizontal'), opts(noremap, silent) },
   { '<M-v>', cmd('ToggleTerm size=80  direction=vertical'), opts(noremap, silent) },
 
-  -- gitsign jump to hunk
+  -- gitsign
   { '[d', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
   { ']d', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
@@ -48,6 +48,8 @@ nmap({
   { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
   { ';s', cmd('BufferLinePick'), opts(noremap, silent) },
+  { '<Tab>', cmd('BufferLineCycleNext'), opts(noremap) },
+  { '<S-Tab>', cmd('BufferLineCyclePrev'), opts(noremap) },
 
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },

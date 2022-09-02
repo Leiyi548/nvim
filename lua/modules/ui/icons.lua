@@ -1,6 +1,9 @@
 return {
   kind = {
     Text = ' ',
+    -- Method = 'm',
+    -- Function = '',
+    -- Constructor = '',
     Method = ' ',
     Function = ' ',
     Constructor = ' ',
