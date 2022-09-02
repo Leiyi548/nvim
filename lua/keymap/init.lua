@@ -4,12 +4,15 @@
 -- recommend plugins key defines in this file
 
 require('keymap.config')
-local key = require('core.keymap')
-local nmap = key.nmap
--- local imap = key.imap
-local silent, noremap = key.silent, key.noremap
-local opts = key.new_opts
-local cmd = key.cmd
+local keymap = require('core.keymap')
+local nmap = keymap.nmap
+local imap = keymap.imap
+local xmap = keymap.xmap
+local smap = keymap.smap
+local remap = keymap.remap
+local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
+local opts = keymap.new_opts
+local cmd = keymap.cmd
 
 -- usage of plugins
 nmap({
@@ -40,29 +43,19 @@ nmap({
 
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },
+
+  -- Smart dd
+  { 'dd', _G.smart_dd, opts(noremap, silent, expr) },
 })
 
--- luasnip jump
--- imap({
---   { '<C-j>', cmd("lua require('luasnip').jump(1)"), opts(noremap, silent) },
---   { '<C-k>', cmd("lua require('luasnip').jump(-1)"), opts(noremap, silent) },
--- })
+imap({
+  -- smart ctrl
+  { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
+  { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
+  { '<C-l>', _G.smart_C_l, opts(expr, silent, remap) },
+})
 
--- luasnip
-vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>luasnip-next-choice', {})
-vim.api.nvim_set_keymap('s', '<C-l>', '<Plug>luasnip-next-choice', {})
-
--- smart_dd
--- smart deletion, dd
--- It solves the issue, where you want to delete empty line, but dd will override you last yank.
--- Code above will check if u are deleting empty line, if so - use black hole register.
--- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
-local function smart_dd()
-  if vim.api.nvim_get_current_line():match('^%s*$') then
-    return '"_dd'
-  else
-    return 'dd'
-  end
-end
-
-vim.keymap.set('n', 'dd', smart_dd, { noremap = true, expr = true })
+smap({
+  { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
+  { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
+})

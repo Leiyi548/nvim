@@ -4,13 +4,12 @@
 -- recommend some vim mode key defines in this file
 
 local keymap = require('core.keymap')
----@diagnostic disable-next-line: unused-local
 local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xmap
----@diagnostic disable-next-line: unused-local
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
 local expr = keymap.expr
+local remap = keymap.remap
 
 -- Use space as leader key
 vim.g.mapleader = ' '
@@ -67,23 +66,24 @@ xmap({
   { '>', '>gv', opts(noremap) },
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
+
   -- move line like vscode
   -- { 'J', ":move '>+1<CR>gv-gv", opts(noremap) },
   -- { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
+
+  -- vscode style move line
   { '<M-Up>', ':m .-2<CR>==', opts(noremap) },
   { '<M-Down>', ':m .+1<CR>==', opts(noremap) },
-  -- yank paste
-  -- { '<leader>y', '"+y', opts(noremap) },
-  -- { '<leader>p', '"+p', opts(noremap) },
-  -- { '<leader>P', '"+P', opts(noremap) },
 })
 
 imap({
   -- insert mode
   { '<C-s>', cmd('write'), opts(noremap) },
+
   -- vscode move line
   { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
+
   -- emacs keybinding
   -- deleate a word before
   { '<C-w>', '<C-[>diwa', opts(noremap) },
@@ -109,38 +109,43 @@ cmap({
   { '<C-h>', '<BS>', opts(noremap) },
 })
 
+-- reference: https://github.com/glepnir/nvim/blob/main/lua/keymap/init.lua
 _G.smart_C_j = function()
   local ls = require('luasnip')
   if ls.expand_or_jumpable() then
     return "<cmd>lua require('luasnip').jump(1)<cr>"
   else
-    return '<Down>'
+    return '<ESC>o'
   end
 end
 
 _G.smart_C_k = function()
   local ls = require('luasnip')
-  if ls.expand_or_jumpable() then
+  if ls.jumpable(-1) then
     return "<cmd>lua require('luasnip').jump(-1)<cr>"
   else
-    return '<Up>'
-  end
-end
-
-_G.smart_C_h = function()
-  local ls = require('luasnip')
-  if ls.expand_or_jumpable() then
-    return "<cmd>lua require('luasnip').jump(-1)<cr>"
-  else
-    return '<Left>'
+    return '<ESC>O'
   end
 end
 
 _G.smart_C_l = function()
   local ls = require('luasnip')
-  if ls.expand_or_jumpable() then
-    return "<cmd>lua require('luasnip').jump(-1)<cr>"
+  if ls.choice_active() then
+    return '<Plug>luasnip-next-choice'
   else
-    return '<Right>'
+    return '<Tab>'
+  end
+end
+
+-- smart_dd
+-- smart deletion, dd
+-- It solves the issue, where you want to delete empty line, but dd will override you last yank.
+-- Code above will check if u are deleting empty line, if so - use black hole register.
+-- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
+_G.smart_dd = function()
+  if vim.api.nvim_get_current_line():match('^%s*$') then
+    return '"_dd'
+  else
+    return 'dd'
   end
 end

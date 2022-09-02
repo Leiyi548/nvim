@@ -32,6 +32,16 @@ function config.nvim_treesitter()
       disable = { 'html' },
     },
     textobjects = {
+      -- BUG: keybinding not useful
+      swap = {
+        enable = true,
+        swap_next = {
+          ['[w'] = '@parameter.inner',
+        },
+        swap_previous = {
+          [']w'] = '@parameter.inner',
+        },
+      },
       select = {
         enable = true,
         keymaps = {
@@ -46,11 +56,11 @@ function config.nvim_treesitter()
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
           [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+          [']c'] = '@class.outer',
         },
         goto_previous_start = {
           ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+          ['[c'] = '@class.outer',
         },
       },
       lsp_interop = {
@@ -58,8 +68,7 @@ function config.nvim_treesitter()
         border = 'rounded',
         peek_definition_code = {
           ['df'] = '@function.outer',
-          -- ['gp'] = '@function.outer',
-          ['dF'] = '@class.outer',
+          ['dc'] = '@class.outer',
         },
       },
     },
@@ -109,6 +118,8 @@ function config.nvim_treesitter_content()
     mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
     separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
   })
+  -- Custom textobject
+  vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])
 end
 
 function config.neorg()

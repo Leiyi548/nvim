@@ -27,6 +27,7 @@ local completion = null_ls.builtins.completion
 -- npm install --save-dev prettier prettier-plugin-solidity
 null_ls.setup({
   debug = false,
+  -- Built-in source https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
   sources = {
     formatting.prettier.with({
       -- filetypes = { 'markdown' },
@@ -40,7 +41,6 @@ null_ls.setup({
     -- formatting.google_java_format, -- enable for java format
 
     -- diagnostics.flake8, -- enable for python diagnostics
-
     -- code_actions.gitsigns, -- enable code_action for gitsigns
   },
   on_attach = function(client, bufnr)

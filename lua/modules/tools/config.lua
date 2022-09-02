@@ -171,6 +171,7 @@ function config.telescope()
         },
         n = {
           ['<esc>'] = actions.close,
+          ['<C-c>'] = actions.close,
           ['q'] = actions.close,
           ['?'] = actions.which_key,
           ['<Up>'] = actions.move_selection_previous,

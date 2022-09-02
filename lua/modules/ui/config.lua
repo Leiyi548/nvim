@@ -298,6 +298,12 @@ function config.dashboard()
     --   action = 'SessionLoad',
     -- },
     {
+      icon = '勒 ',
+      desc = 'PackerCompile                           ',
+      action = 'PackerCompile',
+      shortcut = 'SPC p c',
+    },
+    {
       icon = '  ',
       desc = 'Recently opened files                   ',
       action = "lua require('modules.tools.fancy_telescope').findRecentFiles()",
