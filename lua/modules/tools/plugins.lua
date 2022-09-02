@@ -19,11 +19,18 @@ plugin({
 
 plugin({
   'h-hg/fcitx.nvim',
+  event = 'InsertEnter',
+})
+
+plugin({
+  'nvim-colortils/colortils.nvim',
+  cmd = 'Colortils',
+  config = conf.colortils,
 })
 
 plugin({
   'bkad/CamelCaseMotion',
-  config = conf.CamelCaseMotion
+  config = conf.CamelCaseMotion,
 })
 
 plugin({
@@ -37,6 +44,7 @@ plugin({
 
 plugin({
   'xiyaowong/link-visitor.nvim',
+  event = 'BufWinEnter',
   config = conf.visitor,
 })
 
@@ -130,6 +138,7 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
+  event = 'BufEnter',
 })
 
 plugin({

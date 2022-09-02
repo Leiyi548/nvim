@@ -3,12 +3,8 @@
 -- License: MIT
 
 local M = {}
-local action_state = require('telescope.actions.state')
-local actions = require('telescope.actions')
 local themes = require('telescope.themes')
 local builtin = require('telescope.builtin')
-local finders = require('telescope.finders')
-local conf = require('telescope.config').values
 
 local file_ignore_patterns = {
   'vendor/*',
@@ -49,12 +45,16 @@ function M.findBuffers()
     -- path_display = { 'absolute' },
     prompt_position = 'top',
     previewer = false,
-    -- layout_config = {
-    --   width = 0.5,
-    --   height = 0.5,
-    --   horizontal = { width = { padding = 0.15 } },
-    --   vertical = { preview_height = 0.75 },
-    -- },
+  }
+  builtin.buffers(themes.get_dropdown(opts))
+end
+
+function M.selectBuffers()
+  local opts = {
+    prompt_title = 'Buffers',
+    prompt_position = 'top',
+    previewer = false,
+    initial_mode = 'normal',
   }
   builtin.buffers(themes.get_dropdown(opts))
 end
@@ -81,12 +81,6 @@ function M.findFiles()
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
-    -- layout_config = {
-    --   width = 0.5,
-    --   height = 0.5,
-    --   horizontal = { width = { padding = 0.15 } },
-    --   vertical = { preview_height = 0.75 },
-    -- },
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))

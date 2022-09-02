@@ -56,6 +56,7 @@ plugin({
   'akinsho/nvim-bufferline.lua',
   config = conf.bufferline,
   requires = 'kyazdani42/nvim-web-devicons',
+  disable = 'true',
 })
 
 plugin({

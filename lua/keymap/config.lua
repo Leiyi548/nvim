@@ -79,3 +79,30 @@ imap({
 
 -- commandline remap
 -- cmap({ '<C-b>', '<Left>', opts(noremap) })
+
+_G.smart_C_j = function()
+  local ls = require('luasnip')
+  if ls.expand_or_jumpable() then
+    return "<cmd>lua require('luasnip').jump(1)<cr>"
+  else
+    return '<Down>'
+  end
+end
+
+_G.smart_C_k = function()
+  local ls = require('luasnip')
+  if ls.expand_or_jumpable() then
+    return "<cmd>lua require('luasnip').jump(-1)<cr>"
+  else
+    return '<Up>'
+  end
+end
+
+_G.smart_C_l = function()
+  local ls = require('luasnip')
+  if ls.expand_or_jumpable() then
+    return "<cmd>lua require('luasnip').jump(-1)<cr>"
+  else
+    return '<Right>'
+  end
+end

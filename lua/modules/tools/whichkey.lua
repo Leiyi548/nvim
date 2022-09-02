@@ -83,15 +83,13 @@ local mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
   ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
-  -- ['e'] = { '<cmd>NeoTreeFloatToggle<cr>', 'NeoTreeFloatToggle' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
-  ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
-  -- ['w'] = { '<cmd>w!<cr>', ' Save' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
-  -- ['o'] = { '<cmd>AerialToggle<cr>', ' Outline' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
-  ['x'] = { '<cmd>Telescope diagnostic', 'close buffer' },
-  ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
+  ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
+  ['v'] = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vterm' },
+  ['x'] = { '<cmd>Telescope diagnostic<cr>', ' Diagnostics' },
+  -- ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
 
   -- whichkey-p
   p = {
@@ -274,24 +272,23 @@ local mappings = {
 
   -- whichkey-t
   t = {
-    name = ' Terminal',
+    name = ' Toggle/Terminal',
     n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
     p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
     g = { '<cmd>lua _GOTOP_TOGGLE()<CR>', 'gotop' },
     f = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
     h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
     v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vertical' },
-    t = { '<cmd>ToggleTerm direction=tab<cr>', 'New Tab' },
+    t = { '<cmd>ToggleTerm direction=tab<cr>', 'New Terminal Tab' },
+    c = { '<cmd>ColorizerToggle<cr>', 'Toggle Colorizer highlight' },
   },
 
   -- whichkey-i
   i = {
-    name = ' Insert',
-    s = {
-      "<cmd>lua require('telescope').extensions.luasnip.luasnip(require('telescope.themes').get_cursor({}))<cr>",
-      'Snippet',
-    },
+    name = ' Insert',
     m = { '<cmd>PasteImg<cr>', 'Image' },
+    c = { '<cmd>Colortils<cr>', 'Color' },
+    l = { '<cmd>Colortils css list<cr>', 'List Css' },
   },
 
   -- whichkey-m

@@ -6,7 +6,7 @@
 require('keymap.config')
 local key = require('core.keymap')
 local nmap = key.nmap
-local imap = key.imap
+-- local imap = key.imap
 local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
@@ -23,6 +23,7 @@ nmap({
   { '<C-P>', cmd('Telescope find_files'), opts(noremap, silent) },
   { '<leader>r', '<cmd>Telescope registers<cr>', opts(noremap) },
   { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
+  { ';s', cmd("lua require('modules.tools.fancy_telescope').selectBuffers()"), opts(noremap, silent) },
 
   -- nvim-tree
   { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
@@ -37,29 +38,15 @@ nmap({
   { ']d', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
-  -- bufferline
-  { '<leader>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },
-  { '<leader>2', cmd('lua require("bufferline").go_to_buffer(2, true)<cr>'), opts(noremap, silent) },
-  { '<leader>3', cmd('lua require("bufferline").go_to_buffer(3, true)<cr>'), opts(noremap, silent) },
-  { '<leader>4', cmd('lua require("bufferline").go_to_buffer(4, true)<cr>'), opts(noremap, silent) },
-  { '<leader>5', cmd('lua require("bufferline").go_to_buffer(5, true)<cr>'), opts(noremap, silent) },
-  { '<leader>6', cmd('lua require("bufferline").go_to_buffer(6, true)<cr>'), opts(noremap, silent) },
-  { '<leader>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
-  { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
-  { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
-  { ';s', cmd('BufferLinePick'), opts(noremap, silent) },
-  { '<Tab>', cmd('BufferLineCycleNext'), opts(noremap) },
-  { '<S-Tab>', cmd('BufferLineCyclePrev'), opts(noremap) },
-
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },
 })
 
 -- luasnip jump
-imap({
-  { '<C-j>', cmd("lua require('luasnip').jump(1)"), opts(noremap, silent) },
-  { '<C-k>', cmd("lua require('luasnip').jump(-1)"), opts(noremap, silent) },
-})
+-- imap({
+--   { '<C-j>', cmd("lua require('luasnip').jump(1)"), opts(noremap, silent) },
+--   { '<C-k>', cmd("lua require('luasnip').jump(-1)"), opts(noremap, silent) },
+-- })
 
 -- luasnip
 vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>luasnip-next-choice', {})
