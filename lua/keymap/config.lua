@@ -33,6 +33,8 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
+  { '<Tab>', cmd('bn'), opts(noremap) },
+  { '<S-Tab>', cmd('bp'), opts(noremap) },
 
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
@@ -118,7 +120,7 @@ _G.smart_C_j = function()
   if ls.expand_or_jumpable() then
     return "<cmd>lua require('luasnip').jump(1)<cr>"
   else
-    return '<ESC>o'
+    return '<cr>'
   end
 end
 
