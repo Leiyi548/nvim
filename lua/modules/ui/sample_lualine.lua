@@ -146,7 +146,11 @@ local filename = {
     local file_icon, file_icon_color =
       require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
     local hl_group = 'LualineFileIconColor' .. extension
-    vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    vim.api.nvim_set_hl(
+      0,
+      hl_group,
+      { fg = file_icon_color, bg = require('utils.color').extract_highlight_colors('lualine_b_normal', 'bg') }
+    )
     file_icon = file_icon .. ' '
     vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
     local size = require('lualine.components.filesize')()
@@ -155,7 +159,7 @@ local filename = {
     else
       size = ' [' .. size .. ']'
     end
-    return '%#' .. hl_group .. '#' .. file_icon .. '%#LualineFilename#' .. str .. size
+    return '%#' .. hl_group .. '#' .. file_icon .. '%#lualine_b_normal#' .. str .. size
   end,
 }
 
@@ -328,8 +332,8 @@ lualine.setup({
   },
   sections = {
     lualine_a = { branch },
-    lualine_b = {},
-    lualine_c = { filename },
+    lualine_b = { filename },
+    lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { diff },

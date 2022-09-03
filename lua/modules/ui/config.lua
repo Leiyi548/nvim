@@ -1,5 +1,5 @@
 -- author: Leyi548 https://github.com/Leyi548
--- date: 2022-08-18
+-- date: 2022-09-3
 -- License: MIT
 
 local config = {}
@@ -397,6 +397,7 @@ function config.nvim_tree()
           { key = '[d', action = 'prev_git_item' },
           { key = ']d', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
+          { key = 'l', action = 'edit' },
           { key = 'O', action = 'system_open' },
           { key = 'h', action = 'parent_node' },
           { key = 'i', action = 'split' },
