@@ -8,8 +8,6 @@ local nmap, imap, cmap, xmap = keymap.nmap, keymap.imap, keymap.cmap, keymap.xma
 local silent, noremap = keymap.silent, keymap.noremap
 local opts = keymap.new_opts
 local cmd = keymap.cmd
-local expr = keymap.expr
-local remap = keymap.remap
 
 -- Use space as leader key
 vim.g.mapleader = ' '
@@ -85,11 +83,12 @@ imap({
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
 
   -- emacs keybinding
-  -- deleate a word before
+  -- reference: https://unix.stackexchange.com/questions/49203/vim-customized-with-emacs-commands-insert-mode-only
+  -- deleate a word befor
   { '<C-w>', '<C-[>diwa', opts(noremap) },
   { '<C-h>', '<Bs>', opts(noremap) },
   { '<C-d>', '<Del>', opts(noremap) },
-  -- redo like nomal mode u
+  -- { '<C-u>', '<Esc>d0"_xi', opts(noremap) },
   { '<C-u>', '<C-G>u<C-u>', opts(noremap) },
   { '<C-p>', '<Up>', opts(noremap) },
   { '<C-n>', '<Down>', opts(noremap) },
@@ -97,6 +96,8 @@ imap({
   { '<C-f>', '<Right>', opts(noremap) },
   { '<C-a>', '<Esc>^i', opts(noremap) },
   { '<C-e>', '<End>', opts(noremap) },
+  { '<M-f>', '<C-Right>', opts(noremap) },
+  { '<M-b>', '<C-Left>', opts(noremap) },
 })
 
 -- commandline remap (emacs keybinding)
@@ -107,6 +108,8 @@ cmap({
   { '<C-e>', '<End>', opts(noremap) },
   { '<C-d>', '<Del>', opts(noremap) },
   { '<C-h>', '<BS>', opts(noremap) },
+  { '<M-f>', '<C-Right>', opts(noremap) },
+  { '<M-b>', '<C-Left>', opts(noremap) },
 })
 
 -- reference: https://github.com/glepnir/nvim/blob/main/lua/keymap/init.lua
@@ -124,7 +127,7 @@ _G.smart_C_k = function()
   if ls.jumpable(-1) then
     return "<cmd>lua require('luasnip').jump(-1)<cr>"
   else
-    return '<ESC>O'
+    return '<ESC>lDa'
   end
 end
 

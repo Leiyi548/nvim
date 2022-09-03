@@ -85,6 +85,7 @@ vim.opt.winblend = 0
 
 vim.opt.undofile = true
 vim.opt.synmaxcol = 2500
+-- auto-wap comments,don't auto insert comment on o/O and enter
 vim.opt.formatoptions = '1jcroql'
 vim.opt.textwidth = 80
 vim.opt.expandtab = true

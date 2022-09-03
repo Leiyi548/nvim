@@ -112,7 +112,7 @@ M.get_winbar = function()
 
   if not f.isempty(value) and f.get_buf_option('mod') then
     -- local mod = '%#LspCodeLens#' .. require('modules.ui.icons').ui.Circle .. '%*'
-    local mod = '%#LspCodeLens#' .. '●' .. '%*'
+    local mod = '%#LspCodeLens#' .. require("modules.ui.icons").ui.Circle .. '%*'
     if gps_added then
       value = value .. ' ' .. mod
     else

@@ -38,7 +38,7 @@ saga.init_lsp_saga({
   code_action_num_shortcut = true,
   -- same as nvim-lightbulb but async
   code_action_lightbulb = {
-    enable = true,
+    enable = false,
     sign = true,
     enable_in_insert = true,
     sign_priority = 20,
@@ -60,8 +60,8 @@ saga.init_lsp_saga({
     split = 'i',
     tabe = 't',
     quit = 'q',
-    scroll_down = '<PageDown>',
-    scroll_up = '<PageUp>', -- quit can be a table
+    scroll_down = '<C-f>',
+    scroll_up = '<C-b>', -- quit can be a table
   },
   code_action_keys = {
     quit = 'q',

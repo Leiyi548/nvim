@@ -298,7 +298,7 @@ function config.dashboard()
     --   action = 'SessionLoad',
     -- },
     {
-      icon = '勒 ',
+      icon = ' ',
       desc = 'PackerCompile                           ',
       action = 'PackerCompile',
       shortcut = 'SPC p c',

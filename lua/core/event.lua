@@ -102,7 +102,7 @@ end
 
 if vim.fn.has('nvim-0.8') == 1 then
   vim.api.nvim_create_autocmd(
-    { 'CursorMoved', 'CursorHold', 'BufWinEnter', 'BufFilePost', 'InsertEnter', 'BufWritePost', 'TabClosed' },
+    { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
     {
       callback = function()
         require('modules.ui.winbar').get_winbar()

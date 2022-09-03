@@ -7,7 +7,6 @@ require('keymap.config')
 local keymap = require('core.keymap')
 local nmap = keymap.nmap
 local imap = keymap.imap
-local xmap = keymap.xmap
 local smap = keymap.smap
 local remap = keymap.remap
 local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
