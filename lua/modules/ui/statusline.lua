@@ -5,7 +5,6 @@ if not statusline_ok then
 end
 
 local icons = require('modules.ui.icons')
-local M = {}
 
 -- set highlight
 vim.api.nvim_set_hl(0, 'SLGitIcon', { fg = '#E8AB53', bg = '#32363e' })
@@ -18,6 +17,10 @@ vim.api.nvim_set_hl(0, 'SLSeparator', { fg = '#6b727f', bg = '#33373e' })
 vim.api.nvim_set_hl(0, 'SLLSP', { fg = '#5e81ac', bg = '#282c34' })
 vim.api.nvim_set_hl(0, 'SLCopilot', { fg = '#6CC644', bg = '#282c34' })
 
+local hl_str = function(str, hl)
+  return '%#' .. hl .. '#' .. str .. '%*'
+end
+
 -- check if value in table
 local function contains(t, value)
   for _, v in pairs(t) do
@@ -26,10 +29,6 @@ local function contains(t, value)
     end
   end
   return false
-end
-
-local hl_str = function(str, hl)
-  return "%#" .. hl .. "#" .. str .. "%*"
 end
 
 local hide_in_width_60 = function()
@@ -43,47 +42,6 @@ end
 local hide_in_width_100 = function()
   return vim.o.columns > 100
 end
-
-local mode_color = {
-  n = '#519fdf',
-  i = '#c18a56',
-  v = '#b668cd',
-  ---@diagnostic disable-next-line: duplicate-index
-  [''] = '#b668cd',
-  V = '#b668cd',
-  -- c = '#B5CEA8',
-  -- c = '#D7BA7D',
-  c = '#46a6b2',
-  no = '#D16D9E',
-  s = '#88b369',
-  S = '#c18a56',
-  ---@diagnostic disable-next-line: duplicate-index
-  [''] = '#c18a56',
-  ic = '#d05c65',
-  R = '#D16D9E',
-  Rv = '#d05c65',
-  cv = '#519fdf',
-  ce = '#519fdf',
-  r = '#d05c65',
-  rm = '#46a6b2',
-  ['r?'] = '#46a6b2',
-  ['!'] = '#46a6b2',
-  t = '#d05c65',
-}
-
-local mode = {
-  -- mode component
-  function()
-    -- return "▊"
-    return '  '
-    -- return "  "
-  end,
-  color = function()
-    -- auto change color according to neovims mode
-    return { bg = mode_color[vim.fn.mode()] }
-  end,
-  padding = 0,
-}
 
 local filetype = {
   'filetype',
@@ -105,11 +63,11 @@ local filetype = {
     if str == 'toggleterm' then
       -- 
       local term = '%#SLTermIcon#'
-          .. ' '
-          .. '%*'
-          .. '%#SLFG#'
-          .. vim.api.nvim_buf_get_var(0, 'toggle_number')
-          .. '%*'
+        .. ' '
+        .. '%*'
+        .. '%#SLFG#'
+        .. vim.api.nvim_buf_get_var(0, 'toggle_number')
+        .. '%*'
       return term
     end
 
@@ -128,26 +86,9 @@ local diagnostics = {
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
-  color = { bg = 'none', fg = 'none' },
   update_in_insert = false,
-  always_visible = true,
-}
-
----@diagnostic disable-next-line: unused-local
-local colors = {
-  bg = '#007acc',
-  fg = '#d4d4d4',
-  yellow = '#ECBE7B',
-  cyan = '#008080',
-  darkblue = '#081633',
-  green = '#98be65',
-  orange = '#FF8800',
-  violet = '#a9a1e1',
-  magenta = '#c678dd',
-  purple = '#c678dd',
-  blue = '#027acc',
-  red = '#ec5f67',
-  git = { change = '#0c7d9d', add = '#587c0c', delete = '#94151b', conflict = '#bb7a61' },
+  cond = hide_in_width,
+  always_visible = false,
 }
 
 local diff = {
@@ -162,26 +103,64 @@ local diff = {
 local branch = {
   'branch',
   icons_enabled = true,
-  -- icon = '%#SLGitIcon#' .. '' .. '%*' .. '%#SLBranchName#',
-  -- color = { bg = '#0366d6' },
-  color = { bg = 'none', fg = '#fff' },
   icon = icons.git.SourceControl,
+  -- icon = '%#SLGitIcon#' .. ' ',
   colored = false,
-}
-
-local location = {
-  'location',
-  color = function()
-    -- return { fg = "#252525", bg = mode_color[vim.fn.mode()] }
-    return { fg = '#1E232A', bg = mode_color[vim.fn.mode()] }
+  -- padding = 0,
+  fmt = function(str)
+    if str == '' or str == nil then
+      return '!=vcs'
+    end
+    return str
   end,
-  padding = 0,
 }
 
 -- cool function for progress
 local progress = {
   'progress',
   padding = 0,
+}
+
+local filename = {
+  'filename',
+  file_status = true, -- Displays file status (readonly status, modified status)
+  newfile_status = true, -- Display new file status (new file means no write after created)
+  path = 3, -- 0: Just the filename
+  -- 1: Relative path
+  -- 2: Absolute path
+  -- 3: Absolute path, with tilde(~) as the home directory
+  shorting_target = 0, -- Shortens path to leave 40 spaces in the window
+  -- for other components. (terrible name, any suggestions?)
+  symbols = {
+    modified = ' ', -- Text to show when the file is modified.
+    readonly = ' ', -- Text to show when the file is non-modifiable or readonly.
+    unnamed = ' ', -- Text to show for unnamed buffers.
+    newfile = ' ', -- Text to show for new created file before first writting
+  },
+  fmt = function(str)
+    ---@diagnostic disable-next-line: missing-parameter
+    local filename = vim.fn.expand('%:t')
+    ---@diagnostic disable-next-line: missing-parameter
+    local extension = vim.fn.expand('%:e')
+    ---@diagnostic disable-next-line: unused-local
+    local file_icon, file_icon_color =
+      require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
+    local hl_group = 'LualineFileIconColor' .. extension
+    vim.api.nvim_set_hl(
+      0,
+      hl_group,
+      { fg = file_icon_color, bg = require('utils.color').extract_highlight_colors('lualine_b_normal', 'bg') }
+    )
+    file_icon = file_icon .. ' '
+    vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
+    local size = require('lualine.components.filesize')()
+    if size == '' then
+      size = ''
+    else
+      size = ' [' .. size .. ']'
+    end
+    return '%#' .. hl_group .. '#' .. file_icon .. '%#lualine_b_normal#' .. str .. size
+  end,
 }
 
 local spaces = {
@@ -215,7 +194,20 @@ local spaces = {
   cond = hide_in_width_100,
 }
 
-local language_server = {
+local LSP_status = {
+  function()
+    if rawget(vim, 'lsp') then
+      for _, client in ipairs(vim.lsp.get_active_clients()) do
+        if client.attached_buffers[vim.api.nvim_get_current_buf()] then
+          return ('   LSP ~ ' .. client.name .. ' ') or '   LSP '
+        end
+      end
+    end
+  end,
+  cond = hide_in_width,
+}
+
+local lanuage_server = {
   function()
     local buf_ft = vim.bo.filetype
     local ui_filetypes = {
@@ -229,24 +221,28 @@ local language_server = {
       'spectre_panel',
       'toggleterm',
       'DressingSelect',
-      '',
+      'TelescopePrompt',
+      'lspinfo',
+      'lsp-installer',
+      'mason',
     }
 
     if contains(ui_filetypes, buf_ft) then
-      return M.language_servers
+      if M.language_servers == nil then
+        return 'null'
+      else
+        return M.language_servers
+      end
     end
 
-    local clients = vim.lsp.buf_get_clients()
+    local clients = vim.lsp.get_active_clients()
     local client_names = {}
-    local copilot_active = false
 
     -- add client
     for _, client in pairs(clients) do
-      if client.name ~= 'copilot' and client.name ~= 'null-ls' then
+      if client.name ~= 'null-ls' then
+        -- insert lsp client name
         table.insert(client_names, client.name)
-      end
-      if client.name == 'copilot' then
-        copilot_active = true
       end
     end
 
@@ -277,24 +273,39 @@ local language_server = {
     local language_servers = ''
     local client_names_str_len = #client_names_str
     if client_names_str_len ~= 0 then
-      -- language_servers = '%#SLLSP#' .. '[' .. client_names_str .. ']' .. '%*'
-      language_servers = '[' .. client_names_str .. ']'
-    end
-    if copilot_active then
-      language_servers = language_servers .. '%#SLCopilot#' .. ' ' .. icons.git.Octoface .. '%*'
+      language_servers = hl_str('', 'SLSep') .. hl_str(client_names_str, 'SLSeparator') .. hl_str('', 'SLSep')
     end
 
-    if client_names_str_len == 0 and not copilot_active then
-      return ''
+    if client_names_str_len == 0 then
+      return 'null'
     else
       M.language_servers = language_servers
+      -- return language_servers:gsub(', anonymous source', '')
       return language_servers
     end
   end,
   padding = 0,
-  cond = hide_in_width,
-  -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  separator = ' │',
+  always_visible = true,
+  -- cond = hide_in_width,
+}
+
+-- cool function for progress
+local super_progress = {
+  function()
+    local current_line = vim.fn.line('.')
+    local total_lines = vim.fn.line('$')
+    local chars = { '__', '▁▁', '▂▂', '▃▃', '▄▄', '▅▅', '▆▆', '▇▇', '██' }
+    local line_ratio = current_line / total_lines
+    local index = math.ceil(line_ratio * #chars)
+    return chars[index]
+  end,
+  -- color = { fg = colors.yellow, bg = colors.blue },
+  padding = { left = 0, right = 0 },
+}
+
+local encoding = {
+  'encoding',
+  cond = hide_in_width_100,
 }
 
 lualine.setup({
@@ -302,26 +313,38 @@ lualine.setup({
     icons_enabled = true,
     globalstatus = true,
     theme = 'auto',
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
-    -- component_separators = { left = "", right = "" },
-    -- section_separators = { left = "", right = "" },
-    disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt' },
+    -- component_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
+    disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
+
+    refresh = { -- sets how often lualine should refreash it's contents (in ms)
+      statusline = 1000, -- The refresh option sets minimum time that lualine tries
+      tabline = 1000, -- to maintain between refresh. It's not guarantied if situation
+      winbar = 1000, -- arises that lualine needs to refresh itself before this time
+      -- it'll do it.
+
+      -- Also you can force lualine's refresh by calling refresh function
+      -- like require('lualine').refresh()
+    },
   },
   sections = {
-    lualine_a = { mode, branch },
-    lualine_b = { diagnostics },
+    lualine_a = { branch },
+    lualine_b = { filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_x = { diff, language_server, spaces, filetype },
-    lualine_y = { progress },
-    lualine_z = { location },
+    -- lualine_x = { LSP_status, diff },
+    lualine_x = { diff },
+    lualine_y = { diagnostics, spaces, encoding },
+    lualine_z = { progress },
   },
+  -- 没有聚焦的窗口
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = {},
+    lualine_c = { filename },
     -- lualine_c = { "filename" },
     lualine_x = {},
     lualine_y = {},

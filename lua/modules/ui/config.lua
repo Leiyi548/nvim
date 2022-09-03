@@ -299,9 +299,15 @@ function config.dashboard()
     -- },
     {
       icon = ' ',
-      desc = 'PackerCompile                           ',
+      desc = 'PackerCompile                            ',
       action = 'PackerCompile',
       shortcut = 'SPC p c',
+    },
+    {
+      icon = ' ',
+      desc = 'PackerSync                               ',
+      action = 'PackerSync',
+      shortcut = 'SPC p s',
     },
     {
       icon = '  ',
@@ -354,9 +360,7 @@ function config.dashboard()
 end
 
 function config.lualine()
-  -- require('modules.ui.statusline')
-  require('modules.ui.sample_lualine')
-  -- require('modules.ui.nvchad_statusline')
+  require('modules.ui.statusline')
 end
 
 function config.bufferline()
