@@ -39,6 +39,7 @@ function M.findDotfile()
   builtin.find_files(themes.get_dropdown(opts))
 end
 
+-- more information please see :help ls
 function M.findBuffers()
   local opts = {
     prompt_title = 'Buffers',
