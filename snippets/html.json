@@ -15,5 +15,16 @@
       ""
     ],
     "description": "vscode style html head style"
+  },
+  "Generate Darkmode style": {
+    "prefix": "dark_mode",
+    "body": [
+      "      body {",
+      "        background-color: #1a1b1b;",
+      "        color: #b6b3af;",
+      "      }",
+      ""
+    ],
+    "description": "Generate Darkmode style"
   }
 }

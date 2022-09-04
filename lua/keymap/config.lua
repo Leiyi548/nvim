@@ -120,7 +120,7 @@ _G.smart_C_j = function()
   if ls.expand_or_jumpable() then
     return "<cmd>lua require('luasnip').jump(1)<cr>"
   else
-    return '<cr>'
+    return '<ESC>o'
   end
 end
 

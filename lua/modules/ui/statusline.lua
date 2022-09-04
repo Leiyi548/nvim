@@ -135,7 +135,8 @@ local filename = {
     modified = ' ', -- Text to show when the file is modified.
     readonly = ' ', -- Text to show when the file is non-modifiable or readonly.
     unnamed = ' ', -- Text to show for unnamed buffers.
-    newfile = ' ', -- Text to show for new created file before first writting
+    -- newfile = ' ', -- Text to show for new created file before first writting
+    newfile = ' ' .. require('nvim-nonicons').get('vim-normal-mode'), -- Text to show for new created file before first writting
   },
   fmt = function(str)
     ---@diagnostic disable-next-line: missing-parameter
