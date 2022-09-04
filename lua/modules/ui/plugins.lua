@@ -71,13 +71,11 @@ plugin({
   config = conf.indent_blankline,
   event = 'BufRead',
   disable = false,
-  -- after = 'nvim-treesitter',
 })
 
 plugin({
   'NvChad/nvim-colorizer.lua',
   config = conf.colorizer,
-  -- event = 'BufRead',
 })
 
 plugin({

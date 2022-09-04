@@ -265,8 +265,7 @@ local mappings = {
     M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
     t = { '<cmd>TodoQuickFix<cr>', 'Todo' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
-    k = { '<cmd>Telescope keymaps<cr>', ' Keymaps' },
-    c = { '<cmd>Telescope colorscheme<cr>', ' Colorschemes' },
+    c = { '<cmd>Telescope colorscheme<cr>', 'Colorschemes' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
   },
 
