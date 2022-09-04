@@ -1,4 +1,5 @@
 local saga = require('lspsaga')
+local icon = require('modules.ui.icons')
 
 -- change the lsp symbol kind
 -- local kind = require('lspsaga.lspkind')
@@ -25,7 +26,12 @@ saga.init_lsp_saga({
   -- is function type it will have a param `entry`
   -- entry is a table type has these filed
   -- { bufnr, code, col, end_col, end_lnum, lnum, message, severity, source }
-  diagnostic_header = { ' ', ' ', ' ', 'ﴞ ' },
+  diagnostic_header = {
+    icon.diagnostics.Error,
+    icon.diagnostics.Warning,
+    icon.diagnostics.Information,
+    icon.diagnostics.Hint,
+  },
   -- show diagnostic source
   show_diagnostic_source = true,
   -- add bracket or something with diagnostic source, just have 2 elements
@@ -54,6 +60,8 @@ saga.init_lsp_saga({
   -- if your project big enough or your server very slow
   -- you may need to increase this value
   finder_request_timeout = 1500,
+  -- set antoher colorscheme in preview window
+  finder_preview_hl_ns = 0,
   finder_action_keys = {
     open = 'o',
     vsplit = 's',
@@ -67,7 +75,10 @@ saga.init_lsp_saga({
     quit = 'q',
     exec = '<CR>',
   },
-  rename_action_quit = 'q',
+  definition_action_keys = {
+    quit = 'q',
+  },
+  rename_action_quit = '<C-c>',
   rename_in_select = true,
   definition_preview_icon = '  ',
   -- show symbols in winbar must nightly
@@ -92,7 +103,9 @@ saga.init_lsp_saga({
     -- auto refresh when change buffer
     auto_refresh = true,
   },
-  -- if you don't use nvim-lspconfig you must pass your server name and
+  -- custom lsp kind
+  -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
+  custom_kind = {}, -- if you don't use nvim-lspconfig you must pass your server name and
   -- the related filetypes into this table
   -- like server_filetype_map = { metals = { "sbt", "scala" } }
   server_filetype_map = {},
