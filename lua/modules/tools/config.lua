@@ -153,8 +153,8 @@ function config.telescope()
           ['<C-c>'] = actions.close,
           ['<Up>'] = actions.move_selection_previous,
           ['<Down>'] = actions.move_selection_next,
-          -- ['<C-j>'] = actions.move_selection_next,
-          -- ['<C-k>'] = actions.move_selection_previous,
+          ['<C-j>'] = actions.move_selection_next,
+          ['<C-k>'] = actions.move_selection_previous,
           ['<PageUp>'] = actions.preview_scrolling_up,
           ['<PageDown>'] = actions.preview_scrolling_down,
           ['<C-b>'] = actions.preview_scrolling_up,
@@ -168,7 +168,6 @@ function config.telescope()
           ['<C-s>'] = stopinsert(custom_actions.multi_selection_open_horizontal),
           ['<C-t>'] = stopinsert(custom_actions.multi_selection_open_tab),
           ['<cr>'] = stopinsert(custom_actions.multi_selection_open),
-          ['<C-j>'] = stopinsert(custom_actions.multi_selection_open),
         },
         n = {
           ['<esc>'] = actions.close,

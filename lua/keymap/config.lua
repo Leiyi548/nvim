@@ -67,20 +67,17 @@ xmap({
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
 
-  -- move line like vscode
-  -- { 'J', ":move '>+1<CR>gv-gv", opts(noremap) },
-  -- { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
-
-  -- vscode style move line
-  { '<M-Up>', ':m .-2<CR>==', opts(noremap) },
-  { '<M-Down>', ':m .+1<CR>==', opts(noremap) },
+  -- move line up/down like vscode
+  { 'J', ":move '>+1<CR>gv-gv", opts(noremap) },
+  { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
+  { '<M-Down>', ":move '>+1<CR>gv-gv", opts(noremap) },
+  { '<M-Up>', ":move '<-2<CR>gv-gv", opts(noremap) },
 })
 
 imap({
-  -- insert mode
   { '<C-s>', cmd('write'), opts(noremap) },
 
-  -- vscode move line
+  -- move line up/down vscode
   { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
 
