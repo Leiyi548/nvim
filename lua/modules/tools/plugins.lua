@@ -23,6 +23,11 @@ plugin({
 })
 
 plugin({
+  'ThePrimeagen/harpoon',
+  config = conf.harpoon,
+})
+
+plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,

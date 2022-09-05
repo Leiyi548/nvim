@@ -81,14 +81,20 @@ local opts = {
 local mappings = {
   -- basic mapping no prefix
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
-  ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
+  -- harpoon
+  ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", '  Harpoon' },
+  ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", ' goto1' },
+  ['2'] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", ' goto2' },
+  ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
+  ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
+  ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
+  -- ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
   ['v'] = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vterm' },
-  ['x'] = { '<cmd>Telescope diagnostic<cr>', ' Diagnostics' },
   -- ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
 
   -- whichkey-p
