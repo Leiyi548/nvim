@@ -18,7 +18,10 @@ plugin({
   config = conf.nvim_treesitter_content,
 })
 plugin({ 'p00f/nvim-ts-rainbow' })
-plugin({ 'windwp/nvim-ts-autotag' })
+plugin({
+  'windwp/nvim-ts-autotag',
+  ft = { 'html', 'vue', 'javascript' },
+})
 
 -- lua
 plugin({ 'christianchiarulli/lua-dev.nvim' })
