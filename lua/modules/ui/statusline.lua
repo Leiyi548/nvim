@@ -6,21 +6,6 @@ end
 
 local icons = require('modules.ui.icons')
 
--- set highlight
-vim.api.nvim_set_hl(0, 'SLGitIcon', { fg = '#E8AB53', bg = '#32363e' })
-vim.api.nvim_set_hl(0, 'SLTermIcon', { fg = '#b668cd', bg = '#282c34' })
-vim.api.nvim_set_hl(0, 'SLBranchName', { fg = '#abb2bf', bg = '#32363e', bold = false })
--- vim.api.nvim_set_hl(0, "SLProgress", { fg = "#D7BA7D", bg = "#252525" })
-vim.api.nvim_set_hl(0, 'SLProgress', { fg = '#abb2bf', bg = '#32363e' })
-vim.api.nvim_set_hl(0, 'SLFG', { fg = '#abb2bf', bg = '#282c34' })
-vim.api.nvim_set_hl(0, 'SLSeparator', { fg = '#6b727f', bg = '#33373e' })
-vim.api.nvim_set_hl(0, 'SLLSP', { fg = '#5e81ac', bg = '#282c34' })
-vim.api.nvim_set_hl(0, 'SLCopilot', { fg = '#6CC644', bg = '#282c34' })
-
-local hl_str = function(str, hl)
-  return '%#' .. hl .. '#' .. str .. '%*'
-end
-
 -- check if value in table
 local function contains(t, value)
   for _, v in pairs(t) do
@@ -121,7 +106,7 @@ local progress = {
   padding = 0,
 }
 
-local filename = {
+local simple_filename = {
   'filename',
   file_status = true, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
@@ -136,31 +121,69 @@ local filename = {
     readonly = ' ', -- Text to show when the file is non-modifiable or readonly.
     unnamed = ' ', -- Text to show for unnamed buffers.
     -- newfile = ' ', -- Text to show for new created file before first writting
-    newfile = ' ' .. require('nvim-nonicons').get('vim-normal-mode'), -- Text to show for new created file before first writting
+    newfile = '[new]', -- Text to show for new created file before first writting
+    -- newfile = ' ' .. require('nvim-nonicons').get('vim-normal-mode'), -- Text to show for new created file before first writting
   },
   fmt = function(str)
-    ---@diagnostic disable-next-line: missing-parameter
-    local filename = vim.fn.expand('%:t')
-    ---@diagnostic disable-next-line: missing-parameter
-    local extension = vim.fn.expand('%:e')
-    ---@diagnostic disable-next-line: unused-local
-    local file_icon, file_icon_color =
-      require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
-    local hl_group = 'LualineFileIconColor' .. extension
-    vim.api.nvim_set_hl(
-      0,
-      hl_group,
-      { fg = file_icon_color, bg = require('utils.color').extract_highlight_colors('lualine_b_normal', 'bg') }
-    )
-    file_icon = file_icon .. ' '
-    vim.api.nvim_set_hl(0, 'LualineFilename', { fg = '#BFBFBF' })
     local size = require('lualine.components.filesize')()
     if size == '' then
       size = ''
     else
       size = ' [' .. size .. ']'
     end
-    return '%#' .. hl_group .. '#' .. file_icon .. '%#lualine_b_normal#' .. str .. size
+    return str .. size
+  end,
+}
+
+local old_filename = {
+  'filename',
+  file_status = true, -- Displays file status (readonly status, modified status)
+  newfile_status = true, -- Display new file status (new file means no write after created)
+  path = 3, -- 0: Just the filename
+  -- 1: Relative path
+  -- 2: Absolute path
+  -- 3: Absolute path, with tilde(~) as the home directory
+  shorting_target = 0, -- Shortens path to leave 40 spaces in the window
+  -- for other components. (terrible name, any suggestions?)
+  symbols = {
+    modified = ' ', -- Text to show when the file is modified.
+    readonly = ' ', -- Text to show when the file is non-modifiable or readonly.
+    unnamed = ' ', -- Text to show for unnamed buffers.
+    -- newfile = ' ', -- Text to show for new created file before first writting
+    newfile = '[new]', -- Text to show for new created file before first writting
+    -- newfile = ' ' .. require('nvim-nonicons').get('vim-normal-mode'), -- Text to show for new created file before first writting
+  },
+  fmt = function(str)
+    local icon, icon_highlight_group
+    local ok, devicons = pcall(require, 'nvim-web-devicons')
+    if ok then
+      local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
+      f_extension = f_extension ~= '' and f_extension or vim.bo.filetype
+      icon, icon_highlight_group = devicons.get_icon(f_name, f_extension)
+      if icon == nil and icon_highlight_group == nil then
+        icon = ''
+        icon_highlight_group = 'DevIconDefault'
+      end
+      local highlight_color = require('utils.color').extract_highlight_colors(icon_highlight_group, 'fg')
+      local hl_group = 'LualineFileIconColor' .. f_extension
+      vim.api.nvim_set_hl(
+        0,
+        hl_group,
+        { fg = highlight_color, bg = require('utils.color').extract_highlight_colors('lualine_b_normal', 'bg') }
+      )
+      icon = icon .. ' '
+      local size = require('lualine.components.filesize')()
+      if size == '' then
+        size = ''
+      else
+        size = ' [' .. size .. ']'
+      end
+      if vim.api.nvim_get_hl_by_name(hl_group, true) == nil then
+        return ''
+      else
+        return '%#' .. hl_group .. '#' .. icon .. '%#lualine_b_normal#' .. str .. size
+      end
+    end
   end,
 }
 
@@ -208,88 +231,6 @@ local LSP_status = {
   cond = hide_in_width,
 }
 
-local lanuage_server = {
-  function()
-    local buf_ft = vim.bo.filetype
-    local ui_filetypes = {
-      'help',
-      'packer',
-      'neogitstatus',
-      'NvimTree',
-      'Trouble',
-      'lir',
-      'Outline',
-      'spectre_panel',
-      'toggleterm',
-      'DressingSelect',
-      'TelescopePrompt',
-      'lspinfo',
-      'lsp-installer',
-      'mason',
-    }
-
-    if contains(ui_filetypes, buf_ft) then
-      if M.language_servers == nil then
-        return 'null'
-      else
-        return M.language_servers
-      end
-    end
-
-    local clients = vim.lsp.get_active_clients()
-    local client_names = {}
-
-    -- add client
-    for _, client in pairs(clients) do
-      if client.name ~= 'null-ls' then
-        -- insert lsp client name
-        table.insert(client_names, client.name)
-      end
-    end
-
-    -- add formatter
-    local s = require('null-ls.sources')
-    local available_sources = s.get_available(buf_ft)
-    local registered = {}
-    for _, source in ipairs(available_sources) do
-      for method in pairs(source.methods) do
-        registered[method] = registered[method] or {}
-        table.insert(registered[method], source.name)
-      end
-    end
-
-    local formatter = registered['NULL_LS_FORMATTING']
-    local linter = registered['NULL_LS_DIAGNOSTICS']
-    if formatter ~= nil then
-      vim.list_extend(client_names, formatter)
-    end
-    if linter ~= nil then
-      vim.list_extend(client_names, linter)
-    end
-
-    -- join client names with commas
-    local client_names_str = table.concat(client_names, ', ')
-
-    -- check client_names_str if empty
-    local language_servers = ''
-    local client_names_str_len = #client_names_str
-    if client_names_str_len ~= 0 then
-      language_servers = hl_str('', 'SLSep') .. hl_str(client_names_str, 'SLSeparator') .. hl_str('', 'SLSep')
-    end
-
-    if client_names_str_len == 0 then
-      return 'null'
-    else
-      M.language_servers = language_servers
-      -- return language_servers:gsub(', anonymous source', '')
-      return language_servers
-    end
-  end,
-  padding = 0,
-  always_visible = true,
-  -- cond = hide_in_width,
-}
-
 -- cool function for progress
 local super_progress = {
   function()
@@ -309,6 +250,12 @@ local encoding = {
   cond = hide_in_width_100,
 }
 
+local filetype = {
+  'filetype',
+  colored = true,
+  icon_only = true,
+}
+
 lualine.setup({
   options = {
     icons_enabled = true,
@@ -316,7 +263,7 @@ lualine.setup({
     theme = 'auto',
     -- component_separators = { left = '', right = '' },
     -- section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
@@ -333,7 +280,8 @@ lualine.setup({
   },
   sections = {
     lualine_a = { branch },
-    lualine_b = { filename },
+    -- lualine_b = { filename },
+    lualine_b = { filetype, simple_filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
@@ -345,8 +293,7 @@ lualine.setup({
   inactive_sections = {
     lualine_a = {},
     lualine_b = {},
-    lualine_c = { filename },
-    -- lualine_c = { "filename" },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = {},
     lualine_z = {},

@@ -73,19 +73,14 @@ function autocmd.load_autocmds()
         'DiffviewFileHistory,DiffviewFiles',
         'nnoremap <silent> <buffer> q :DiffviewClose<cr>',
       },
+      { 'FileType', 'alpha', 'set nocursorline' },
+      { 'FileType', '*', [[setlocal formatoptions-=cro]] },
+      { 'TermOpen', 'term://*', 'nnoremap <silent><buffer>q :bdelete!<cr>' },
       {
         'FileType',
         'toggleterm',
-        'nnoremap <silent> <buffer> q :hide<cr>',
+        'nnoremap <silent> <buffer> q ToggleTerm<cr>',
       },
-      {
-        'FileType',
-        'NeogitStatus',
-        'nnoremap <silent> <buffer> s :<cr>',
-      },
-      { 'FileType', 'alpha', 'set nocursorline' },
-      { 'FileType', '*', [[setlocal formatoptions-=cro]] },
-      { 'TermOpen', 'term://*', 'nnoremap <silent><buffer>q :bdelete<cr>' },
     },
     -- highlight yank
     yank = {
