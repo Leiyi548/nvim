@@ -206,6 +206,19 @@ nmap {'key','rhs',opts(noremap,silent)}
 
 use `:h vim.keymap.set` to know more about.
 
+## some issues
+
+- tab 键等于 C-i 键
+
+区分 tab 和 C-i 键(**目前好像无用**)
+
+```lua
+vim.cmd([[
+  let &t_TI = "\<Esc>[>4;2m"
+  let &t_TE = "\<Esc>[>4;m"
+]])
+```
+
 ## Tips
 
 - Improve key repeat

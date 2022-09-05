@@ -8,7 +8,6 @@ local keymap = require('core.keymap')
 local nmap = keymap.nmap
 local imap = keymap.imap
 local smap = keymap.smap
-local xmap = keymap.xmap
 local remap = keymap.remap
 local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
 local opts = keymap.new_opts
@@ -23,7 +22,7 @@ nmap({
   { 'sl', cmd('HopLine'), opts(noremap, silent) },
 
   -- telescope
-  { ';v', '<cmd>Telescope registers<cr>', opts(noremap) },
+  { ';v', cmd('Telescope registers'), opts(noremap, silent) },
   { ';r', cmd('lua require("modules.tools.fancy_telescope").findRecentFiles()'), opts(noremap, silent) },
   { ';s', cmd("lua require('modules.tools.fancy_telescope').selectBuffers()"), opts(noremap, silent) },
   { ';f', cmd("lua require('modules.tools.fancy_telescope').findFiles()"), opts(noremap, silent) },
@@ -58,9 +57,4 @@ imap({
 smap({
   { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
   { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
-})
-
-xmap({
-  -- 防止剪贴版被复制内容给替代
-  { 'p', '"_dP', opts(expr, silent, remap) },
 })

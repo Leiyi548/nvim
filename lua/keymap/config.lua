@@ -33,8 +33,8 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
-  { '<Tab>', cmd('bn'), opts(noremap) },
-  { '<S-Tab>', cmd('bp'), opts(noremap) },
+  -- { '<Tab>', cmd('bn'), opts(noremap) },
+  -- { '<S-Tab>', cmd('bp'), opts(noremap) },
 
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
@@ -72,6 +72,9 @@ xmap({
   { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
   { '<M-Down>', ":move '>+1<CR>gv-gv", opts(noremap) },
   { '<M-Up>', ":move '<-2<CR>gv-gv", opts(noremap) },
+
+  -- 防止剪贴版被复制内容给替代
+  { 'p', '"_dP', opts(noremap) },
 })
 
 imap({
