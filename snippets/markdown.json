@@ -12,5 +12,10 @@
       "${0}"
     ],
     "description": "Insert table with 5 rows and 2 columns. First row is heading."
+  },
+  "Insert markdown filename": {
+    "prefix": "title",
+    "body": ["# $TM_FILENAME_BASE"],
+    "description": "Insert markdown filename"
   }
 }
