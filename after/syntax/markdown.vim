@@ -2,7 +2,7 @@
 
 " list
 syn match mdItem "^ *[\*-]\( X \| \[[x ]\]\)\@! " contains=mdBullet
-syn match mdBullet "[\*-]" contained containedin=mdItem conceal cchar=●
+syn match mdBullet "[\*-]" contained containedin=mdItem conceal cchar=
 " checkbox
 syntax match todoCheckbox "\v.*\[\ \]"hs=e-2 conceal cchar=
 syntax match todoCheckbox "\v.*\[x\]"hs=e-2 conceal cchar=
