@@ -101,9 +101,9 @@ vim.opt.relativenumber = true
 -- vim.opt.colorcolumn = '80'
 vim.opt.foldenable = true
 vim.opt.signcolumn = 'yes'
+vim.opt.background = 'dark'
 -- vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'niv'
--- vim.opt.background = 'dark'
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
   vim.g.clipboard = {

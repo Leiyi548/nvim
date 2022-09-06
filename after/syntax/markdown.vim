@@ -1,12 +1,12 @@
-" Vim syntax file
-" Add checkboxes to *.md files
-" source: https://gist.github.com/huytd/668fc018b019fbc49fa1c09101363397
-" based on: https://www.reddit.com/r/vim/comments/h8pgor/til_conceal_in_vim/
-" youtube video: https://youtu.be/UuHJloiDErM?t=793
+" more information please see https://github.com/abzcoding/lvim/blob/main/after/syntax/markdown.vim
 
-" Custom conceal (does not work with existing syntax highlight plugin)
+" list
+syn match mdItem "^ *[\*-]\( X \| \[[x ]\]\)\@! " contains=mdBullet
+syn match mdBullet "[\*-]" contained containedin=mdItem conceal cchar=●
+" checkbox
 syntax match todoCheckbox "\v.*\[\ \]"hs=e-2 conceal cchar=
 syntax match todoCheckbox "\v.*\[x\]"hs=e-2 conceal cchar=
+
 setlocal conceallevel=2
 
 highlight Conceal guibg=NONE
