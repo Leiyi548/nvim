@@ -11,6 +11,7 @@ end
 local servers = {
   'sumneko_lua',
   'pyright',
+  'marksman',
   -- npm i -g vscode-langservers-extracted
   'html',
   'cssls',

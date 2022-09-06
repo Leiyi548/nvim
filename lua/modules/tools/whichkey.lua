@@ -94,7 +94,6 @@ local mappings = {
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
-  ['v'] = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vterm' },
   -- ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
 
   -- whichkey-p
@@ -282,8 +281,8 @@ local mappings = {
     p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
     g = { '<cmd>lua _GOTOP_TOGGLE()<CR>', 'gotop' },
     f = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
-    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
-    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vertical' },
+    h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Hterm' },
+    v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vterm' },
     t = { '<cmd>ToggleTerm direction=tab<cr>', 'New Terminal Tab' },
     c = { '<cmd>ColorizerToggle<cr>', 'Toggle Colorizer highlight' },
   },
