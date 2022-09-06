@@ -118,8 +118,6 @@ function config.nvim_treesitter_content()
     mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
     separator = nil, -- Separator between context and content. Should be a single character string, like '-'.
   })
-  -- Custom textobject
-  vim.cmd([[source ~/.config/nvim/static/textobjects.vim]])
 end
 
 function config.neorg()
