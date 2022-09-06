@@ -23,7 +23,8 @@ plugin({
 })
 
 plugin({
-  'ThePrimeagen/harpoon',
+  'Leiyi548/harpoon',
+  requires = 'nvim-lua/plenary.nvim',
   config = conf.harpoon,
 })
 
