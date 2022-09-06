@@ -144,7 +144,7 @@ function config.material()
       sidebar_nvim = true,
       lsp_saga = true,
       nvim_dap = true,
-      nvim_navic = false,
+      nvim_navic = true,
       which_key = true,
       sneak = true,
       hop = true,
