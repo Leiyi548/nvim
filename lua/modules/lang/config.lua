@@ -160,4 +160,19 @@ function config.neorg()
   })
 end
 
+function config.markdown_preview()
+  -- set to 1,nvim will open the preview window after entering the markdown buffer
+  vim.g.mkdp_auto_start = 0
+  -- set to 1, the nvim will auto close current preview window when change
+  -- from markdown buffer to another buffer
+  vim.g.mkdp_auto_close = 0
+  -- Change the theme according to time
+  local _time = os.date('*t')
+  if _time.hour > 18 or _time.hour < 6 then
+    vim.g.mkdp_theme = 'dark'
+  else
+    vim.g.mkdp_theme = 'light'
+  end
+end
+
 return config
