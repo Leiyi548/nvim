@@ -131,6 +131,10 @@ plugin({
 })
 
 plugin({
+  'wellle/targets.vim',
+})
+
+plugin({
   'kana/vim-textobj-entire',
   requires = {
     { 'kana/vim-textobj-user' },
