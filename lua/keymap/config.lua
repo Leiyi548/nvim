@@ -33,8 +33,8 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
-  -- { '<Tab>', cmd('bn'), opts(noremap) },
-  -- { '<S-Tab>', cmd('bp'), opts(noremap) },
+  -- This is a quick way to toggle between two files 
+  { ';s', cmd('e #'), opts(noremap) },
 
   -- window jump
   { '<C-h>', '<C-w>h', opts(noremap) },
