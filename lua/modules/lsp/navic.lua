@@ -1,14 +1,12 @@
-local status_ok, navic = pcall(require, "nvim-navic")
+local status_ok, navic = pcall(require, 'nvim-navic')
 if not status_ok then
   return
 end
 
-local icons = require "modules.ui.icons"
+local icons = require('modules.ui.icons')
 
-
-navic.setup {
+navic.setup({
   icons = {
-
     File = ' ',
     Module = ' ',
     Namespace = ' ',
@@ -24,24 +22,20 @@ navic.setup {
     Variable = ' ',
     Constant = ' ',
     String = ' ',
-
     Number = ' ',
     Boolean = ' ',
     Array = ' ',
     Object = ' ',
-
     Key = ' ',
     Null = ' ',
     EnumMember = ' ',
     Struct = ' ',
-
     Event = ' ',
     Operator = ' ',
-    TypeParameter = ' '
-
+    TypeParameter = ' ',
   },
   highlight = true,
-  separator = " " .. icons.ui.ChevronRight .. " ",
+  separator = ' ' .. icons.ui.ChevronRight .. ' ',
   depth_limit = 0,
-  depth_limit_indicator = "..",
-}
+  depth_limit_indicator = '..',
+})

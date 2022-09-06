@@ -100,7 +100,7 @@ local mappings = {
   -- whichkey-p
   p = {
     name = ' Packer',
-    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Registers' },
+    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     C = { '<cmd>PackerClean<cr>', 'Clean' },
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
     i = { '<cmd>PackerInstall<cr>', 'Install' },

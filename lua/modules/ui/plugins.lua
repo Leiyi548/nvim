@@ -24,6 +24,7 @@ plugin({
 plugin({
   'luisiacc/gruvbox-baby',
   config = conf.gruvbox_baby,
+  disable = true
 })
 plugin({
   'marko-cerovac/material.nvim',

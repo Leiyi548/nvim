@@ -119,7 +119,7 @@ plugin({
 
 plugin({
   'lewis6991/gitsigns.nvim',
-  event = 'BufRead',
+  event = { 'BufRead', 'BufNewFile' },
   config = conf.gitsigns,
 })
 
@@ -145,11 +145,6 @@ plugin({
 plugin({
   'Asheq/close-buffers.vim',
   event = 'BufEnter',
-})
-
-plugin({
-  'voldikss/vim-translator',
-  disable = true,
 })
 
 plugin({
