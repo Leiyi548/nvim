@@ -161,8 +161,7 @@ function config.nvim_cmp()
   -- more information please see ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/config/mapping.lua
   local keymap = require('cmp.utils.keymap')
   local feedkeys = require('cmp.utils.feedkeys')
-  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
-  cmp.setup.cmdline(':', {
+  require('cmp').setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline({
       ['<C-j>'] = {
         c = function()
@@ -184,75 +183,10 @@ function config.nvim_cmp()
           end
         end,
       },
-      ['<Down>'] = {
-        c = function()
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            feedkeys.call(keymap.t('<C-z>'), 'n')
-          end
-        end,
-      },
-      ['<Up>'] = {
-        c = function()
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            feedkeys.call(keymap.t('<C-z>'), 'n')
-          end
-        end,
-      },
-      ['<Tab>'] = {
-        c = function()
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            feedkeys.call(keymap.t('<C-z>'), 'n')
-          end
-        end,
-      },
-      ['<S-Tab>'] = {
-        c = function()
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            feedkeys.call(keymap.t('<C-z>'), 'n')
-          end
-        end,
-      },
-      ['<C-n>'] = {
-        c = function(fallback)
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_next_item()
-          else
-            fallback()
-          end
-        end,
-      },
-      ['<C-p>'] = {
-        c = function(fallback)
-          local cmp = require('cmp')
-          if cmp.visible() then
-            cmp.select_prev_item()
-          else
-            fallback()
-          end
-        end,
-      },
-      ['<C-e>'] = {
-        c = cmp.mapping.close(),
-      },
     }),
-    sources = cmp.config.sources({
-      { name = 'path' },
-    }, {
+    sources = {
       { name = 'cmdline' },
-    }),
+    },
   })
 end
 
