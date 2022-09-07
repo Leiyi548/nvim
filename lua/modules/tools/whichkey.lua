@@ -143,6 +143,7 @@ local mappings = {
     S = { '<cmd>wa!<cr>', ' Save all' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
+    n = { "<cmd>lua require('modules.tools.fancy_telescope').findNotes()<cr>", 'Note' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     c = { '<cmd>Telescope git_bcommits<cr>', 'Commit' },
     l = { '<cmd>VisitLinkInBuffer<cr>', 'Links' },
@@ -292,7 +293,8 @@ local mappings = {
   -- whichkey-i
   i = {
     name = ' Insert',
-    m = { '<cmd>PasteImg<cr>', 'Image' },
+    -- BUG: not useful use picgo -u to upload image
+    m = { '<cmd>lua require("nvim-picgo").upload_clipboard()<cr>', 'Image(Picgo)' },
     c = { '<cmd>Colortils<cr>', 'Color' },
     l = { '<cmd>Colortils css list<cr>', 'List Css' },
   },

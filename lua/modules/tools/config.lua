@@ -1014,4 +1014,20 @@ function config.harpoon()
   })
 end
 
+function config.mcc()
+  require('mcc').setup({
+    c = { '-', '->', '-' },
+    -- not signal char anything you want change
+    rust = { '88', '::', '88' },
+    -- also support mulitple rules
+    go = {
+      { ';', ':=', ';' },
+      { '/', ':=', ';' },
+    },
+    markdown = {
+      { ';', '``', ';' },
+    },
+  })
+end
+
 return config

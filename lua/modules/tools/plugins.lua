@@ -18,14 +18,21 @@ plugin({
 })
 
 plugin({
-  'h-hg/fcitx.nvim',
-  event = 'InsertEnter',
+  'glepnir/mcc.nvim',
+  ft = { 'c', 'cpp', 'go', 'rust', 'markdown' },
+  config = conf.mcc,
+  disable = true,
 })
 
 plugin({
   'Leiyi548/harpoon',
   requires = 'nvim-lua/plenary.nvim',
   config = conf.harpoon,
+})
+
+plugin({
+  'h-hg/fcitx.nvim',
+  event = 'InsertEnter',
 })
 
 plugin({

@@ -227,6 +227,7 @@ function config.auto_pairs()
 
   npairs.setup({
     check_ts = true,
+    enable_check_bracket_line = true,
     ts_config = {
       lua = { 'string', 'source' },
       javascript = { 'string', 'template_string' },
@@ -240,7 +241,7 @@ function config.auto_pairs()
       offset = 0, -- Offset from pattern match
       end_key = '$',
       keys = 'qwertyuiopzxcvbnmasdfghjkl',
-      check_comma = true,
+      check_comma = false,
       highlight = 'PmenuSel',
       highlight_grey = 'LineNr',
     },

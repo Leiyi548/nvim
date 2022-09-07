@@ -33,8 +33,17 @@ plugin({
   ft = 'markdown',
   config = conf.markdown_preview,
 })
+
 plugin({
   'jbyuki/venn.nvim',
+  ft = 'markdown',
+})
+
+plugin({
+  'askfiy/nvim-picgo',
+  config = function()
+    require('nvim-picgo').setup()
+  end,
   ft = 'markdown',
 })
 

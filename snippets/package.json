@@ -18,6 +18,10 @@
         "path": "./html.json"
       },
       {
+        "language": "vue",
+        "path": "./vue.json"
+      },
+      {
         "language": "javascript",
         "path": "./javascript.json"
       }

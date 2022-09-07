@@ -2,13 +2,6 @@
 -- date: 2022-07-18
 -- License: MIT
 
--- vim option
-vim.cmd([[
-  setlocal wrap
-  nmap j gj
-  nmap k gk
-]])
-
 function _G_toggle_checkbox()
   local r = vim.api.nvim_win_get_cursor(0)
   local line = vim.fn.getline('.')

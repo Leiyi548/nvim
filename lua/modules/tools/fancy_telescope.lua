@@ -138,4 +138,17 @@ function M.findSnippets()
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
+
+function M.findNotes()
+  local opts = {
+    prompt_title = 'Notes',
+    search_dirs = {
+      '~/NOTE/Now',
+    },
+    previewer = false,
+    file_ignore_patterns = file_ignore_patterns,
+  }
+  builtin.find_files(themes.get_dropdown(opts))
+end
+
 return M

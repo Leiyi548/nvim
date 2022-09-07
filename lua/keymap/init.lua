@@ -42,6 +42,10 @@ nmap({
 
   -- Smart dd
   { 'dd', _G.smart_dd, opts(noremap, silent, expr) },
+
+  -- markdown textobj
+  { ']h', '<Plug>(textobj-markdown-header-n)', opts(noremap, silent, expr) },
+  { '[h', '<Plug>(textobj-markdown-header-p)', opts(noremap, silent, expr) },
 })
 
 imap({

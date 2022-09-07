@@ -8,6 +8,7 @@ if not status_ok_1 then
   return
 end
 
+-- lanaguae servers are installed in ~/.local/share/nvim/mason/bin/
 local servers = {
   'sumneko_lua',
   'pyright',
@@ -22,6 +23,7 @@ local servers = {
   'bashls',
   -- npm install -g typescript typescript-language-server
   'tsserver',
+  'volar',
 }
 
 local settings = {
