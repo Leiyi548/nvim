@@ -12,7 +12,7 @@ plugin({
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    { 'nvim-telescope/telescope-project.nvim' },
+    { 'ahmedkhalf/project.nvim', config = conf.project },
     { 'nvim-telescope/telescope-ui-select.nvim' },
   },
 })
@@ -53,6 +53,7 @@ plugin({
 plugin({
   'rcarriga/nvim-notify',
   config = conf.notify,
+  disable = true,
 })
 
 plugin({
@@ -98,6 +99,7 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
+  event = 'BufWinEnter',
   config = conf.toggleterm,
 })
 
@@ -135,6 +137,12 @@ plugin({
   requires = {
     { 'tpope/vim-repeat' },
   },
+  disable = true,
+})
+
+plugin({
+  'kylechui/nvim-surround',
+  config = conf.nvim_surround,
 })
 
 plugin({

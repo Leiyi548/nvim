@@ -90,7 +90,6 @@ local mappings = {
   ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
   ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
-  -- ['c'] = { '<cmd>BufferLinePickClose<CR>', '﩯Close Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
@@ -101,7 +100,7 @@ local mappings = {
   -- whichkey-p
   p = {
     name = ' Packer',
-    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
+    p = { '<cmd>Telescope projects<cr>', 'Project' },
     C = { '<cmd>PackerClean<cr>', 'Clean' },
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
     i = { '<cmd>PackerInstall<cr>', 'Install' },
