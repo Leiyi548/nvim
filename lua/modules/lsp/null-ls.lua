@@ -31,7 +31,7 @@ null_ls.setup({
   sources = {
     formatting.prettier.with({
       -- filetypes = { 'markdown' },
-      -- disabled_filetypes = { 'html' },
+      disabled_filetypes = { 'vue' },
       -- extra_filetypes = { 'toml', 'solidity', 'html' },
       extra_args = { '--no-semi', '--single-quote', '--jsx-single-quote' },
     }), -- enable for html and markdown format

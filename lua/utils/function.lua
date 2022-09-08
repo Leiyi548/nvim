@@ -26,7 +26,7 @@ function M.get_bufs_num()
   if #bufs == 1 then
     return ''
   else
-    return ' (' .. #bufs .. ') '
+    return ' (' .. #bufs .. ')'
   end
 end
 

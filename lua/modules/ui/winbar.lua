@@ -42,8 +42,10 @@ M.get_filename = function()
       require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
 
     local hl_group = 'FileIconColor' .. extension
+    local buffer_num_hl_group = 'BufferNumber'
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
+    vim.api.nvim_set_hl(0, buffer_num_hl_group, { fg = '#fac661', bg = '#262a33' })
     if f.isempty(file_icon) then
       file_icon = ''
       file_icon_color = ''
@@ -51,9 +53,20 @@ M.get_filename = function()
     vim.api.nvim_set_hl(0, 'Winbar', { fg = '#6b737f' })
 
     return
-      '%#' .. hl_group .. '#' .. file_icon .. '%*' .. ' ' .. '%#Winbar#' .. filename .. '%*' .. require(
-      'utils.function'
-    ).get_bufs_num()
+      '%#'
+        .. hl_group
+        .. '#'
+        .. file_icon
+        .. '%*'
+        .. ' '
+        .. '%#Winbar#'
+        .. filename
+        .. '%*'
+        .. '%#'
+        .. buffer_num_hl_group
+        .. '#'
+        .. require('utils.function').get_bufs_num()
+        .. '%#Winbar#'
   end
 end
 
