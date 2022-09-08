@@ -1,5 +1,35 @@
 local M = {}
 
+-- more reference: https://github.com/ChristianChiarulli/nvim/blob/master/lua/user/bfs/init.lua
+-- 获得buffer的数量，如果只有一个返回空，多个返回buffer个数
+function M.get_bufs_num()
+  local bufs = {}
+  local cwd_path = vim.fn.getcwd() .. '/'
+  for _, id in ipairs(vim.api.nvim_list_bufs()) do
+    local buf_info = vim.fn.getbufinfo(id)[1]
+    if buf_info.listed == 1 then
+      -- print(vim.inspect(buf_info.bufnr))
+      -- print(vim.inspect(buf_info))
+      -- TODO: this is unecessary
+      table.insert(bufs, {
+        id = id,
+        name = string.gsub(buf_info.name, cwd_path, ''),
+        changed = buf_info.changed,
+        hidden = buf_info.hidden,
+        lnum = buf_info.lnum,
+        lastused = buf_info.lastused,
+        bufnr = buf_info.bufnr,
+      })
+    end
+  end
+
+  if #bufs == 1 then
+    return ''
+  else
+    return ' (' .. #bufs .. ') '
+  end
+end
+
 function M.smart_quit()
   local bufnr = vim.api.nvim_get_current_buf()
   local modified = vim.api.nvim_buf_get_option(bufnr, 'modified')
@@ -17,7 +47,7 @@ function M.smart_quit()
 end
 
 function M.isempty(s)
-  return s == nil or s == ""
+  return s == nil or s == ''
 end
 
 function M.get_buf_option(opt)
@@ -25,7 +55,6 @@ function M.get_buf_option(opt)
   if not status_ok then
     return nil
   else
-
     return buf_option
   end
 end
