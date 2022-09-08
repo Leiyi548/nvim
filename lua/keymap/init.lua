@@ -43,9 +43,8 @@ nmap({
   -- Smart dd
   { 'dd', _G.smart_dd, opts(noremap, silent, expr) },
 
-  -- markdown textobj
-  { ']h', '<Plug>(textobj-markdown-header-n)', opts(noremap, silent, expr) },
-  { '[h', '<Plug>(textobj-markdown-header-p)', opts(noremap, silent, expr) },
+  -- comment.nvim
+  { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },
 })
 
 imap({
@@ -53,6 +52,9 @@ imap({
   { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
   { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
   { '<C-l>', _G.smart_C_l, opts(expr, silent, remap) },
+
+  -- comment.nvim
+  { '<C-_>', '<Esc><Plug>(comment_toggle_linewise_current)A', opts(noremap, silent) },
 })
 
 smap({

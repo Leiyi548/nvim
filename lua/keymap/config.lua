@@ -20,7 +20,7 @@ xmap({ ' ', '', opts(noremap) })
 nmap({
   -- noremal remap
   { '<C-s>', cmd('write'), opts(noremap) },
-
+  { 's', '<leader>' },
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
 
@@ -33,7 +33,7 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
-  -- This is a quick way to toggle between two files 
+  -- This is a quick way to toggle between two files
   { ';s', cmd('e #'), opts(noremap) },
 
   -- window jump
@@ -75,6 +75,9 @@ xmap({
 
   -- 防止剪贴版被复制内容给替代
   { 'p', '"_dP', opts(noremap) },
+
+  -- comment.nvim
+  { '<C-_>', '<Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },
 })
 
 imap({
