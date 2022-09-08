@@ -24,7 +24,7 @@ plugin({
 plugin({
   'luisiacc/gruvbox-baby',
   config = conf.gruvbox_baby,
-  disable = true
+  disable = true,
 })
 plugin({
   'marko-cerovac/material.nvim',
@@ -44,6 +44,7 @@ plugin({
 plugin({
   'yamatsum/nvim-nonicons',
   requires = { 'kyazdani42/nvim-web-devicons' },
+  disable = true,
 })
 
 -- statusline

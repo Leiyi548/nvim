@@ -1,6 +1,11 @@
 local saga = require('lspsaga')
 local icon = require('modules.ui.icons')
-
+local colors = {
+  gray = '#5B6268',
+  yellow = '#fac661',
+  magenta = '#c678dd',
+  blue = '#61afef',
+}
 -- change the lsp symbol kind
 -- local kind = require('lspsaga.lspkind')
 -- kind[type_number][2] = icon -- see lua/lspsaga/lspkind.lua
@@ -53,7 +58,7 @@ saga.init_lsp_saga({
   -- finder icons
   finder_icons = {
     def = '  ',
-    ref = '諭 ',
+    ref = ' ',
     link = '  ',
   },
   -- finder do lsp request timeout
@@ -105,7 +110,34 @@ saga.init_lsp_saga({
   },
   -- custom lsp kind
   -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
-  custom_kind = {}, -- if you don't use nvim-lspconfig you must pass your server name and
+  custom_kind = {
+    File = { ' ', colors.gray },
+    Module = { ' ', colors.gray },
+    Namespace = { ' ', colors.gray },
+    Package = { ' ', colors.yellow },
+    Class = { ' ', colors.yellow },
+    Method = { ' ', colors.magenta },
+    Property = { ' ', colors.gray },
+    Field = { ' ', colors.blue },
+    Constructor = { ' ', colors.magenta },
+    Enum = { ' ', colors.yellow },
+    Interface = { ' ', colors.blue },
+    Function = { ' ', colors.magenta },
+    Variable = { ' ', colors.blue },
+    Constant = { ' ', colors.gray },
+    String = { ' ', colors.gray },
+    Number = { ' ', colors.gray },
+    Boolean = { ' ', colors.gray },
+    Array = { ' ', colors.gray },
+    Object = { ' ', colors.gray },
+    Key = { ' ', colors.gray },
+    Null = { ' ', colors.gray },
+    EnumMember = { ' ', colors.yellow },
+    Struct = { ' ', colors.gray },
+    Event = { ' ', colors.yellow },
+    Operator = { ' ', colors.gray },
+    TypeParameter = { ' ', colors.gray },
+  }, -- if you don't use nvim-lspconfig you must pass your server name and
   -- the related filetypes into this table
   -- like server_filetype_map = { metals = { "sbt", "scala" } }
   server_filetype_map = {},
