@@ -32,7 +32,7 @@ function config.tokyonight()
     -- your configuration comes here
     -- or leave it empty to use the default settings
     style = 'storm', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-    transparent = false, -- Enable this to disable setting the background color
+    transparent = true, -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
     styles = {
       -- Style to be applied to different syntax groups
@@ -42,8 +42,8 @@ function config.tokyonight()
       functions = 'NONE',
       variables = 'NONE',
       -- Background styles. Can be "dark", "transparent" or "normal"
-      sidebars = 'dark', -- style for sidebars, see below
-      floats = 'NONE', -- style for floating windows
+      sidebars = 'transparent', -- style for sidebars, see below
+      floats = 'transparent', -- style for floating windows
     },
     sidebars = { 'qf', 'help' }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
     day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
@@ -58,19 +58,82 @@ function config.tokyonight()
 
     --- You can override specific highlights to use other groups or a hex color
     --- fucntion will be called with a Highlights and ColorScheme table
-    ---@param highlights Highlights
-    ---@param colors ColorScheme
-    on_highlights = function(highlights, colors)
-      highlights.TelescopeSelection = {
-        fg = colors.orange,
+    ---@param hls Highlights
+    ---@param c ColorScheme
+    -- 记住修改后，packercompile
+    on_highlights = function(hls, c)
+      -- current
+      hls.CursorLineNr = {
+        fg = c.blue1,
+      }
+      hls.LineNr = {
+        fg = c.blue1,
+      }
+      -- telescope
+      hls.TelescopeSelection = {
+        fg = c.orange,
         style = 'bold',
       }
-      highlights.TelescopeNormal = {
-        fg = colors.fg,
-        bg = colors.bg,
+      hls.TelescopeNormal = {
+        fg = c.fg,
+        bg = c.none,
       }
-      highlights.TreesitterContext = {
-        bg = colors.blue,
+      -- TreesitterContext default link normal float
+      hls.TreesitterContext = {
+        bg = c.bg_visual,
+      }
+      -- navicc
+      hls.NavicText = {
+        fg = c.dark3,
+      }
+      hls.NavicIconsPackage = {
+        fg = c.orange,
+      }
+      hls.NavicIconsField = {
+        fg = c.blue,
+      }
+      hls.NavicIconsVariable = {
+        fg = c.magenta,
+      }
+      hls.NavicIconsInterface = {
+        fg = c.blue,
+      }
+      hls.NavicIconsMethod = {
+        fg = c.blue,
+      }
+      hls.NavicIconsProperty = {
+        fg = c.blue,
+      }
+      hls.NavicIconsConstructor = {
+        fg = c.blue,
+      }
+      hls.NavicIconsMethod = {
+        fg = c.blue,
+      }
+      hls.NavicIconsFunction = {
+        fg = c.blue,
+      }
+      hls.NavicIconsClass = {
+        fg = c.orange,
+      }
+      hls.NavicIconsInterface = {
+        fg = c.orange,
+      }
+      hls.NavicIconsStruct = {
+        fg = c.orange,
+      }
+      hls.NavicIconsEvent = {
+        fg = c.orange,
+      }
+      hls.NavicIconsEnum = {
+        fg = c.orange,
+      }
+      -- custom my winbar hightlight
+      hls.WinbarFilename = {
+        fg = c.fg_dark,
+      }
+      hls.WinbarBufferNumber = {
+        fg = c.cyan,
       }
     end,
   })
