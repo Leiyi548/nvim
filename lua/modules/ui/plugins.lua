@@ -6,20 +6,19 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 -- colorscheme
--- plugin({ 'Leiyi548/onedarker.nvim' })
--- plugin({ 'lunarvim/onedarker.nvim' })
--- plugin({ 'lunarvim/horizon.nvim' })
--- plugin({ 'lunarvim/darkplus.nvim' })
--- plugin({ 'lunarvim/synthwave84.nvim' })
 -- plugin({ 'olimorris/onedarkpro.nvim' })
+-- plugin({ 'kaiuri/nvim-juliana' })
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
+plugin({ 'Leiyi548/zephyr-nvim' })
+plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
 plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa, disable = true })
 -- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
-plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin })
-plugin({ 'rose-pine/neovim', as = 'rose-pine' })
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
+plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = true })
 plugin({
   'sainnhe/gruvbox-material',
   config = conf.gruvbox_material,
+  disable = true,
 })
 plugin({
   'luisiacc/gruvbox-baby',
@@ -29,9 +28,9 @@ plugin({
 plugin({
   'marko-cerovac/material.nvim',
   config = conf.material,
+  disable = true,
 })
-plugin({ 'Leiyi548/zephyr-nvim' })
-plugin({ 'kaiuri/nvim-juliana' })
+
 -- startup plugin
 plugin({
   'glepnir/dashboard-nvim',
