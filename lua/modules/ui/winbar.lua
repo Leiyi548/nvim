@@ -44,8 +44,10 @@ M.get_filename = function()
     local hl_group = 'FileIconColor' .. extension
     local buffer_num_hl_group = 'BufferNumber'
 
+    local bg_noraml = require("utils.color").extract_highlight_colors('normal', 'bg')
+
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    vim.api.nvim_set_hl(0, buffer_num_hl_group, { fg = '#fac661', bg = '#262a33' })
+    vim.api.nvim_set_hl(0, buffer_num_hl_group, { fg = '#fac661', bg = bg_noraml })
     if f.isempty(file_icon) then
       file_icon = ''
       file_icon_color = ''
