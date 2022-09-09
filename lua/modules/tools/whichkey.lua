@@ -125,8 +125,7 @@ local mappings = {
   o = {
     name = ' Open',
     b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
-    -- e = { '<cmd>NeoTreeFocusToggle<cr>', ' Explorer' },
-    -- g = { '<cmd>NeoTreeFocusToggle git_status<cr>', ' Git Explorer ' },
+    d = { '<cmd>lua require("utils.diary").open_diary()<cr>', ' Diary' },
     o = { '<cmd>LSoutlineToggle<cr>', ' Outline' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
     s = { '<cmd>AsyncTask Application<cr>', ' System open' },

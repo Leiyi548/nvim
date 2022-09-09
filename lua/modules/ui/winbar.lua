@@ -44,15 +44,13 @@ M.get_filename = function()
     local hl_group = 'FileIconColor' .. extension
     local buffer_num_hl_group = 'BufferNumber'
 
-    local bg_noraml = require("utils.color").extract_highlight_colors('normal', 'bg')
+    local bg_noraml = require('utils.color').extract_highlight_colors('normal', 'bg')
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    vim.api.nvim_set_hl(0, buffer_num_hl_group, { fg = '#fac661', bg = bg_noraml })
     if f.isempty(file_icon) then
       file_icon = ''
       file_icon_color = ''
     end
-    vim.api.nvim_set_hl(0, 'Winbar', { fg = '#6b737f' })
 
     return
       '%#'
@@ -61,14 +59,13 @@ M.get_filename = function()
         .. file_icon
         .. '%*'
         .. ' '
-        .. '%#Winbar#'
+        .. '%#WinbarFilename#'
         .. filename
         .. '%*'
-        .. '%#'
-        .. buffer_num_hl_group
-        .. '#'
+        .. '%#WinbarBufferNumber#'
         .. require('utils.function').get_bufs_num()
-        .. '%#Winbar#'
+        .. '%*'
+        .. '%#NavicSeparator#'
   end
 end
 
@@ -119,8 +116,7 @@ M.get_winbar = function()
   end
 
   if not f.isempty(value) and f.get_buf_option('mod') then
-    -- local mod = '%#LspCodeLens#' .. require('modules.ui.icons').ui.Circle .. '%*'
-    local mod = '%#LspCodeLens#' .. require('modules.ui.icons').ui.Circle .. '%*'
+    local mod = '%#WinbarModifySign#' .. require('modules.ui.icons').ui.NredFontCircle .. '%*'
     if gps_added then
       value = value .. ' ' .. mod
     else

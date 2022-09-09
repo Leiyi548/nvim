@@ -69,6 +69,7 @@ return {
     Lock = ' ',
     Circle = ' ',
     BigCircle = ' ',
+    NredFontCircle = '',
     BigUnfilledCircle = ' ',
     Close = ' ',
     NewFile = ' ',

@@ -49,11 +49,11 @@ saga.init_lsp_saga({
   code_action_num_shortcut = true,
   -- same as nvim-lightbulb but async
   code_action_lightbulb = {
-    enable = false,
-    sign = true,
+    enable = true,
+    sign = false,
     enable_in_insert = true,
     sign_priority = 20,
-    virtual_text = false,
+    virtual_text = true,
   },
   -- finder icons
   finder_icons = {
