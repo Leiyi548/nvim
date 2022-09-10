@@ -323,15 +323,15 @@ function config.toggleterm()
   function _G.set_terminal_keymaps()
     local opts = { noremap = true }
     vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
     -- 终端下的<C-l>清屏快捷键冲突
     -- vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-k>', [[<C-\><C-n><C-W>k]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-h>', [[<C-\><C-n><C-W>l]], opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-l>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', opts)
-    vim.api.nvim_buf_set_keymap(0, 't', '<M-v>', '<cmd>ToggleTerm size=80 direction=vertical<cr>', opts)
+    -- vim.api.nvim_buf_set_keymap(1, 't', '<M-k>', [[<C-\><C-n><C-W>k]], opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<M-h>', [[<C-\><C-n><C-W>l]], opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<M-l>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', opts)
+    -- vim.api.nvim_buf_set_keymap(0, 't', '<M-v>', '<cmd>ToggleTerm size=80 direction=vertical<cr>', opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<M-i>', '<cmd>ToggleTerm direction=float<cr>', opts)
   end
 
