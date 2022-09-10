@@ -66,6 +66,10 @@ function config.tokyonight()
       hls.CursorLineNr = {
         fg = c.blue1,
       }
+      hls.markdownBold = {
+        fg = c.orange,
+      }
+      -- markdown
       hls.LineNr = {
         fg = c.blue1,
       }
