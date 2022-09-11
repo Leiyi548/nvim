@@ -481,7 +481,7 @@ function config.dashboard()
       icon = '  ',
       desc = 'Recently opened files                   ',
       action = "lua require('modules.tools.fancy_telescope').findRecentFiles()",
-      shortcut = 'SPC f r',
+      shortcut = 'SPC f o',
     },
     {
       icon = '  ',

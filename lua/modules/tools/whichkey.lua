@@ -159,13 +159,17 @@ local mappings = {
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-    m = { '<cmd>Telescope man_pages<cr>', 'Man' },
+    m = { '<cmd>Telescope marks<cr>', 'Mark' },
     h = { '<cmd>Telescope help_tags<cr>', 'Help' },
     H = { '<cmd>Telescope highlights<cr>', 'Highlight' },
     N = { '<cmd>Telescope notify<cr>', 'View notify' },
     r = {
       "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
       'Recent File',
+    },
+    o = {
+      "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
+      'Old File',
     },
     R = { '<cmd>SudaRead<cr>', 'View Read with sudo' },
     W = { '<cmd>SudaWrite<cr>', 'Write Read with sudo' },
@@ -192,9 +196,10 @@ local mappings = {
   r = {
     name = 'Run or Rename',
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
-    n = { 'Rename file' },
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
     l = { '<cmd>luafile%<cr>', 'luafile%' },
+    h = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
+    b = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
   },
 
   -- whichkey-g
@@ -272,8 +277,8 @@ local mappings = {
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
     h = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage hunk' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
-    M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
-    t = { '<cmd>TodoQuickFix<cr>', 'Todo' },
+    m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
+    t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
     c = { '<cmd>Telescope colorscheme<cr>', 'Colorschemes' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
