@@ -8,9 +8,10 @@ local builtin = require('telescope.builtin')
 
 local file_ignore_patterns = {
   'vendor/*',
-  'font/*',
+  'fonts/*',
   '.git/*',
   'node_modules',
+  -- diable filetype
   '%.jpg',
   '%.jpeg',
   '%.png',
@@ -76,7 +77,7 @@ function M.findFiles()
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
-    file_ignore_patterns = file_ignore_patterns,
+    -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
@@ -86,7 +87,7 @@ function M.findRecentFiles()
     prompt_title = 'Recent Files',
     path_display = { 'absolute' },
     previewer = false,
-    file_ignore_patterns = file_ignore_patterns,
+    -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.oldfiles(themes.get_dropdown(opts))
 end

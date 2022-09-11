@@ -146,7 +146,7 @@ function config.telescope()
       grep_previewer = require('telescope.previewers').vim_buffer_vimgrep.new,
       qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
       file_ignore_patterns = {
-        'static/*',
+        '^static/*',
       },
       mappings = {
         i = {
