@@ -21,7 +21,7 @@ function config.nvim_treesitter()
     },
     autotag = {
       enable = true,
-      filetype = { 'html', 'javascript', 'typescript' },
+      filetype = { 'html', 'javascript', 'typescript', 'vue' },
       disable = { 'xml', 'markdown' },
     },
     rainbow = {
