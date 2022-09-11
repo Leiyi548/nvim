@@ -111,8 +111,7 @@ plugin({
 
 plugin({
   -- wait for folke back
-  -- 'folke/todo-comments.nvim',
-  'B4mbus/todo-comments.nvim',
+  'folke/todo-comments.nvim',
   event = 'BufRead',
   config = conf.todo_comments,
 })
