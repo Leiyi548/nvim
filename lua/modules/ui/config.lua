@@ -94,6 +94,10 @@ function config.tokyonight()
         fg = c.gitSigns.delete,
         bg = c.none,
       }
+      hls.TelescopeResultsDiffUntracked = {
+        fg = c.orange,
+        bg = c.none,
+      }
       -- TreesitterContext default link normal float
       hls.TreesitterContext = {
         bg = c.bg_visual,
