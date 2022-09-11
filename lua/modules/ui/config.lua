@@ -82,6 +82,18 @@ function config.tokyonight()
         fg = c.fg,
         bg = c.none,
       }
+      hls.TelescopeResultsDiffAdd = {
+        fg = c.green,
+        bg = c.none,
+      }
+      hls.TelescopeResultsDiffChange = {
+        fg = '#61afef',
+        bg = c.none,
+      }
+      hls.TelescopeResultsDiffDelete = {
+        fg = c.gitSigns.delete,
+        bg = c.none,
+      }
       -- TreesitterContext default link normal float
       hls.TreesitterContext = {
         bg = c.bg_visual,
