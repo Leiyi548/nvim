@@ -111,6 +111,38 @@ function config.tokyonight()
         fg = '#61afef',
         bg = '#61afef',
       }
+      -- neogit
+      hls.NeogitDiffAdd = {
+        fg = c.green,
+        bg = c.none,
+      }
+      hls.NeogitDiffDelete = {
+        fg = c.gitSigns.delete,
+        bg = c.none,
+      }
+      hls.NeogitDiffAddHighlight = {
+        fg = c.none,
+        bg = c.none,
+      }
+      hls.NeogitDiffDeleteHighlight = {
+        fg = c.gitSigns.delete,
+        bg = c.none,
+      }
+      hls.NeogitDiffContextHighlight = {
+        bg = c.none,
+      }
+      hls.NeogitObjectId = {
+        fg = c.orange,
+        bg = c.none,
+      }
+      hls.NeogitHunkHeader = {
+        fg = c.cyan,
+        bg = c.none,
+      }
+      hls.NeogitHunkHeaderHighlight = {
+        fg = c.orange,
+        bg = c.none,
+      }
       -- navic
       hls.NavicText = {
         fg = c.dark3,
