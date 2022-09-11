@@ -98,6 +98,7 @@ local branch = {
     end
     return str
   end,
+  cond = hide_in_width_100,
 }
 
 local progress = {
@@ -283,8 +284,8 @@ lualine.setup({
     },
   },
   sections = {
-    -- lualine_a = { branch },
-    lualine_a = {},
+    -- lualine_a = {},
+    lualine_a = { branch },
     lualine_b = { filetype, simple_filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
