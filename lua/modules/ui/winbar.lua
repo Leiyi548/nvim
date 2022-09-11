@@ -40,12 +40,7 @@ M.get_filename = function()
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
       require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
-
     local hl_group = 'FileIconColor' .. extension
-    local buffer_num_hl_group = 'BufferNumber'
-
-    local bg_noraml = require('utils.color').extract_highlight_colors('normal', 'bg')
-
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     if f.isempty(file_icon) then
       file_icon = ''
@@ -116,7 +111,7 @@ M.get_winbar = function()
   end
 
   if not f.isempty(value) and f.get_buf_option('mod') then
-    local mod = '%#WinbarModifySign#' .. require('modules.ui.icons').ui.NredFontCircle .. '%*'
+    local mod = '%#WinbarModifySign#' .. require('modules.ui.icons').ui.Circle .. '%*'
     if gps_added then
       value = value .. ' ' .. mod
     else
