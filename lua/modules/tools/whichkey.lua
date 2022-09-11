@@ -93,13 +93,13 @@ local mappings = {
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
-  ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
+  ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
   -- ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
 
   -- whichkey-p
   p = {
-    name = ' Packer',
+    name = 'Packer',
     p = { '<cmd>Telescope projects<cr>', 'Project' },
     C = { '<cmd>PackerClean<cr>', 'Clean' },
     c = { '<cmd>PackerCompile<cr>', 'Compile' },
@@ -109,9 +109,21 @@ local mappings = {
     u = { '<cmd>PackerUpdate<cr>', 'Update' },
   },
 
+  -- whichkey-c
+  c = {
+    name = 'Checkout',
+    b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
+    c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
+  },
+
+  -- whichkey-u
+  u = {
+    name = 'Undo',
+    s = { "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>", 'Undo Stage Hunk' },
+  },
   -- whichkey-w
   w = {
-    name = ' Window',
+    name = 'Window',
     h = { '<C-w><C-h>', 'Left window' },
     j = { '<C-w><C-j>', 'Down window' },
     k = { '<C-w><C-k>', 'Up window' },
@@ -124,32 +136,32 @@ local mappings = {
   -- whichkey-o
   o = {
     name = ' Open',
-    b = { '<cmd>BufferLinePick<cr>', '﩯Buffer' },
-    d = { '<cmd>lua require("utils.diary").open_diary()<cr>', ' Diary' },
-    o = { '<cmd>LSoutlineToggle<cr>', ' Outline' },
-    t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Horizontal' },
-    s = { '<cmd>AsyncTask Application<cr>', ' System open' },
+    b = { '<cmd>BufferLinePick<cr>', 'Buffer' },
+    d = { '<cmd>lua require("utils.diary").open_diary()<cr>', 'Diary' },
+    o = { '<cmd>LSoutlineToggle<cr>', 'Outline' },
+    t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal' },
+    s = { '<cmd>AsyncTask Application<cr>', 'System open' },
   },
 
   -- whichkey-f
   f = {
-    name = ' Find',
-    t = { '<cmd>Telescope live_grep<cr>', ' Text' },
+    name = 'Find',
+    t = { '<cmd>Telescope live_grep<cr>', 'Text' },
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
-    s = { '<cmd>w!<cr>', ' Save' },
-    S = { '<cmd>wa!<cr>', ' Save all' },
+    s = { '<cmd>w!<cr>', 'Save' },
+    S = { '<cmd>wa!<cr>', 'Save all' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     n = { "<cmd>lua require('modules.tools.fancy_telescope').findNotes()<cr>", 'Note' },
-    g = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     c = { '<cmd>Telescope git_bcommits<cr>', 'Commit' },
     l = { '<cmd>VisitLinkInBuffer<cr>', 'Links' },
     C = { '<cmd>Telescope commands<cr>', 'Commands' },
     p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     m = { '<cmd>Telescope man_pages<cr>', 'Man' },
-    h = { '<cmd>Telescope highlights<cr>', 'Highlight' },
+    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
+    H = { '<cmd>Telescope highlights<cr>', 'Highlight' },
     N = { '<cmd>Telescope notify<cr>', 'View notify' },
     r = {
       "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
@@ -165,7 +177,7 @@ local mappings = {
 
   -- whichkey-b
   b = {
-    name = '﩯Buffer',
+    name = 'Buffer',
     s = { '<cmd>BufferLineSortByExtension<cr>', 'sort buffer by extensions' },
     k = { '<cmd>bdelete!<cr>', 'kill buffer' },
     p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
@@ -178,7 +190,7 @@ local mappings = {
   },
   -- whichkey-r
   r = {
-    name = ' Run or Rename',
+    name = 'Run or Rename',
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
     n = { 'Rename file' },
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
@@ -188,23 +200,15 @@ local mappings = {
   -- whichkey-g
   g = {
     name = ' Git',
-    h = { '<cmd>DiffviewFileHistory<cr>', ' History' },
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", ' Next Hunk' },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", ' Prev Hunk' },
-    g = { '<cmd>Neogit<cr>', ' Neogit' },
+    f = { '<cmd>Telescope git_files<cr>', 'Git Files' },
+    h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
+    j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
+    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
+    g = { '<cmd>Neogit<cr>', 'Neogit' },
     -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame' },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", ' Preview Hunk' },
-
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", ' Reset Hunk' },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", ' Reset Buffer' },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", ' Stage Hunk' },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      ' Undo Stage Hunk',
-    },
-    o = { '<cmd>Telescope git_status<cr>', ' Open changed file' },
-    b = { '<cmd>Telescope git_branches<cr>', ' Checkout branch' },
-    c = { '<cmd>Telescope git_commits<cr>', ' Checkout commit' },
+    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
+    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
+    s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
     d = {
       '<cmd>DiffviewOpen<cr>',
       'Diff',
@@ -213,41 +217,41 @@ local mappings = {
 
   -- whichkey-l
   l = {
-    name = '  LSP',
-    a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', '  Code Action' },
+    name = 'LSP',
+    a = { '<cmd>lua vim.lsp.buf.code_action()<cr>', 'Code Action' },
     d = {
-      '<cmd>Telescope lsp_document_diagnostics<cr>',
-      '  Document Diagnostics',
+      '<cmd>Telescope diagnostics<cr>',
+      'Document Diagnostics',
     },
     w = {
-      '<cmd>Telescope lsp_workspace_diagnostics<cr>',
-      '  Workspace Diagnostics',
+      '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>',
+      'Workspace Diagnostics',
     },
-    f = { '<cmd>lua vim.lsp.buf.format{async = true}<cr>', '  Format' },
-    i = { '<cmd>LspInfo<cr>', '  Info' },
-    I = { '<cmd>Mason<cr>', '  Mason Install' },
+    f = { '<cmd>lua vim.lsp.buf.format{async = true}<cr>', 'Format' },
+    i = { '<cmd>LspInfo<cr>', 'Info' },
+    I = { '<cmd>Mason<cr>', 'Mason Install' },
     j = {
       '<cmd>lua vim.diagnostic.goto_next()<cr>',
-      ' Next Diagnostic',
+      'Next Diagnostic',
     },
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
     k = {
       '<cmd>lua vim.diagnostic.goto_prev()<cr>',
-      ' Prev Diagnostic',
+      'Prev Diagnostic',
     },
     -- l = { '<cmd>lua vim.lsp.codelens.run()<cr>', '  CodeLens Action' },
-    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', '  Quickfix' },
+    q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', 'Quickfix' },
     r = { name = 'Rename' },
-    s = { '<cmd>Telescope lsp_document_symbols<cr>', '  Document Symbols' },
+    s = { '<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols' },
     S = {
       '<cmd>Telescope lsp_dynamic_workspace_symbols<cr>',
-      '  Workspace Symbols',
+      'Workspace Symbols',
     },
   },
 
   -- whichkey-d
   d = {
-    name = ' Debug',
+    name = 'Debug',
     t = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", 'Toggle Breakpoint' },
     b = { "<cmd>lua require'dap'.step_back()<cr>", 'Step Back' },
     c = { "<cmd>lua require'dap'.continue()<cr>", 'Continue' },
@@ -264,9 +268,9 @@ local mappings = {
   },
   -- whichkey-s
   s = {
-    name = ' Search',
-    b = { '<cmd>Telescope git_branches<cr>', ' Checkout branch' },
-    h = { '<cmd>Telescope help_tags<cr>', ' Help' },
+    name = 'Search',
+    b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
+    h = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage hunk' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
     M = { '<cmd>Telescope man_pages<cr>', 'Man Pages' },
     t = { '<cmd>TodoQuickFix<cr>', 'Todo' },
@@ -277,7 +281,7 @@ local mappings = {
 
   -- whichkey-t
   t = {
-    name = ' Toggle/Terminal',
+    name = 'Toggle/Terminal',
     n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
     p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
     g = { '<cmd>lua _GOTOP_TOGGLE()<CR>', 'gotop' },
@@ -290,7 +294,7 @@ local mappings = {
 
   -- whichkey-i
   i = {
-    name = ' Insert',
+    name = 'Insert',
     -- BUG: not useful use picgo -u to upload image
     m = { '<cmd>lua require("nvim-picgo").upload_clipboard()<cr>', 'Image(Picgo)' },
     c = { '<cmd>Colortils<cr>', 'Color' },
@@ -299,8 +303,9 @@ local mappings = {
 
   -- whichkey-m
   m = {
-    name = ' Markdown/Mark',
+    name = 'Markdown/Mark',
     p = { '<cmd>MarkdownPreview<cr>', 'MarkdownPreview' },
+    i = { '<cmd>Mason', 'Mason Install' },
   },
 }
 
@@ -318,6 +323,7 @@ local v_opts = {
 local v_mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment' },
   ['p'] = { '<cmd>Telescope registers<cr>', ' Clipboard' },
+  ['f'] = { "<cmd>lua require('modules.tools.fancy_telescope').grep_string_visual()<cr>", 'Grep visual' },
 }
 
 which_key.register(mappings, opts)

@@ -92,22 +92,16 @@ function M.findRecentFiles()
 end
 
 function M.git_status()
-  local opts = themes.get_dropdown({
-    winblend = 10,
-    border = true,
-    previewer = false,
-    shorten_path = false,
-  })
-
-  -- Can change the git icons using this.
-  opts.git_icons = {
-    added = ' ',
-    changed = ' ',
-    copied = '>',
-    deleted = 'D',
-    renamed = '➡',
-    unmerged = '',
-    untracked = '?',
+  local opts = {
+    git_icons = {
+      added = ' ',
+      changed = ' ',
+      copied = '> ',
+      deleted = '✖ ',
+      renamed = '➡ ',
+      unmerged = ' ',
+      untracked = '? ',
+    },
   }
 
   builtin.git_status(opts)
@@ -137,6 +131,19 @@ function M.findNotes()
     file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
+end
+
+function M.grep_string_visual()
+  local visual_selection = function()
+    local save_previous = vim.fn.getreg('a')
+    vim.api.nvim_command('silent! normal! "ay')
+    local selection = vim.fn.trim(vim.fn.getreg('a'))
+    vim.fn.setreg('a', save_previous)
+    return vim.fn.substitute(selection, [[\n]], [[\\n]], 'g')
+  end
+  require('telescope.builtin').live_grep({
+    default_text = visual_selection(),
+  })
 end
 
 return M
