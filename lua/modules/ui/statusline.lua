@@ -100,9 +100,13 @@ local branch = {
   end,
 }
 
--- cool function for progress
 local progress = {
   'progress',
+  padding = 0,
+}
+
+local location = {
+  'location',
   padding = 0,
 }
 
@@ -210,11 +214,11 @@ local spaces = {
     end
 
     -- TODO: update codicons and use their indent
-    return '  ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth') .. space
+    return '  ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth') .. space .. ' '
   end,
   padding = 0,
   -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  separator = ' │',
+  -- separator = ' │',
   cond = hide_in_width_100,
 }
 
@@ -279,15 +283,15 @@ lualine.setup({
     },
   },
   sections = {
-    lualine_a = { branch },
-    -- lualine_b = { filename },
+    -- lualine_a = { branch },
+    lualine_a = {},
     lualine_b = { filetype, simple_filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { diff },
     lualine_y = { diagnostics, spaces, encoding },
-    lualine_z = { progress },
+    lualine_z = { location, progress },
   },
   -- 没有聚焦的窗口
   inactive_sections = {
