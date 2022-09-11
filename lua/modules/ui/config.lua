@@ -86,7 +86,16 @@ function config.tokyonight()
       hls.TreesitterContext = {
         bg = c.bg_visual,
       }
-      -- navicc
+      -- gitsigns
+      hls.GitSignsAdd = {
+        fg = c.green,
+        bg = c.green,
+      }
+      hls.GitSignsChange = {
+        fg = '#61afef',
+        bg = '#61afef',
+      }
+      -- navic
       hls.NavicText = {
         fg = c.dark3,
       }
