@@ -6,6 +6,7 @@ return {
     'html',
     'css',
     'scss',
+    'vue',
     -- "javascript",
     'javascriptreact',
     'typescript',
