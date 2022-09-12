@@ -7,6 +7,7 @@ local themes = require('telescope.themes')
 local builtin = require('telescope.builtin')
 
 local file_ignore_patterns = {
+  -- disable directory
   'vendor/*',
   'fonts/*',
   '.git/*',
@@ -60,7 +61,23 @@ function M.findDotfile()
     sorting_strategy = 'ascending',
     search_dirs = { '~/.config/nvim', '~/.dotfile' },
     previewer = false,
-    file_ignore_patterns = file_ignore_patterns,
+    layout_config = larget_layout_config,
+    file_ignore_patterns = {
+      'alacritty.scratchpad.yml',
+      'wallpaper/*',
+      'rime/*',
+      'awesome/*',
+      'material/*',
+      'openvpn/*',
+      'fonts/*',
+      '.git/*',
+      '%.jpg',
+      '%.jpeg',
+      '%.png',
+      '%.svg',
+      '%.otf',
+      '%.ttf',
+    },
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
@@ -109,7 +126,7 @@ function M.findFiles()
     -- path_display = { "smart" },
     previewer = false,
     layout_config = larget_layout_config,
-    -- file_ignore_patterns = file_ignore_patterns,
+    file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
@@ -158,11 +175,13 @@ end
 function M.findNotes()
   local opts = {
     prompt_title = 'Notes',
+    path_display = { 'smart' },
     search_dirs = {
       '~/NOTE/Now',
     },
     previewer = false,
     file_ignore_patterns = file_ignore_patterns,
+    layout_config = larget_layout_config,
   }
   builtin.find_files(themes.get_dropdown(opts))
 end
