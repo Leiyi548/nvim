@@ -20,6 +20,37 @@ local file_ignore_patterns = {
   '%.ttf',
 }
 
+local larget_layout_config = {
+  bottom_pane = {
+    height = 25,
+    preview_cutoff = 120,
+    prompt_position = 'top',
+  },
+  center = {
+    height = 0.9,
+    preview_cutoff = 40,
+    prompt_position = 'top',
+    width = 0.8,
+  },
+  cursor = {
+    height = 0.9,
+    preview_cutoff = 40,
+    width = 0.8,
+  },
+  horizontal = {
+    height = 0.9,
+    preview_cutoff = 120,
+    prompt_position = 'bottom',
+    width = 0.8,
+  },
+  vertical = {
+    height = 0.9,
+    preview_cutoff = 40,
+    prompt_position = 'bottom',
+    width = 0.8,
+  },
+}
+
 function M.findDotfile()
   local opts = {
     prompt_title = 'Dotfile',
@@ -77,6 +108,7 @@ function M.findFiles()
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
+    layout_config = larget_layout_config,
     -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.find_files(themes.get_dropdown(opts))
@@ -87,6 +119,7 @@ function M.findRecentFiles()
     prompt_title = 'Recent Files',
     path_display = { 'absolute' },
     previewer = false,
+    layout_config = larget_layout_config,
     -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.oldfiles(themes.get_dropdown(opts))
