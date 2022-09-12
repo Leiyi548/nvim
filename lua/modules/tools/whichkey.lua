@@ -135,7 +135,7 @@ local mappings = {
   },
   -- whichkey-o
   o = {
-    name = ' Open',
+    name = 'Open',
     b = { '<cmd>BufferLinePick<cr>', 'Buffer' },
     d = { '<cmd>lua require("utils.diary").open_diary()<cr>', 'Diary' },
     o = { '<cmd>LSoutlineToggle<cr>', 'Outline' },
@@ -195,6 +195,7 @@ local mappings = {
   -- whichkey-r
   r = {
     name = 'Run or Rename',
+    a = { '<cmd>lua _RANGER_TOGGLE()<cr>', 'Ranger' },
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
     l = { '<cmd>luafile%<cr>', 'luafile%' },
@@ -204,7 +205,7 @@ local mappings = {
 
   -- whichkey-g
   g = {
-    name = ' Git',
+    name = 'Git',
     f = { '<cmd>Telescope git_files<cr>', 'Git Files' },
     h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
@@ -239,7 +240,7 @@ local mappings = {
       '<cmd>lua vim.diagnostic.goto_next()<cr>',
       'Next Diagnostic',
     },
-    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', ' Lazygit' },
+    g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'Lazygit' },
     k = {
       '<cmd>lua vim.diagnostic.goto_prev()<cr>',
       'Prev Diagnostic',

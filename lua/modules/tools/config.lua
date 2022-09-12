@@ -356,6 +356,23 @@ function config.toggleterm()
     lazygit:toggle()
   end
 
+  local ranger = Terminal:new({
+    cmd = 'ranger',
+    hidden = true,
+    direction = 'float',
+    on_open = function(term)
+      vim.cmd('startinsert!')
+      vim.api.nvim_buf_set_keymap(0, 't', '<esc>', '<cmd>close<CR>', { silent = false, noremap = true })
+      if vim.fn.mapcheck('<esc>', 't') ~= '' then
+        vim.api.nvim_buf_del_keymap(term.bufnr, 't', '<esc>')
+      end
+    end,
+  })
+
+  function _RANGER_TOGGLE()
+    ranger:toggle()
+  end
+
   local gotop = Terminal:new({
     cmd = 'gotop',
     hidden = true,
