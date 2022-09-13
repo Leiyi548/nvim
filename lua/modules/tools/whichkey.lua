@@ -237,7 +237,7 @@ local mappings = {
       '<cmd>Telescope coc workspace_symbols<cr>',
       'Workspace Diagnostics',
     },
-    f = { 'Neoformat', 'Format' },
+    f = { '<cmd>Neoformat<cr>', 'Format' },
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'Lazygit' },
     -- l = { '<cmd>lua vim.lsp.codelens.run()<cr>', '  CodeLens Action' },
     q = { '<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>', 'Quickfix' },

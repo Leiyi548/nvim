@@ -82,5 +82,6 @@
   },
   "snippets.ultisnips.enable": false,
   "snippets.loadVSCodeProjectSnippets": true,
-  "translator.engines": ["youdao"]
+  "translator.engines": ["youdao"],
+  "emmet.includeLanguages": { "vue": "css" }
 }

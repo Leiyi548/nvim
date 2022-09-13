@@ -23,13 +23,18 @@ plugin({
   ft = { 'html', 'vue', 'javascript' },
 })
 
-
 -- markdown
 plugin({
   'iamcco/markdown-preview.nvim',
   run = 'cd app && npm install',
   ft = 'markdown',
   config = conf.markdown_preview,
+})
+
+plugin({
+  'yaegassy/coc-marksman',
+  ft = 'markdown',
+  run = 'yarn install --frozen-lockfile',
 })
 
 plugin({
