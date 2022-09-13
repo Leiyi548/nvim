@@ -6,6 +6,7 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.coc.config')
 
 plugin({ 'neoclide/coc.nvim', branch = 'release', config = conf.coc })
+plugin({ 'Leiyi548/friendly-snippets' })
 plugin({ 'windwp/nvim-autopairs', config = conf.autopairs, event = 'InsertEnter' })
 plugin({ 'fannheyward/telescope-coc.nvim' })
 plugin({
