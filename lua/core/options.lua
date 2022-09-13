@@ -81,6 +81,7 @@ vim.opt.display = 'lastline'
 -- vim.opt.showbreak = '↳'
 vim.opt.showbreak = ''
 vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
+vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.pumblend = 10
 vim.opt.winblend = 0
 
