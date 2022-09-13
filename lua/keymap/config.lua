@@ -141,7 +141,7 @@ _G.smart_C_l = function()
   if ls.choice_active() then
     return '<Plug>luasnip-next-choice'
   else
-    return '<Tab>'
+    return '<right>'
   end
 end
 

@@ -6,3 +6,4 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.completion.config')
 
 plugin({ 'neoclide/coc.nvim', branch ="release", config =conf.coc })
+plugin({ 'fannheyward/telescope-coc.nvim' })

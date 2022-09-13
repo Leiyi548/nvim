@@ -45,6 +45,7 @@ plugin({
     require('nvim-picgo').setup()
   end,
   ft = 'markdown',
+  disable = true,
 })
 
 -- neorg
