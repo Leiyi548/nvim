@@ -18,10 +18,14 @@ plugin({
 })
 
 plugin({
-  'glepnir/mcc.nvim',
-  ft = { 'c', 'cpp', 'go', 'rust', 'markdown' },
-  config = conf.mcc,
-  disable = true,
+  'gelguy/wilder.nvim',
+  config = conf.wilder,
+  event = 'CmdlineEnter',
+})
+
+plugin({
+  'kevinhwang91/nvim-hlslens',
+  config = conf.hlslens,
 })
 
 plugin({
