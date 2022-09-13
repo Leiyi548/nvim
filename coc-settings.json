@@ -59,12 +59,13 @@
     "borderhighlight": "FloatBorder",
     "highlight": "Normal",
     "maxWidth": 120,
-    "focusable": false
+    "focusable": true
   },
   "diagnostic.signPriority": 20,
   "diagnostic.enableHighlightLineNumber": true,
   "diagnostic.locationlistUpdate": false,
   "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "hover.floatConfig": {
     "border": true,
     "borderhighlight": "FloatBorder",
