@@ -6,30 +6,9 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 -- colorscheme
--- plugin({ 'olimorris/onedarkpro.nvim' })
--- plugin({ 'kaiuri/nvim-juliana' })
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
 plugin({ 'Leiyi548/zephyr-nvim' })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
-plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa, disable = true })
--- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
-plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
-plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = true })
-plugin({
-  'sainnhe/gruvbox-material',
-  config = conf.gruvbox_material,
-  disable = true,
-})
-plugin({
-  'luisiacc/gruvbox-baby',
-  config = conf.gruvbox_baby,
-  disable = true,
-})
-plugin({
-  'marko-cerovac/material.nvim',
-  config = conf.material,
-  disable = true,
-})
 
 -- startup plugin
 plugin({
@@ -77,13 +56,4 @@ plugin({
 plugin({
   'NvChad/nvim-colorizer.lua',
   config = conf.colorizer,
-})
-
-plugin({
-  'kevinhwang91/nvim-ufo',
-  requires = {
-    'kevinhwang91/promise-async',
-  },
-  config = conf.ufo,
-  disable = true,
 })
