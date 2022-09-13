@@ -45,7 +45,7 @@ function config.coc()
     nmap <silent> gy :Telescope coc type_definations<cr>
     nmap <silent> gI :Telescope coc implementations<cr>
     nmap <silent> gr :Telescope coc references<cr>
-    nnoremap <silent> K :call ShowDocumentation()<cr>
+    " nnoremap <silent> K :call ShowDocumentation()<cr>
     function! ShowDocumentation()
       if CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
@@ -107,6 +107,112 @@ function config.neoformat()
       autocmd BufWritePre * undojoin | Neoformat
     augroup END
     ]])
+end
+
+function config.autopairs()
+  local auto_pairs_ok, npairs = pcall(require, 'nvim-autopairs')
+  if not auto_pairs_ok then
+    return
+  end
+
+  npairs.setup({
+    check_ts = true,
+    enable_check_bracket_line = true,
+    ts_config = {
+      lua = { 'string', 'source' },
+      javascript = { 'string', 'template_string' },
+      java = false,
+    },
+    disable_filetype = { 'TelescopePrompt', 'spectre_panel' },
+    fast_wrap = {
+      map = '<M-e>',
+      chars = { '{', '[', '(', '"', "'" },
+      pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
+      offset = 0, -- Offset from pattern match
+      end_key = '$',
+      keys = 'qwertyuiopzxcvbnmasdfghjkl',
+      check_comma = false,
+      highlight = 'PmenuSel',
+      highlight_grey = 'LineNr',
+    },
+  })
+end
+
+function config.ufo()
+  vim.o.foldcolumn = '1'
+  vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+  vim.o.foldlevelstart = 99
+  vim.o.foldenable = true
+  local ftMap = {
+    vim = 'indent',
+    python = { 'indent' },
+    git = '',
+  }
+  local handler = function(virtText, lnum, endLnum, width, truncate)
+    local newVirtText = {}
+    local suffix = ('  %d '):format(endLnum - lnum)
+    local sufWidth = vim.fn.strdisplaywidth(suffix)
+    local targetWidth = width - sufWidth
+    local curWidth = 0
+    for _, chunk in ipairs(virtText) do
+      local chunkText = chunk[1]
+      local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+      if targetWidth > curWidth + chunkWidth then
+        table.insert(newVirtText, chunk)
+      else
+        chunkText = truncate(chunkText, targetWidth - curWidth)
+        local hlGroup = chunk[2]
+        table.insert(newVirtText, { chunkText, hlGroup })
+        chunkWidth = vim.fn.strdisplaywidth(chunkText)
+        -- str width returned from truncate() may less than 2nd argument, need padding
+        if curWidth + chunkWidth < targetWidth then
+          suffix = suffix .. (' '):rep(targetWidth - curWidth - chunkWidth)
+        end
+        break
+      end
+      curWidth = curWidth + chunkWidth
+    end
+    table.insert(newVirtText, { suffix, 'MoreMsg' })
+    return newVirtText
+  end
+  require('ufo').setup({
+    fold_virt_text_handler = handler,
+    close_fold_kinds = { 'imports', 'comment' },
+    preview = {
+      win_config = {
+        border = { '', '─', '', '', '', '─', '', '' },
+        winhighlight = 'Normal:Folded',
+        winblend = 0,
+      },
+      mappings = {
+        scrollU = '<C-u>',
+        scrollD = '<C-d>',
+      },
+    },
+    provider_selector = function(bufnr, filetype, buftype)
+      -- if you prefer treesitter provider rather than lsp,
+      -- return ftMap[filetype] or {'treesitter', 'indent'}
+      return ftMap[filetype]
+
+      -- refer to ./doc/example.lua for detail
+    end,
+  })
+  vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+  vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+  vim.keymap.set('n', 'zr', require('ufo').openFoldsExceptKinds)
+  vim.keymap.set('n', 'zm', require('ufo').closeFoldsWith) -- closeAllFolds == closeFoldsWith(0)
+  vim.keymap.set('n', 'K', function()
+    local winid = require('ufo').peekFoldedLinesUnderCursor()
+    if not winid then
+      -- choose one of them
+      -- coc.nvim
+      vim.fn.CocActionAsync('definitionHover')
+    end
+  end)
+  -- buffer scope handler
+  -- will override global handler if it is existed
+  local bufnr = vim.api.nvim_get_current_buf()
+  require('ufo').setFoldVirtTextHandler(bufnr, handler)
 end
 
 return config
