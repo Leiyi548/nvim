@@ -5,14 +5,29 @@
 local config = {}
 
 function config.coc()
+  vim.g.coc_global_extensions = {
+    'coc-sumneko-lua',
+    'coc-json',
+    '@yaegassy/coc-marksman',
+    'coc-html',
+    'coc-css',
+    'coc-emmet',
+    'coc-snippets',
+    'coc-translator',
+  }
   vim.cmd([[
-    let g:coc_global_extensions = [ 'coc-sumneko-lua', 'coc-json', '@yaegassy/coc-marksman', 'coc-html', 'coc-css','coc-emmet','coc-snippets']
-    " use <tab> for trigger completion and navigate to the next complete item
-    function! CheckBackspace() abort
+    inoremap <silent><expr> <TAB>
+          \ coc#pum#visible() ? coc#_select_confirm() :
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+          \ CheckBackSpace() ? "\<TAB>" :
+          \ coc#refresh()
+
+    function! CheckBackSpace() abort
       let col = col('.') - 1
       return !col || getline('.')[col - 1]  =~# '\s'
     endfunction
 
+    let g:coc_snippet_next = '<tab>'
     inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
     " Make <CR> to accept selected completion item or notify coc.nvim to format
@@ -42,18 +57,7 @@ function config.coc()
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
     " Symbol renaming.
-    " nmap <Space>rn <Plug>(coc-rename)
-
-    " Formatting selected code.
-    xmap <Space>F  <Plug>(coc-format-selected)
-    nmap <Space>F  <Plug>(coc-format-selected)
-    augroup mygroup
-      autocmd!
-      " Setup formatexpr specified filetype(s).
-      autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-      " Update signature help on jump placeholder.
-      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-    augroup end
+    nmap <Space>rn <Plug>(coc-rename)
 
     " Applying codeAction to the selected region.
     " Example: `ga` for current paragraph
@@ -64,7 +68,25 @@ function config.coc()
     nmap ga  <Plug>(coc-codeaction)
 
     " Run the Code Lens action on the current line.
-    nmap <leader>cl  <Plug>(coc-codelens-action)
+    nmap <Space>cl  <Plug>(coc-codelens-action)
+
+    
+    " Use <C-j> for select text for visual placeholder of snippet.
+    vmap <C-j> <Plug>(coc-snippets-select)
+    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
+    let g:coc_snippet_next = '<c-j>'
+    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+    let g:coc_snippet_prev = '<c-k>'
+
+    " Use <C-j> for both expand and jump (make expand higher priority.)
+    imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+    " Use <leader>x for convert visual selected code to snippet
+    xmap <Space>x  <Plug>(coc-convert-snippet)
+
+    " coc translator
+    nmap <C-e> <Plug>(coc-translator-p)
+    vmap <C-e> <Plug>(coc-translator-pv)
   ]])
 end
 

@@ -55,7 +55,7 @@ nmap({
   { ';r', cmd('Telescope registers'), opts(noremap, silent) },
 
   -- nvim-tree
-  { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
+  -- { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
 
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },
@@ -80,11 +80,6 @@ nmap({
 })
 
 imap({
-  -- smart ctrl
-  -- { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
-  -- { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
-  -- { '<C-l>', _G.smart_C_l, opts(expr, silent, remap) },
-
   -- comment.nvim
   { '<C-_>', '<Esc><Plug>(comment_toggle_linewise_current)A', opts(noremap, silent) },
 })
