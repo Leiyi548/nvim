@@ -14,6 +14,7 @@ function config.coc()
     'coc-emmet',
     'coc-snippets',
     'coc-translator',
+    'coc-tsserver',
   }
   vim.cmd([[
     inoremap <silent><expr> <TAB>
