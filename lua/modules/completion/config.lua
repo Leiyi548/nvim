@@ -1,12 +1,12 @@
 -- author: Leiyi548 https://github.com/Leiyi548
--- date: 2022-08-19
+-- date: 2022-09-13
 -- License: MIT
 
 local config = {}
 
 function config.coc()
   vim.cmd([[
-    let g:coc_global_extensions = ['coc-sumneko-lua','coc-json','@yaegassy/coc-marksman']
+    let g:coc_global_extensions = [ 'coc-sumneko-lua', 'coc-json', '@yaegassy/coc-marksman', 'coc-html', 'coc-css','coc-emmet','coc-snippets']
     " use <tab> for trigger completion and navigate to the next complete item
     function! CheckBackspace() abort
       let col = col('.') - 1
@@ -18,6 +18,7 @@ function config.coc()
     " Make <CR> to accept selected completion item or notify coc.nvim to format
     " <C-g>u breaks current undo, please make your own choice.
     inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<Right>"
+    " inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm()
     inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
                                   \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     inoremap <silent><expr> <c-y> coc#refresh()
@@ -26,10 +27,10 @@ function config.coc()
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> ]e <Plug>(coc-diagnostic-next)
     nmap <silent> gd :Telescope coc definitions<cr>
-    nmap <silent> gy <Plug>(coc-type-definition)
-    nmap <silent> gI <Plug>(coc-implementation)
-    nmap <silent> gr <Plug>(coc-references)
-    nnoremap <silent> K :call ShowDocumentation()<CR>
+    nmap <silent> gy :Telescope coc type_definations<cr>
+    nmap <silent> gI :Telescope coc implementations<cr>
+    nmap <silent> gr :Telescope coc references<cr>
+    nnoremap <silent> K :call ShowDocumentation()<cr>
     function! ShowDocumentation()
       if CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
@@ -41,11 +42,11 @@ function config.coc()
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
     " Symbol renaming.
-    nmap <leader>rn <Plug>(coc-rename)
+    " nmap <Space>rn <Plug>(coc-rename)
 
     " Formatting selected code.
-    xmap <leader>F  <Plug>(coc-format-selected)
-    nmap <leader>F  <Plug>(coc-format-selected)
+    xmap <Space>F  <Plug>(coc-format-selected)
+    nmap <Space>F  <Plug>(coc-format-selected)
     augroup mygroup
       autocmd!
       " Setup formatexpr specified filetype(s).
@@ -64,7 +65,26 @@ function config.coc()
 
     " Run the Code Lens action on the current line.
     nmap <leader>cl  <Plug>(coc-codelens-action)
-  ]])  
+  ]])
+end
+
+function config.neoformat()
+  local g = vim.g
+
+  g.neoformat_only_msg_on_error = 1
+  g.neoformat_basic_format_align = 1
+  g.neoformat_basic_format_retab = 1
+  g.neoformat_basic_format_trim = 1
+  -- lua
+  g.neoformat_enable_lua = { 'stylua' }
+  -- markdown
+  g.neoformat_enable_markdown = { 'prettier' }
+  vim.cmd([[
+    augroup fmt
+      autocmd!
+      autocmd BufWritePre * undojoin | Neoformat
+    augroup END
+    ]])
 end
 
 return config

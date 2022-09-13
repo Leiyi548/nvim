@@ -62,7 +62,7 @@ function autocmd.load_autocmds()
     ft = {
       {
         'FileType',
-        'tsplayground,sagahover,qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo,dashboard,lspsagaoutline',
+        'coctree,tsplayground,sagahover,qf,help,quicklist,floaterm,null-ls-info,alpha,startuptime,structrue-go,spectre_panel,lspinfo,dashboard,lspsagaoutline',
         'nnoremap <silent> <buffer> q :q<cr>',
       },
       {

@@ -1,6 +1,18 @@
 {
   "coc.preferences.extensionUpdateCheck": "weekly",
   "Lua.telemetry.enable": true,
+  "codeLens.enable": true,
+	"codeLens.separator": "",
+	"codeLens.subseparator": " │ ",
+	"codeLens.position": "eol",
+  "suggest.enablePreselect": true,
+	"suggest.noselect": false,
+	"suggest.selection": "first",
+	"suggest.defaultSortMethod": "none",
+	"suggest.snippetIndicator": "",
+	"suggest.languageSourcePriority": 99,
+	"suggest.triggerCompletionWait": 50,
+	"suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.completionItemKindLabels": {
 		"default": "",
 		"text": "",
@@ -48,13 +60,14 @@
     "borderhighlight": "FloatBorder",
     "highlight": "Normal",
     "maxWidth": 120,
-    "focusable": false
+    "focusable": true
   },
   "signature.floatConfig": {
     "border": true,
     "borderhighlight": "FloatBorder",
     "highlight": "Normal",
     "maxWidth": 120,
-    "focusable": false
-  }
+    "focusable": true
+  },
+  "snippets.ultisnips.enable":false
 }

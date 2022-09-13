@@ -23,8 +23,6 @@ plugin({
   ft = { 'html', 'vue', 'javascript' },
 })
 
--- lua
-plugin({ 'christianchiarulli/lua-dev.nvim' })
 
 -- markdown
 plugin({
