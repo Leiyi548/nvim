@@ -1,0 +1,60 @@
+{
+  "coc.preferences.extensionUpdateCheck": "weekly",
+  "Lua.telemetry.enable": true,
+  "suggest.completionItemKindLabels": {
+		"default": "",
+		"text": "",
+		"method": "m",
+		"function": "",
+		"constructor": "",
+		"field": "",
+		"variable": "",
+		"class": "",
+		"interface": "",
+		"module": "",
+		"property": "",
+		"unit": "",
+		"value": " ",
+		"enum": "",
+		"keyword": "",
+		"snippet": "",
+		"color": "",
+		"file": "",
+		"reference": "",
+		"folder": "",
+		"enumMember": "",
+		"constant": "",
+		"struct": "",
+		"event": "",
+		"operator": "",
+		"typeParameter": ""
+	},
+  "diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": "",
+  "diagnostic.floatConfig": {
+      "border": true,
+      "borderhighlight": "FloatBorder",
+      "highlight": "Normal",
+      "maxWidth": 120,
+      "focusable": false
+  },
+  "diagnostic.signPriority": 20,
+  "diagnostic.enableHighlightLineNumber": true,
+  "diagnostic.locationlistUpdate": false,
+  "hover.floatConfig": {
+    "border": true,
+    "borderhighlight": "FloatBorder",
+    "highlight": "Normal",
+    "maxWidth": 120,
+    "focusable": false
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "borderhighlight": "FloatBorder",
+    "highlight": "Normal",
+    "maxWidth": 120,
+    "focusable": false
+  }
+}

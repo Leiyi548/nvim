@@ -147,6 +147,7 @@ function config.telescope()
       qflist_previewer = require('telescope.previewers').vim_buffer_qflist.new,
       file_ignore_patterns = {
         '^static/*',
+        'node_modules/*',
       },
       mappings = {
         i = {
