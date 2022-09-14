@@ -89,7 +89,9 @@ local mappings = {
   ['2'] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", ' goto2' },
   ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
-  ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
+  ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", ' Add Mark' },
+  ['j'] = { "<cmd>lua require('harpoon.ui').nav_next()<cr> ", ' Next Mark' },
+  ['k'] = { "<cmd>lua require('harpoon.ui').nav_prev()<cr>", ' Previous Mark' },
   -- ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['e'] = { '<cmd>NeoTreeFloatToggle<cr>', '  Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
@@ -197,7 +199,7 @@ local mappings = {
   },
   -- whichkey-r
   r = {
-    name = 'Run or Rename',
+    n = { '<Plug>(coc-rename)', 'Run or Rename' },
     a = { '<cmd>lua _RANGER_TOGGLE()<cr>', 'Ranger' },
     r = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
     f = { '<cmd>AsyncTask file-run-floaterm<cr>', 'Run on floaterm' },
