@@ -71,6 +71,19 @@ M.get_filename = function()
   end
 end
 
+M.get_diagnostic_coc = function()
+  local data = vim.b.coc_diagnostic_info
+  local icon = require('modules.ui.icons')
+  if data then
+    local error = icon.diagnostics.Error .. data.error
+    local warning = icon.diagnostics.Warning .. data.warning
+    local separate = ' '
+    return separate .. error .. separate .. warning
+    -- return data.error, data.warning, data.information, data.hint
+  end
+  return ''
+end
+
 local excludes = function()
   if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
     vim.opt_local.winbar = nil
@@ -99,6 +112,8 @@ M.get_winbar = function()
       .. require('utils.function').get_bufs_num()
       .. '%*'
     value = value .. buffers_num
+    -- local coc_diagnostic_info = M.get_diagnostic_coc()
+    -- value = value .. coc_diagnostic_info
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })

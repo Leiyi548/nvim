@@ -70,10 +70,10 @@ local diagnostics = {
   sources = { 'coc' },
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
-  colored = false,
+  colored = true,
   update_in_insert = false,
-  cond = hide_in_width,
-  always_visible = false,
+  -- cond = hide_in_width,
+  always_visible = true,
 }
 
 local diff = {
@@ -244,8 +244,8 @@ lualine.setup({
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
-    lualine_x = { diff },
-    lualine_y = { diagnostics, spaces, encoding, location },
+    lualine_x = { diagnostics, diff },
+    lualine_y = { encoding, location },
     lualine_z = { progress },
   },
   -- 没有聚焦的窗口
