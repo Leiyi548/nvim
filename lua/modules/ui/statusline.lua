@@ -221,7 +221,6 @@ lualine.setup({
     icons_enabled = true,
     globalstatus = true,
     theme = 'auto',
-    -- component_separators = { left = '', right = '' },
     -- section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
@@ -246,8 +245,8 @@ lualine.setup({
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { diff },
-    lualine_y = { diagnostics, spaces, encoding },
-    lualine_z = { location, progress },
+    lualine_y = { diagnostics, spaces, encoding, location },
+    lualine_z = { progress },
   },
   -- 没有聚焦的窗口
   inactive_sections = {
