@@ -31,11 +31,19 @@ M.winbar_filetype_exclude = {
   '',
 }
 
+function _G.winbar_click_exploer()
+  vim.cmd('NeoTreeFloatToggle')
+end
+
+function _G.winbar_click_buffers()
+  vim.cmd('NeoTreeFloatToggle buffers')
+end
+
 M.get_filename = function()
-  local foldname = vim.api.nvim_eval("$PWD == $HOME ? '~' : substitute($PWD, '\\v(.*/)*', '', 'g')") .. ' '
   local filename = vim.fn.expand('%:t')
   local extension = vim.fn.expand('%:e')
   local f = require('utils.function')
+  local nr = vim.api.nvim_get_current_buf()
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
@@ -54,13 +62,12 @@ M.get_filename = function()
         .. file_icon
         .. '%*'
         .. ' '
+        .. '%'
+        .. nr
+        .. '@v:lua.winbar_click_exploer@'
         .. '%#WinbarFilename#'
         .. filename
         .. '%*'
-        .. '%#WinbarBufferNumber#'
-        .. require('utils.function').get_bufs_num()
-        .. '%*'
-        .. '%#NavicSeparator#'
   end
 end
 
@@ -79,9 +86,19 @@ M.get_winbar = function()
   local f = require('utils.function')
   local value = M.get_filename()
 
-  if not f.isempty(value) and f.get_buf_option('mod') then
-    local mod = '%#WinbarModifySign#' .. ' ' .. '%*'
-    value = value .. mod
+  if not f.isempty(value) then
+    local nr = vim.api.nvim_get_current_buf()
+    if f.get_buf_option('mod') then
+      local mod = '%' .. nr .. '@v:lua.winbar_click_buffers@' .. '%#WinbarModifySign#' .. '' .. '%*'
+      value = value .. mod
+    end
+    local buffers_num = '%'
+      .. nr
+      .. '@v:lua.winbar_click_buffers@'
+      .. '%#WinbarBufferNumber#'
+      .. require('utils.function').get_bufs_num()
+      .. '%*'
+    value = value .. buffers_num
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })

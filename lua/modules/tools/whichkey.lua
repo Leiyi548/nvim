@@ -137,7 +137,7 @@ local mappings = {
   -- whichkey-o
   o = {
     name = 'Open',
-    b = { '<cmd>BufferLinePick<cr>', 'Buffer' },
+    b = { '<cmd>NeoTreeFocusToggle buffers<cr>', 'Buffer Explorer(neo-tree)' },
     d = { '<cmd>lua require("utils.diary").open_diary()<cr>', 'Diary' },
     e = { '<cmd>NeoTreeFocusToggle<cr>', 'Explorer(neo-tree)' },
     o = { '<cmd>CocOutline<cr>', 'Outline' },
