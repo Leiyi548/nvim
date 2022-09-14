@@ -113,7 +113,7 @@ local location = {
 
 local simple_filename = {
   'filename',
-  file_status = true, -- Displays file status (readonly status, modified status)
+  file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
   path = 1,
   -- 0: Just the filename
