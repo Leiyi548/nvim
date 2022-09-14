@@ -96,7 +96,6 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
-  cmd = 'ToggleTerm',
   config = conf.toggleterm,
 })
 
