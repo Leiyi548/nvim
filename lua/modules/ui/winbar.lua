@@ -80,7 +80,7 @@ M.get_winbar = function()
   local value = M.get_filename()
 
   if not f.isempty(value) and f.get_buf_option('mod') then
-    local mod = '%#WinbarModifySign#' .. ' ' .. '%*'
+    local mod = '%#WinbarModifySign#' .. ' ' .. '%*'
     value = value .. mod
   end
 
