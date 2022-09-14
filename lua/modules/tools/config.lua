@@ -1158,11 +1158,10 @@ function config.hlslens()
   vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
   vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
-  vim.api.nvim_set_keymap('n', '<Leader>l', ':noh<CR>', kopts)
   require('hlslens').setup({
-    calm_down = true,
-    nearest_only = true,
-    nearest_float_when = 'always',
+    calm_down = false,
+    nearest_only = false,
+    nearest_float_when = 'auto',
     override_lens = function(render, posList, nearest, idx, relIdx)
       local sfw = vim.v.searchforward == 1
       local indicator, text, chunks
