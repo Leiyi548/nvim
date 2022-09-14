@@ -84,11 +84,6 @@ imap({
   { '<C-_>', '<Esc><Plug>(comment_toggle_linewise_current)A', opts(noremap, silent) },
 })
 
-smap({
-  { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
-  { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
-})
-
 omap({
   {
     'f',

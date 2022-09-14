@@ -196,6 +196,28 @@ function config.tokyonight()
       hls.WinbarBufferNumber = {
         fg = c.cyan,
       }
+      -- neo-tree
+      hls.NeoTreeGitAdded = {
+        fg = c.green,
+      }
+      hls.NeoTreeGitStaged = {
+        fg = c.green,
+      }
+      hls.NeoTreeGitUnStaged = {
+        fg = c.fg_dark,
+      }
+      hls.NeoTreeGitModified = {
+        fg = c.orange,
+      }
+      hls.NeoTreeModified = {
+        fg = c.fg_dark,
+      }
+      hls.NeoTreeGitDeleted = {
+        fg = c.gitSigns.delete,
+      }
+      hls.NeoTreeRootName = {
+        fg = c.purple,
+      }
     end,
   })
 end

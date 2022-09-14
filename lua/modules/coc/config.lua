@@ -32,9 +32,10 @@ function config.coc()
     inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
     inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<Right>"
+    inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<cr>"
     " <C-g>u breaks current undo, please make your own choice.
-    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"e` to navigate diagnostics
+    " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+    "                           \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"e` to navigate diagnostics
     " Use `[e` and `]" Make <CR> to accept selected completion item or notify coc.nvim to format
     " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
@@ -84,7 +85,7 @@ function config.coc()
 
     " coc translator
     nmap <C-e> <Plug>(coc-translator-p)
-    vmap <C-e> <Plug>(coc-translator-pv)
+    xmap <C-e> <Plug>(coc-translator-pv)
   ]])
 end
 

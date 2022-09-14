@@ -117,34 +117,6 @@ cmap({
   { '<M-b>', '<C-Left>', opts(noremap) },
 })
 
--- reference: https://github.com/glepnir/nvim/blob/main/lua/keymap/init.lua
-_G.smart_C_j = function()
-  local ls = require('luasnip')
-  if ls.expand_or_jumpable() then
-    return "<cmd>lua require('luasnip').jump(1)<cr>"
-  else
-    return '<ESC>o'
-  end
-end
-
-_G.smart_C_k = function()
-  local ls = require('luasnip')
-  if ls.jumpable(-1) then
-    return "<cmd>lua require('luasnip').jump(-1)<cr>"
-  else
-    return '<ESC>lDa'
-  end
-end
-
-_G.smart_C_l = function()
-  local ls = require('luasnip')
-  if ls.choice_active() then
-    return '<Plug>luasnip-next-choice'
-  else
-    return '<right>'
-  end
-end
-
 -- smart_dd
 -- smart deletion, dd
 -- It solves the issue, where you want to delete empty line, but dd will override you last yank.
