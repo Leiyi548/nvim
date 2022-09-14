@@ -1,6 +1,5 @@
 {
   "coc.preferences.extensionUpdateCheck": "weekly",
-  "Lua.telemetry.enable": true,
   "coc.source.file.enable": true,
   "coc.source.file.triggerCharacters": ["/", "\\"],
   "codeLens.enable": true,
@@ -23,7 +22,7 @@
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.localityBonus": true,
   "suggest.completionItemKindLabels": {
-    "default": "",
+    "default": "",
     "text": "",
     "method": "m",
     "function": "",
@@ -83,5 +82,9 @@
   "snippets.ultisnips.enable": false,
   "snippets.loadVSCodeProjectSnippets": true,
   "translator.engines": ["youdao"],
-  "emmet.includeLanguages": { "vue": "css" }
+  "emmet.includeLanguages": {
+    "vue": "css"
+  },
+  "Lua.telemetry.enable": false,
+  "Lua.diagnostics.globals": ["vim"]
 }
