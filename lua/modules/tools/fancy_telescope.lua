@@ -64,7 +64,10 @@ function M.findDotfile()
     layout_config = larget_layout_config,
     file_ignore_patterns = {
       'alacritty.scratchpad.yml',
+      'polybar/*',
+      '__pycache__/*',
       'wallpaper/*',
+      'ranger_devicons/*',
       'rime/*',
       'awesome/*',
       'material/*',
