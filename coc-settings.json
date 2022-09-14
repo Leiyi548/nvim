@@ -80,6 +80,7 @@
     "focusable": true
   },
   "snippets.ultisnips.enable": false,
+  "snippets.priority": 50,
   "snippets.loadVSCodeProjectSnippets": true,
   "translator.engines": ["youdao"],
   "emmet.includeLanguages": {

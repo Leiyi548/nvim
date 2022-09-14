@@ -16,12 +16,19 @@ function config.coc()
     'coc-translator',
     'coc-tsserver',
   }
+  -- Use <C-j> for jump to next placeholder, it's default of coc.nvim
+  vim.g.coc_snippet_next = '<C-j>'
+  -- Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+  vim.g.coc_snippet_prev = '<C-k>'
   vim.cmd([[
     inoremap <silent><expr> <TAB>
           \ coc#pum#visible() ? coc#_select_confirm() :
           \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
           \ CheckBackSpace() ? "\<TAB>" :
           \ coc#refresh()
+
+    " To make <cr> select the first completion item and confirm the completion when no item has been selected:
+    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
     function! CheckBackSpace() abort
       let col = col('.') - 1
@@ -31,15 +38,14 @@ function config.coc()
     let g:coc_snippet_next = '<tab>'
     inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
-    inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : "\<Right>"
-    inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<cr>"
-    " <C-g>u breaks current undo, please make your own choice.
-    " inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-    "                           \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"e` to navigate diagnostics
-    " Use `[e` and `]" Make <CR> to accept selected completion item or notify coc.nvim to format
-    " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+    inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
+
+    
+
+
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> ]e <Plug>(coc-diagnostic-next)
+    nmap <silent> gl <Plug>(coc-diagnostic-next)
     nmap <silent> gd :Telescope coc definitions<cr>
     nmap <silent> gy :Telescope coc type_definations<cr>
     nmap <silent> gI :Telescope coc implementations<cr>
@@ -55,8 +61,13 @@ function config.coc()
     " Highlight the symbol and its references when holding the cursor.
     autocmd CursorHold * silent call CocActionAsync('highlight')
 
-    " Symbol renaming.
-    nmap <Space>rn <Plug>(coc-rename)
+    augroup mygroup
+      autocmd!
+      " Setup formatexpr specified filetype(s).
+      autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+      " Update signature help on jump placeholder.
+      autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+    augroup end
 
     " Applying codeAction to the selected region.
     " Example: `ga` for current paragraph
@@ -72,10 +83,6 @@ function config.coc()
     
     " Use <C-j> for select text for visual placeholder of snippet.
     vmap <C-j> <Plug>(coc-snippets-select)
-    " Use <C-j> for jump to next placeholder, it's default of coc.nvim
-    let g:coc_snippet_next = '<c-j>'
-    " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-    let g:coc_snippet_prev = '<c-k>'
 
     " Use <C-j> for both expand and jump (make expand higher priority.)
     imap <C-j> <Plug>(coc-snippets-expand-jump)

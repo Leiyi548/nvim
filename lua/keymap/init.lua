@@ -76,7 +76,8 @@ nmap({
   -- comment.nvim Ctrl+/
   { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },
 
-  -- hop.nvim
+  { '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', opts(noremap, silent) },
+  { '<leader>x', cmd('!chmod +x %'), opts(noremap, silent) },
 })
 
 imap({
