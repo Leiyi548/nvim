@@ -96,13 +96,13 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
-  event = 'BufWinEnter',
+  cmd = 'ToggleTerm',
   config = conf.toggleterm,
 })
 
 plugin({
   'numToStr/Comment.nvim',
-  event = 'BufRead',
+  keys = { 'gc', 'gb', 'g<', 'g>' },
   config = conf.Comment,
 })
 
