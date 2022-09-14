@@ -290,6 +290,10 @@ function config.bufferline()
   require('modules.ui.tabline')
 end
 
+function config.neo_tree()
+  require('modules.ui.explorer')
+end
+
 function config.nvim_tree()
   local icons = require('modules.ui.icons')
   require('nvim-tree').setup({
