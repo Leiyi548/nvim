@@ -212,8 +212,8 @@ local filetype = {
 }
 
 local pwd = function()
-  local foldname = vim.api.nvim_eval("$PWD == $HOME ? '~' : substitute($PWD, '\\v(.*/)*', '', 'g')")
-  return ' ' .. foldname
+  local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
+  return ' ' .. foldname
 end
 
 lualine.setup({
