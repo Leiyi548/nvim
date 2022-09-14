@@ -141,6 +141,7 @@ local mappings = {
     d = { '<cmd>lua require("utils.diary").open_diary()<cr>', 'Diary' },
     e = { '<cmd>NeoTreeFocusToggle<cr>', 'Explorer(neo-tree)' },
     o = { '<cmd>CocOutline<cr>', 'Outline' },
+    g = { '<cmd>NeoTreeFocusToggle git_status<cr>', 'Git Explorer(neo-tree)' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal' },
     s = { '<cmd>AsyncTask Application<cr>', 'System open' },
   },
