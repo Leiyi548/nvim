@@ -67,7 +67,7 @@ local filetype = {
 
 local diagnostics = {
   'diagnostics',
-  sources = { 'nvim_diagnostic' },
+  sources = { 'coc' },
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
   colored = false,
