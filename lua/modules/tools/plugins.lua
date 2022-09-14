@@ -18,6 +18,10 @@ plugin({
 })
 
 plugin({
+  'jghauser/mkdir.nvim',
+})
+
+plugin({
   'gelguy/wilder.nvim',
   config = conf.wilder,
   event = 'CmdlineEnter',
