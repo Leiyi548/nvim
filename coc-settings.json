@@ -87,5 +87,6 @@
     "vue": "css"
   },
   "Lua.telemetry.enable": false,
-  "Lua.diagnostics.globals": ["vim"]
+  "Lua.diagnostics.globals": ["vim"],
+  "html.autoClosingTags": true
 }

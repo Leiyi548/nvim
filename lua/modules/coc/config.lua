@@ -103,10 +103,10 @@ function config.neoformat()
   g.neoformat_basic_format_align = 1
   g.neoformat_basic_format_retab = 1
   g.neoformat_basic_format_trim = 1
-  -- lua
+  -- filetype
   g.neoformat_enable_lua = { 'stylua' }
-  -- markdown
   g.neoformat_enable_markdown = { 'prettier' }
+  g.neoformat_enable_vue = { 'prettier' }
   vim.cmd([[
     augroup fmt
       autocmd!
