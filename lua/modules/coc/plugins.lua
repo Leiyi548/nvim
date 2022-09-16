@@ -13,5 +13,6 @@ plugin({
   'kevinhwang91/nvim-ufo',
   requires = 'kevinhwang91/promise-async',
   config = conf.ufo,
+  disable = true,
 })
 plugin({ 'sbdchd/neoformat', config = conf.neoformat })

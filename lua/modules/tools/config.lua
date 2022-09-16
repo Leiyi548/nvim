@@ -197,6 +197,9 @@ function config.telescope()
     },
     -- reference: https://github.com/dhruvmanila/dotfiles/blob/master/config/nvim/lua/dm/plugins/telescope/init.lua
     pickers = {
+      find_files = {
+        disable_devicons = true
+      },
       buffers = {
         sort_lastused = true,
         sort_mru = true,
