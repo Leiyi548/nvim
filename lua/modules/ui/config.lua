@@ -68,7 +68,17 @@ function config.onedarkpro()
       dark_theme = 'onedark_vivid', -- The default dark theme
       light_theme = 'onelight', -- The default light theme
       colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-      highlights = {}, -- Override default highlight groups
+      highlights = {
+        CursorLineNr = { style = 'bold' },
+        IncSearch = { bg = '${gray}' },
+        -- plugins
+        HopNextKey = { fg = '${green}', style = 'bold' },
+        HopNextKey1 = { fg = '${yellow}', style = 'bold' },
+        HopNextKey2 = { link = 'HopNextKey1' },
+        -- my person winbar hightlight
+        WinbarFilename = { style = 'bold' },
+        WinbarBufferNumber = { fg = '${blue}' },
+      }, -- Override default highlight groups
       ft_highlights = {}, -- Override default highlight groups for specific filetypes
       plugins = { -- Override which plugin highlight groups are loaded
         -- See the Supported Plugins section for a list of available plugins
@@ -78,7 +88,7 @@ function config.onedarkpro()
         comments = 'Italic', -- Style that is applied to comments
         keywords = 'italic', -- Style that is applied to keywords
         functions = 'italic', -- Style that is applied to functions
-        variables = 'italic', -- Style that is applied to variables
+        variables = 'NONE', -- Style that is applied to variables
         virtual_text = 'NONE', -- Style that is applied to virtual text
       },
       options = {
@@ -343,7 +353,11 @@ function config.dashboard()
       shortcut = 'SPC f d',
     },
   }
+  local total_plugins = #vim.tbl_keys(packer_plugins)
+  local version = vim.version()
+  local nvim_version_info = '  Neovim v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
   db.custom_header = require('modules.ui.banner').dashboard_banner()
+  db.custom_footer = { ' ' .. total_plugins .. ' plugins' .. nvim_version_info }
 end
 
 function config.lualine()

@@ -50,7 +50,7 @@ function config.coc()
     nmap <silent> gy :Telescope coc type_definations<cr>
     nmap <silent> gI :Telescope coc implementations<cr>
     nmap <silent> gr :Telescope coc references<cr>
-    " nnoremap <silent> K :call ShowDocumentation()<cr>
+    nnoremap <silent> K :call ShowDocumentation()<cr>
     function! ShowDocumentation()
       if CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
