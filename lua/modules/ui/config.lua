@@ -89,7 +89,7 @@ function config.onedarkpro()
         cursorline = true, -- Use cursorline highlighting?
         transparency = false, -- Use a transparent background?
         terminal_colors = true, -- Use the colorscheme's colors for Neovim's :terminal?
-        window_unfocused_color = true, -- When the window is out of focus, change the normal background?
+        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
       },
     })
   end

@@ -102,7 +102,7 @@ M.get_winbar = function()
   if not f.isempty(value) then
     local nr = vim.api.nvim_get_current_buf()
     if f.get_buf_option('mod') then
-      local mod = '%' .. nr .. '@v:lua.winbar_click_buffers@' .. '%#WinbarModifySign#' .. '' .. '%*'
+      local mod = '%' .. nr .. '@v:lua.winbar_click_buffers@' .. '%#WinbarModifySign#' .. ' ' .. '%*'
       value = value .. mod
     end
     local buffers_num = '%'
