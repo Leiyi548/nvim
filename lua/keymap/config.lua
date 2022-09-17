@@ -83,6 +83,9 @@ xmap({
 imap({
   { '<C-s>', cmd('write'), opts(noremap) },
 
+  -- use C-v to paste text
+  { '<C-V>', '<Esc>pA', opts(noremap) },
+
   -- move line up/down vscode
   { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },

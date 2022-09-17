@@ -155,6 +155,7 @@ local mappings = {
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     s = { '<cmd>w!<cr>', 'Save' },
+    g = { '<cmd>Telescope git_files<cr>', 'Git Files' },
     S = { '<cmd>wa!<cr>', 'Save all' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
@@ -211,7 +212,7 @@ local mappings = {
   -- whichkey-g
   g = {
     name = 'Git',
-    f = { '<cmd>Telescope git_files<cr>', 'Git Files' },
+    f = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
     h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
