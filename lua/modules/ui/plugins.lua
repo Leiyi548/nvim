@@ -9,13 +9,15 @@ local conf = require('modules.ui.config')
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
 plugin({ 'Leiyi548/zephyr-nvim' })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
+plugin({ 'Mofiqul/vscode.nvim', config = conf.vscode })
+plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro })
 
 -- startup plugin
 plugin({
   'glepnir/dashboard-nvim',
   config = conf.dashboard,
   requires = 'kyazdani42/nvim-web-devicons',
-  disable = true,
+  disable = false,
 })
 
 -- icon
