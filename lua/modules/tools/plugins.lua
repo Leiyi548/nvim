@@ -14,6 +14,7 @@ plugin({
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'ahmedkhalf/project.nvim', config = conf.project },
     { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-telescope/telescope-file-browser.nvim' },
   },
 })
 
@@ -107,6 +108,11 @@ plugin({
   'numToStr/Comment.nvim',
   keys = { 'gc', 'gb', 'g<', 'g>' },
   config = conf.Comment,
+})
+
+plugin({
+ "LudoPinelli/comment-box.nvim",
+  config = conf.comment_box
 })
 
 plugin({
