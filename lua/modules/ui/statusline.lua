@@ -67,13 +67,13 @@ local filetype = {
 
 local diagnostics = {
   'diagnostics',
-  sources = { 'nvim_diagnostic' },
+  -- sources = { 'vim-lsp' },
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
-  colored = false,
+  colored = true,
   update_in_insert = false,
-  cond = hide_in_width,
-  always_visible = false,
+  -- cond = hide_in_width,
+  always_visible = true,
 }
 
 local diff = {
@@ -113,9 +113,10 @@ local location = {
 
 local simple_filename = {
   'filename',
-  file_status = true, -- Displays file status (readonly status, modified status)
+  file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 3, -- 0: Just the filename
+  path = 1,
+  -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path
   -- 3: Absolute path, with tilde(~) as the home directory
@@ -137,58 +138,6 @@ local simple_filename = {
       size = ' [' .. size .. ']'
     end
     return str .. size
-  end,
-}
-
-local old_filename = {
-  'filename',
-  file_status = true, -- Displays file status (readonly status, modified status)
-  newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 3, -- 0: Just the filename
-  -- 1: Relative path
-  -- 2: Absolute path
-  -- 3: Absolute path, with tilde(~) as the home directory
-  shorting_target = 0, -- Shortens path to leave 40 spaces in the window
-  -- for other components. (terrible name, any suggestions?)
-  symbols = {
-    modified = ' ', -- Text to show when the file is modified.
-    readonly = ' ', -- Text to show when the file is non-modifiable or readonly.
-    unnamed = ' ', -- Text to show for unnamed buffers.
-    -- newfile = ' ', -- Text to show for new created file before first writting
-    newfile = '[new]', -- Text to show for new created file before first writting
-    -- newfile = ' ' .. require('nvim-nonicons').get('vim-normal-mode'), -- Text to show for new created file before first writting
-  },
-  fmt = function(str)
-    local icon, icon_highlight_group
-    local ok, devicons = pcall(require, 'nvim-web-devicons')
-    if ok then
-      local f_name, f_extension = vim.fn.expand('%:t'), vim.fn.expand('%:e')
-      f_extension = f_extension ~= '' and f_extension or vim.bo.filetype
-      icon, icon_highlight_group = devicons.get_icon(f_name, f_extension)
-      if icon == nil and icon_highlight_group == nil then
-        icon = ''
-        icon_highlight_group = 'DevIconDefault'
-      end
-      local highlight_color = require('utils.color').extract_highlight_colors(icon_highlight_group, 'fg')
-      local hl_group = 'LualineFileIconColor' .. f_extension
-      vim.api.nvim_set_hl(
-        0,
-        hl_group,
-        { fg = highlight_color, bg = require('utils.color').extract_highlight_colors('lualine_b_normal', 'bg') }
-      )
-      icon = icon .. ' '
-      local size = require('lualine.components.filesize')()
-      if size == '' then
-        size = ''
-      else
-        size = ' [' .. size .. ']'
-      end
-      if vim.api.nvim_get_hl_by_name(hl_group, true) == nil then
-        return ''
-      else
-        return '%#' .. hl_group .. '#' .. icon .. '%#lualine_b_normal#' .. str .. size
-      end
-    end
   end,
 }
 
@@ -259,14 +208,19 @@ local filetype = {
   'filetype',
   colored = true,
   icon_only = true,
+  padding = { left = 1, right = 0 },
 }
+
+local pwd = function()
+  local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
+  return ' ' .. foldname
+end
 
 lualine.setup({
   options = {
     icons_enabled = true,
     globalstatus = true,
     theme = 'auto',
-    -- component_separators = { left = '', right = '' },
     -- section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
@@ -285,14 +239,14 @@ lualine.setup({
   },
   sections = {
     -- lualine_a = {},
-    lualine_a = { branch },
+    lualine_a = { branch, pwd },
     lualine_b = { filetype, simple_filename },
     lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
-    lualine_x = { diff },
-    lualine_y = { diagnostics, spaces, encoding },
-    lualine_z = { location, progress },
+    lualine_x = { diagnostics, diff },
+    lualine_y = { encoding, location },
+    lualine_z = { progress },
   },
   -- 没有聚焦的窗口
   inactive_sections = {

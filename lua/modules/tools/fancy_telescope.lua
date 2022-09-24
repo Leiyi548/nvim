@@ -64,7 +64,10 @@ function M.findDotfile()
     layout_config = larget_layout_config,
     file_ignore_patterns = {
       'alacritty.scratchpad.yml',
+      'polybar/*',
+      '__pycache__/*',
       'wallpaper/*',
+      'ranger_devicons/*',
       'rime/*',
       'awesome/*',
       'material/*',
@@ -145,8 +148,10 @@ end
 function M.git_status()
   local opts = {
     git_icons = {
-      added = ' ',
-      changed = ' ',
+      -- added = ' ',
+      -- changed = ' ',
+      added = '+ ',
+      changed = 'M ',
       copied = '> ',
       deleted = '✖ ',
       renamed = '➡ ',

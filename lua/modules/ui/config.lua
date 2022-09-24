@@ -8,9 +8,9 @@ function config.github()
   if _G_colorscheme == 'github_light' then
     require('github-theme').setup({
       theme_style = 'light',
-      function_style = 'NONE',
+      function_style = 'italic',
       comment_style = 'italic',
-      keyword_style = 'NONE',
+      keyword_style = 'italic',
       variable_style = 'NONE',
       sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
 
@@ -23,6 +23,49 @@ function config.github()
           TreesitterContext = { bg = c.diff.add },
         }
       end,
+    })
+  end
+end
+
+function config.onedarkpro()
+  if _G_colorscheme == 'onedarkpro' then
+    require('onedarkpro').setup({
+      dark_theme = 'onedark_vivid', -- The default dark theme
+      light_theme = 'onelight', -- The default light theme
+      colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
+      highlights = {
+        CursorLineNr = { style = 'bold' },
+        IncSearch = { bg = '${gray}' },
+        -- plugins
+        HopNextKey = { fg = '${green}', style = 'bold' },
+        HopNextKey1 = { fg = '${yellow}', style = 'bold' },
+        HopNextKey2 = { link = 'HopNextKey1' },
+        -- my person winbar hightlight
+        WinbarFilename = { style = 'bold' },
+        WinbarBufferNumber = { fg = '${blue}' },
+      }, -- Override default highlight groups
+      ft_highlights = {}, -- Override default highlight groups for specific filetypes
+      plugins = { -- Override which plugin highlight groups are loaded
+        -- See the Supported Plugins section for a list of available plugins
+      },
+      styles = { -- Choose from "bold,italic,underline"
+        strings = 'NONE', -- Style that is applied to strings.
+        comments = 'Italic', -- Style that is applied to comments
+        keywords = 'italic', -- Style that is applied to keywords
+        functions = 'italic', -- Style that is applied to functions
+        variables = 'NONE', -- Style that is applied to variables
+        virtual_text = 'NONE', -- Style that is applied to virtual text
+      },
+      options = {
+        bold = true, -- Use the colorscheme's opinionated bold styles?
+        italic = true, -- Use the colorscheme's opinionated italic styles?
+        underline = true, -- Use the colorscheme's opinionated underline styles?
+        undercurl = true, -- Use the colorscheme's opinionated undercurl styles?
+        cursorline = true, -- Use cursorline highlighting?
+        transparency = false, -- Use a transparent background?
+        terminal_colors = true, -- Use the colorscheme's colors for Neovim's :terminal?
+        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
+      },
     })
   end
 end
@@ -143,52 +186,6 @@ function config.tokyonight()
         fg = c.orange,
         bg = c.none,
       }
-      -- navic
-      hls.NavicText = {
-        fg = c.dark3,
-      }
-      hls.NavicIconsPackage = {
-        fg = c.orange,
-      }
-      hls.NavicIconsField = {
-        fg = c.blue,
-      }
-      hls.NavicIconsVariable = {
-        fg = c.magenta,
-      }
-      hls.NavicIconsInterface = {
-        fg = c.blue,
-      }
-      hls.NavicIconsMethod = {
-        fg = c.blue,
-      }
-      hls.NavicIconsProperty = {
-        fg = c.blue,
-      }
-      hls.NavicIconsConstructor = {
-        fg = c.blue,
-      }
-      hls.NavicIconsMethod = {
-        fg = c.blue,
-      }
-      hls.NavicIconsFunction = {
-        fg = c.blue,
-      }
-      hls.NavicIconsClass = {
-        fg = c.orange,
-      }
-      hls.NavicIconsInterface = {
-        fg = c.orange,
-      }
-      hls.NavicIconsStruct = {
-        fg = c.orange,
-      }
-      hls.NavicIconsEvent = {
-        fg = c.orange,
-      }
-      hls.NavicIconsEnum = {
-        fg = c.orange,
-      }
       -- custom my winbar hightlight
       hls.WinbarFilename = {
         fg = c.fg_dark,
@@ -219,38 +216,6 @@ function config.kanagawa()
     colors = {},
     overrides = {},
     theme = 'default',
-  })
-end
-
-function config.onedarkpro()
-  local onedarkpro_ok, onedarkpro = pcall(require, 'onedarkpro')
-  if not onedarkpro_ok then
-    return
-  end
-
-  onedarkpro.setup({
-    styles = { -- Choose from "bold,italic,underline"
-      strings = 'NONE', -- Style that is applied to strings.
-      comments = 'italic', -- Style that is applied to comments
-      keywords = 'NONE', -- Style that is applied to keywords
-      functions = 'NONE', -- Style that is applied to functions
-      variables = 'NONE', -- Style that is applied to variables
-      virtual_text = 'italic', -- Style that is applied to virtual text
-    },
-    options = {
-
-      bold = true, -- Use the themes opinionated bold styles?
-      italic = true, -- Use the themes opinionated italic styles?
-      underline = true, -- Use the themes opinionated underline styles?
-      undercurl = true, -- Use the themes opinionated undercurl styles?
-      cursorline = true, -- Use cursorline highlighting?
-      transparency = true, -- Use a transparent background?
-      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-      window_unfocussed_color = true, -- When the window is out of focus, change the normal background?
-    },
-    hlgroups = {
-      IncSearch = { fg = '#ad4539', bg = '#22252c' },
-    },
   })
 end
 
@@ -525,6 +490,10 @@ function config.dashboard()
     [[                                       ]],
     -- [[             Start Editing             ]],
   }
+  local total_plugins = #vim.tbl_keys(packer_plugins)
+  local version = vim.version()
+  local nvim_version_info = '  Neovim v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
+  db.custom_footer = { ' ' .. total_plugins .. ' plugins' .. nvim_version_info }
 end
 
 function config.lualine()
@@ -555,7 +524,7 @@ function config.nvim_tree()
 
     view = {
       width = 30,
-      height = 30,
+      -- height = 30,
       hide_root_folder = false,
       side = 'left',
       preserve_window_proportions = false,

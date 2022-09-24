@@ -6,6 +6,7 @@ local fn, uv, api = vim.fn, vim.loop, vim.api
 local vim_path = vim.fn.stdpath('config')
 local data_dir = string.format('%s/site/', vim.fn.stdpath('data'))
 local modules_dir = vim_path .. '/lua/modules'
+-- ~/.local/share/nvim/site/lua/packer_compiled.lua
 local packer_compiled = data_dir .. 'lua/packer_compiled.lua'
 local packer = nil
 

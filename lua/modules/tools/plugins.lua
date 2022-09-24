@@ -39,6 +39,7 @@ plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,
+  disable = true
 })
 
 plugin({
@@ -107,6 +108,11 @@ plugin({
   'numToStr/Comment.nvim',
   event = 'BufRead',
   config = conf.Comment,
+})
+
+plugin({
+  'LudoPinelli/comment-box.nvim',
+  config = conf.comment_box,
 })
 
 plugin({
