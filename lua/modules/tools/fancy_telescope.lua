@@ -148,8 +148,10 @@ end
 function M.git_status()
   local opts = {
     git_icons = {
-      added = ' ',
-      changed = ' ',
+      -- added = ' ',
+      -- changed = ' ',
+      added = '+ ',
+      changed = 'M ',
       copied = '> ',
       deleted = '✖ ',
       renamed = '➡ ',
