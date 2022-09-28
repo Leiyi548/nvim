@@ -6,9 +6,11 @@ local config = {}
 
 function config.coc()
   vim.g.coc_global_extensions = {
+    'coc-pairs',
     'coc-sumneko-lua',
     'coc-json',
-    '@yaegassy/coc-marksman',
+    'coc-go',
+    -- '@yaegassy/coc-marksman',
     'coc-html',
     'coc-css',
     'coc-emmet',
@@ -16,9 +18,7 @@ function config.coc()
     'coc-translator',
     'coc-tsserver',
   }
-  -- Use <C-j> for jump to next placeholder, it's default of coc.nvim
   vim.g.coc_snippet_next = '<C-j>'
-  -- Use <C-k> for jump to previous placeholder, it's default of coc.nvim
   vim.g.coc_snippet_prev = '<C-k>'
   vim.cmd([[
     inoremap <silent><expr> <TAB>
@@ -28,7 +28,7 @@ function config.coc()
           \ coc#refresh()
 
     " To make <cr> select the first completion item and confirm the completion when no item has been selected:
-    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+    " inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
     function! CheckBackSpace() abort
       let col = col('.') - 1
@@ -39,9 +39,6 @@ function config.coc()
     inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
     inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
-
-    
-
 
     nmap <silent> [e <Plug>(coc-diagnostic-prev)
     nmap <silent> ]e <Plug>(coc-diagnostic-next)
@@ -91,8 +88,8 @@ function config.coc()
     xmap <Space>x  <Plug>(coc-convert-snippet)
 
     " coc translator
-    nmap <C-e> <Plug>(coc-translator-p)
-    xmap <C-e> <Plug>(coc-translator-pv)
+    nmap <C-t> <Plug>(coc-translator-p)
+    xmap <C-t> <Plug>(coc-translator-pv)
   ]])
 end
 
@@ -107,41 +104,12 @@ function config.neoformat()
   g.neoformat_enable_lua = { 'stylua' }
   g.neoformat_enable_markdown = { 'prettier' }
   g.neoformat_enable_vue = { 'prettier' }
-  vim.cmd([[
-    augroup fmt
-      autocmd!
-      autocmd BufWritePre * Neoformat
-    augroup END
-    ]])
-end
-
-function config.autopairs()
-  local auto_pairs_ok, npairs = pcall(require, 'nvim-autopairs')
-  if not auto_pairs_ok then
-    return
-  end
-
-  npairs.setup({
-    check_ts = true,
-    enable_check_bracket_line = true,
-    ts_config = {
-      lua = { 'string', 'source' },
-      javascript = { 'string', 'template_string' },
-      java = false,
-    },
-    disable_filetype = { 'TelescopePrompt', 'spectre_panel' },
-    fast_wrap = {
-      map = '<M-e>',
-      chars = { '{', '[', '(', '"', "'" },
-      pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
-      offset = 0, -- Offset from pattern match
-      end_key = '$',
-      keys = 'qwertyuiopzxcvbnmasdfghjkl',
-      check_comma = false,
-      highlight = 'PmenuSel',
-      highlight_grey = 'LineNr',
-    },
-  })
+  -- vim.cmd([[
+  --   augroup fmt
+  --     autocmd!
+  --     autocmd BufWritePre * Neoformat
+  --   augroup END
+  --   ]])
 end
 
 function config.ufo()

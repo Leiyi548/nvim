@@ -68,7 +68,7 @@ plugin({
 
 plugin({
   'xiyaowong/link-visitor.nvim',
-  event = 'BufWinEnter',
+  keys = { 'gc', 'gb', 'g<', 'g>' },
   config = conf.visitor,
 })
 
@@ -113,7 +113,8 @@ plugin({
 
 plugin({
  "LudoPinelli/comment-box.nvim",
-  config = conf.comment_box
+  config = conf.comment_box,
+  ft = "markdown"
 })
 
 plugin({
