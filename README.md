@@ -8,6 +8,13 @@
 pip3 install -i https://mirrors.aliyun.com/pypi/simple neovim
 ```
 
+## language
+
+- [x] lua
+- [x] vue
+- [ ] go
+
+
 ## some issues
 
 - tab 键等于 C-i 键

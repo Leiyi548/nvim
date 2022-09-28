@@ -48,6 +48,7 @@ plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,
+  disable = true
 })
 
 plugin({

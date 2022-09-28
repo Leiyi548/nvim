@@ -20,7 +20,7 @@ xmap({ ' ', '', opts(noremap) })
 nmap({
   -- noremal remap
   { '<C-s>', cmd('write'), opts(noremap) },
-  { 's', '<leader>' },
+  -- { 's', '<leader>' },
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
 
@@ -33,21 +33,22 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
-  -- This is a quick way to toggle between two files
-  { ';s', cmd('e #'), opts(noremap) },
+
+  -- emacs change keybinding
+  { '<Home>',  '<C-a>', opts(noremap) },
 
   -- window jump
-  { '<C-h>', '<C-w>h', opts(noremap) },
+  { '<BS>',  '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
 
   -- spliw window
-  { 'sg', cmd('split'), opts(noremap) },
-  { 'sv', cmd('vsplit'), opts(noremap) },
+  -- { 'sg', cmd('split'), opts(noremap) },
+  -- { 'sv', cmd('vsplit'), opts(noremap) },
 
   -- close window
-  { 'sc', cmd('close'), opts(noremap) },
+  -- { 'sc', cmd('close'), opts(noremap) },
 
   -- resize window
   { '<M-[>', cmd('vertical resize -5'), opts(noremap, silent) },
@@ -62,8 +63,6 @@ nmap({
 
 xmap({
   -- I hate click this key
-  { '<', '<gv', opts(noremap) },
-  { '>', '>gv', opts(noremap) },
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
 

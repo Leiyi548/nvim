@@ -18,10 +18,10 @@ local cmd = keymap.cmd
 -- usage of plugins
 nmap({
   -- hop
-  { 'ss', cmd('HopChar2'), opts(noremap, silent) },
-  { 'sw', cmd('HopWord'), opts(noremap, silent) },
-  { 'S', cmd('HopWord'), opts(noremap, silent) },
-  { 'sl', cmd('HopLine'), opts(noremap, silent) },
+  -- { 'ss', cmd('HopChar2'), opts(noremap, silent) },
+  -- { 'sw', cmd('HopWord'), opts(noremap, silent) },
+  -- { 'S', cmd('HopWord'), opts(noremap, silent) },
+  -- { 'sl', cmd('HopLine'), opts(noremap, silent) },
   {
     'f',
     cmd(
@@ -50,9 +50,6 @@ nmap({
     ),
     opts(noremap, silent),
   },
-
-  -- telescope
-  { ';r', cmd('Telescope registers'), opts(noremap, silent) },
 
   -- nvim-tree
   -- { '<C-n>', cmd('NvimTreeToggle'), opts(noremap, silent) },
