@@ -19,6 +19,7 @@ local file_ignore_patterns = {
   '%.svg',
   '%.otf',
   '%.ttf',
+  "a.out"
 }
 
 local larget_layout_config = {
