@@ -68,7 +68,7 @@ plugin({
 
 plugin({
   'xiyaowong/link-visitor.nvim',
-  keys = { 'gc', 'gb', 'g<', 'g>' },
+  -- keys = { 'gc', 'gb', 'g<', 'g>' },
   config = conf.visitor,
 })
 
@@ -107,7 +107,7 @@ plugin({
 
 plugin({
   'numToStr/Comment.nvim',
-  keys = { 'gc', 'gb', 'g<', 'g>' },
+  -- keys = { 'gc', 'gb', 'g<', 'g>' },
   config = conf.Comment,
 })
 

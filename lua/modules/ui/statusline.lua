@@ -92,12 +92,12 @@ local branch = {
   -- icon = '%#SLGitIcon#' .. ' ',
   colored = false,
   -- padding = 0,
-  fmt = function(str)
-    if str == '' or str == nil then
-      return '!=vcs'
-    end
-    return str
-  end,
+  -- fmt = function(str)
+  --   if str == '' or str == nil then
+  --     return '!=vcs'
+  --   end
+  --   return str
+  -- end,
   cond = hide_in_width_100,
 }
 
