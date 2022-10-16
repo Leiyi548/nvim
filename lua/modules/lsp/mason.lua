@@ -24,6 +24,9 @@ local servers = {
   -- npm install -g typescript typescript-language-server
   'tsserver',
   'volar',
+  -- go
+  'gopls',
+  'bashls',
 }
 
 local settings = {
