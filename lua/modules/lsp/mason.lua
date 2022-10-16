@@ -18,7 +18,7 @@ local servers = {
   'cssls',
   -- npm install -g emmet-ls
   'emmet_ls',
-  'clangd',
+  -- 'clangd',
   -- npm i -g bash-language-server
   'bashls',
   -- npm install -g typescript typescript-language-server

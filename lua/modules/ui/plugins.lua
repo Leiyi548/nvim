@@ -6,15 +6,14 @@ local plugin = require('core.pack').register_plugin
 local conf = require('modules.ui.config')
 
 -- colorscheme
--- plugin({ 'kaiuri/nvim-juliana' })
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
 plugin({ 'Leiyi548/zephyr-nvim' })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
 plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa, disable = true })
-plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro })
+plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro, disable = true })
 -- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
 plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
-plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = true })
+plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = false })
 plugin({
   'sainnhe/gruvbox-material',
   config = conf.gruvbox_material,

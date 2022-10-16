@@ -8,5 +8,11 @@ plugin({ 'SmiteshP/nvim-navic' })
 plugin({ 'williamboman/mason.nvim' })
 plugin({ 'williamboman/mason-lspconfig.nvim' })
 plugin({ 'glepnir/lspsaga.nvim', branch = 'main' })
+plugin({
+  'j-hui/fidget.nvim',
+  config = function()
+    require('fidget').setup({})
+  end,
+})
 plugin({ 'ray-x/lsp_signature.nvim', disable = true })
 -- plugin({ 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' })

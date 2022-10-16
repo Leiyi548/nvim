@@ -33,21 +33,12 @@ nmap({
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
   { '[b', cmd('bp'), opts(noremap) },
-  -- This is a quick way to toggle between two files
-  { ';s', cmd('e #'), opts(noremap) },
 
   -- window jump
-  { '<C-h>', '<C-w>h', opts(noremap) },
+  { '<BS>', '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
-
-  -- spliw window
-  { 'sg', cmd('split'), opts(noremap) },
-  { 'sv', cmd('vsplit'), opts(noremap) },
-
-  -- close window
-  { 'sc', cmd('close'), opts(noremap) },
 
   -- resize window
   { '<M-[>', cmd('vertical resize -5'), opts(noremap, silent) },
@@ -96,7 +87,6 @@ imap({
   { '<C-w>', '<C-[>diwa', opts(noremap) },
   { '<C-h>', '<Bs>', opts(noremap) },
   { '<C-d>', '<Del>', opts(noremap) },
-  -- { '<C-u>', '<Esc>d0"_xi', opts(noremap) },
   { '<C-u>', '<C-G>u<C-u>', opts(noremap) },
   { '<C-p>', '<Up>', opts(noremap) },
   { '<C-n>', '<Down>', opts(noremap) },

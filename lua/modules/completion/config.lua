@@ -139,13 +139,13 @@ function config.nvim_cmp()
     window = {
       documentation = {
         -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        -- border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+        border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
         -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
-        -- winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,Search:None',
+        winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,Search:None',
       },
       completion = {
-        -- border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
-        -- winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
+        border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+        winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
       },
     },
     experimental = {

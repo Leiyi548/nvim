@@ -196,6 +196,15 @@ function config.telescope()
     },
     -- reference: https://github.com/dhruvmanila/dotfiles/blob/master/config/nvim/lua/dm/plugins/telescope/init.lua
     pickers = {
+      live_grep = {
+        --@usage don't include the filename in the search results
+        only_sort_text = true,
+        theme = 'dropdown',
+      },
+      grep_string = {
+        only_sort_text = true,
+        theme = 'dropdown',
+      },
       buffers = {
         sort_lastused = true,
         sort_mru = true,
@@ -204,7 +213,7 @@ function config.telescope()
         previewer = false,
         mappings = {
           i = { ['<C-d>'] = actions.delete_buffer },
-          n = { ['d'] = actions.delete_buffer },
+          n = { ['dd'] = actions.delete_buffer },
         },
       },
       builtin = {
@@ -217,7 +226,26 @@ function config.telescope()
         use_default_opts = true,
       },
       git_files = {
+        theme = 'dropdown',
+        hidden = true,
+        previewer = false,
         show_untracked = true,
+      },
+      lsp_references = {
+        theme = 'dropdown',
+        initial_mode = 'normal',
+      },
+      lsp_definitions = {
+        theme = 'dropdown',
+        initial_mode = 'normal',
+      },
+      lsp_declarations = {
+        theme = 'dropdown',
+        initial_mode = 'normal',
+      },
+      lsp_implementations = {
+        theme = 'dropdown',
+        initial_mode = 'normal',
       },
     },
     extensions = {
@@ -1022,7 +1050,7 @@ function config.notify()
 end
 
 function config.CamelCaseMotion()
-  vim.g.camelcasemotion_key = ';'
+  vim.g.camelcasemotion_key = '\\'
 end
 
 function config.colortils()

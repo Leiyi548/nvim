@@ -43,11 +43,11 @@ function Packer:load_packer()
     max_job = 40,
     disable_commands = true,
     -- open float window
-    -- display = {
-    --   open_fn = function()
-    --     return require("packer.util").float({ border = "single" }) -- single rounded
-    --   end,
-    -- },
+    display = {
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' }) -- single rounded
+      end,
+    },
   })
   packer.reset()
   local use = packer.use

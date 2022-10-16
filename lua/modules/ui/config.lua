@@ -7,10 +7,10 @@ local config = {}
 function config.github()
   if _G_colorscheme == 'github_light' then
     require('github-theme').setup({
-      theme_style = 'light',
-      function_style = 'italic',
-      comment_style = 'italic',
-      keyword_style = 'italic',
+      theme_style = 'NONE',
+      function_style = 'NONE',
+      comment_style = 'Italic',
+      keyword_style = 'NONE',
       variable_style = 'NONE',
       sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
 
@@ -74,8 +74,8 @@ function config.tokyonight()
   require('tokyonight').setup({
     -- your configuration comes here
     -- or leave it empty to use the default settings
-    style = 'night', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-    transparent = true, -- Enable this to disable setting the background color
+    style = 'storm', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
+    transparent = false, -- Enable this to disable setting the background color
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
     styles = {
       -- Style to be applied to different syntax groups
@@ -142,18 +142,18 @@ function config.tokyonight()
         bg = c.none,
       }
       -- TreesitterContext default link normal float
-      hls.TreesitterContext = {
-        bg = c.bg_visual,
-      }
+      -- hls.TreesitterContext = {
+      --   bg = c.bg_visual,
+      -- }
       -- gitsigns
-      hls.GitSignsAdd = {
-        fg = c.green,
-        bg = c.green,
-      }
-      hls.GitSignsChange = {
-        fg = '#61afef',
-        bg = '#61afef',
-      }
+      -- hls.GitSignsAdd = {
+      --   fg = c.green,
+      --   bg = c.green,
+      -- }
+      -- hls.GitSignsChange = {
+      --   fg = '#61afef',
+      --   bg = '#61afef',
+      -- }
       -- neogit
       hls.NeogitDiffAdd = {
         fg = c.green,
@@ -565,7 +565,6 @@ function config.nvim_tree()
       highlight_git = false,
       highlight_opened_files = 'none',
       root_folder_modifier = ':~',
-      -- root_folder_modifier = ':t',
       indent_markers = {
         enable = false,
         icons = {

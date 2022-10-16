@@ -90,6 +90,7 @@ local mappings = {
   ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
   ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
+  ['j'] = { '<cmd>e #<cr>', 'Recent Buffer' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },

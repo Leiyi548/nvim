@@ -239,9 +239,9 @@ lualine.setup({
   },
   sections = {
     -- lualine_a = {},
-    lualine_a = { branch, pwd },
+    lualine_a = { pwd },
     lualine_b = { filetype, simple_filename },
-    lualine_c = {},
+    lualine_c = { branch },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { diagnostics, diff },

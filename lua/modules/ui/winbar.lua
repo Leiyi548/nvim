@@ -48,7 +48,8 @@ M.get_filename = function()
     end
 
     return
-      '%#'
+      ' '
+        .. '%#'
         .. hl_group
         .. '#'
         .. file_icon
