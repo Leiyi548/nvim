@@ -70,7 +70,7 @@ local diagnostics = {
   -- sources = { 'vim-lsp' },
   sections = { 'error', 'warn' },
   symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
-  colored = true,
+  colored = false,
   update_in_insert = false,
   -- cond = hide_in_width,
   always_visible = true,
@@ -92,12 +92,12 @@ local branch = {
   -- icon = '%#SLGitIcon#' .. ' ',
   colored = false,
   -- padding = 0,
-  fmt = function(str)
-    if str == '' or str == nil then
-      return '!=vcs'
-    end
-    return str
-  end,
+  -- fmt = function(str)
+  --   if str == '' or str == nil then
+  --     return '!=vcs'
+  --   end
+  --   return str
+  -- end,
   cond = hide_in_width_100,
 }
 
@@ -244,7 +244,7 @@ lualine.setup({
     lualine_c = { branch },
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
-    lualine_x = { diagnostics, diff },
+    lualine_x = { LSP_status, diagnostics, diff },
     lualine_y = { encoding, location },
     lualine_z = { progress },
   },
