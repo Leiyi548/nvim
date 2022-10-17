@@ -57,10 +57,10 @@ M.get_filename = function()
         .. ' '
         .. '%#WinbarFilename#'
         .. filename
-        .. '%*'
-        .. '%#WinbarBufferNumber#'
-        .. require('utils.function').get_bufs_num()
-        .. '%*'
+        -- .. '%*'
+        -- .. '%#WinbarBufferNumber#'
+        -- .. require('utils.function').get_bufs_num()
+        -- .. '%*'
         .. '%#NavicSeparator#'
   end
 end
