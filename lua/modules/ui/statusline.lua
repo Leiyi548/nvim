@@ -78,7 +78,7 @@ local diagnostics = {
 
 local diff = {
   'diff',
-  colored = true,
+  colored = false,
   symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
   cond = hide_in_width_60,
   -- separator = '%#SLSeparator#' .. '│ ' .. '%*',
@@ -89,9 +89,7 @@ local branch = {
   'branch',
   icons_enabled = true,
   icon = icons.git.SourceControl,
-  -- icon = '%#SLGitIcon#' .. ' ',
   colored = false,
-  -- padding = 0,
   -- fmt = function(str)
   --   if str == '' or str == nil then
   --     return '!=vcs'
@@ -103,12 +101,15 @@ local branch = {
 
 local progress = {
   'progress',
+  -- fmt = function(str)
+  --   return '  ' + str
+  -- end,
   padding = 0,
 }
 
 local location = {
   'location',
-  padding = 0,
+  padding = 1,
 }
 
 local simple_filename = {
@@ -212,7 +213,7 @@ local filetype = {
 }
 
 local pwd = function()
-  local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
+  local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ''
   return ' ' .. foldname
 end
 
@@ -220,9 +221,9 @@ lualine.setup({
   options = {
     icons_enabled = true,
     globalstatus = true,
-    theme = 'auto',
+    theme = require('modules.ui.transparent_stausline'),
     -- section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
@@ -239,9 +240,10 @@ lualine.setup({
   },
   sections = {
     -- lualine_a = {},
-    lualine_a = { pwd },
-    lualine_b = { filetype, simple_filename },
-    lualine_c = { branch },
+    lualine_a = { pwd, branch, simple_filename },
+    -- lualine_b = { filetype, simple_filename },
+    lualine_b = {},
+    lualine_c = {},
     -- lualine_x = { "encoding", "fileformat", "filetype" },
     -- lualine_x = { LSP_status, diff },
     lualine_x = { LSP_status, diagnostics, diff },

@@ -112,14 +112,24 @@ function config.tokyonight()
       hls.CursorLineNr = {
         fg = c.blue1,
       }
-      hls.markdownBold = {
-        fg = c.orange,
-      }
-      -- markdown
       hls.LineNr = {
         fg = c.blue1,
       }
-      -- telescope
+      hls.StatusLine = {
+        bg = c.none,
+        fg = c.blue1,
+      }
+      hls.markdownBold = {
+        fg = c.orange,
+      }
+      hls.FidgetTitle = {
+        bg = c.none,
+        -- fg = c.blue1,
+      }
+      hls.FidgetTask = {
+        bg = c.none,
+        -- fg = c.blue1,
+      }
       hls.TelescopeSelection = {
         fg = c.orange,
         style = 'bold',
