@@ -39,7 +39,7 @@ plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,
-  disable = true
+  disable = true,
 })
 
 plugin({
@@ -49,17 +49,18 @@ plugin({
 
 plugin({
   'lambdalisue/suda.vim',
+  cmd = { 'SudaRead', 'SudaWrite' },
 })
 
 plugin({
   'rcarriga/nvim-notify',
   config = conf.notify,
-  disable = true,
+  disable = false,
 })
 
 plugin({
   'xiyaowong/link-visitor.nvim',
-  event = 'BufWinEnter',
+  cmd = { 'VisitLinkInBuffer' },
   config = conf.visitor,
 })
 
@@ -73,13 +74,6 @@ plugin({
     },
   },
   config = conf.neogit,
-})
-
-plugin({
-  'X3eRo0/dired.nvim',
-  requires = 'MunifTanjim/nui.nvim',
-  config = conf.dired,
-  disable = true,
 })
 
 plugin({
@@ -113,10 +107,10 @@ plugin({
 plugin({
   'LudoPinelli/comment-box.nvim',
   config = conf.comment_box,
+  ft = 'markdown',
 })
 
 plugin({
-  -- wait for folke back
   'folke/todo-comments.nvim',
   event = 'BufRead',
   config = conf.todo_comments,

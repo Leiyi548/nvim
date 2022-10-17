@@ -91,6 +91,7 @@ local mappings = {
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
   ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
   ['j'] = { '<cmd>e #<cr>', 'Recent Buffer' },
+  ['k'] = { '<cmd>HopWord<cr>', 'HopWord' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
@@ -151,20 +152,16 @@ local mappings = {
     t = { '<cmd>Telescope live_grep<cr>', 'Text' },
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
+    c = { '<cmd>Telescope commands<cr>', 'Commands' },
     s = { '<cmd>w!<cr>', 'Save' },
     S = { '<cmd>wa!<cr>', 'Save all' },
     d = { "<cmd>lua require('modules.tools.fancy_telescope').findDotfile()<cr>", 'Dotfiles' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').findFiles()<cr>", 'Files' },
     n = { "<cmd>lua require('modules.tools.fancy_telescope').findNotes()<cr>", 'Note' },
-    c = { '<cmd>Telescope git_bcommits<cr>', 'Commit' },
     l = { '<cmd>VisitLinkInBuffer<cr>', 'Links' },
-    C = { '<cmd>Telescope commands<cr>', 'Commands' },
-    p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     m = { '<cmd>Telescope marks<cr>', 'Mark' },
-    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
-    H = { '<cmd>Telescope highlights<cr>', 'Highlight' },
-    N = { '<cmd>Telescope notify<cr>', 'View notify' },
+    h = { '<cmd>Telescope highlights<cr>', 'Highlight' },
     r = {
       "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
       'Recent File',
@@ -175,18 +172,14 @@ local mappings = {
     },
     R = { '<cmd>SudaRead<cr>', 'View Read with sudo' },
     W = { '<cmd>SudaWrite<cr>', 'Write Read with sudo' },
-    j = {
-      "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
-      'Jumplist',
-    },
   },
 
   -- whichkey-b
   b = {
     name = 'Buffer',
-    s = { '<cmd>BufferLineSortByExtension<cr>', 'sort buffer by extensions' },
+    -- s = { '<cmd>BufferLineSortByExtension<cr>', 'sort buffer by extensions' },
     k = { '<cmd>bdelete!<cr>', 'kill buffer' },
-    p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
+    -- p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
     f = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Current Buffer' },
     h = { '<cmd>Bdelete hidden<cr>', 'Close hidden buffer' },
     o = { '<cmd>Bdelete other<cr>', 'Close other buffer' },
@@ -208,15 +201,17 @@ local mappings = {
   -- whichkey-g
   g = {
     name = 'Git',
+    c = { '<cmd>Telescope git_bcommits<cr>', 'Commit (Current Buffer)' },
+    C = { '<cmd>Telescope git_commits<cr>', 'Commit (Current Buffer)' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
     h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
     g = { '<cmd>Neogit<cr>', 'Neogit' },
-    -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame' },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", 'Blame line' },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
-    s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
+    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage Hunk' },
     d = {
       '<cmd>DiffviewOpen<cr>',
       'Diff',
@@ -274,17 +269,22 @@ local mappings = {
     s = { "<cmd>lua require'dap'.continue()<cr>", 'Start' },
     q = { "<cmd>lua require'dap'.close()<cr>", 'Quit' },
   },
+
   -- whichkey-s
   s = {
     name = 'Search',
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-    h = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage hunk' },
+    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
     m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
     t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
     c = { '<cmd>Telescope colorscheme<cr>', 'Colorschemes' },
-    C = { '<cmd>Telescope commands<cr>', 'Commands' },
+    n = { '<cmd>Telescope notify<cr>', 'View notify' },
+    j = {
+      "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
+      'Jumplist',
+    },
   },
 
   -- whichkey-t
@@ -303,7 +303,6 @@ local mappings = {
   -- whichkey-i
   i = {
     name = 'Insert',
-    -- BUG: not useful use picgo -u to upload image
     m = { '<cmd>lua require("nvim-picgo").upload_clipboard()<cr>', 'Image(Picgo)' },
     c = { '<cmd>Colortils<cr>', 'Color' },
     l = { '<cmd>Colortils css list<cr>', 'List Css' },
@@ -313,7 +312,6 @@ local mappings = {
   m = {
     name = 'Markdown/Mark',
     p = { '<cmd>MarkdownPreview<cr>', 'MarkdownPreview' },
-    i = { '<cmd>Mason', 'Mason Install' },
   },
 }
 

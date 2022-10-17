@@ -106,32 +106,19 @@ function M.selectBuffers()
   builtin.buffers(themes.get_dropdown(opts))
 end
 
-function M.showBuffers()
-  local opts = {
-    prompt_title = 'Buffers',
-    -- path_display = { 'smart' },
-    prompt_position = 'top',
-    previewer = false,
-    initial_mode = 'normal',
-    layout_config = {
-      width = 0.5,
-      height = 0.5,
-      horizontal = { width = { padding = 0.15 } },
-      vertical = { preview_height = 0.75 },
-    },
-  }
-  builtin.buffers(themes.get_dropdown(opts))
-end
-
 function M.findFiles()
-  local opts = {
+  local opts_file = {
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
     layout_config = larget_layout_config,
     file_ignore_patterns = file_ignore_patterns,
   }
-  builtin.find_files(themes.get_dropdown(opts))
+  local opts_git = {}
+  local ok = pcall(builtin.git_files, opts_git)
+  if not ok then
+    builtin.find_files(themes.get_dropdown(opts_file))
+  end
 end
 
 function M.findRecentFiles()
