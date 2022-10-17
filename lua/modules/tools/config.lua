@@ -327,7 +327,7 @@ function config.toggleterm()
 
   toggleterm.setup({
     size = 20,
-    open_mapping = [[<M-i>]],
+    open_mapping = [[<C-\>]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
