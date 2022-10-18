@@ -31,11 +31,16 @@ M.winbar_filetype_exclude = {
   '',
 }
 
+function _G.winbar_click_exploer()
+  vim.cmd('NvimTreeToggle')
+end
+
 M.get_filename = function()
   local foldname = vim.api.nvim_eval("$PWD == $HOME ? '~' : substitute($PWD, '\\v(.*/)*', '', 'g')") .. ' '
   local filename = vim.fn.expand('%:t')
   local extension = vim.fn.expand('%:e')
   local f = require('utils.function')
+  local nr = vim.api.nvim_get_current_buf()
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
@@ -55,6 +60,9 @@ M.get_filename = function()
         .. file_icon
         .. '%*'
         .. ' '
+        .. '%'
+        .. nr
+        .. '@v:lua.winbar_click_exploer@'
         .. '%#WinbarFilename#'
         .. filename
         -- .. '%*'
