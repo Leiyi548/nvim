@@ -1007,7 +1007,15 @@ end
 
 function config.visitor()
   require('link-visitor').setup({
-    open_cmd = 'google-chrome-stable',
+    -- open_cmd = 'google-chrome-stable',
+    -- open_cmd = 'cmd.exe /c start',
+    --[[ cmd to open url
+    defaults:
+    win or wsl: cmd.exe /c start
+    mac: open
+    linux: xdg-open
+    ]]
+    silent = true, -- disable all prints, `false` by default
   })
 end
 

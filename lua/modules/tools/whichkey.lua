@@ -280,7 +280,10 @@ local mappings = {
     t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
     c = { '<cmd>Telescope colorscheme<cr>', 'Colorschemes' },
-    n = { '<cmd>Telescope notify<cr>', 'View notify' },
+    n = {
+      "<cmd>lua require('telescope').extensions.notify.notify(require('telescope.themes').get_dropdown({}))<cr>",
+      'View notify',
+    },
     j = {
       "<cmd>lua require'telescope.builtin'.jumplist(require('telescope.themes').get_dropdown({}))<cr>",
       'Jumplist',

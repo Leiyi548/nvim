@@ -105,6 +105,10 @@ return {
     Calendar = ' ',
   },
   diagnostics = {
+    -- Error = '',
+    -- Warning = '',
+    -- Information = '',
+    -- Hint = '',
     Error = ' ',
     Warning = ' ',
     Information = ' ',

@@ -60,7 +60,7 @@ plugin({
 
 plugin({
   'xiyaowong/link-visitor.nvim',
-  cmd = { 'VisitLinkInBuffer' },
+  cmd = { 'VisitLinkInBuffer', 'VisitLinkUnderCursor' },
   config = conf.visitor,
 })
 
