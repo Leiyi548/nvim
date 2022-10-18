@@ -33,6 +33,7 @@ plugin({
 plugin({
   'h-hg/fcitx.nvim',
   event = 'InsertEnter',
+  disable = vim.fn.has('wsl') == 1,
 })
 
 plugin({
