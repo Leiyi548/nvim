@@ -122,13 +122,17 @@ function config.tokyonight()
       hls.markdownBold = {
         fg = c.orange,
       }
+      hls.DashboardFooter = {
+        fg = c.orange,
+        style = 'bold',
+      }
       hls.FidgetTitle = {
         bg = c.none,
-        -- fg = c.blue1,
+        fg = c.blue1,
       }
       hls.FidgetTask = {
         bg = c.none,
-        -- fg = c.blue1,
+        fg = c.blue1,
       }
       hls.TelescopeSelection = {
         fg = c.orange,
