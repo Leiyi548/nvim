@@ -1,7 +1,7 @@
 local saga = require('lspsaga')
 local icon = require('modules.ui.icons')
 local colors = {
-  gray = '#5B6268',
+  gray = '#787c99',
   yellow = '#fac661',
   magenta = '#c678dd',
   blue = '#61afef',

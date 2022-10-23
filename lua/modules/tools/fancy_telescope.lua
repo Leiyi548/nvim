@@ -107,18 +107,14 @@ function M.selectBuffers()
 end
 
 function M.findFiles()
-  local opts_file = {
+  local opts= {
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,
     layout_config = larget_layout_config,
     file_ignore_patterns = file_ignore_patterns,
   }
-  local opts_git = {}
-  local ok = pcall(builtin.git_files, opts_git)
-  if not ok then
-    builtin.find_files(themes.get_dropdown(opts_file))
-  end
+  builtin.find_files(opts)
 end
 
 function M.findRecentFiles()

@@ -225,6 +225,9 @@ function config.telescope()
         include_extensions = true,
         use_default_opts = true,
       },
+      find_files = {
+        theme = 'dropdown',
+      },
       git_files = {
         theme = 'dropdown',
         hidden = true,
