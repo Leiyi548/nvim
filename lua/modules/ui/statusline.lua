@@ -116,7 +116,7 @@ local simple_filename = {
   'filename',
   file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 0,
+  path = 3,
   -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path

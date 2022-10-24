@@ -80,7 +80,7 @@ function config.tokyonight()
     styles = {
       -- Style to be applied to different syntax groups
       -- Value is any valid attr-list value `:help attr-list`
-      comments = 'italic',
+      comments = 'NONE',
       keywords = 'NONE',
       functions = 'NONE',
       variables = 'NONE',
