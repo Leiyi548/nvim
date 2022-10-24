@@ -8,12 +8,14 @@ local conf = require('modules.tools.config')
 plugin({
   'nvim-telescope/telescope.nvim',
   config = conf.telescope,
+  -- cmd = 'Telescope',
   requires = {
     { 'nvim-lua/popup.nvim' },
-    { 'nvim-lua/plenary.nvim' },
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    { 'ahmedkhalf/project.nvim', config = conf.project },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-lua/plenary.nvim', opt = true },
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt = true },
+    { 'nvim-telescope/telescope-ui-select.nvim', opt = true },
+    { 'nvim-telescope/telescope-file-browser.nvim', opt = true, disable = true },
+    { 'ahmedkhalf/project.nvim', config = conf.project, opt = true },
   },
 })
 
@@ -26,7 +28,7 @@ plugin({
 
 plugin({
   'Leiyi548/harpoon',
-  requires = 'nvim-lua/plenary.nvim',
+  requires = { 'nvim-lua/plenary.nvim', opt = true },
   config = conf.harpoon,
 })
 
@@ -68,10 +70,11 @@ plugin({
 plugin({
   'TimUntersberger/neogit',
   requires = {
-    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-lua/plenary.nvim', opt = true },
     {
       'sindrets/diffview.nvim',
       config = conf.diffview,
+      cmd = 'DiffViewFileHistory',
     },
   },
   config = conf.neogit,

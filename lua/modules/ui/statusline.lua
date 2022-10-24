@@ -116,7 +116,7 @@ local simple_filename = {
   'filename',
   file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 1,
+  path = 0,
   -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path
@@ -179,6 +179,8 @@ local LSP_status = {
       for _, client in ipairs(vim.lsp.get_active_clients()) do
         if client.attached_buffers[vim.api.nvim_get_current_buf()] then
           return ('   LSP ~ ' .. client.name .. ' ') or '   LSP '
+        else
+          return '   Inactive LSP'
         end
       end
     end

@@ -123,6 +123,22 @@ function config.tokyonight()
       hls.PmenuSel = {
         bg = c.bg_visual,
       }
+      -- illuminate
+      hls.illuminateWord = {
+        bg = c.bg_visual,
+      }
+      hls.illuminateCurWord = {
+        bg = c.bg_visual,
+      }
+      hls.illuminateWordRead = {
+        bg = c.bg_visual,
+      }
+      hls.illuminateWordText = {
+        bg = c.bg_visual,
+      }
+      hls.illuminateWordWrite = {
+        bg = c.bg_visual,
+      }
       hls.markdownBold = {
         fg = c.orange,
       }

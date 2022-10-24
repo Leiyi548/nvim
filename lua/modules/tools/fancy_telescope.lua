@@ -53,6 +53,9 @@ local larget_layout_config = {
 }
 
 function M.findDotfile()
+  if not packer_plugins['telescope.nvim'].loaded then
+    vim.cmd([[packadd telescope.nvim]])
+  end
   local opts = {
     prompt_title = 'Dotfile',
     hidden = true,
@@ -107,7 +110,7 @@ function M.selectBuffers()
 end
 
 function M.findFiles()
-  local opts= {
+  local opts = {
     prompt_title = 'Files',
     -- path_display = { "smart" },
     previewer = false,

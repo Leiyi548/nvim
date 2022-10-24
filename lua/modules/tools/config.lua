@@ -10,6 +10,14 @@ function config.telescope()
   if not telescope_ok then
     return
   end
+  -- add lazyload plugins
+  if not packer_plugins['plenary.nvim'].loaded then
+    vim.cmd([[packadd plenary.nvim]])
+    vim.cmd([[packadd telescope-fzf-native.nvim]])
+    vim.cmd([[packadd telescope-ui-select.nvim]])
+    -- vim.cmd([[packadd telescope-file-browser.nvim]])
+    vim.cmd([[packadd project.nvim]])
+  end
   local actions = require('telescope.actions')
   local action_state = require('telescope.actions.state')
   local transform_mod = require('telescope.actions.mt').transform_mod
@@ -279,6 +287,7 @@ function config.telescope()
   require('telescope').load_extension('fzf')
   require('telescope').load_extension('projects')
   require('telescope').load_extension('ui-select')
+  -- require('telescope').load_extension('file_browser')
 end
 
 function config.project()
@@ -817,8 +826,10 @@ function config.spctre()
 end
 
 function config.neogit()
+  if not packer_plugins['plenary.nvim'].loaded then
+    vim.cmd([[packadd plenary.nvim]])
+  end
   local neogit = require('neogit')
-
   neogit.setup({
     disable_signs = false,
     disable_hint = false,
@@ -1096,6 +1107,9 @@ function config.colortils()
 end
 
 function config.harpoon()
+  if not packer_plugins['plenary.nvim'].loaded then
+    vim.cmd([[packadd plenary.nvim]])
+  end
   require('harpoon').setup({
     global_settings = {
       -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
