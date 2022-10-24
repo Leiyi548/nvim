@@ -177,6 +177,27 @@ function M.findNotes()
   builtin.find_files(themes.get_dropdown(opts))
 end
 
+function M.findGoSource()
+  local opts = {
+    prompt_title = 'Find In Go Root',
+    result_title = 'Go Source Code',
+    find_command = {
+      'rg',
+      '--files',
+      '-t',
+      'go',
+    },
+    path_display = { 'smart' },
+    search_dirs = {
+      '/usr/local/go',
+    },
+    previewer = false,
+    file_ignore_patterns = file_ignore_patterns,
+    layout_config = larget_layout_config,
+  }
+  builtin.find_files(themes.get_dropdown(opts))
+end
+
 function M.grep_string_visual()
   local visual_selection = function()
     local save_previous = vim.fn.getreg('a')

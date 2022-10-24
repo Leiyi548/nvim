@@ -276,6 +276,7 @@ local mappings = {
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
     h = { '<cmd>Telescope help_tags<cr>', 'Help' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
+    g = { "<cmd>lua require('modules.tools.fancy_telescope').findGoSource()<cr>", 'Gosource' },
     m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
     t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
