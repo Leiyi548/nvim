@@ -315,6 +315,8 @@ local mappings = {
   m = {
     name = 'Markdown/Mark',
     p = { '<cmd>MarkdownPreview<cr>', 'MarkdownPreview' },
+    j = { 'Next Method' },
+    k = { 'Previous Method' },
   },
 }
 

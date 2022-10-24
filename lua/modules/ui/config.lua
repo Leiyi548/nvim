@@ -119,6 +119,10 @@ function config.tokyonight()
         bg = c.none,
         fg = c.blue1,
       }
+      -- cmp highlight selected line
+      hls.PmenuSel = {
+        bg = c.bg_visual,
+      }
       hls.markdownBold = {
         fg = c.orange,
       }
@@ -555,6 +559,7 @@ function config.nvim_tree()
           { key = '[d', action = 'prev_git_item' },
           { key = ']d', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
+          { key = 'o', action = 'edit' },
           { key = 'l', action = 'edit' },
           { key = 'O', action = 'system_open' },
           { key = 'h', action = 'parent_node' },

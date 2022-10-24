@@ -137,12 +137,13 @@ plugin({
   requires = {
     { 'tpope/vim-repeat' },
   },
-  disable = true,
+  disable = false,
 })
 
 plugin({
   'kylechui/nvim-surround',
   config = conf.nvim_surround,
+  disable = true,
 })
 
 plugin({

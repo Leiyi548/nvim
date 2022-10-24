@@ -58,10 +58,12 @@ function config.nvim_treesitter()
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
           [']m'] = '@function.outer',
+          ['<space>mj'] = '@function.outer',
           [']c'] = '@class.outer',
         },
         goto_previous_start = {
           ['[m'] = '@function.outer',
+          ['<space>mk'] = '@function.outer',
           ['[c'] = '@class.outer',
         },
       },
