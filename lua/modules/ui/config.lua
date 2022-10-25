@@ -578,7 +578,6 @@ function config.nvim_tree()
 
     view = {
       width = 30,
-      -- height = 30,
       hide_root_folder = false,
       side = 'left',
       preserve_window_proportions = false,
@@ -607,7 +606,7 @@ function config.nvim_tree()
         open_win_config = {
           relative = 'editor',
           border = 'rounded',
-          width = 30,
+          width = 50,
           height = 30,
           row = 1,
           col = 1,

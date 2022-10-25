@@ -39,6 +39,12 @@ plugin({
 })
 
 plugin({
+  'Leiyi548/vim-im-select',
+  event = 'InsertEnter',
+  disable = not vim.fn.has('wsl') == 1,
+})
+
+plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,
