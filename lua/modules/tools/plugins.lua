@@ -137,8 +137,17 @@ plugin({
 
 plugin({
   'tpope/vim-surround',
+  keys = {
+    { 'n', 'ds' },
+    { 'n', 'cs' },
+    { 'n', 'cS' },
+    { 'n', 'yss' },
+    { 'n', 'ygs' },
+    { 'x', 'S' },
+    { 'x', 'gS' },
+  },
   requires = {
-    { 'tpope/vim-repeat' },
+    { 'tpope/vim-repeat', after = 'vim-surround' },
   },
   disable = false,
 })

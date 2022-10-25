@@ -24,4 +24,3 @@ xnoremap <silent>am <cmd>call <sid>MarkdowCodeBlock(1)<cr>
 
 onoremap <silent>im <cmd>call <sid>MarkdowCodeBlock(0)<cr>
 xnoremap <silent>im <cmd>call <sid>MarkdowCodeBlock(0)<cr>
-

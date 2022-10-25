@@ -107,10 +107,12 @@ function config.tokyonight()
     on_highlights = function(hls, c)
       hls.CursorLine = {
         bg = c.none,
+        style = 'bold',
       }
       -- current
       hls.CursorLineNr = {
         fg = c.blue1,
+        style = 'bold',
       }
       hls.LineNr = {
         fg = c.blue1,
@@ -127,16 +129,31 @@ function config.tokyonight()
       hls.illuminateWord = {
         bg = c.bg_visual,
       }
+      hls.illuminatedWord = {
+        bg = c.bg_visual,
+      }
       hls.illuminateCurWord = {
+        bg = c.bg_visual,
+      }
+      hls.illuminatedCurWord = {
         bg = c.bg_visual,
       }
       hls.illuminateWordRead = {
         bg = c.bg_visual,
       }
+      hls.illuminatedWordRead = {
+        bg = c.bg_visual,
+      }
       hls.illuminateWordText = {
         bg = c.bg_visual,
       }
+      hls.illuminatedWordText = {
+        bg = c.bg_visual,
+      }
       hls.illuminateWordWrite = {
+        bg = c.bg_visual,
+      }
+      hls.illuminatedWordWrite = {
         bg = c.bg_visual,
       }
       hls.markdownBold = {

@@ -12,7 +12,10 @@ plugin({
   config = conf.nvim_treesitter,
 })
 plugin({ 'nvim-treesitter/nvim-treesitter-textobjects' })
-plugin({ 'nvim-treesitter/playground' })
+plugin({
+  'nvim-treesitter/playground',
+  cmd = { 'TSPlaygroundToggle', 'TSHighlightCapturesUnderCursor' },
+})
 plugin({
   'nvim-treesitter/nvim-treesitter-context',
   config = conf.nvim_treesitter_content,
@@ -32,6 +35,13 @@ plugin({
   run = 'cd app && npm install',
   ft = 'markdown',
   config = conf.markdown_preview,
+})
+
+plugin({
+  'preservim/vim-markdown',
+  ft = 'markdown',
+  config = conf.vim_markdown,
+  disable = true,
 })
 
 plugin({

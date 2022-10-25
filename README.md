@@ -15,6 +15,10 @@ linux
 xset r rate 210 40
 ```
 
+## Todo
+
+- [ ] lazyload plugin make neovim fast
+
 ## Other recommended neovim configurations
 
 - [LunarVim](https://github.com/LunarVim/LunarVim)
