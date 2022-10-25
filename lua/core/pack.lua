@@ -44,6 +44,7 @@ function Packer:load_packer()
     disable_commands = true,
     -- open float window
     display = {
+      working_sym = '[ ]', error_sym = '[✗]', done_sym = '[✓]', removed_sym = ' - ', moved_sym = ' → ', header_sym = '─',
       open_fn = function()
         return require('packer.util').float({ border = 'single' }) -- single rounded
       end,
