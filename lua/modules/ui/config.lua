@@ -1,5 +1,5 @@
--- author: Leyi548 https://github.com/Leyi548
--- date: 2022-09-3
+-- author: Leiyi548 https://github.com/Leiyi548
+-- date: 2022-10-26
 -- License: MIT
 
 local config = {}
@@ -118,8 +118,13 @@ function config.tokyonight()
         fg = c.blue1,
       }
       hls.StatusLine = {
-        bg = c.none,
         fg = c.blue1,
+        bg = c.none,
+      }
+      hls.Comment = {
+        -- fg = '#6A9955',
+        fg = '#7b80b0',
+        bg = c.none,
       }
       -- cmp highlight selected line
       hls.PmenuSel = {
