@@ -8,14 +8,13 @@ local conf = require('modules.tools.config')
 plugin({
   'nvim-telescope/telescope.nvim',
   config = conf.telescope,
-  -- cmd = 'Telescope',
   requires = {
     { 'nvim-lua/popup.nvim' },
-    { 'nvim-lua/plenary.nvim', opt = true },
-    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make', opt = true },
-    { 'nvim-telescope/telescope-ui-select.nvim', opt = true },
+    { 'nvim-lua/plenary.nvim' },
+    { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
     { 'nvim-telescope/telescope-file-browser.nvim', opt = true, disable = true },
-    { 'ahmedkhalf/project.nvim', config = conf.project, opt = true },
+    { 'ahmedkhalf/project.nvim', config = conf.project },
   },
 })
 
@@ -28,7 +27,7 @@ plugin({
 
 plugin({
   'Leiyi548/harpoon',
-  requires = { 'nvim-lua/plenary.nvim', opt = true },
+  requires = { 'nvim-lua/plenary.nvim' },
   config = conf.harpoon,
 })
 

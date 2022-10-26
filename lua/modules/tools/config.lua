@@ -11,13 +11,13 @@ function config.telescope()
     return
   end
   -- add lazyload plugins
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-    vim.cmd([[packadd telescope-fzf-native.nvim]])
-    vim.cmd([[packadd telescope-ui-select.nvim]])
-    -- vim.cmd([[packadd telescope-file-browser.nvim]])
-    vim.cmd([[packadd project.nvim]])
-  end
+  -- if not packer_plugins['plenary.nvim'].loaded then
+  --   vim.cmd([[packadd plenary.nvim]])
+  --   vim.cmd([[packadd telescope-fzf-native.nvim]])
+  --   vim.cmd([[packadd telescope-ui-select.nvim]])
+  --   -- vim.cmd([[packadd telescope-file-browser.nvim]])
+  --   vim.cmd([[packadd project.nvim]])
+  -- end
   local actions = require('telescope.actions')
   local action_state = require('telescope.actions.state')
   local transform_mod = require('telescope.actions.mt').transform_mod
@@ -1107,9 +1107,6 @@ function config.colortils()
 end
 
 function config.harpoon()
-  if not packer_plugins['plenary.nvim'].loaded then
-    vim.cmd([[packadd plenary.nvim]])
-  end
   require('harpoon').setup({
     global_settings = {
       -- sets the marks upon calling `toggle` on the ui, instead of require `:w`.
