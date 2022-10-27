@@ -235,12 +235,12 @@ local mappings = {
     i = { '<cmd>LspInfo<cr>', 'Info' },
     I = { '<cmd>Mason<cr>', 'Mason Install' },
     j = {
-      '<cmd>lua vim.diagnostic.goto_next()<cr>',
+      '<cmd>Lspsaga diagnostic_jump_next<cr>',
       'Next Diagnostic',
     },
     g = { '<cmd>lua _LAZYGIT_TOGGLE()<cr>', 'Lazygit' },
     k = {
-      '<cmd>lua vim.diagnostic.goto_prev()<cr>',
+      '<cmd>Lspsaga diagnostic_jump_prev<cr>',
       'Prev Diagnostic',
     },
     -- l = { '<cmd>lua vim.lsp.codelens.run()<cr>', '  CodeLens Action' },

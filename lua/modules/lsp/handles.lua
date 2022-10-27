@@ -107,8 +107,8 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lr', '<cmd>Lspsaga rename<cr>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', '<F2>', '<cmd>Lspsaga rename<cr>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gl', '<cmd>Lspsaga show_line_diagnostics<cr>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', '[e', '<cmd>Lspsaga diagnostic_jump_prev<cr><cr>', opts)
-  vim.api.nvim_buf_set_keymap(bufnr, 'n', ']e', '<cmd>Lspsaga diagnostic_jump_next<cr><cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr><cr>', opts)
+  vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr><cr>', opts)
 end
 
 M.on_attach = function(client, bufnr)

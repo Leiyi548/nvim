@@ -21,8 +21,8 @@ nmap({
   { '<M-v>', cmd('ToggleTerm size=80  direction=vertical'), opts(noremap, silent) },
 
   -- gitsign
-  { '[d', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
-  { ']d', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
+  { '[g', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
+  { ']g', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
   -- Vistitlink like vscode style
