@@ -31,8 +31,12 @@ M.winbar_filetype_exclude = {
   '',
 }
 
-function _G.winbar_click_exploer()
+function _G.winbar_click_explorer()
   vim.cmd('NvimTreeToggle')
+end
+
+function _G.winbar_click_tabs()
+  vim.cmd('Telescope telescope-tabs list_tabs')
 end
 
 M.get_filename = function()
@@ -62,7 +66,7 @@ M.get_filename = function()
         .. ' '
         .. '%'
         .. nr
-        .. '@v:lua.winbar_click_exploer@'
+        .. '@v:lua.winbar_click_explorer@'
         .. '%#WinbarFilename#'
         .. filename
         -- .. '%*'
@@ -128,11 +132,13 @@ M.get_winbar = function()
     end
   end
 
+  -- 显示 tab
   local num_tabs = #vim.api.nvim_list_tabpages()
 
+  local nr = vim.api.nvim_get_current_buf()
   if num_tabs > 1 and not f.isempty(value) then
     local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
-    value = value .. '%=' .. tabpage_number .. '/' .. tostring(num_tabs)
+    value = value .. '%' .. nr .. '@v:lua.winbar_click_tabs@' .. '%=' .. tabpage_number .. '/' .. tostring(num_tabs)
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })

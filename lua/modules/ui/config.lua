@@ -379,7 +379,7 @@ function config.catppuccin()
       shade = 'dark',
       percentage = 0.15,
     },
-    transparent_background = false,
+    transparent_background = true,
     term_colors = false,
     compile = {
       enabled = false,
@@ -387,7 +387,7 @@ function config.catppuccin()
       path = vim.fn.stdpath('cache') .. '/catppuccin',
     },
     styles = {
-      comments = { 'italic' },
+      comments = {},
       conditionals = {},
       loops = {},
       functions = {},
@@ -405,10 +405,10 @@ function config.catppuccin()
       native_lsp = {
         enabled = true,
         virtual_text = {
-          errors = { 'italic' },
-          hints = { 'italic' },
-          warnings = { 'italic' },
-          information = { 'italic' },
+          errors = {},
+          hints = {},
+          warnings = {},
+          information = {},
         },
         underlines = {
           errors = { 'underline' },
@@ -417,7 +417,7 @@ function config.catppuccin()
           information = { 'underline' },
         },
       },
-      coc_nvim = false,
+      coc_nvim = true,
       lsp_trouble = false,
       cmp = true,
       lsp_saga = true,
@@ -428,10 +428,10 @@ function config.catppuccin()
       nvimtree = {
         enabled = true,
         show_root = true,
-        transparent_panel = false,
+        transparent_panel = true,
       },
       neotree = {
-        enabled = false,
+        enabled = true,
         show_root = true,
         transparent_panel = false,
       },
@@ -439,7 +439,7 @@ function config.catppuccin()
         enabled = false,
         enable_ui = false,
       },
-      which_key = false,
+      which_key = true,
       indent_blankline = {
         enabled = true,
         colored_indent_levels = false,
@@ -459,9 +459,9 @@ function config.catppuccin()
       symbols_outline = false,
       mini = false,
       aerial = false,
-      vimwiki = true,
+      vimwiki = false,
       beacon = true,
-      navic = false,
+      navic = true,
       overseer = false,
     },
     color_overrides = {},

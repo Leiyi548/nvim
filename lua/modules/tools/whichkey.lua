@@ -91,6 +91,7 @@ local mappings = {
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
   ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<CR>", ' Add Mark' },
   ['j'] = { '<cmd>e #<cr>', 'Recent Buffer' },
+  ['J'] = { '<cmd>lua require("telescope-tabs").go_to_previous()<cr>', 'Recent Tab' },
   ['k'] = { '<cmd>HopWord<cr>', 'HopWord' },
   ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
@@ -294,14 +295,16 @@ local mappings = {
 
   -- whichkey-t
   t = {
-    name = 'Toggle/Terminal',
-    n = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
+    name = 'Toggle/Terminal/Tab',
+    n = { '<cmd>ToggleTerm direction=tab<cr>', 'New Terminal Tab' },
+    N = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
+    o = { '<cmd>tabonly<cr>', 'tabonly' },
+    t = { '<cmd>Telescope telescope-tabs list_tabs<cr>', 'Telescope Tabs' },
     p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
     g = { '<cmd>lua _GOTOP_TOGGLE()<CR>', 'gotop' },
     f = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
     h = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', ' Hterm' },
     v = { '<cmd>ToggleTerm size=80 direction=vertical<cr>', ' Vterm' },
-    t = { '<cmd>ToggleTerm direction=tab<cr>', 'New Terminal Tab' },
     c = { '<cmd>ColorizerToggle<cr>', 'Toggle Colorizer highlight' },
   },
 

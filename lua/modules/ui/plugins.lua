@@ -13,7 +13,7 @@ plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
 plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa, disable = true })
 plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro, disable = true })
 -- 给插件的名字取别名 原本是叫 nvim 被改成叫 catppuccin
-plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = false })
 plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = true })
 plugin({
   'sainnhe/gruvbox-material',

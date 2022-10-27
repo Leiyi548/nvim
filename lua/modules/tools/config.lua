@@ -327,6 +327,16 @@ function config.project()
   })
 end
 
+function config.tabs()
+  require('telescope-tabs').setup({
+    initial_mode = "normal",
+    show_preview = false,
+    close_tab_shortcut_i = '<C-d>', -- if you're in insert mode
+    close_tab_shortcut_n = 'dd', -- if you're in normal modeinitial_mode = 'normal',
+    theme = 'dropdown',
+  })
+end
+
 function config.whichkey()
   require('modules.tools.whichkey')
 end

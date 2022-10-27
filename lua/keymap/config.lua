@@ -84,7 +84,6 @@ imap({
   -- emacs keybinding
   -- reference: https://unix.stackexchange.com/questions/49203/vim-customized-with-emacs-commands-insert-mode-only
   -- deleate a word befor
-  { '<C-u>', '<C-G>u<C-u>', opts(noremap) },
   { '<C-p>', '<Up>', opts(noremap) },
   { '<C-n>', '<Down>', opts(noremap) },
   { '<C-b>', '<Left>', opts(noremap) },
