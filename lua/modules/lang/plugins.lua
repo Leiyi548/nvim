@@ -29,6 +29,9 @@ plugin({
 -- lua
 plugin({ 'christianchiarulli/lua-dev.nvim' })
 
+-- go
+plugin({ 'danymat/neogen', config = conf.neogen })
+
 -- markdown
 plugin({
   'iamcco/markdown-preview.nvim',

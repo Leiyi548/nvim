@@ -126,39 +126,34 @@ function config.tokyonight()
         fg = '#7b80b0',
         bg = c.none,
       }
+      -- TodoComment
+      hls.TodoBgFix = {
+        bg = c.none,
+      }
+      hls.TodoBgHack = {
+        bg = c.none,
+      }
+      hls.TodoBgNote = {
+        bg = c.none,
+      }
+      hls.TodoBgREPF = {
+        bg = c.none,
+      }
+      hls.TodoBgTEST = {
+        bg = c.none,
+      }
+      -- TODO:
+      hls.Todo = {
+        bg = c.none,
+      }
+      hls.TodoBgTODO = {
+        bg = c.none,
+      }
+      hls.TodoBgWARN = {
+        bg = c.none,
+      }
       -- cmp highlight selected line
       hls.PmenuSel = {
-        bg = c.bg_visual,
-      }
-      -- illuminate
-      hls.illuminateWord = {
-        bg = c.bg_visual,
-      }
-      hls.illuminatedWord = {
-        bg = c.bg_visual,
-      }
-      hls.illuminateCurWord = {
-        bg = c.bg_visual,
-      }
-      hls.illuminatedCurWord = {
-        bg = c.bg_visual,
-      }
-      hls.illuminateWordRead = {
-        bg = c.bg_visual,
-      }
-      hls.illuminatedWordRead = {
-        bg = c.bg_visual,
-      }
-      hls.illuminateWordText = {
-        bg = c.bg_visual,
-      }
-      hls.illuminatedWordText = {
-        bg = c.bg_visual,
-      }
-      hls.illuminateWordWrite = {
-        bg = c.bg_visual,
-      }
-      hls.illuminatedWordWrite = {
         bg = c.bg_visual,
       }
       hls.markdownBold = {
@@ -496,7 +491,7 @@ function config.dashboard()
       shortcut = 'SPC p c',
     },
     {
-      icon = '   ',
+      icon = '  ',
       desc = 'PackerSync                              ',
       action = 'PackerSync',
       shortcut = 'SPC p s',

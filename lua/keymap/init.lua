@@ -25,6 +25,10 @@ nmap({
   { ']g', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
+  -- todo-comment
+  { '[t', cmd('lua require("todo-comments").jump_prev()'), opts(noremap, silent) },
+  { ']t', cmd('lua require("todo-comments").jump_next()'), opts(noremap, silent) },
+
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },
 

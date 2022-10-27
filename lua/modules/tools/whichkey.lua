@@ -114,9 +114,10 @@ local mappings = {
 
   -- whichkey-c
   c = {
-    name = 'Checkout',
+    name = 'Checkout/Comment',
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
     c = { '<cmd>Telescope git_commits<cr>', 'Checkout commit' },
+    f = { '<cmd>lua require("neogen").generate({type="func"})<cr>', 'Doc function' },
   },
 
   -- whichkey-u
@@ -280,7 +281,8 @@ local mappings = {
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
     g = { "<cmd>lua require('modules.tools.fancy_telescope').findGoSource()<cr>", 'Gosource' },
     m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
-    t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
+    q = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
+    t = { '<cmd>TodoTelescope<cr>', 'Todo Telescope' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },
     c = { '<cmd>Telescope colorscheme<cr>', 'Colorschemes' },
     n = {
