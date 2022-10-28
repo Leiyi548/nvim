@@ -117,10 +117,11 @@ function config.tokyonight()
       hls.LineNr = {
         fg = c.blue1,
       }
-      hls.StatusLine = {
-        fg = c.blue1,
-        bg = c.none,
+      hls.Function = {
+        fg = c.blue,
+        style = 'bold',
       }
+
       -- hls.Comment = {
       --   -- fg = '#6A9955',
       --   fg = '#7b80b0',

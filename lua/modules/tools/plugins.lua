@@ -45,6 +45,12 @@ plugin({
 })
 
 plugin({
+  'mg979/vim-visual-multi',
+  config = conf.vim_visual_multi,
+  disable = true,
+})
+
+plugin({
   'nvim-colortils/colortils.nvim',
   cmd = 'Colortils',
   config = conf.colortils,
