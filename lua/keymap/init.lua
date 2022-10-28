@@ -55,3 +55,7 @@ smap({
   { '<C-j>', _G.smart_C_j, opts(expr, silent, remap) },
   { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
 })
+
+vim.cmd([[
+  snoremap <BS> <C-O>s
+]])
