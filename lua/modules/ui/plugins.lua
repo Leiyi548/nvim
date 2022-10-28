@@ -45,13 +45,7 @@ plugin({
 plugin({
   'nvim-lualine/lualine.nvim',
   config = conf.lualine,
-  disable = true,
-})
-
-plugin({
-  'rebelot/heirline.nvim',
-  config = conf.lualine,
-  disable = true,
+  disable = false,
 })
 
 -- tabline
