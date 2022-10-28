@@ -75,6 +75,7 @@ plugin({
 
 plugin({
   'TimUntersberger/neogit',
+  cmd = { 'Neogit' },
   requires = {
     { 'nvim-lua/plenary.nvim', opt = true },
     {
@@ -95,7 +96,27 @@ plugin({
 plugin({
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
-  event = 'BufRead',
+  cmd = {
+    'HopWord',
+    'HopWordMW',
+    'HopWordAC',
+    'HopWordBC',
+    'HopLine',
+    'HopChar1',
+    'HopChar1MW',
+    'HopChar1AC',
+    'HopChar1BC',
+    'HopChar2',
+    'HopChar2MW',
+    'HopChar2AC',
+    'HopChar2BC',
+    'HopPattern',
+    'HopPatternAC',
+    'HopPatternBC',
+    'HopChar1CurrentLineAC',
+    'HopChar1CurrentLineBC',
+    'HopChar1CurrentLine',
+  },
   config = function()
     -- you can configure Hop the way you like here; see :h hop-config
     require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
@@ -104,7 +125,8 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
-  event = 'BufWinEnter',
+  cmd = { 'ToggleTerm', 'TermExec' },
+  event = { 'CmdwinEnter', 'CmdlineEnter' },
   config = conf.toggleterm,
 })
 

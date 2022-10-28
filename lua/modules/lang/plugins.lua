@@ -36,6 +36,7 @@ plugin({ 'danymat/neogen', config = conf.neogen })
 plugin({
   'iamcco/markdown-preview.nvim',
   run = 'cd app && npm install',
+  cmd = { 'MarkdownPreview' },
   ft = 'markdown',
   config = conf.markdown_preview,
 })

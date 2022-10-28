@@ -79,11 +79,11 @@ function config.tokyonight()
     terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
     styles = {
       -- Style to be applied to different syntax groups
-      -- Value is any valid attr-list value `:help attr-list`
-      comments = 'NONE',
-      keywords = 'NONE',
-      functions = 'NONE',
-      variables = 'NONE',
+      -- Value is any valid attr-list value for `:help nvim_set_hl`
+      comments = { italic = true },
+      keywords = { italic = false },
+      functions = { italic = true },
+      variables = {},
       -- Background styles. Can be "dark", "transparent" or "normal"
       sidebars = 'transparent', -- style for sidebars, see below
       floats = 'transparent', -- style for floating windows
@@ -121,11 +121,12 @@ function config.tokyonight()
         fg = c.blue1,
         bg = c.none,
       }
-      hls.Comment = {
-        -- fg = '#6A9955',
-        fg = '#7b80b0',
-        bg = c.none,
-      }
+      -- hls.Comment = {
+      --   -- fg = '#6A9955',
+      --   fg = '#7b80b0',
+      --   bg = c.none,
+      --   style = 'italic',
+      -- }
       -- TodoComment
       hls.TodoBgFix = {
         bg = c.none,
@@ -551,7 +552,7 @@ function config.dashboard()
 end
 
 function config.lualine()
-  require('modules.ui.statusline')
+  require('modules.ui.lualine')
 end
 
 function config.bufferline()
