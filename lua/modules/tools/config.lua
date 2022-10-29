@@ -1215,4 +1215,40 @@ function config.vim_visual_multi()
   }
 end
 
+function config.leap()
+  local leap = require('leap')
+
+  local labels = {
+    'f',
+    'j',
+    'd',
+    'k',
+    's',
+    'l',
+    'a',
+    ';',
+    'n',
+    'v',
+    'c',
+    'm',
+    'x',
+    'q',
+    'w',
+    'u',
+    'i',
+    'o',
+    'e',
+    'r',
+    'h',
+    'g',
+  }
+
+  leap.setup({
+    case_sensitive = false,
+    labels = labels,
+    safe_labels = labels,
+  })
+  require('leap').set_default_keymaps()
+end
+
 return config

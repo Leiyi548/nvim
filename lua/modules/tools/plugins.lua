@@ -100,6 +100,11 @@ plugin({
 })
 
 plugin({
+  'ggandor/leap.nvim',
+  config = conf.leap
+})
+
+plugin({
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
   cmd = {
