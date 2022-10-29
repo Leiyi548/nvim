@@ -115,7 +115,7 @@ function config.tokyonight()
         style = 'bold',
       }
       hls.LineNr = {
-        fg = c.blue1,
+        fg = '#0087d7',
       }
       hls.Function = {
         fg = c.blue,
