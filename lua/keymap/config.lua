@@ -20,7 +20,6 @@ xmap({ ' ', '', opts(noremap) })
 nmap({
   -- noremal remap
   { '<C-s>', cmd('write'), opts(noremap) },
-  { 's', '<leader>' },
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
 
