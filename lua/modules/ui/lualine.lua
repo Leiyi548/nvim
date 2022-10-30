@@ -81,8 +81,7 @@ local diff = {
   colored = false,
   symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
   cond = hide_in_width_60,
-  -- separator = '%#SLSeparator#' .. '│ ' .. '%*',
-  separator = ' │',
+  -- separator = ' │',
 }
 
 local branch = {
@@ -214,6 +213,13 @@ local filetype = {
   padding = { left = 1, right = 0 },
 }
 
+local mode = {
+  'mode',
+  fmt = function(str)
+    return '-- ' .. str .. ' --'
+  end,
+}
+
 local pwd = function()
   local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ''
   return ' ' .. foldname
@@ -224,9 +230,10 @@ lualine.setup({
     icons_enabled = true,
     globalstatus = true,
     theme = require('modules.ui.transparent_stausline'),
-    -- section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
-    section_separators = { left = '', right = '' },
+    -- component_separators = { left = '', right = '' },
+    -- section_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
 
@@ -241,15 +248,12 @@ lualine.setup({
     },
   },
   sections = {
-    -- lualine_a = {},
-    lualine_a = { pwd, branch, simple_filename },
-    -- lualine_b = { filetype, simple_filename },
+    lualine_a = { branch, pwd, simple_filename, mode },
     lualine_b = {},
     lualine_c = {},
-    -- lualine_x = { "encoding", "fileformat", "filetype" },
-    -- lualine_x = { LSP_status, diff },
-    lualine_x = { LSP_status, diagnostics, diff },
-    lualine_y = { encoding, location },
+
+    lualine_x = { LSP_status },
+    lualine_y = { diagnostics, diff, spaces, encoding, location },
     lualine_z = { progress },
   },
   -- 没有聚焦的窗口
