@@ -101,7 +101,7 @@ plugin({
 
 plugin({
   'ggandor/leap.nvim',
-  config = conf.leap
+  config = conf.leap,
 })
 
 plugin({
@@ -132,6 +132,7 @@ plugin({
     -- you can configure Hop the way you like here; see :h hop-config
     require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
   end,
+  disable = true,
 })
 
 plugin({

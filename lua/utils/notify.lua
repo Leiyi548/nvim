@@ -4,9 +4,9 @@ local function notify_level(level)
   return function(msg)
     vim.schedule(function()
       if has_notify then
-        notify(msg, level, { title = 'Diary' })
+        notify(msg, level, { title = "Utils" })
       else
-        vim.notify('[Diary] ' .. msg, level)
+        vim.notify('[Utils]' .. msg, level)
       end
     end)
   end

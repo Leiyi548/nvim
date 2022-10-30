@@ -59,13 +59,13 @@ saga.init_lsp_saga({
   -- finder do lsp request timeout
   -- if your project big enough or your server very slow
   -- you may need to increase this value
-  finder_request_timeout = 1500,
+  finder_request_timeout = 4000,
   -- set antoher colorscheme in preview window
   -- finder_preview_hl_ns = 0,
   finder_action_keys = {
-    open = 'o',
-    vsplit = 's',
-    split = 'i',
+    open = {'o','<cr>'},
+    vsplit = {'s','<C-v>'},
+    split = {'i','<C-s>'},
     tabe = 't',
     quit = 'q',
     scroll_down = '<C-f>',

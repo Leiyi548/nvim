@@ -121,7 +121,6 @@ function config.tokyonight()
         fg = c.blue,
         style = 'bold',
       }
-
       -- hls.Comment = {
       --   -- fg = '#6A9955',
       --   fg = '#7b80b0',
@@ -160,6 +159,7 @@ function config.tokyonight()
       }
       hls.markdownBold = {
         fg = c.orange,
+        style = 'bold',
       }
       hls.DashboardFooter = {
         fg = c.orange,
@@ -242,6 +242,22 @@ function config.tokyonight()
         fg = c.orange,
         bg = c.none,
       }
+      hls.DiagnosticVirtualTextError = {
+        fg = c.error,
+        bg = c.none,
+      }
+      hls.DiagnosticVirtualTextWarn = {
+        fg = c.warning,
+        bg = c.none,
+      }
+      hls.DiagnosticVirtualTextInfo = {
+        fg = c.info,
+        bg = c.none,
+      }
+      hls.DiagnosticVirtualTextHint = {
+        fg = c.hint,
+        bg = c.none,
+      }
       -- custom my winbar hightlight
       hls.WinbarFilename = {
         fg = c.fg_dark,
@@ -249,6 +265,9 @@ function config.tokyonight()
       hls.WinbarBufferNumber = {
         fg = c.cyan,
       }
+      -- hls.MDDoneText = {
+      --   style = { strikethrough = true, italic = true },
+      -- }
     end,
   })
 end

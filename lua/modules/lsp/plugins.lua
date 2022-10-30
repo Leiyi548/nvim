@@ -1,7 +1,6 @@
 local plugin = require('core.pack').register_plugin
 
 plugin({ 'neovim/nvim-lspconfig' })
--- plugin({ 'williamboman/nvim-lsp-installer' })
 plugin({ 'jose-elias-alvarez/null-ls.nvim' })
 plugin({ 'RRethy/vim-illuminate', disable = true })
 plugin({ 'SmiteshP/nvim-navic' })
@@ -21,5 +20,5 @@ plugin({
     })
   end,
 })
-plugin({ 'ray-x/lsp_signature.nvim', disable = true })
+plugin({ 'ray-x/lsp_signature.nvim', disable = false })
 -- plugin({ 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' })

@@ -1,14 +1,13 @@
-" more information please see https://github.com/abzcoding/lvim/blob/main/after/syntax/markdown.vim
-" list
-syn match mdItem "^ *[\*-]\( X \| \[[x ]\]\)\@! " contains=mdBullet
-syn match mdBullet "[\*-]" contained containedin=mdItem conceal cchar=
-" checkbox
-syn match mdTask "^ *- \[ \].*$" contains=mdCheckbox
-syn match mdCheckbox "- \[ \]" contained containedin=mdTask conceal cchar=☐
+hi MDTask ctermfg=1
+hi MDDoneText gui=italic,strikethrough
+hi MDTodoText gui=NONE
+hi MDDoneDate gui=italic,strikethrough ctermfg=71
+hi MDTodoDate ctermfg=71
+au FileType markdown syn match markdownError "\w\@<=\w\@="
+au FileType markdown syn match MDDoneDate /[SD]:\d\{4\}\([\/-]\d\d\)\{2\}/ contained
+au FileType markdown syn match MDTodoDate /[SD]:\d\{4\}\([\/-]\d\d\)\{2\}/ contained
+au FileType markdown syn match MDDoneText /- \[x\] \zs.*/ contains=MDDoneDate contained
+au FileType markdown syn match MDTodoText /- \[ \] \zs.*/ contains=MDTodoDate contained
+au FileType markdown syn match MDTask     /- \[\(x\| \)\] .*/ contains=MDDoneText,MDTodoText
+au FileType markdown call matchadd('Todo', 'D:'.strftime("%Y-%m-%d"))
 
-syn match mdCompleteTask "^ *- \[x\].*$" contains=mdCompleteMark
-syn match mdCompleteTask "\(^ *[\*-] \)\@!.*@done.*$"
-syn match mdCompleteMark "- \[x\]" contained containedin=mdCompleteTask conceal cchar=
-
-setlocal conceallevel=2
-highlight Conceal guibg=NONE

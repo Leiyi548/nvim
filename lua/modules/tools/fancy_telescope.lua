@@ -88,11 +88,9 @@ function M.findDotfile()
   builtin.find_files(themes.get_dropdown(opts))
 end
 
--- more information please see :help ls
 function M.findBuffers()
   local opts = {
     prompt_title = 'Buffers',
-    -- path_display = { 'absolute' },
     prompt_position = 'top',
     previewer = false,
   }
@@ -126,6 +124,7 @@ function M.findRecentFiles()
     path_display = { 'absolute' },
     previewer = false,
     layout_config = larget_layout_config,
+    initial_mode = 'normal',
     -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.oldfiles(themes.get_dropdown(opts))
