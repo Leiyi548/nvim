@@ -302,6 +302,7 @@ local mappings = {
     N = { '<cmd>lua _NODE_TOGGLE()<cr>', 'Node' },
     o = { '<cmd>tabonly<cr>', 'tabonly' },
     t = { '<cmd>Telescope telescope-tabs list_tabs<cr>', 'Telescope Tabs' },
+    s = { '<cmd>TrimTrailingWhitespace<cr>', 'TrimTrailingWhitespace(Buffer)' },
     p = { '<cmd>lua _PYTHON_TOGGLE()<cr>', 'Python' },
     g = { '<cmd>lua _GOTOP_TOGGLE()<CR>', 'gotop' },
     f = { '<cmd>ToggleTerm direction=float<cr>', ' Float' },
