@@ -105,6 +105,11 @@ plugin({
 })
 
 plugin({
+  'ggandor/flit.nvim',
+  config = conf.flit,
+})
+
+plugin({
   'phaazon/hop.nvim',
   branch = 'v2', -- optional but strongly recommended
   cmd = {
