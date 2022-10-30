@@ -341,7 +341,6 @@ local v_opts = {
 
 local v_mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment' },
-  ['p'] = { '<cmd>Telescope registers<cr>', ' Clipboard' },
   ['f'] = { "<cmd>lua require('modules.tools.fancy_telescope').grep_string_visual()<cr>", 'Grep visual' },
 }
 

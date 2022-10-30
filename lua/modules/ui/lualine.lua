@@ -132,6 +132,7 @@ local simple_filename = {
   },
   fmt = function(str)
     local size = require('lualine.components.filesize')()
+    local icon = require('lualine.components.filesize')({ colored = true, icon_only = true })
     if size == '' then
       size = ''
     else
@@ -208,7 +209,7 @@ local encoding = {
 
 local filetype = {
   'filetype',
-  colored = true,
+  colored = false,
   icon_only = true,
   padding = { left = 1, right = 0 },
 }
@@ -234,7 +235,7 @@ lualine.setup({
     -- section_separators = { left = '', right = '' },
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
+    disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'packer' },
     always_divide_middle = true,
 
     refresh = { -- sets how often lualine should refreash it's contents (in ms)
@@ -248,7 +249,7 @@ lualine.setup({
     },
   },
   sections = {
-    lualine_a = { branch, pwd, simple_filename, mode },
+    lualine_a = { branch, pwd, filetype, simple_filename, mode },
     lualine_b = {},
     lualine_c = {},
 
