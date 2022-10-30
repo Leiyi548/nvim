@@ -14,7 +14,13 @@ vim.g.mapleader = ' '
 
 -- leaderkey
 nmap({ ' ', '', opts(noremap) })
-xmap({ ' ', '', opts(noremap) })
+xmap({
+  { ' ', '', opts(noremap) },
+  { '<leader>y', '"+y', opts(noremap) },
+  { '<leader>p', '"+p', opts(noremap) },
+  { '<leader>Y', '"+Y', opts(noremap) },
+  { '<leader>P', '"+P', opts(noremap) },
+})
 
 -- usage example
 nmap({
@@ -22,6 +28,10 @@ nmap({
   { '<C-s>', cmd('write'), opts(noremap) },
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
+  { '<leader>y', '"+y', opts(noremap) },
+  { '<leader>p', '"+p', opts(noremap) },
+  { '<leader>Y', '"+Y', opts(noremap) },
+  { '<leader>P', '"+P', opts(noremap) },
 
   -- I hate click this key
   { 'H', '^', opts(noremap) },

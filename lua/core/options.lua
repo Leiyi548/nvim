@@ -106,18 +106,7 @@ vim.opt.background = 'dark'
 -- vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'niv'
 
--- wsl yanking to windows clipboard from nvim
+-- wsl2 setting
 if vim.fn.has('wsl') == 1 then
-  vim.g.clipboard = {
-    name = 'win32yank-wsl',
-    copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf',
-    },
-    paste = {
-      ['+'] = 'win32yank.exe -o --lf',
-      ['*'] = 'win32yank.exe -o --lf',
-    },
-    cache_enable = 0,
-  }
+  vim.opt.clipboard = ''
 end
