@@ -56,6 +56,7 @@ smap({
   { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
 })
 
+-- luasnip
 vim.cmd([[
   snoremap <BS> <C-O>s
 ]])
