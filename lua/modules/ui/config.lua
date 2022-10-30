@@ -165,14 +165,14 @@ function config.tokyonight()
         fg = c.orange,
         style = 'bold',
       }
-      hls.FidgetTitle = {
-        bg = c.none,
-        fg = c.blue1,
-      }
-      hls.FidgetTask = {
-        bg = c.none,
-        fg = c.blue1,
-      }
+      -- hls.FidgetTitle = {
+      --   bg = c.none,
+      --   fg = '#fff',
+      -- }
+      -- hls.FidgetTask = {
+      --   bg = c.none,
+      --   fg = '#fff',
+      -- }
       hls.TelescopeSelection = {
         fg = c.orange,
         style = 'bold',
