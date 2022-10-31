@@ -1,13 +1,24 @@
+## Refactor
+
+- [ ] 重写 event.lua
+
 ## Function
 
 - [x] 添加复制当前路径（绝对路径）到系统剪贴版
 
 ## UI
 
-- [x] use new statusline plugin to instead of lualine
 - [x] dreesing.nvim
+- [x] change gitsign icon
+- [x] add markdown-preview.nvim css
 
 ## LSP
 
-- [x] lsp format on save
-- [x] lsp signature
+- [ ] lsp signature
+  - [ ] fix float window position
+- [ ] lsp format on save
+  - [ ] markdown
+  - [ ] css
+  - [x] lua
+  - [x] go
+  - [x] html
