@@ -617,11 +617,11 @@ function config.nvim_tree()
         },
       },
       float = {
-        enable = true,
+        enable = false,
         open_win_config = {
           relative = 'editor',
           border = 'rounded',
-          width = 50,
+          width = 30,
           height = 30,
           row = 1,
           col = 1,
@@ -635,7 +635,7 @@ function config.nvim_tree()
       highlight_opened_files = 'none',
       root_folder_modifier = ':~',
       indent_markers = {
-        enable = false,
+        enable = true,
         icons = {
           corner = '└ ',
           edge = '│ ',
@@ -1022,7 +1022,7 @@ function config.colorful_winsep()
       guifg = '#957CC6',
     },
     interval = 100,
-    no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest' },
+    no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest','toggleterm','NvimTree' },
     symbols = { '━', '┃', '┏', '┓', '┗', '┛' },
     win_opts = {
       relative = 'editor',
