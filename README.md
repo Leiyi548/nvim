@@ -2,6 +2,15 @@
 
 ![dashboard](https://user-images.githubusercontent.com/76139422/196498683-1f67bd48-fae6-49b0-9ff7-5513f5929160.png)
 
+## Requrement
+
+- archlinux
+
+```sh
+# html,md,css
+sudo pacman -S prettier
+```
+
 ## Tip
 
 - improve key repeat
