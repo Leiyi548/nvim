@@ -621,8 +621,10 @@ function config.gitsigns()
 
   gitsigns.setup({
     signs = {
-      add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
-      change = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      -- add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      -- change = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
+      add = { hl = 'GitSignsAdd', text = '', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      change = { hl = 'GitSignsChange', text = '', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
       changedelete = {
         hl = 'GitSignsChange',
         text = '▎',
@@ -631,7 +633,8 @@ function config.gitsigns()
       },
       -- delete = { hl = "GitSignsDelete", text = "", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
       -- topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      -- delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
       topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
@@ -1026,16 +1029,15 @@ function config.diffview()
 end
 
 function config.visitor()
+  local uname = vim.loop.os_uname()
+  local os = uname.sysname
+  local cmd = ''
+  if os == 'Linux' then
+    cmd = 'wyeb'
+  end
   require('link-visitor').setup({
-    -- open_cmd = 'google-chrome-stable',
-    -- open_cmd = 'cmd.exe /c start',
-    --[[ cmd to open url
-    defaults:
-    win or wsl: cmd.exe /c start
-    mac: open
-    linux: xdg-open
-    ]]
     silent = true, -- disable all prints, `false` by default
+    open_cmd = cmd,
   })
 end
 
