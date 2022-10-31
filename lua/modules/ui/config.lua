@@ -1022,7 +1022,7 @@ function config.colorful_winsep()
       guifg = '#957CC6',
     },
     interval = 100,
-    no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest','toggleterm','NvimTree' },
+    no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest', 'toggleterm', 'NvimTree', 'DressingInput' },
     symbols = { '━', '┃', '┏', '┓', '┗', '┛' },
     win_opts = {
       relative = 'editor',
