@@ -41,6 +41,12 @@ plugin({
   disable = true,
 })
 
+-- change vim builtin style
+plugin({
+  'stevearc/dressing.nvim',
+  config = conf.dressing,
+})
+
 -- statusline
 plugin({
   'nvim-lualine/lualine.nvim',
