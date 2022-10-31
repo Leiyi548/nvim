@@ -105,6 +105,11 @@ plugin({
 })
 
 plugin({
+  'ggandor/leap-spooky.nvim',
+  config = conf.leap_spooky,
+})
+
+plugin({
   'ggandor/flit.nvim',
   config = conf.flit,
 })
