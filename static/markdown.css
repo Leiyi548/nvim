@@ -5,40 +5,40 @@
  */
 
 :root {
-    --color-text-primary: #333;
-    --color-text-tertiary: #777;
-    --color-text-link: #4078c0;
-    --color-bg-primary: #fff;
-    --color-bg-secondary: #fafbfc;
-    --color-bg-tertiary: #f8f8f8;
-    --color-border-primary: #ddd;
-    --color-border-secondary: #eaecef;
-    --color-border-tertiary: #d1d5da;
-    --color-kbd-foreground: #444d56;
-    --color-markdown-blockquote-border: #99CC33;
-    --color-markdown-blockquote-bg: #fafafa;
-    --color-markdown-table-border: #dfe2e5;
-    --color-markdown-table-tr-border: #c6cbd1;
-    --color-markdown-code-bg: #1b1f230d;
-    --color-markdown-bold-color: #000;
+  --color-text-primary: #333;
+  --color-text-tertiary: #777;
+  --color-text-link: #4078c0;
+  --color-bg-primary: #fff;
+  --color-bg-secondary: #fafbfc;
+  --color-bg-tertiary: #f8f8f8;
+  --color-border-primary: #ddd;
+  --color-border-secondary: #eaecef;
+  --color-border-tertiary: #d1d5da;
+  --color-kbd-foreground: #444d56;
+  --color-markdown-blockquote-border: #99cc33;
+  --color-markdown-blockquote-bg: #fafafa;
+  --color-markdown-table-border: #dfe2e5;
+  --color-markdown-table-tr-border: #c6cbd1;
+  --color-markdown-code-bg: #1b1f230d;
+  --color-markdown-bold-color: #000;
 }
-[data-theme="dark"] {
-    --color-text-primary: #ccc;
-    --color-text-tertiary: #8b949e;
-    --color-text-link: #58a6ff;
-    --color-bg-primary: #181A1B;
-    --color-bg-secondary: #222D31;
-    --color-bg-tertiary: #161b22;
-    --color-border-primary: #30363d;
-    --color-border-secondary: #21262d;
-    --color-border-tertiary: #6e7681;
-    --color-kbd-foreground: #b1bac4;
-    --color-markdown-blockquote-border: #3b434b;
-    --color-markdown-blockquote-bg: #282828;
-    --color-markdown-table-border: #3b434b;
-    --color-markdown-table-tr-border: #272c32;
-    --color-markdown-code-bg: #f0f6fc26;
-    --color-markdown-bold-color: #fff;
+[data-theme='dark'] {
+  --color-text-primary: #ccc;
+  --color-text-tertiary: #8b949e;
+  --color-text-link: #58a6ff;
+  --color-bg-primary: #181a1b;
+  --color-bg-secondary: #222d31;
+  --color-bg-tertiary: #161b22;
+  --color-border-primary: #30363d;
+  --color-border-secondary: #21262d;
+  --color-border-tertiary: #6e7681;
+  --color-kbd-foreground: #b1bac4;
+  --color-markdown-blockquote-border: #3b434b;
+  --color-markdown-blockquote-bg: #282828;
+  --color-markdown-table-border: #3b434b;
+  --color-markdown-table-tr-border: #272c32;
+  --color-markdown-code-bg: #f0f6fc26;
+  --color-markdown-bold-color: #fff;
 }
 
 .markdown-body ol ol,
@@ -53,7 +53,9 @@
   margin-bottom: 0;
 }
 .markdown-body {
-  font-family: "LXGW WenKai","Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'LXGW WenKai', 'Helvetica Neue', Helvetica, 'Segoe UI', Arial,
+    freesans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol';
   font-size: 22px;
   color: var(--color-text-primary);
   line-height: 1.6;
@@ -88,7 +90,7 @@
   margin-bottom: 16px;
   font-weight: bold;
   line-height: 1.4;
-  color:var(--color-markdown-bold-color);
+  color: var(--color-markdown-bold-color);
 }
 
 .markdown-body h1 .anchor,
@@ -109,44 +111,44 @@
   visibility: visible;
 }
 .markdown-body h1::before {
-  content: "H1";
+  content: 'H1';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 
 .markdown-body h2::before {
-  content: "H2";
+  content: 'H2';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 h2::before {
-  content: "H2";
+  content: 'H2';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 .markdown-body h3::before {
-  content: "H3";
+  content: 'H3';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 .markdown-body h4::before {
-  content: "H4";
+  content: 'H4';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 .markdown-body h5::before {
-  content: "H5";
+  content: 'H5';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
 }
 .markdown-body h6::before {
-  content: "H5";
+  content: 'H5';
   font-size: 12px;
   margin-right: 5px;
   color: #ccc;
@@ -168,7 +170,6 @@ h2::before {
   font-size: 2.25em;
   line-height: 1.2;
 }
-
 
 .markdown-body h2 {
   padding-bottom: 0.3em;
@@ -218,7 +219,7 @@ h2::before {
   list-style-type: disc;
 }
 .markdown-body dl {
-  margin-bottom: 1.3em
+  margin-bottom: 1.3em;
 }
 .markdown-body dl dt {
   font-weight: 700;
@@ -260,7 +261,7 @@ h2::before {
 .markdown-body kbd {
   display: inline-block;
   padding: 5px 6px;
-  font: 14px SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   line-height: 10px;
   color: var(--color-kbd-foreground);
   vertical-align: middle;
@@ -299,7 +300,7 @@ h2::before {
   content: normal;
 }
 .markdown-body code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   padding: 0;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
@@ -312,13 +313,13 @@ h2::before {
 .markdown-body code:before,
 .markdown-body code:after {
   letter-spacing: -0.2em;
-  content: "\00a0";
+  content: '\00a0';
 }
 .markdown-body a {
   color: var(--color-text-link);
   text-decoration: none;
   background: transparent;
-  cursor:pointer;
+  cursor: pointer;
 }
 .markdown-body a:hover {
   text-decoration: underline;
@@ -329,7 +330,7 @@ h2::before {
 }
 .markdown-body strong {
   font-weight: bold;
-  color: var(--color-markdown-bold-color)
+  color: var(--color-markdown-bold-color);
 }
 .markdown-body em {
   font-style: italic;
@@ -341,39 +342,40 @@ h2::before {
   list-style-type: none;
 }
 .task-list-item input {
-  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font: 13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   margin: 0 0.35em 0.25em -1.6em;
   vertical-align: middle;
 }
-    input[type=checkbox] {
-      cursor: pointer;
-      position: relative;
-      width: 15px;
-      height: 15px;
-      font-size: 14px;
-    }
+input[type='checkbox'] {
+  cursor: pointer;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  font-size: 14px;
+}
 
-    input[type=checkbox]::after {
-      position: absolute;
-      top: 0;
-      background-color: #007ACC;
-      color: #000;
-      width: 15px;
-      height: 15px;
-      display: inline-block;
-      visibility: visible;
-      padding-left: 0px;
-      text-align: center;
-      content: ' ';
-      border-radius: 3px
-    }
+input[type='checkbox']::after {
+  position: absolute;
+  top: 0;
+  background-color: #007acc;
+  color: #000;
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  visibility: visible;
+  padding-left: 0px;
+  text-align: center;
+  content: ' ';
+  border-radius: 3px;
+}
 
-    input[type=checkbox]:checked::after {
-      content: "✓";
-      font-size: 12px;
-      font-weight: bold;
-    }
-.task-list-item input[type="radio"] {
+input[type='checkbox']:checked::after {
+  content: '✓';
+  font-size: 12px;
+  font-weight: bold;
+}
+.task-list-item input[type='radio'] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
