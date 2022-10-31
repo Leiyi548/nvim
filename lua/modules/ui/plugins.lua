@@ -82,6 +82,11 @@ plugin({
 })
 
 plugin({
+  'nvim-zh/colorful-winsep.nvim',
+  config = conf.colorful_winsep,
+})
+
+plugin({
   'kevinhwang91/nvim-ufo',
   requires = {
     'kevinhwang91/promise-async',

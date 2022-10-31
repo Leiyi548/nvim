@@ -1009,4 +1009,26 @@ function config.dressing()
   })
 end
 
+function config.colorful_winsep()
+  require('colorful-winsep').setup({
+    direction = {
+      down = 'j',
+      left = 'h',
+      right = 'l',
+      up = 'k',
+    },
+    highlight = {
+      guibg = 'none',
+      guifg = '#957CC6',
+    },
+    interval = 100,
+    no_exec_files = { 'packer', 'TelescopePrompt', 'mason', 'CompetiTest' },
+    symbols = { '━', '┃', '┏', '┓', '┗', '┛' },
+    win_opts = {
+      relative = 'editor',
+      style = 'minimal',
+    },
+  })
+end
+
 return config
