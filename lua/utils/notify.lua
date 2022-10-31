@@ -14,9 +14,9 @@ end
 
 local M = {}
 
-M.notify.warn = notify_level(vim.log.levels.WARN)
-M.notify.error = notify_level(vim.log.levels.ERROR)
-M.notify.info = notify_level(vim.log.levels.INFO)
-M.notify.debug = notify_level(vim.log.levels.DEBUG)
+M.warn = notify_level(vim.log.levels.WARN)
+M.error = notify_level(vim.log.levels.ERROR)
+M.info = notify_level(vim.log.levels.INFO)
+M.debug = notify_level(vim.log.levels.DEBUG)
 
 return M

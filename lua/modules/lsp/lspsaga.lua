@@ -63,11 +63,11 @@ saga.init_lsp_saga({
   -- set antoher colorscheme in preview window
   -- finder_preview_hl_ns = 0,
   finder_action_keys = {
-    open = {'o','<cr>'},
-    vsplit = {'s','<C-v>'},
-    split = {'i','<C-s>'},
+    open = { 'o', '<cr>' },
+    vsplit = { 's', '<C-v>' },
+    split = { 'i', '<C-s>' },
     tabe = 't',
-    quit = 'q',
+    quit = { 'q', '<esc>' },
     scroll_down = '<C-f>',
     scroll_up = '<C-b>', -- quit can be a table
   },

@@ -12,7 +12,7 @@ plugin({
     { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
+    { 'nvim-telescope/telescope-ui-select.nvim', disable = true },
     { 'nvim-telescope/telescope-file-browser.nvim', opt = true, disable = true },
     { 'ahmedkhalf/project.nvim', config = conf.project },
     { 'LukasPietzschmann/telescope-tabs', config = conf.tabs },

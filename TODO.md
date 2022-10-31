@@ -5,9 +5,9 @@
 ## UI
 
 - [x] use new statusline plugin to instead of lualine
-- [ ] hlsearch
+- [ ] dreesing.nvim
 
 ## LSP
 
 - [x] lsp format on save
-- [ ] lsp signature
+- [x] lsp signature

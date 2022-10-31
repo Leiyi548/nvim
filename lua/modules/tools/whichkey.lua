@@ -176,6 +176,14 @@ local mappings = {
     W = { '<cmd>SudaWrite<cr>', 'Write Read with sudo' },
   },
 
+  -- whichkey-y
+  y = {
+    name = 'copy',
+    r = { "<cmd>lua require('utils.clipboard').copy_relative_path()<cr>", 'Copy relative name' },
+    a = { "<cmd>lua require('utils.clipboard').copy_absolute_path_with_tilde()<cr>", 'Copy absoulte name' },
+    f = { "<cmd>lua require('utils.clipboard').copy_filename()<cr>", 'Copy filename' },
+  },
+
   -- whichkey-b
   b = {
     name = 'Buffer',
