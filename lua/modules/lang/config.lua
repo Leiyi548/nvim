@@ -162,6 +162,7 @@ end
 
 function config.markdown_preview()
   vim.g.mkdp_browser = 'wyeb'
+  vim.g.mkdp_browser = 'microsoft-edge-stable'
   -- set to 1,nvim will open the preview window after entering the markdown buffer
   vim.g.mkdp_auto_start = 0
   -- set to 1, the nvim will auto close current preview window when change
@@ -172,7 +173,7 @@ function config.markdown_preview()
   vim.g.mkdp_preview_options = { hide_yaml_meta = 1, disable_filename = 0 }
   -- Change the theme according to time
   local _time = os.date('*t')
-  if _time.hour > 18 or _time.hour < 6 then
+  if _time.hour >= 17 or _time.hour < 6 then
     vim.g.mkdp_theme = 'dark'
   else
     vim.g.mkdp_theme = 'light'
