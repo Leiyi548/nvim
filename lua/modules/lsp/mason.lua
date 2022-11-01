@@ -59,7 +59,6 @@ for _, server in pairs(servers) do
   opts = {
     on_attach = require('modules.lsp.handles').on_attach,
     capabilities = require('modules.lsp.handles').capabilities,
-    -- capabilities = require("modules.lsp.handlers").capabilities,
   }
 
   server = vim.split(server, '@')[1]
