@@ -1291,4 +1291,12 @@ function config.vim_templates()
   vim.g.tmpl_author_email = '1424630446@qq.com'
 end
 
+function config.nvim_lastplace()
+  require('nvim-lastplace').setup({
+    lastplace_ignore_buftype = { 'quickfix', 'nofile', 'help' },
+    lastplace_ignore_filetype = { 'gitcommit', 'gitrebase', 'svn', 'hgcommit' },
+    lastplace_open_folds = true,
+  })
+end
+
 return config

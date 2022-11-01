@@ -235,6 +235,11 @@ plugin({
 })
 
 plugin({
+  'ethanholz/nvim-lastplace',
+  config = conf.nvim_lastplace,
+})
+
+plugin({
   'skywind3000/asynctasks.vim',
   cmd = { 'AsyncTask' },
   requires = {

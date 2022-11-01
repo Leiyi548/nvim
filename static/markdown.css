@@ -348,7 +348,7 @@ h2::before {
   vertical-align: middle;
 }
 input[type='checkbox'] {
-  cursor: pointer;
+  cursor: cursor;
   position: relative;
   width: 15px;
   height: 15px;
@@ -371,7 +371,7 @@ input[type='checkbox']::after {
 }
 
 input[type='checkbox']:checked::after {
-  content: ''; /*✔|✓*/
+  content: ' ✓ '; /*✔|✓|*/
   font-size: 12px;
   font-weight: bold;
 }

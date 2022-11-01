@@ -92,6 +92,8 @@ vim.opt.formatoptions = '1jcroql'
 vim.opt.textwidth = 80
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+-- 当外部修改这个文件会自动读载
+vim.opt.autowrite = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = -1

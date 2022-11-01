@@ -1,9 +1,9 @@
 local M = {}
 
 local username = 'ewell'
-local diary_base_path = '/home/' .. username .. '/NOTE/Now/00-每日日记/DailyNote/'
+local diary_base_path = '/home/' .. username .. '/OB/Now/00-每日日记/DailyNote/'
 local diary_time_template = '%W_%Y-%m-%d'
-local diary_template = '/home/' .. username .. '/NOTE/Now/90-模板/00-日记/日记模块.md'
+local diary_template = '/home/' .. username .. '/OB/Now/90-模板/00-日记/日记模块.md'
 
 local function file_exists(filename)
   local file = io.open(filename, 'rb')
@@ -43,6 +43,7 @@ function M.open_diary()
   local filename = get_diary_name(diary_time_template)
   local open_cmd = 'edit' .. filename
   if file_exists(filename) then
+    vim.cmd('tabnew')
     vim.cmd(open_cmd)
   else
     generate_diary_template(diary_template, filename)
