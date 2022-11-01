@@ -1030,7 +1030,13 @@ function config.colorful_winsep()
       'toggleterm',
       'NvimTree',
       'DressingInput',
+      'lspsagahover',
+      'sagasignature',
+      'sagacodeaction',
+      'sagarename',
+      'sagacodeaction',
       'lspsagafinder',
+      'harpoon',
     },
     symbols = { '━', '┃', '┏', '┓', '┗', '┛' },
     win_opts = {
