@@ -1,6 +1,6 @@
 ## ScreenShot
 
-![dashboard](https://user-images.githubusercontent.com/76139422/196498683-1f67bd48-fae6-49b0-9ff7-5513f5929160.png)
+![dashboard](https://user-images.githubusercontent.com/76139422/199150106-e79f1c5a-a72b-4c26-b0b8-4b6b7da96e12.png)
 
 ## Requirement
 

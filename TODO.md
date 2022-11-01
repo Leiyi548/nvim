@@ -17,8 +17,8 @@
 - [ ] lsp signature
   - [ ] fix float window position
 - [ ] lsp format on save
-  - [ ] markdown
-  - [ ] css
+  - [x] markdown
+  - [x] css
   - [x] lua
   - [x] go
   - [x] html
