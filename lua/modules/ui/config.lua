@@ -565,6 +565,15 @@ function config.dashboard()
   db.custom_footer = { ' ' .. total_plugins .. ' plugins' .. nvim_version_info }
 end
 
+function config.tabline()
+  require('tabline').setup({
+    show_index = true, -- show tab index
+    show_modify = true, -- show buffer modification indicator
+    modify_indicator = '[+]', -- modify indicator
+    no_name = '[No name]', -- no name buffer name
+  })
+end
+
 function config.lualine()
   require('modules.ui.lualine')
 end

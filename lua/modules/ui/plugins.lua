@@ -47,6 +47,13 @@ plugin({
   config = conf.dressing,
 })
 
+-- tabline
+plugin({
+  'Leiyi548/nvim-tabline',
+  config = conf.tabline,
+  disable = true,
+})
+
 -- statusline
 plugin({
   'nvim-lualine/lualine.nvim',

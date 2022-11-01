@@ -9,6 +9,8 @@
 ```sh
 # html,md,css
 sudo pacman -S prettier
+# use mason to install
+goimport
 ```
 
 ## Tip
