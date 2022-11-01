@@ -322,6 +322,7 @@ local mappings = {
   -- whichkey-i
   i = {
     name = 'Insert',
+    t = { '<cmd>TemplateInit<cr>', 'Insert Template' },
     m = { '<cmd>lua require("nvim-picgo").upload_clipboard()<cr>', 'Image(Picgo)' },
     c = { '<cmd>Colortils<cr>', 'Color' },
     l = { '<cmd>Colortils css list<cr>', 'List Css' },
