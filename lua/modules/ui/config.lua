@@ -81,7 +81,7 @@ function config.tokyonight()
       -- Style to be applied to different syntax groups
       -- Value is any valid attr-list value for `:help nvim_set_hl`
       comments = { italic = true },
-      keywords = { italic = false },
+      keywords = {},
       functions = { italic = true },
       variables = {},
       -- Background styles. Can be "dark", "transparent" or "normal"
@@ -105,17 +105,17 @@ function config.tokyonight()
     ---@param c ColorScheme
     -- 记住修改后，packercompile
     on_highlights = function(hls, c)
+      -- hls.LineNr = {
+      --   fg = '#0087d7',
+      -- }
       hls.CursorLine = {
         bg = c.none,
-        style = 'bold',
+        style = { bold = true },
       }
-      -- current
+      -- current line
       hls.CursorLineNr = {
-        fg = c.blue1,
-        style = 'bold',
-      }
-      hls.LineNr = {
-        fg = '#0087d7',
+        fg = c.blue,
+        style = { bold = true },
       }
       hls.Function = {
         fg = c.blue,
@@ -137,16 +137,6 @@ function config.tokyonight()
       hls.TodoBgTEST = {
         bg = c.none,
       }
-      -- TODO:
-      hls.Todo = {
-        bg = c.none,
-      }
-      hls.TodoBgTODO = {
-        bg = c.none,
-      }
-      hls.TodoBgWARN = {
-        bg = c.none,
-      }
       -- cmp highlight selected line
       hls.PmenuSel = {
         bg = c.bg_visual,
@@ -159,14 +149,6 @@ function config.tokyonight()
         fg = c.orange,
         style = 'bold',
       }
-      -- hls.FidgetTitle = {
-      --   bg = c.none,
-      --   fg = '#fff',
-      -- }
-      -- hls.FidgetTask = {
-      --   bg = c.none,
-      --   fg = '#fff',
-      -- }
       hls.TelescopeSelection = {
         fg = c.orange,
         style = 'bold',
@@ -259,9 +241,6 @@ function config.tokyonight()
       hls.WinbarBufferNumber = {
         fg = c.cyan,
       }
-      -- hls.MDDoneText = {
-      --   style = { strikethrough = true, italic = true },
-      -- }
     end,
   })
 end
@@ -822,9 +801,10 @@ function config.indent_blankline()
 
   indent_blankline.setup({
     -- show_end_of_line = true,
-    -- space_char_blankline = " ",
     show_current_context = true,
-    -- show_current_context_start = true,
+    -- 显示下划线
+    show_current_context_start = true,
+    space_char_blankline = ' ',
   })
 end
 
