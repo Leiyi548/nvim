@@ -1285,4 +1285,10 @@ function config.flit()
   })
 end
 
+function config.vim_templates()
+  vim.g.tmpl_auto_initialize = 1
+  vim.g.tmpl_search_paths = { '~/.config/nvim/templates' }
+  vim.g.tmpl_author_email = '1424630446@qq.com'
+end
+
 return config

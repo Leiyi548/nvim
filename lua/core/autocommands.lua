@@ -88,6 +88,7 @@ end
 
 vim.api.nvim_create_autocmd('ModeChanged', {
   pattern = '*',
+  group = edit_group,
   callback = function()
     if
       ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
