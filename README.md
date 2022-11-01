@@ -1,4 +1,4 @@
-## ScreenShot
+## Screenshot
 
 ![dashboard](https://user-images.githubusercontent.com/76139422/199150106-e79f1c5a-a72b-4c26-b0b8-4b6b7da96e12.png)
 
