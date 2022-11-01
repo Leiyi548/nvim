@@ -4,6 +4,7 @@
 
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
+vim.opt.cursorline = true
 vim.opt.termguicolors = true
 -- vim.opt.mouse = 'nv'
 vim.opt.mouse = 'a'
