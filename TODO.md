@@ -1,6 +1,7 @@
 ## Refactor
 
-- [ ] 重写 event.lua
+- [x] 重写 autocommand.lua
+- [ ] Remove bufferline code
 
 ## Function
 
