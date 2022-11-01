@@ -359,7 +359,7 @@ input[type='checkbox']::after {
   position: absolute;
   top: 0;
   background-color: #007acc;
-  color: #000;
+  color: white;
   width: 15px;
   height: 15px;
   display: inline-block;
@@ -371,7 +371,7 @@ input[type='checkbox']::after {
 }
 
 input[type='checkbox']:checked::after {
-  content: '✓';
+  content: ''; /*✔|✓*/
   font-size: 12px;
   font-weight: bold;
 }
