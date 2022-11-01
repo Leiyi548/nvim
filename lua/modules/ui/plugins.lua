@@ -54,14 +54,6 @@ plugin({
   disable = false,
 })
 
--- tabline
-plugin({
-  'akinsho/nvim-bufferline.lua',
-  config = conf.bufferline,
-  requires = 'kyazdani42/nvim-web-devicons',
-  disable = 'true',
-})
-
 plugin({
   'kyazdani42/nvim-tree.lua',
   config = conf.nvim_tree,

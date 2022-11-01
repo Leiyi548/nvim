@@ -569,10 +569,6 @@ function config.lualine()
   require('modules.ui.lualine')
 end
 
-function config.bufferline()
-  require('modules.ui.tabline')
-end
-
 function config.nvim_tree()
   local icons = require('modules.ui.icons')
   require('nvim-tree').setup({
