@@ -152,6 +152,7 @@ local mappings = {
     name = 'Find',
     g = { '<cmd>Telescope git_files<cr>', 'Git Files' },
     t = { '<cmd>Telescope live_grep<cr>', 'Text' },
+    T = { "<cmd>lua require('modules.tools.fancy_telescope').grep_string_by_type()<cr>", 'Grep Text by Type' },
     b = { '<cmd>Telescope builtin<cr>', 'Builtin' },
     -- s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git Status' },
     c = { '<cmd>Telescope commands<cr>', 'Commands' },

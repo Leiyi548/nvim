@@ -803,8 +803,8 @@ function config.indent_blankline()
     -- show_end_of_line = true,
     show_current_context = true,
     -- 显示下划线
-    show_current_context_start = true,
-    space_char_blankline = ' ',
+    -- show_current_context_start = true,
+    -- space_char_blankline = ' ',
   })
 end
 

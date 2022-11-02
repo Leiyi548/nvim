@@ -12,21 +12,16 @@ end
 local servers = {
   'sumneko_lua',
   'pyright',
-  'marksman',
-  -- npm i -g vscode-langservers-extracted
+  -- 'marksman',
   'html',
   'cssls',
-  -- npm install -g emmet-ls
   'emmet_ls',
-  -- 'clangd',
-  -- npm i -g bash-language-server
   'bashls',
-  -- npm install -g typescript typescript-language-server
   'tsserver',
   'volar',
-  -- go
   'gopls',
   'bashls',
+  'vimls',
 }
 
 local settings = {

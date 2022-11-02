@@ -23,8 +23,26 @@ function _G_toggle_checkbox()
   vim.fn.cursor(line_number, col_number)
 end
 
+function _G_jump_next_header()
+  local headersRegexp = '\v^(#|.+\n(=+|-+)$)'
+  if vim.fn.search('#', 'W') == 0 then
+    vim.cmd('normal! G')
+    vim.notify('no next header', vim.log.levels.WARN, { title = 'markdown_jump' })
+  end
+end
+
+function _G_jump_prev_header()
+  local headersRegexp = '\v^(#|.+\n(=+|-+)$)'
+  if vim.fn.search('#', 'Wb') == 0 then
+    vim.cmd('normal! G')
+    vim.notify('no next header', vim.log.levels.WARN, { title = 'markdown_jump' })
+  end
+end
+
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<cr>', '<cmd>lua _G_toggle_checkbox()<cr> ', opts)
+vim.api.nvim_set_keymap('n', '[h', '<cmd>lua _G_jump_prev_header()<cr> ', opts)
+vim.api.nvim_set_keymap('n', ']h', '<cmd>lua _G_jump_next_header()<cr> ', opts)
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()
@@ -45,6 +63,7 @@ function _G.Toggle_venn()
     vim.b.venn_enabled = nil
   end
 end
+
 -- toggle keymappings for venn using <leader>v
 vim.api.nvim_set_keymap('n', '<leader>v', ':lua Toggle_venn()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('v', '<leader>v', ':lua Toggle_venn()<CR>', { noremap = true })

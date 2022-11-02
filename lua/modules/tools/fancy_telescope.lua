@@ -210,4 +210,11 @@ function M.grep_string_visual()
   })
 end
 
+function M.grep_string_by_type()
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Search for a specific file type',
+    type_filter = vim.fn.input('Type:'),
+  })
+end
+
 return M

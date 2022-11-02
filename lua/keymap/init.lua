@@ -43,7 +43,7 @@ nmap({
   -- Smart dd
   { 'dd', _G.smart_dd, opts(noremap, silent, expr) },
 
-  -- comment.nvim Ctrl+/
+  -- comment.nvim
   { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },
 })
 

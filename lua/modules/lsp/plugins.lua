@@ -20,5 +20,5 @@ plugin({
     })
   end,
 })
-plugin({ 'ray-x/lsp_signature.nvim', disable = false })
+plugin({ 'ray-x/lsp_signature.nvim', disable = true })
 -- plugin({ 'https://git.sr.ht/~whynothugo/lsp_lines.nvim' })

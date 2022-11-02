@@ -226,6 +226,15 @@ local pwd = function()
   return ' ' .. foldname
 end
 
+local treesitter_active = function()
+  local buf = vim.api.nvim_get_current_buf()
+  local ts = vim.treesitter.highlighter.active[buf]
+  if vim.tbl_isempty(ts) then
+    return ''
+  end
+  return ''
+end
+
 lualine.setup({
   options = {
     icons_enabled = true,
@@ -253,7 +262,7 @@ lualine.setup({
     lualine_b = {},
     lualine_c = {},
 
-    lualine_x = { LSP_status },
+    lualine_x = { treesitter_active, LSP_status },
     lualine_y = { diagnostics, diff, spaces, encoding, location },
     lualine_z = { progress },
   },
