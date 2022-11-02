@@ -40,9 +40,19 @@ function _G_jump_prev_header()
 end
 
 local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap('n', '<cr>', '<cmd>lua _G_toggle_checkbox()<cr> ', opts)
-vim.api.nvim_set_keymap('n', '[h', '<cmd>lua _G_jump_prev_header()<cr> ', opts)
-vim.api.nvim_set_keymap('n', ']h', '<cmd>lua _G_jump_next_header()<cr> ', opts)
+local edit_group = vim.api.nvim_create_augroup('edit_settings', { clear = false })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  group = edit_group,
+  pattern = '*',
+  desc = 'markdown keymap',
+  callback = function()
+    vim.cmd([[
+
+    ]])
+  end,
+})
+vim.api.nvim_buf_set_keymap(0, 'n', '<cr>', '<cmd>lua _G_toggle_checkbox()<cr> ', opts)
+-- vim.api.nvim_set_keymap('n', '<cr>', '<cmd>lua _G_toggle_checkbox()<cr> ', opts)
 
 -- venn.nvim: enable or disable keymappings
 function _G.Toggle_venn()

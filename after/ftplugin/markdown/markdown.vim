@@ -40,6 +40,7 @@ let s:levelRegexpDict = {
     \ 6: '\v^######[^#]@='
 \ }
 
+" 返回最近匹配到标题的行数
 function! s:GetHeaderLineNum(...)
     if a:0 == 0
         " 获得当前行的行数
@@ -63,7 +64,7 @@ function! s:MoveToCurHeader()
     if l:lineNum !=# 0
         call cursor(l:lineNum, 1)
     else
-        echo 'outside any header'
+        lua vim.notify('outside any header', vim.log.levels.WARN, { title = 'markdown_jump' })
         "normal! gg
     endif
     return l:lineNum
@@ -217,9 +218,47 @@ function! s:MoveToPreviousSiblingHeader()
     endif
 endfunction
 
-nnoremap <silent>;j <cmd>call <sid>MoveToNextHeader()<cr>
-nnoremap <silent>;k <cmd>call <sid>MoveToPreviousHeader()<cr>
-nnoremap <silent>;J <cmd>call <sid>MoveToNextSiblingHeader()<cr>
-nnoremap <silent>;K <cmd>call <sid>MoveToPreviousSiblingHeader()<cr>
-nnoremap <silent>;h <cmd>call <sid>MoveToCurHeader()<cr>
-nnoremap <silent>;p <cmd>call <sid>MoveToParentHeader()<cr>
+function! s:ChangeInnerCurHeader() 
+  " 移动到当前的标题
+  let l:lineNum = s:GetHeaderLineNum()
+  if l:lineNum !=# 0
+      call cursor(l:lineNum, 1)
+  else
+      lua vim.notify('outside any header', vim.log.levels.WARN, { title = 'markdown_jump' })
+      "normal! gg
+  endif
+  " 确认现在是几级标题
+  let l:curHeaderLevel = s:GetLevelOfHeaderAtLine(line('.'))
+  " 移动到标题后面的空格，然后删除后面的文字。
+  call cursor(line('.'),l:curHeaderLevel+2)
+  " 这个模式并不会切换成 insertmode
+  normal! D
+  startinsert!
+endfunction
+
+function! s:ChangeAroundCurHeader() 
+  " 移动到当前的标题
+  let l:lineNum = s:GetHeaderLineNum()
+  if l:lineNum !=# 0
+      call cursor(l:lineNum, 1)
+  else
+      lua vim.notify('outside any header', vim.log.levels.WARN, { title = 'markdown_jump' })
+      "normal! gg
+  endif
+  " 确认现在是几级标题
+  let l:curHeaderLevel = s:GetLevelOfHeaderAtLine(line('.'))
+  " 移动到标题后面的空格，然后删除后面的文字。
+  call cursor(line('.'),l:curHeaderLevel+2)
+  " 这个模式并不会切换成 insertmode
+  normal! cc
+  startinsert!
+endfunction
+
+nnoremap <silent><buffer>;j <cmd>call <sid>MoveToNextHeader()<cr>
+nnoremap <silent><buffer>;k <cmd>call <sid>MoveToPreviousHeader()<cr>
+nnoremap <silent><buffer>;J <cmd>call <sid>MoveToNextSiblingHeader()<cr>
+nnoremap <silent><buffer>;K <cmd>call <sid>MoveToPreviousSiblingHeader()<cr>
+nnoremap <silent><buffer>;h <cmd>call <sid>MoveToCurHeader()<cr>
+nnoremap <silent><buffer>;p <cmd>call <sid>MoveToParentHeader()<cr>
+nnoremap <silent><buffer>cih <cmd>call <sid>ChangeInnerCurHeader()<cr>
+nnoremap <silent><buffer>cah <cmd>call <sid>ChangeAroundCurHeader()<cr>
