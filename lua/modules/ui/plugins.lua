@@ -62,7 +62,8 @@ plugin({
 })
 
 plugin({
-  'kyazdani42/nvim-tree.lua',
+  -- 'kyazdani42/nvim-tree.lua',
+  'Leiyi548/nvim-tree.lua',
   config = conf.nvim_tree,
   requires = 'kyazdani42/nvim-web-devicons',
   disable = false,

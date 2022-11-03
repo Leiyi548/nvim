@@ -14,7 +14,7 @@
 
 ## 4. **UI**
 
-- [x] dreesing.nvim
+- [x] dressing.nvim
 - [x] change gitsign icon
 - [x] add markdown-preview.nvim css
 - [ ] todocomment 的背景颜色问题
@@ -36,7 +36,7 @@
 
 - [x] 只在 markdown 生效
 - [x] 写一款 markdown-all-in-one 插件
-  - [ ] ""toggle"" checkbox
+  - [ ] toggle checkbox
   - [x] 单纯的 checkbox
   - [ ] 末尾添加时间
 - [x] 标题

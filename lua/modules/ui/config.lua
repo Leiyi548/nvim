@@ -573,12 +573,12 @@ function config.nvim_tree()
     sort_by = 'name',
     update_cwd = true,
     reload_on_bufenter = false,
-    respect_buf_cwd = false,
+    respect_buf_cwd = true,
 
     view = {
       width = 30,
       hide_root_folder = false,
-      side = 'left',
+      side = 'right', -- left right
       preserve_window_proportions = false,
       number = false,
       relativenumber = false,
@@ -600,17 +600,19 @@ function config.nvim_tree()
           -- { key = 'K', action = 'prev_sibling' },
         },
       },
-      float = {
-        enable = false,
-        open_win_config = {
-          relative = 'editor',
-          border = 'rounded',
-          width = 30,
-          height = 30,
-          row = 1,
-          col = 1,
-        },
-      },
+      -- float = {
+      --   enable = false,
+      --   open_win_config = {
+      --     relative = 'editor',
+      --     border = 'rounded',
+      --     width = 30,
+      --     height = 30,
+      --     row = 1,
+      --     col = 1,
+      --   },
+      -- },
+      float = { enable = true, open_win_config = { border = 'rounded', width = 30, height = 20, row = 0, col = 999 } },
+      --
     },
     renderer = {
       add_trailing = false,
@@ -886,13 +888,6 @@ function config.dressing()
           ['<Down>'] = 'HistoryNext',
         },
       },
-
-      override = function(conf)
-        -- This is the config that will be passed to nvim_open_win.
-        -- Change values here to customize the layout
-        return conf
-      end,
-
       -- see :help dressing_get_config
       get_config = nil,
     },
