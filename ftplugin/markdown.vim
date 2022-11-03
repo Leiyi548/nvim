@@ -13,3 +13,9 @@ au FileType markdown syn match MDTask     /- \[\(x\| \)\] .*/ contains=MDDoneTex
 au FileType markdown syntax clear markdownListMarker
 au FileType markdown call matchadd('Todo', 'D:'.strftime("%Y-%m-%d"))
 
+" surround
+xnoremap <silent><buffer> B      :<c-u>call SurroundVaddPairs("**", "**")<cr>
+xnoremap <silent><buffer> I      :<c-u>call SurroundVaddPairs("*", "*")<cr>
+xnoremap <silent><buffer> T      :<c-u>call SurroundVaddPairs("- [ ] ", "")<cr>
+xnoremap <silent><buffer> `      :<c-u>call SurroundVaddPairs("`", "`")<cr>
+xnoremap <silent><buffer> C      :<c-u>call SurroundVaddPairs("```plaintext", "```")<cr>

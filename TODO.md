@@ -12,7 +12,7 @@
 
 - [x] 添加复制当前路径（绝对路径）到系统剪贴版
 
-## 4. UI
+## 4. **UI**
 
 - [x] dreesing.nvim
 - [x] change gitsign icon
@@ -52,5 +52,6 @@
   - [ ] 上传到指定的文件夹
 - [ ] 生成 toc
 - [ ] 自动排序标题 （h2 开头）
-- [ ] vim surround
+- [x] vim surround
   - [x] number support
+  - [x] 环绕包围

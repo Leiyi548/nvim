@@ -353,6 +353,7 @@ local v_opts = {
 local v_mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_visual)', ' Comment' },
   ['f'] = { "<cmd>lua require('modules.tools.fancy_telescope').grep_string_visual()<cr>", 'Grep visual' },
+  ['r'] = { '<cmd>AsyncTask file-run<cr>', 'Run on Terminal' },
 }
 
 which_key.register(mappings, opts)
