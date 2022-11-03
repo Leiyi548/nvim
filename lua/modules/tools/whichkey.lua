@@ -141,6 +141,7 @@ local mappings = {
   o = {
     name = 'Open',
     b = { '<cmd>BufferLinePick<cr>', 'Buffer' },
+    w = { '<cmd>lua require("utils.diary").open_weekly_diary()<cr>', 'Weekly Diary' },
     d = { '<cmd>lua require("utils.diary").open_diary()<cr>', 'Diary' },
     o = { '<cmd>LSoutlineToggle<cr>', 'Outline' },
     t = { '<cmd>ToggleTerm size=10 direction=horizontal<cr>', 'Horizontal' },
