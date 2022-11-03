@@ -1299,4 +1299,11 @@ function config.nvim_lastplace()
   })
 end
 
+function config.vim_surround()
+  -- disable mode mapping
+  vim.g.surround_no_normal_mappings = 0
+  vim.g.surround_no_insert_mappings = 0
+  vim.g.surround_no_visual_mappings = 1
+end
+
 return config
