@@ -111,14 +111,14 @@ function config.nvim_cmp()
           vim_item.kind = icons.misc.flypy
         end
         vim_item.menu = ({
-          -- nvim_lsp = "(LSP)",
-          -- luasnip = "(Snippet)",
-          -- buffer = "(Buffer)",
-          -- path = "(Path)",
-          nvim_lsp = '',
-          luasnip = '',
-          buffer = '',
-          path = '',
+          nvim_lsp = '[LSP]',
+          luasnip = '[SNIP]',
+          buffer = '[BUF]',
+          path = '[PATH]',
+          -- nvim_lsp = '',
+          -- luasnip = '',
+          -- buffer = '',
+          -- path = '',
         })[entry.source.name]
         return vim_item
       end,
