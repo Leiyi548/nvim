@@ -83,6 +83,7 @@ plugin({
 plugin({
   'nvim-zh/colorful-winsep.nvim',
   config = conf.colorful_winsep,
+  disable = true,
 })
 
 plugin({
