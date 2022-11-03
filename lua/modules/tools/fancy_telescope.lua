@@ -124,8 +124,6 @@ function M.findRecentFiles()
     path_display = { 'absolute' },
     previewer = false,
     layout_config = larget_layout_config,
-    initial_mode = 'normal',
-    -- file_ignore_patterns = file_ignore_patterns,
   }
   builtin.oldfiles(themes.get_dropdown(opts))
 end

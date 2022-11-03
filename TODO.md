@@ -6,6 +6,7 @@
 
 - [x] 重写 autocommand.lua
 - [x] Remove bufferline code
+- [ ] 重构日记模板
 
 ## 3. Function
 
@@ -20,14 +21,16 @@
 
 ## 5. LSP
 
+- [ ] cmp
+  - [x] 设置 cmp 补全顺序
 - [ ] lsp signature
   - [ ] fix float window position
 - [ ] lsp format on save
-- [x] markdown
-- [x] css
-- [x] lua
-- [x] go
-- [x] html
+  - [x] markdown
+  - [x] css
+  - [x] lua
+  - [x] go
+  - [x] html
 
 ## 6. Todo
 
@@ -40,7 +43,7 @@
   - [x] 跳转当前标题
   - [x] 跳转不同标题
   - [x] 跳转同级标题
-  - [ ] 修改当前标题
+  - [x] 修改当前标题
 - [ ] 回车自动生成下一级目录
   - [ ] list
   - [ ] checkbox
