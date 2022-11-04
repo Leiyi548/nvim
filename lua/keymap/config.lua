@@ -45,7 +45,7 @@ nmap({
 
   -- window jump
   { '<BS>', '<C-w>h', opts(noremap) },
-  { '<C-l>', '<C-w>l', opts(noremap) },
+  -- { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
 

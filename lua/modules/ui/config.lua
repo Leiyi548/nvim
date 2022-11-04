@@ -591,7 +591,6 @@ function config.nvim_tree()
           { key = ']d', action = 'next_git_item' },
           { key = 'X', action = 'collapse_all' },
           { key = 'o', action = 'edit' },
-          { key = 'l', action = 'edit' },
           { key = 'O', action = 'system_open' },
           { key = 'h', action = 'parent_node' },
           { key = 'i', action = 'split' },
@@ -611,7 +610,7 @@ function config.nvim_tree()
       --     col = 1,
       --   },
       -- },
-      float = { enable = true, open_win_config = { border = 'rounded', width = 30, height = 20, row = 0, col = 999 } },
+      float = { enable = true, open_win_config = { border = 'rounded', width = 40, height = 30, row = 0, col = 999 } },
       --
     },
     renderer = {

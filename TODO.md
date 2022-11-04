@@ -6,7 +6,7 @@
 
 - [x] 重写 autocommand.lua
 - [x] Remove bufferline code
-- [ ] 重构日记模板
+- [x] 重构日记模板
 
 ## 3. Function
 
@@ -21,11 +21,11 @@
 
 ## 5. LSP
 
-- [ ] cmp
+- [x] cmp
   - [x] 设置 cmp 补全顺序
-- [ ] lsp signature
-  - [ ] fix float window position
-- [ ] lsp format on save
+- [x] lsp signature (不用这个插件)
+  - [x] fix float window position
+- [x] lsp format on save
   - [x] markdown
   - [x] css
   - [x] lua
@@ -38,7 +38,7 @@
 - [x] 写一款 markdown-all-in-one 插件
   - [ ] toggle checkbox
   - [x] 单纯的 checkbox
-  - [ ] 末尾添加时间
+        ncmd l- [ ] 末尾添加时间
 - [x] 标题
   - [x] 跳转当前标题
   - [x] 跳转不同标题
