@@ -157,7 +157,8 @@ plugin({
 
 plugin({
   'akinsho/toggleterm.nvim',
-  cmd = { 'ToggleTerm', 'TermExec' },
+  keys = { '<C-\\>' },
+  cmd = { 'ToggleTerm', 'TermExec', '' },
   event = { 'CmdwinEnter', 'CmdlineEnter' },
   config = conf.toggleterm,
 })
@@ -167,7 +168,10 @@ plugin({
   keys = {
     { 'n', 'gcc' },
     { 'n', 'gcb' },
+    { 'n', 'gck' },
+    { 'n', 'gcj' },
     { 'x', 'gc' },
+    { 'x', 'gb' },
   },
   config = conf.Comment,
 })
