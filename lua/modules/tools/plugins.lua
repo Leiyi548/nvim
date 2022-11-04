@@ -82,11 +82,11 @@ plugin({
   'TimUntersberger/neogit',
   cmd = { 'Neogit' },
   requires = {
-    { 'nvim-lua/plenary.nvim', opt = true },
+    { 'nvim-lua/plenary.nvim' },
     {
       'sindrets/diffview.nvim',
       config = conf.diffview,
-      cmd = 'DiffViewFileHistory',
+      cmd = { 'DiffviewFileHistory', 'DiffviewLog', 'DiffviewOpen', 'DiffviewFocusFiles', 'DiffviewToggleFiles' },
     },
   },
   config = conf.neogit,
@@ -100,16 +100,27 @@ plugin({
 
 plugin({
   'ggandor/leap.nvim',
+  keys = {
+    { 'n', 'f' },
+    { 'n', 'F' },
+    { 'n', 'gs' },
+    { 'n', 'S' },
+    { 'x', 's' },
+    { 'x', 'gs' },
+    { 'x', 'S' },
+  },
   config = conf.leap,
 })
 
 plugin({
   'ggandor/leap-spooky.nvim',
+  after = 'leap.nvim',
   config = conf.leap_spooky,
 })
 
 plugin({
   'ggandor/flit.nvim',
+  after = 'leap.nvim',
   config = conf.flit,
 })
 
@@ -153,7 +164,11 @@ plugin({
 
 plugin({
   'numToStr/Comment.nvim',
-  event = 'BufRead',
+  keys = {
+    { 'n', 'gcc' },
+    { 'n', 'gcb' },
+    { 'x', 'gc' },
+  },
   config = conf.Comment,
 })
 
@@ -186,7 +201,21 @@ plugin({
 
 plugin({
   'Leiyi548/vim-surround',
-  requires = { 'tpope/vim-repeat' },
+  requires = { 'tpope/vim-repeat', after = 'vim-surround' },
+  keys = {
+    { 'n', 'ds' },
+    { 'n', 'cs' },
+    { 'n', 'cS' },
+    { 'n', 'yss' },
+    { 'n', 'ysiw' },
+    { 'n', 'ysaw' },
+    { 'n', '(' },
+    { 'n', ')' },
+    { 'n', '{' },
+    { 'n', '}' },
+    { 'n', '"' },
+    { 'n', "'" },
+  },
   disable = false,
 })
 
@@ -214,7 +243,7 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
-  event = 'BufEnter',
+  cmd = { 'Bdelete hideen', 'Bdelete other' },
 })
 
 plugin({
