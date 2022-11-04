@@ -161,8 +161,9 @@ function config.neorg()
 end
 
 function config.markdown_preview()
-  vim.g.mkdp_browser = 'wyeb'
-  vim.g.mkdp_browser = 'microsoft-edge-stable'
+  if vim.fn.has('wsl2') ~= 1 then
+    vim.g.mkdp_browser = 'microsoft-edge-stable' -- wyeb
+  end
   -- set to 1,nvim will open the preview window after entering the markdown buffer
   vim.g.mkdp_auto_start = 0
   -- set to 1, the nvim will auto close current preview window when change

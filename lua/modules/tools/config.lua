@@ -1029,10 +1029,8 @@ function config.diffview()
 end
 
 function config.visitor()
-  local uname = vim.loop.os_uname()
-  local os = uname.sysname
   local cmd = ''
-  if os == 'Linux' then
+  if vim.fn.has('linux') ~= 1 then
     cmd = 'wyeb'
   end
   require('link-visitor').setup({

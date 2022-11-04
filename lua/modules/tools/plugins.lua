@@ -34,13 +34,13 @@ plugin({
 plugin({
   'h-hg/fcitx.nvim',
   event = 'InsertEnter',
-  disable = not vim.fn.has('wsl'),
+  disable = vim.fn.has('wsl'),
 })
 
 plugin({
   'Leiyi548/vim-im-select',
   event = 'InsertEnter',
-  disable = vim.fn.has('wsl'),
+  disable = not vim.fn.has('wsl'),
 })
 
 plugin({
@@ -213,12 +213,12 @@ plugin({
     { 'n', 'yss' },
     { 'n', 'ysiw' },
     { 'n', 'ysaw' },
-    { 'n', '(' },
-    { 'n', ')' },
-    { 'n', '{' },
-    { 'n', '}' },
-    { 'n', '"' },
-    { 'n', "'" },
+    { 'x', '(' },
+    { 'x', ')' },
+    { 'x', '{' },
+    { 'x', '}' },
+    { 'x', '"' },
+    { 'x', "'" },
   },
   disable = false,
 })
