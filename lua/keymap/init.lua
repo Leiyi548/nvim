@@ -22,6 +22,7 @@ nmap({
   { ';r', cmd("lua require('modules.tools.fancy_telescope').findRecentFiles()"), opts(noremap, silent) },
   { ';b', cmd("lua require('modules.tools.fancy_telescope').selectBuffers()"), opts(noremap, silent) },
   { ';g', cmd('Telescope git_status'), opts(noremap, silent) },
+  { ';l', cmd("lua require('leap').leap({ target_windows = { vim.fn.win_getid() } })"), opts(noremap, silent) },
 
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },
@@ -45,9 +46,6 @@ nmap({
 
   -- comment.nvim
   { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },
-
-  -- smart c-h
-  -- { '<C-l>', _G.smart_C_L, opts(expr, silent, remap) },
 })
 
 imap({
