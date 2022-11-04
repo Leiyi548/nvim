@@ -9,7 +9,6 @@ plugin({
   'nvim-telescope/telescope.nvim',
   config = conf.telescope,
   requires = {
-    { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'nvim-telescope/telescope-ui-select.nvim', disable = true },
