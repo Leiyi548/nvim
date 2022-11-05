@@ -8,6 +8,7 @@ if _time.hour >= 16 or _time.hour < 8 then
 else
   _G_colorscheme = 'tokyonight-day'
 end
+_G_colorscheme = 'tokyonight-night'
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then
   return

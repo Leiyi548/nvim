@@ -63,17 +63,6 @@ smap({
   { '<C-k>', _G.smart_C_k, opts(expr, silent, remap) },
 })
 
--- Smart C-l
-vim.keymap.set('n', '<C-l>', function()
-  local get_current_window_num = vim.api.nvim_call_function('winnr', {})
-  local right_window_num = vim.api.nvim_call_function('winnr', { 'l' })
-  if get_current_window_num == right_window_num then
-    return '<cmd>NvimTreeGoTree<cr>'
-  else
-    return '<cmd>wincmd l<cr>'
-  end
-end, opts(expr, silent, noremap))
-
 -- luasnip
 vim.cmd([[
   snoremap <BS> <C-O>s

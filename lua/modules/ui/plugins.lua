@@ -66,6 +66,18 @@ plugin({
   'Leiyi548/nvim-tree.lua',
   config = conf.nvim_tree,
   requires = 'kyazdani42/nvim-web-devicons',
+  disable = true,
+})
+
+plugin({
+  'nvim-neo-tree/neo-tree.nvim',
+  branch = 'v2.x',
+  requires = {
+    'nvim-lua/plenary.nvim',
+    'kyazdani42/nvim-web-devicons',
+    'MunifTanjim/nui.nvim',
+  },
+  config = conf.neo_tree,
   disable = false,
 })
 
@@ -84,7 +96,8 @@ plugin({
 plugin({
   'nvim-zh/colorful-winsep.nvim',
   config = conf.colorful_winsep,
-  disable = true,
+  branch = 'dev',
+  disable = false,
 })
 
 plugin({

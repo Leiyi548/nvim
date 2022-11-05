@@ -44,10 +44,11 @@ return {
     OpenFolder = ' ',
   },
   git = {
-    Add = ' ',
-    Mod = ' ',
+    add = ' ',
+    mod = ' ',
     Remove = ' ',
     Ignore = ' ',
+    ignored = '◌',
     Rename = ' ',
     delete = '✖ ',
     renamed = '',
