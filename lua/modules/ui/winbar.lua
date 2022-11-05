@@ -32,7 +32,8 @@ M.winbar_filetype_exclude = {
 }
 
 function _G.winbar_click_explorer()
-  vim.cmd('NvimTreeToggle')
+  -- vim.cmd('NvimTreeToggle')
+  vim.cmd('NeoTreeFloatToggle')
 end
 
 function _G.winbar_click_tabs()
