@@ -46,6 +46,9 @@ nmap({
 
   -- comment.nvim
   { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },
+
+  -- neo-tree
+  { '<C-w>e', cmd('NeoTreeFloatToggle'), opts(noremap, silent) },
 })
 
 imap({
