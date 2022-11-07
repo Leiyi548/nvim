@@ -11,6 +11,7 @@ au FileType markdown syn match MDDoneText /- \[x\] \zs.*/ contains=MDDoneDate co
 au FileType markdown syn match MDTodoText /- \[ \] \zs.*/ contains=MDTodoDate contained
 au FileType markdown syn match MDTask     /- \[\(x\| \)\] .*/ contains=MDDoneText,MDTodoText
 au FileType markdown syntax clear markdownListMarker
+au FileType markdown syntax clear markdownCodeBlock
 au FileType markdown call matchadd('Todo', 'D:'.strftime("%Y-%m-%d"))
 
 " surround

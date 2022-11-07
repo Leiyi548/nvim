@@ -8,7 +8,7 @@ plugin({ 'Lunarvim/darkplus.nvim', disable = true })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
 plugin({ 'rebelot/kanagawa.nvim', config = conf.kanagawa, disable = true })
 plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro, disable = true })
-plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = false })
 plugin({ 'rose-pine/neovim', as = 'rose-pine', disable = true })
 plugin({
   'sainnhe/gruvbox-material',
@@ -51,7 +51,7 @@ plugin({
 plugin({
   'Leiyi548/nvim-tabline',
   config = conf.tabline,
-  disable = true,
+  disable = false,
 })
 
 -- statusline
@@ -97,7 +97,7 @@ plugin({
   'nvim-zh/colorful-winsep.nvim',
   config = conf.colorful_winsep,
   branch = 'dev',
-  disable = false,
+  disable = true,
 })
 
 plugin({

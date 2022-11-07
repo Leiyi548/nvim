@@ -369,17 +369,17 @@ function config.catppuccin()
       percentage = 0.15,
     },
     transparent_background = true,
-    term_colors = false,
+    term_colors = true,
     compile = {
-      enabled = false,
+      enabled = true,
       -- ~/.cache/nvim/catppuccin
       path = vim.fn.stdpath('cache') .. '/catppuccin',
     },
     styles = {
-      comments = {},
+      comments = { 'italic' },
       conditionals = {},
       loops = {},
-      functions = {},
+      functions = { 'italic' },
       keywords = {},
       strings = {},
       variables = {},
@@ -412,7 +412,7 @@ function config.catppuccin()
       lsp_saga = true,
       gitgutter = false,
       gitsigns = true,
-      leap = false,
+      leap = true,
       telescope = true,
       nvimtree = {
         enabled = true,
@@ -1214,6 +1214,7 @@ function config.colorful_winsep()
       'CompetiTest',
       'toggleterm',
       'NvimTree',
+      'neo-tree',
       'DressingInput',
       'lspsagahover',
       'sagasignature',

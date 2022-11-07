@@ -14,6 +14,10 @@
 
 ## 4. **UI**
 
+- [
+
+] text
+
 - [x] dressing.nvim
 - [x] change gitsign icon
 - [x] add markdown-preview.nvim css
@@ -38,8 +42,8 @@
 - [x] 只在 markdown 生效
 - [x] 写一款 markdown-all-in-one 插件
   - [ ] toggle checkbox
-    - [ ] 打上勾
-    - [ ] 末尾添加时间
+    - [x] 打上勾
+  - [ ] 末尾添加时间
 - [x] 标题
   - [x] 跳转当前标题
   - [x] 跳转不同标题
