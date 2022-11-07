@@ -1,8 +1,8 @@
 " clear syntax highlight
 hi MDTask ctermfg=1
-hi MDDoneText gui=italic,strikethrough guifg=#5f5f87
+hi MDDoneText gui=strikethrough guifg=#5f5f87
 hi MDTodoText gui=NONE
-hi MDDoneDate gui=italic,strikethrough ctermfg=71
+hi MDDoneDate gui=strikethrough ctermfg=71
 hi MDTodoDate ctermfg=71
 au FileType markdown syn match markdownError "\w\@<=\w\@="
 au FileType markdown syn match MDDoneDate /[SD]:\d\{4\}\([\/-]\d\d\)\{2\}/ contained
