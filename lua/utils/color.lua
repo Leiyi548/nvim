@@ -8,8 +8,7 @@ local M = {}
 ----                       or complete color table when scope isn't specified
 function M.extract_highlight_colors(color_group, scope)
   if not color then
-  local color = require('lualine.highlight').get_lualine_hl(color_group)
-    62
+    local color = require('lualine.highlight').get_lualine_hl(color_group)
     if vim.fn.hlexists(color_group) == 0 then
       return nil
     end

@@ -24,6 +24,9 @@ nmap({
   { ';g', cmd('Telescope git_status'), opts(noremap, silent) },
   { ';l', cmd("lua require('leap').leap({ target_windows = { vim.fn.win_getid() } })"), opts(noremap, silent) },
 
+  -- neo-tree
+  { ';e', cmd("NeoTreeFocusToggle"), opts(noremap, silent) },
+
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },
   { '<M-h>', cmd('ToggleTerm size=10  direction=horizontal'), opts(noremap, silent) },

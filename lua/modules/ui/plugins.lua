@@ -51,7 +51,7 @@ plugin({
 plugin({
   'Leiyi548/nvim-tabline',
   config = conf.tabline,
-  disable = false,
+  disable = true,
 })
 
 -- statusline
