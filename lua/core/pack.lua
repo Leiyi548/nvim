@@ -6,6 +6,7 @@ local fn, uv, api = vim.fn, vim.loop, vim.api
 local vim_path = vim.fn.stdpath('config')
 local data_dir = string.format('%s/site/', vim.fn.stdpath('data'))
 local modules_dir = vim_path .. '/lua/modules'
+-- ~/.local/share/nvim/site/lua/packer_compiled.lua
 local packer_compiled = data_dir .. 'lua/packer_compiled.lua'
 local packer = nil
 
@@ -37,15 +38,17 @@ function Packer:load_packer()
   end
   packer.init({
     compile_path = packer_compiled,
-    git = { clone_timeout = 288, default_url_format = 'git@github.com:%s' },
+    -- git = { clone_timeout = 288, default_url_format = 'git@github.com:%s' },
+    git = { clone_timeout = 288 },
     max_job = 40,
     disable_commands = true,
     -- open float window
-    -- display = {
-    --   open_fn = function()
-    --     return require("packer.util").float({ border = "single" }) -- single rounded
-    --   end,
-    -- },
+    display = {
+      working_sym = '[ ]', error_sym = '[✗]', done_sym = '[✓]', removed_sym = ' - ', moved_sym = ' → ', header_sym = '─',
+      open_fn = function()
+        return require('packer.util').float({ border = 'single' }) -- single rounded
+      end,
+    },
   })
   packer.reset()
   local use = packer.use
@@ -60,7 +63,8 @@ function Packer:init_ensure_plugins()
   local packer_dir = data_dir .. 'pack/packer/opt/packer.nvim'
   local state = uv.fs_stat(packer_dir)
   if not state then
-    local cmd = '!git clone --depth 1 git@github.com:wbthomason/packer.nvim.git ' .. packer_dir
+    local cmd = '!git clone https://github.com/wbthomason/packer.nvim ' .. packer_dir
+    -- local cmd = '!git clone --depth 1 git@github.com:wbthomason/packer.nvim.git ' .. packer_dir
     api.nvim_command(cmd)
     uv.fs_mkdir(data_dir .. 'lua', 511, function()
       assert('make compile path dir faield')
