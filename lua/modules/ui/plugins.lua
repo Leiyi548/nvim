@@ -47,6 +47,11 @@ plugin({
   config = conf.dressing,
 })
 
+-- winbar
+plugin({
+  'utilyre/barbecue.nvim',
+  config = conf.barbecue,
+})
 -- tabline
 plugin({
   'Leiyi548/nvim-tabline',
