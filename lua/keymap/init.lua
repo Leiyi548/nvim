@@ -16,6 +16,8 @@ local cmd = keymap.cmd
 -- usage of plugins
 nmap({
   -- buffer jump
+  { '<C-p>', cmd('Telescope find_files'), opts(noremap, silent) },
+  { '<C-b>', cmd('Telescope buffers'), opts(noremap, silent) },
   { ';s', cmd('e #'), opts(noremap, silent) },
   { ';t', cmd('lua require("telescope-tabs").go_to_previous()'), opts(noremap, silent) },
   { ';f', cmd('Telescope find_files'), opts(noremap, silent) },
@@ -25,7 +27,7 @@ nmap({
   { ';l', cmd("lua require('leap').leap({ target_windows = { vim.fn.win_getid() } })"), opts(noremap, silent) },
 
   -- neo-tree
-  { ';e', cmd("NeoTreeFocusToggle"), opts(noremap, silent) },
+  { ';e', cmd('NeoTreeFocusToggle'), opts(noremap, silent) },
 
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },
