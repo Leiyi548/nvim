@@ -14,15 +14,11 @@
 
 ## 4. **UI**
 
-- [
-
-] text
-
 - [x] dressing.nvim
 - [x] change gitsign icon
 - [x] add markdown-preview.nvim css
 - [ ] todocomment 的背景颜色问题
-- [ ] 将 nvim-tree 替换成 neo-tree
+- [x] 将 nvim-tree 替换成 neo-tree
 
 ## 5. LSP
 
