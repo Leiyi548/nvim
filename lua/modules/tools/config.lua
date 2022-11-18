@@ -305,7 +305,7 @@ function config.toggleterm()
 
   toggleterm.setup({
     size = 20,
-    open_mapping = [[<M-i>]],
+    open_mapping = [[<C-\\>]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -1112,19 +1112,6 @@ function config.mcc()
     },
     markdown = {
       { ';', '``', ';' },
-    },
-  })
-end
-
-function config.nvim_surround()
-  require('nvim-surround').setup({
-    keymaps = {
-      -- insert = 'ys',
-      insert = '<C-g>s',
-      insert_line = '<C-g>S',
-      visual = 'S',
-      delete = 'ds',
-      change = 'cs',
     },
   })
 end

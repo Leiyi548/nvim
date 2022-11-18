@@ -109,6 +109,7 @@ vim.opt.background = 'dark'
 
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
+  vim.opt.clipboard = ''
   vim.g.clipboard = {
     name = 'win32yank-wsl',
     copy = {

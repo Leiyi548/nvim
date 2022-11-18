@@ -9,7 +9,6 @@ plugin({
   'nvim-telescope/telescope.nvim',
   config = conf.telescope,
   requires = {
-    { 'nvim-lua/popup.nvim' },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'ahmedkhalf/project.nvim', config = conf.project },
@@ -42,6 +41,13 @@ plugin({
 plugin({
   'h-hg/fcitx.nvim',
   event = 'InsertEnter',
+  disable = vim.fn.has('wsl'),
+})
+
+plugin({
+  'Leiyi548/vim-im-select',
+  event = 'InsertEnter',
+  disable = not vim.fn.has('wsl'),
 })
 
 plugin({
@@ -68,17 +74,19 @@ plugin({
 
 plugin({
   'xiyaowong/link-visitor.nvim',
-  -- keys = { 'gc', 'gb', 'g<', 'g>' },
+  cmd = { 'VisitLinkInBuffer', 'VisitLinkUnderCursor' },
   config = conf.visitor,
 })
 
 plugin({
   'TimUntersberger/neogit',
+  cmd = { 'Neogit' },
   requires = {
     { 'nvim-lua/plenary.nvim' },
     {
       'sindrets/diffview.nvim',
       config = conf.diffview,
+      cmd = { 'DiffviewFileHistory', 'DiffviewLog', 'DiffviewOpen', 'DiffviewFocusFiles', 'DiffviewToggleFiles' },
     },
   },
   config = conf.neogit,
@@ -107,7 +115,14 @@ plugin({
 
 plugin({
   'numToStr/Comment.nvim',
-  -- keys = { 'gc', 'gb', 'g<', 'g>' },
+  keys = {
+      { 'n', 'gcc' },
+      { 'n', 'gcb' },
+      { 'n', 'gck' },
+      { 'n', 'gcj' },
+      { 'x', 'gc' },
+      { 'x', 'gb' },
+    },
   config = conf.Comment,
 })
 
@@ -118,7 +133,6 @@ plugin({
 })
 
 plugin({
-  -- wait for folke back
   'folke/todo-comments.nvim',
   event = 'BufRead',
   config = conf.todo_comments,
@@ -135,21 +149,29 @@ plugin({
 
 plugin({
   'lewis6991/gitsigns.nvim',
-  event = { 'BufRead', 'BufNewFile' },
+  event = { 'BufRead'},
   config = conf.gitsigns,
 })
 
 plugin({
-  'tpope/vim-surround',
+  'Leiyi548/vim-surround',
   requires = {
-    { 'tpope/vim-repeat' },
+    { 'tpope/vim-repeat',keys = {"."} },
   },
-  disable = true,
-})
-
-plugin({
-  'kylechui/nvim-surround',
-  config = conf.nvim_surround,
+  keys = {
+      { 'n', 'ds' },
+      { 'n', 'cs' },
+      { 'n', 'cS' },
+      { 'n', 'yss' },
+      { 'n', 'ysiw' },
+      { 'n', 'ysaw' },
+      { 'x', '(' },
+      { 'x', ')' },
+      { 'x', '{' },
+      { 'x', '}' },
+      { 'x', '"' },
+      { 'x', "'" },
+    },
 })
 
 plugin({
@@ -170,7 +192,7 @@ plugin({
 
 plugin({
   'Asheq/close-buffers.vim',
-  event = 'BufEnter',
+  cmd = { 'Bdelete hideen', 'Bdelete other' },
 })
 
 plugin({
