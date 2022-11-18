@@ -81,23 +81,6 @@ imap({
   -- move line up/down vscode
   { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
   { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
-
-  -- emacs keybinding
-  -- reference: https://unix.stackexchange.com/questions/49203/vim-customized-with-emacs-commands-insert-mode-only
-  -- deleate a word befor
-  { '<C-w>', '<C-[>diwa', opts(noremap) },
-  { '<C-h>', '<Bs>', opts(noremap) },
-  { '<C-d>', '<Del>', opts(noremap) },
-  -- { '<C-u>', '<Esc>d0"_xi', opts(noremap) },
-  { '<C-u>', '<C-G>u<C-u>', opts(noremap) },
-  -- { '<C-p>', '<Up>', opts(noremap) },
-  -- { '<C-n>', '<Down>', opts(noremap) },
-  { '<C-b>', '<Left>', opts(noremap) },
-  { '<C-f>', '<Right>', opts(noremap) },
-  { '<C-a>', '<Esc>^i', opts(noremap) },
-  { '<C-e>', '<End>', opts(noremap) },
-  { '<M-f>', '<C-Right>', opts(noremap) },
-  { '<M-b>', '<C-Left>', opts(noremap) },
 })
 
 -- commandline remap (emacs keybinding)
