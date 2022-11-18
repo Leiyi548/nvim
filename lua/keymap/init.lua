@@ -7,10 +7,8 @@ require('keymap.config')
 local keymap = require('core.keymap')
 local nmap = keymap.nmap
 local imap = keymap.imap
-local smap = keymap.smap
 local omap = keymap.omap
 local xmap = keymap.xmap
-local remap = keymap.remap
 local silent, noremap, expr = keymap.silent, keymap.noremap, keymap.expr
 local opts = keymap.new_opts
 local cmd = keymap.cmd
@@ -49,14 +47,17 @@ nmap({
     opts(noremap, silent),
   },
 
+  -- neo-tree
+  { '<C-w>e', cmd('NeoTreeFloatToggle'), opts(noremap, silent) },
+
   -- toggleterm
   { '<M-i>', cmd('ToggleTerm direction=float'), opts(noremap, silent) },
   { '<M-h>', cmd('ToggleTerm size=10  direction=horizontal'), opts(noremap, silent) },
   { '<M-v>', cmd('ToggleTerm size=80  direction=vertical'), opts(noremap, silent) },
 
   -- gitsign
-  { '[d', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
-  { ']d', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
+  { '[g', cmd('lua require "gitsigns".prev_hunk()'), opts(noremap, silent) },
+  { ']g', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
   -- Vistitlink like vscode style

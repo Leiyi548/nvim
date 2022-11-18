@@ -166,9 +166,7 @@ local mappings = {
     p = { "<cmd>lua require'telescope'.extensions.project.project{}<CR>", 'Project' },
     k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
     m = { '<cmd>Telescope marks<cr>', 'Mark' },
-    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
-    H = { '<cmd>Telescope highlights<cr>', 'Highlight' },
-    N = { '<cmd>Telescope notify<cr>', 'View notify' },
+    h = { '<cmd>Telescope highlights<cr>', 'Highlight' },
     r = {
       "<cmd>lua require('modules.tools.fancy_telescope').findRecentFiles()<cr>",
       'Recent File',
@@ -276,8 +274,9 @@ local mappings = {
   s = {
     name = 'Search',
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-    h = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", 'Stage hunk' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
+    h = { '<cmd>Telescope help_tags<cr>', 'Help' },
+    n = { '<cmd>Telescope notify<cr>', 'View notify' },
     m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
     t = { '<cmd>TodoQuickFix<cr>', 'Todo Quickfix' },
     r = { '<cmd>Telescope registers<cr>', 'Registers' },

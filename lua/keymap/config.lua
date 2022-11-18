@@ -43,13 +43,6 @@ nmap({
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },
 
-  -- spliw window
-  -- { 'sg', cmd('split'), opts(noremap) },
-  -- { 'sv', cmd('vsplit'), opts(noremap) },
-
-  -- close window
-  -- { 'sc', cmd('close'), opts(noremap) },
-
   -- resize window
   { '<M-[>', cmd('vertical resize -5'), opts(noremap, silent) },
   { '<M-]>', cmd('resize +5'), opts(noremap, silent) },
