@@ -99,14 +99,23 @@ plugin({
 })
 
 plugin({
-  'phaazon/hop.nvim',
-  branch = 'v2', -- optional but strongly recommended
-  event = 'BufRead',
-  config = function()
-    -- you can configure Hop the way you like here; see :h hop-config
-    require('hop').setup({ keys = 'etovxqpdygfblzhckisuran' })
-  end,
+  'easymotion/vim-easymotion',
+  requires = "zzhirong/vim-easymotion-zh",
+  config = function ()
+    vim.cmd([[
+      " Disable default mappings
+      let g:EasyMotion_do_mapping = 0
+      " Turn on case-insensitive feature
+      let g:EasyMotion_smartcase = 1
+      nnoremap s <Plug>(easymotion-bd-f2)
+      nnoremap f <Plug>(easymotion-fl)
+      nnoremap F <Plug>(easymotion-Fl)
+      nnoremap t <Plug>(easymotion-tl)
+      nnoremap T <Plug>(easymotion-Tl)
+    ]])
+  end
 })
+
 
 plugin({
   'akinsho/toggleterm.nvim',

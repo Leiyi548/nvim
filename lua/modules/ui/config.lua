@@ -27,6 +27,108 @@ function config.github()
   end
 end
 
+function config.catppuccin()
+    -- frappe（dark like） like tokynight
+  -- macchiato,mocha是个深色主题
+  -- latte is light colorscheme,I think mocha is better
+  vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha
+
+  require('catppuccin').setup({
+    dim_inactive = {
+      enabled = false,
+      shade = 'dark',
+      percentage = 0.15,
+    },
+    transparent_background = false,
+    term_colors = true,
+    compile = {
+      enabled = true,
+      -- ~/.cache/nvim/catppuccin
+      path = vim.fn.stdpath('cache') .. '/catppuccin',
+    },
+    styles = {
+      comments = { 'italic' },
+      conditionals = {},
+      loops = {},
+      functions = {},
+      keywords = {},
+      strings = {},
+      variables = {},
+      numbers = {},
+      booleans = {},
+      properties = {},
+      types = {},
+      operators = {},
+    },
+    integrations = {
+      treesitter = true,
+      native_lsp = {
+        enabled = true,
+        virtual_text = {
+          errors = {},
+          hints = {},
+          warnings = {},
+          information = {},
+        },
+        underlines = {
+          errors = { 'underline' },
+          hints = { 'underline' },
+          warnings = { 'underline' },
+          information = { 'underline' },
+        },
+      },
+      coc_nvim = true,
+      lsp_trouble = false,
+      cmp = true,
+      lsp_saga = true,
+      gitgutter = false,
+      gitsigns = true,
+      leap = true,
+      telescope = true,
+      nvimtree = {
+        enabled = true,
+        show_root = true,
+        transparent_panel = true,
+      },
+      neotree = {
+        enabled = true,
+        show_root = true,
+        transparent_panel = false,
+      },
+      dap = {
+        enabled = false,
+        enable_ui = false,
+      },
+      which_key = true,
+      indent_blankline = {
+        enabled = true,
+        colored_indent_levels = false,
+      },
+      dashboard = true,
+      neogit = true,
+      vim_sneak = false,
+      fern = false,
+      barbar = false,
+      bufferline = true,
+      markdown = true,
+      lightspeed = false,
+      ts_rainbow = false,
+      hop = true,
+      notify = true,
+      telekasten = true,
+      symbols_outline = false,
+      mini = false,
+      aerial = false,
+      vimwiki = false,
+      beacon = true,
+      navic = true,
+      overseer = false,
+    },
+    color_overrides = {},
+    highlight_overrides = {},
+  })
+end
+
 function config.vscode()
   if _G_colorscheme == 'vscode' then
     local c = require('vscode.colors')

@@ -28,7 +28,7 @@ function config.coc()
           \ coc#refresh()
 
     " To make <cr> select the first completion item and confirm the completion when no item has been selected:
-    " inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+    inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
     function! CheckBackSpace() abort
       let col = col('.') - 1

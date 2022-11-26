@@ -83,6 +83,7 @@ local mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
   -- harpoon
   ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", '  Harpoon' },
+  ['<Tab>'] = { "<cmd>e #<cr>", 'Recent Buffer' },
   -- lsp document symbol
   ['.'] = { '<cmd>Telescope lsp_document_symbols<cr>', '  Document Symbols' },
   ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", ' goto1' },
@@ -188,7 +189,7 @@ local mappings = {
     name = 'Buffer',
     s = { '<cmd>BufferLineSortByExtension<cr>', 'sort buffer by extensions' },
     k = { '<cmd>bdelete!<cr>', 'kill buffer' },
-    p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
+    -- p = { '<cmd>BufferLinePick<cr>', 'pick buffer' },
     f = { '<cmd>Telescope current_buffer_fuzzy_find<cr>', 'Current Buffer' },
     h = { '<cmd>Bdelete hidden<cr>', 'Close hidden buffer' },
     o = { '<cmd>Bdelete other<cr>', 'Close other buffer' },

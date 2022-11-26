@@ -21,6 +21,7 @@
   "suggest.triggerCompletionWait": 50,
   "suggest.acceptSuggestionOnCommitCharacter": false,
   "suggest.localityBonus": true,
+  "suggest.triggerAfterInsertEnter": true,
   "suggest.completionItemKindLabels": {
     "default": "",
     "text": "",

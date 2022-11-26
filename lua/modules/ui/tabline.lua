@@ -5,7 +5,7 @@ end
 
 bufferline.setup({
   options = {
-    mode = 'tabs', -- tabs | buffers
+    mode = 'buffers', -- tabs | buffers
     numbers = 'none', -- none | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     right_mouse_command = 'NeoTreeFloatToggle', -- can be a string | function, see "Mouse actions"
@@ -70,7 +70,7 @@ bufferline.setup({
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     separator_style = 'slant', -- slant | padded_slant | thick | thin
     enforce_regular_tabs = true,
-    always_show_bufferline = false,
+    always_show_bufferline = true,
     -- sort will change number,I don't need this.
     -- sort_by = 'insert_after_current', --insert_after_current' |'insert_at_end' | 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
     -- custom_areas = {},
@@ -84,16 +84,15 @@ local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
 nmap{
-  { '<leader>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },
-  { '<leader>2', cmd('lua require("bufferline").go_to_buffer(2, true)<cr>'), opts(noremap, silent) },
-  { '<leader>3', cmd('lua require("bufferline").go_to_buffer(3, true)<cr>'), opts(noremap, silent) },
-  { '<leader>4', cmd('lua require("bufferline").go_to_buffer(4, true)<cr>'), opts(noremap, silent) },
-  { '<leader>5', cmd('lua require("bufferline").go_to_buffer(5, true)<cr>'), opts(noremap, silent) },
-  { '<leader>6', cmd('lua require("bufferline").go_to_buffer(6, true)<cr>'), opts(noremap, silent) },
-  { '<leader>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
-  { '<leader>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
-  { '<leader>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
-  { ';s', cmd('BufferLinePick'), opts(noremap, silent) },
-  { '<Tab>', cmd('BufferLineCycleNext'), opts(noremap) },
-  { '<S-Tab>', cmd('BufferLineCyclePrev'), opts(noremap) },
+  -- { '<Space>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>2', cmd('lua require("bufferline").go_to_buffer(2, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>3', cmd('lua require("bufferline").go_to_buffer(3, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>4', cmd('lua require("bufferline").go_to_buffer(4, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>5', cmd('lua require("bufferline").go_to_buffer(5, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>6', cmd('lua require("bufferline").go_to_buffer(6, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
+  -- { '<Space>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
+  { '<Space>bp', cmd('BufferLineCyclePrev'), opts(noremap,silent) },
+  { '<Space>bn', cmd('BufferLineCycleNext'), opts(noremap,silent) },
 }

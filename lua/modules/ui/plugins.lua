@@ -11,6 +11,7 @@ plugin({ 'Leiyi548/zephyr-nvim' })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
 plugin({ 'Mofiqul/vscode.nvim', config = conf.vscode })
 plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro })
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin})
 
 -- startup plugin
 plugin({
