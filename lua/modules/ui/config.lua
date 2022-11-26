@@ -368,7 +368,7 @@ function config.catppuccin()
       shade = 'dark',
       percentage = 0.15,
     },
-    transparent_background = true,
+    transparent_background = false,
     term_colors = true,
     compile = {
       enabled = true,
