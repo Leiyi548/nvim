@@ -28,7 +28,7 @@ function config.github()
 end
 
 function config.catppuccin()
-    -- frappe（dark like） like tokynight
+  -- frappe（dark like） like tokynight
   -- macchiato,mocha是个深色主题
   -- latte is light colorscheme,I think mocha is better
   vim.g.catppuccin_flavour = 'mocha' -- latte, frappe, macchiato, mocha

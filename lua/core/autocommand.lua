@@ -72,6 +72,15 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = edit_group,
+  callback = function()
+    vim.cmd([[
+      Neoformat
+    ]])
+  end,
+})
+
 -- if vim.fn.has('nvim-0.8') == 1 then
 --   vim.api.nvim_create_autocmd(
 --     { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
