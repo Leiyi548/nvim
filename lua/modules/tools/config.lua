@@ -197,13 +197,18 @@ function config.telescope()
     },
     -- reference: https://github.com/dhruvmanila/dotfiles/blob/master/config/nvim/lua/dm/plugins/telescope/init.lua
     pickers = {
+      live_grep = {
+        --@usage don't include the filename in the search results
+        only_sort_text = true,
+        theme = 'dropdown',
+      },
       find_files = {
         -- disable_devicons = true
       },
       buffers = {
         sort_lastused = true,
         sort_mru = true,
-        ignore_current_buffer = true,
+        ignore_current_buffer = false,
         theme = 'dropdown',
         previewer = false,
         mappings = {
@@ -305,7 +310,7 @@ function config.toggleterm()
 
   toggleterm.setup({
     size = 20,
-    open_mapping = [[<C-\\>]],
+    open_mapping = [[<C-\>]],
     hide_numbers = true,
     shade_filetypes = {},
     shade_terminals = true,
@@ -581,17 +586,20 @@ function config.gitsigns()
 
   gitsigns.setup({
     signs = {
+      -- add = { hl = 'GitSignsAdd', text = '▎', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
+      -- change = { hl = 'GitSignsChange', text = '▎', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
       add = { hl = 'GitSignsAdd', text = '', numhl = 'GitSignsAddNr', linehl = 'GitSignsAddLn' },
       change = { hl = 'GitSignsChange', text = '', numhl = 'GitSignsChangeNr', linehl = 'GitSignsChangeLn' },
       changedelete = {
         hl = 'GitSignsChange',
-        text = '',
+        text = '▎',
         numhl = 'GitSignsChangeNr',
         linehl = 'GitSignsChangeLn',
       },
       -- delete = { hl = "GitSignsDelete", text = "", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
       -- topdelete = { hl = "GitSignsDelete", text = "‾", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      -- delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
+      delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
       topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`

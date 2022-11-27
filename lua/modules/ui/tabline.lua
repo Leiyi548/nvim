@@ -68,7 +68,7 @@ bufferline.setup({
     show_close_icon = true,
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-    separator_style = 'slant', -- slant | padded_slant | thick | thin
+    separator_style = 'thin', -- slant | padded_slant | thick | thin
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     -- sort will change number,I don't need this.
@@ -83,7 +83,7 @@ local nmap = key.nmap
 local silent, noremap = key.silent, key.noremap
 local opts = key.new_opts
 local cmd = key.cmd
-nmap{
+nmap({
   -- { '<Space>1', cmd('lua require("bufferline").go_to_buffer(1, true)<cr>'), opts(noremap, silent) },
   -- { '<Space>2', cmd('lua require("bufferline").go_to_buffer(2, true)<cr>'), opts(noremap, silent) },
   -- { '<Space>3', cmd('lua require("bufferline").go_to_buffer(3, true)<cr>'), opts(noremap, silent) },
@@ -93,6 +93,6 @@ nmap{
   -- { '<Space>7', cmd('lua require("bufferline").go_to_buffer(7, true)<cr>'), opts(noremap, silent) },
   -- { '<Space>8', cmd('lua require("bufferline").go_to_buffer(8, true)<cr>'), opts(noremap, silent) },
   -- { '<Space>9', cmd('lua require("bufferline").go_to_buffer(9, true)<cr>'), opts(noremap, silent) },
-  { '<Space>bp', cmd('BufferLineCyclePrev'), opts(noremap,silent) },
-  { '<Space>bn', cmd('BufferLineCycleNext'), opts(noremap,silent) },
-}
+  { '<Space>bp', cmd('BufferLineCyclePrev'), opts(noremap, silent) },
+  { '<Space>bn', cmd('BufferLineCycleNext'), opts(noremap, silent) },
+})
