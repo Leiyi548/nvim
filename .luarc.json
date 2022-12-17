@@ -5,6 +5,7 @@
         "unused-local"
     ],
     "Lua.diagnostics.globals": [
-        "vim"
+        "vim",
+        "packer_plugins"
     ]
 }
