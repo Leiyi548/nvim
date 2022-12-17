@@ -28,52 +28,15 @@ local hide_in_width_100 = function()
   return vim.o.columns > 100
 end
 
-local filetype = {
-  'filetype',
-  fmt = function(str)
-    local ui_filetypes = {
-      'help',
-      'packer',
-      'neogitstatus',
-      'NvimTree',
-      'Trouble',
-      'lir',
-      'Outline',
-      'spectre_panel',
-      'toggleterm',
-      'DressingSelect',
-      '',
-    }
-
-    if str == 'toggleterm' then
-      -- 
-      local term = '%#SLTermIcon#'
-        .. ' '
-        .. '%*'
-        .. '%#SLFG#'
-        .. vim.api.nvim_buf_get_var(0, 'toggle_number')
-        .. '%*'
-      return term
-    end
-
-    if contains(ui_filetypes, str) then
-      return ''
-    else
-      return str
-    end
-  end,
-  icons_enabled = true,
-}
-
 local diagnostics = {
   'diagnostics',
   sources = { 'coc' },
   sections = { 'error', 'warn' },
-  symbols = { error = icons.diagnostics.Error .. ' ', warn = icons.diagnostics.Warning .. ' ' },
+  symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning },
   colored = true,
   update_in_insert = false,
-  -- cond = hide_in_width,
   always_visible = true,
+  separator = '',
 }
 
 local diff = {
@@ -81,23 +44,14 @@ local diff = {
   colored = true,
   symbols = { added = ' ', modified = ' ', removed = ' ' }, -- changes diff symbols
   cond = hide_in_width_60,
-  -- separator = '%#SLSeparator#' .. '│ ' .. '%*',
-  separator = ' │',
+  separator = '',
 }
 
 local branch = {
   'branch',
   icons_enabled = true,
-  icon = icons.git.SourceControl,
-  -- icon = '%#SLGitIcon#' .. ' ',
+  icon = icons.git.Octoface,
   colored = false,
-  -- padding = 0,
-  -- fmt = function(str)
-  --   if str == '' or str == nil then
-  --     return '!=vcs'
-  --   end
-  --   return str
-  -- end,
   cond = hide_in_width_100,
 }
 
@@ -115,7 +69,7 @@ local simple_filename = {
   'filename',
   file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 1,
+  path = 3,
   -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path
@@ -139,6 +93,7 @@ local simple_filename = {
     end
     return str .. size
   end,
+  separator = '',
 }
 
 local spaces = {
@@ -208,6 +163,7 @@ local filetype = {
   'filetype',
   colored = true,
   icon_only = true,
+  separator = '',
   padding = { left = 1, right = 0 },
 }
 
@@ -221,8 +177,7 @@ lualine.setup({
     icons_enabled = true,
     globalstatus = true,
     theme = 'auto',
-    -- section_separators = { left = '', right = '' },
-    component_separators = { left = '', right = '' },
+    component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
     disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
@@ -238,14 +193,11 @@ lualine.setup({
     },
   },
   sections = {
-    -- lualine_a = {},
-    lualine_a = { branch, pwd },
-    lualine_b = { filetype, simple_filename },
-    lualine_c = {},
-    -- lualine_x = { "encoding", "fileformat", "filetype" },
-    -- lualine_x = { LSP_status, diff },
-    lualine_x = { diagnostics, diff },
-    lualine_y = { encoding, location },
+    lualine_a = { 'mode' },
+    lualine_b = { branch },
+    lualine_c = { filetype, simple_filename, diff, diagnostics },
+    lualine_x = { encoding },
+    lualine_y = { location },
     lualine_z = { progress },
   },
   -- 没有聚焦的窗口
