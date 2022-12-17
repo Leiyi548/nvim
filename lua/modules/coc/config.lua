@@ -5,6 +5,10 @@
 local config = {}
 
 function config.coc()
+  local cmd = vim.cmd
+  local fn = vim.fn
+  local api = vim.api
+
   vim.g.coc_global_extensions = {
     'coc-pairs',
     'coc-sumneko-lua',
@@ -45,13 +49,13 @@ function config.coc()
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
     inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 
-    nmap <silent> [e <Plug>(coc-diagnostic-prev)
-    nmap <silent> ]e <Plug>(coc-diagnostic-next)
+    nmap <silent> [d <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]d <Plug>(coc-diagnostic-next)
     nmap <silent> gl <Plug>(coc-diagnostic-next)
-    nmap <silent> gd :Telescope coc definitions<cr>
-    nmap <silent> gy :Telescope coc type_definations<cr>
-    nmap <silent> gI :Telescope coc implementations<cr>
-    nmap <silent> gr :Telescope coc references<cr>
+    " nmap <silent> gd :Telescope coc definitions<cr>
+    " nmap <silent> gy :Telescope coc type_definations<cr>
+    " nmap <silent> gI :Telescope coc implementations<cr>
+    " nmap <silent> gr :Telescope coc references<cr>
     nnoremap <silent> K :call ShowDocumentation()<cr>
     function! ShowDocumentation()
       if CocAction('hasProvider', 'hover')
@@ -96,6 +100,59 @@ function config.coc()
     nmap <C-t> <Plug>(coc-translator-p)
     xmap <C-t> <Plug>(coc-translator-pv)
   ]])
+  vim.g.coc_enable_locationlist = 0
+  cmd([[
+    aug Coc
+        au!
+        au User CocLocationsChange lua _G.jumpToLoc()
+    aug END
+  ]])
+
+  cmd([[ 
+    nmap <silent> gr <Plug>(coc-references)
+    nnoremap <silent> <Space>n <Cmd>lua _G.diagnostic()<CR>
+  ]])
+
+  -- just use `_G` prefix as a global function for a demo
+  -- please use module instead in reality
+  function _G.jumpToLoc(locs)
+    locs = locs or vim.g.coc_jump_locations
+    fn.setloclist(0, {}, ' ', { title = 'CocLocationList', items = locs })
+    local winid = fn.getloclist(0, { winid = 0 }).winid
+    if winid == 0 then
+      cmd('abo lw')
+    else
+      api.nvim_set_current_win(winid)
+    end
+  end
+
+  function _G.diagnostic()
+    fn.CocActionAsync('diagnosticList', '', function(err, res)
+      if err == vim.NIL then
+        local items = {}
+        for _, d in ipairs(res) do
+          local text = ('[%s%s] %s'):format(
+            (d.source == '' and 'coc.nvim' or d.source),
+            (d.code == vim.NIL and '' or ' ' .. d.code),
+            d.message:match('([^\n]+)\n*')
+          )
+          local item = {
+            filename = d.file,
+            lnum = d.lnum,
+            end_lnum = d.end_lnum,
+            col = d.col,
+            end_col = d.end_col,
+            text = text,
+            type = d.severity,
+          }
+          table.insert(items, item)
+        end
+        fn.setqflist({}, ' ', { title = 'CocDiagnosticList', items = items })
+
+        cmd('bo cope')
+      end
+    end)
+  end
 end
 
 function config.neoformat()

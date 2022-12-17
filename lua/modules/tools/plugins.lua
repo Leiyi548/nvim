@@ -29,12 +29,37 @@ plugin({
 plugin({
   'kevinhwang91/nvim-hlslens',
   config = conf.hlslens,
+  keys = {
+    { 'n', 'n' },
+    { 'x', 'n' },
+    { 'o', 'n' },
+    { 'n', 'N' },
+    { 'x', 'N' },
+    { 'o', 'N' },
+    { 'n', '/' },
+    { 'n', '?' },
+    { 'n', '*' },
+    { 'x', '*' },
+    { 'n', '#' },
+    { 'x', '#' },
+    { 'n', 'g*' },
+    { 'x', 'g*' },
+    { 'n', 'g#' },
+    { 'x', 'g#' },
+  },
 })
 
 plugin({
   'kevinhwang91/nvim-bqf',
   config = conf.bqf,
   ft = 'qf',
+})
+
+plugin({
+  'junegunn/fzf',
+  run = function()
+    vim.fn['fzf#install']()
+  end,
 })
 
 plugin({

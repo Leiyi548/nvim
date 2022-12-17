@@ -32,7 +32,7 @@ local diagnostics = {
   'diagnostics',
   sources = { 'coc' },
   sections = { 'error', 'warn' },
-  symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warning },
+  symbols = { error = icons.diagnostics.BoldError, warn = icons.diagnostics.BoldWarn },
   colored = true,
   update_in_insert = false,
   always_visible = true,

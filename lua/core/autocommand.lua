@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'dashboard',
     'tsplayground',
     'fugitive',
+    'fzf',
   },
   callback = function()
     vim.cmd([[

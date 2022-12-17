@@ -106,6 +106,10 @@ return {
     Calendar = ' ',
   },
   diagnostics = {
+    BoldError = ' ',
+    BoldInfo = ' ',
+    BoldHint = ' ',
+    BoldWarn = ' ',
     Error = ' ',
     Warning = ' ',
     Information = ' ',

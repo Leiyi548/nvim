@@ -29,8 +29,11 @@ nmap({
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },
 
-  -- Smart dd
+  -- smart dd
   { 'dd', _G.smart_dd, opts(noremap, silent, expr) },
+
+  -- smart_quit
+  { 'Q', cmd('lua require("utils.function").smart_quit()'), opts(noremap, silent, expr) },
 
   -- comment.nvim Ctrl+/
   { '<C-_>', '<Plug>(comment_toggle_linewise_current)', opts(noremap, silent) },

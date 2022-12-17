@@ -50,9 +50,9 @@
     "operator": "",
     "typeParameter": ""
   },
-  "diagnostic.errorSign": "",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
+  "diagnostic.errorSign": "",
+	"diagnostic.warningSign": "",
+	"diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "diagnostic.floatConfig": {
     "border": true,
