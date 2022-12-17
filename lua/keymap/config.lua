@@ -35,10 +35,10 @@ nmap({
   { '[b', cmd('bp'), opts(noremap) },
 
   -- emacs change keybinding
-  { '<Home>',  '<C-a>', opts(noremap) },
+  { '<Home>', '<C-a>', opts(noremap) },
 
   -- window jump
-  { '<BS>',  '<C-w>h', opts(noremap) },
+  { '<BS>', '<C-w>h', opts(noremap) },
   { '<C-l>', '<C-w>l', opts(noremap) },
   { '<C-j>', '<C-w>j', opts(noremap) },
   { '<C-k>', '<C-w>k', opts(noremap) },

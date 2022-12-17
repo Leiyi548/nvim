@@ -177,6 +177,9 @@ function config.onedarkpro()
         HopNextKey = { fg = '${green}', style = 'bold' },
         HopNextKey1 = { fg = '${yellow}', style = 'bold' },
         HopNextKey2 = { link = 'HopNextKey1' },
+        -- heirline
+        Heirline = { bg = '${statusline_bg}' },
+        HeirlineBufferline = { fg = '${buffer_color}' },
         -- my person winbar hightlight
         WinbarFilename = { style = 'bold' },
         WinbarBufferNumber = { fg = '${blue}' },
@@ -203,203 +206,6 @@ function config.onedarkpro()
         terminal_colors = true, -- Use the colorscheme's colors for Neovim's :terminal?
         window_unfocused_color = false, -- When the window is out of focus, change the normal background?
       },
-    })
-  end
-end
-
-function config.tokyonight()
-  if _G_colorscheme == 'tokyonight' then
-    require('tokyonight').setup({
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      style = 'night', -- The theme comes in three styles, `storm`, a darker variant `night` and `day`
-      transparent = false, -- Enable this to disable setting the background color
-      terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
-      styles = {
-        -- Style to be applied to different syntax groups
-        -- Value is any valid attr-list value `:help attr-list`
-        comments = 'italic',
-        keywords = 'NONE',
-        functions = 'NONE',
-        variables = 'NONE',
-        -- Background styles. Can be "dark", "transparent" or "normal"
-        sidebars = 'transparent', -- style for sidebars, see below
-        floats = 'transparent', -- style for floating windows
-      },
-      sidebars = { 'qf', 'help' }, -- Set a darker background on sidebar-like windows. For example: `["qf", "vista_kind", "terminal", "packer"]`
-      day_brightness = 0.3, -- Adjusts the brightness of the colors of the **Day** style. Number between 0 and 1, from dull to vibrant colors
-      hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
-      dim_inactive = false, -- dims inactive windows
-      lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
-
-      --- You can override specific color groups to use other groups or a hex color
-      --- fucntion will be called with a ColorScheme table
-      ---@param colors ColorScheme
-      on_colors = function(colors) end,
-
-      --- You can override specific highlights to use other groups or a hex color
-      --- fucntion will be called with a Highlights and ColorScheme table
-      ---@param hls Highlights
-      ---@param c ColorScheme
-      -- 记住修改后，packercompile
-      on_highlights = function(hls, c)
-        -- current
-        hls.CursorLineNr = {
-          fg = c.blue1,
-        }
-        hls.markdownBold = {
-          fg = c.orange,
-        }
-        -- markdown
-        hls.LineNr = {
-          fg = c.blue1,
-        }
-        -- telescope
-        hls.TelescopeSelection = {
-          fg = c.orange,
-          style = 'bold',
-        }
-        hls.TelescopeNormal = {
-          fg = c.fg,
-          bg = c.none,
-        }
-        hls.TelescopeResultsDiffAdd = {
-          fg = c.green,
-          bg = c.none,
-        }
-        hls.TelescopeResultsDiffChange = {
-          fg = '#61afef',
-          bg = c.none,
-        }
-        hls.TelescopeResultsDiffDelete = {
-          fg = c.gitSigns.delete,
-          bg = c.none,
-        }
-        hls.TelescopeResultsDiffUntracked = {
-          fg = c.orange,
-          bg = c.none,
-        }
-        -- TreesitterContext default link normal float
-        hls.TreesitterContext = {
-          bg = c.bg_visual,
-        }
-        -- gitsigns
-        hls.GitSignsAdd = {
-          fg = c.green,
-          bg = c.green,
-        }
-        hls.GitSignsChange = {
-          fg = '#61afef',
-          bg = '#61afef',
-        }
-        -- neogit
-        hls.NeogitDiffAdd = {
-          fg = c.green,
-          bg = c.none,
-        }
-        hls.NeogitDiffDelete = {
-          fg = c.gitSigns.delete,
-          bg = c.none,
-        }
-        hls.NeogitDiffAddHighlight = {
-          fg = c.none,
-          bg = c.none,
-        }
-        hls.NeogitDiffDeleteHighlight = {
-          fg = c.gitSigns.delete,
-          bg = c.none,
-        }
-        hls.NeogitDiffContextHighlight = {
-          bg = c.none,
-        }
-        hls.NeogitObjectId = {
-          fg = c.orange,
-          bg = c.none,
-        }
-        hls.NeogitHunkHeader = {
-          fg = c.cyan,
-          bg = c.none,
-        }
-        hls.NeogitHunkHeaderHighlight = {
-          fg = c.orange,
-          bg = c.none,
-        }
-        -- navic
-        hls.NavicText = {
-          fg = c.dark3,
-        }
-        hls.NavicIconsPackage = {
-          fg = c.orange,
-        }
-        hls.NavicIconsField = {
-          fg = c.blue,
-        }
-        hls.NavicIconsVariable = {
-          fg = c.magenta,
-        }
-        hls.NavicIconsInterface = {
-          fg = c.blue,
-        }
-        hls.NavicIconsMethod = {
-          fg = c.blue,
-        }
-        hls.NavicIconsProperty = {
-          fg = c.blue,
-        }
-        hls.NavicIconsConstructor = {
-          fg = c.blue,
-        }
-        hls.NavicIconsMethod = {
-          fg = c.blue,
-        }
-        hls.NavicIconsFunction = {
-          fg = c.blue,
-        }
-        hls.NavicIconsClass = {
-          fg = c.orange,
-        }
-        hls.NavicIconsInterface = {
-          fg = c.orange,
-        }
-        hls.NavicIconsStruct = {
-          fg = c.orange,
-        }
-        hls.NavicIconsEvent = {
-          fg = c.orange,
-        }
-        hls.NavicIconsEnum = {
-          fg = c.orange,
-        }
-        -- custom my winbar hightlight
-        hls.WinbarFilename = {
-          fg = c.fg_dark,
-        }
-        hls.WinbarBufferNumber = {
-          fg = c.cyan,
-        }
-        -- neo-tree
-        hls.NeoTreeGitAdded = {
-          fg = c.green,
-        }
-        hls.NeoTreeGitStaged = {
-          fg = c.green,
-        }
-        hls.NeoTreeGitUnStaged = {
-          fg = c.fg_dark,
-        }
-        hls.NeoTreeGitModified = {
-          fg = c.orange,
-        }
-        hls.NeoTreeModified = {
-          fg = c.fg_dark,
-        }
-        hls.NeoTreeGitDeleted = {
-          fg = c.gitSigns.delete,
-        }
-        hls.NeoTreeRootName = {
-          fg = c.purple,
-        }
-      end,
     })
   end
 end
@@ -462,8 +268,16 @@ function config.dashboard()
   db.custom_footer = { ' ' .. total_plugins .. ' plugins' .. nvim_version_info }
 end
 
+function config.heirline()
+  require('modules.ui.heirline_statusline').setup()
+end
+
 function config.lualine()
   require('modules.ui.statusline')
+end
+
+function config.eviline()
+  require('modules.ui.eviline')
 end
 
 function config.bufferline()

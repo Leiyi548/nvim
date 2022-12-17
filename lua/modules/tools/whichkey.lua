@@ -83,7 +83,7 @@ local mappings = {
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
   -- harpoon
   ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", '  Harpoon' },
-  ['<Tab>'] = { "<cmd>e #<cr>", 'Recent Buffer' },
+  ['<Tab>'] = { '<cmd>e #<cr>', 'Recent Buffer' },
   -- lsp document symbol
   ['.'] = { '<cmd>Telescope lsp_document_symbols<cr>', '  Document Symbols' },
   ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", ' goto1' },
@@ -91,8 +91,8 @@ local mappings = {
   ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
   ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
   ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", ' Add Mark' },
-  ['j'] = { "<cmd>e #<cr> ", 'Recent buffer' },
-  ['k'] = { "<cmd>HopWord<cr>", 'Hopword' },
+  ['j'] = { '<cmd>e #<cr> ', 'Recent buffer' },
+  ['k'] = { '<cmd>HopWord<cr>', 'Hopword' },
   -- ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
   ['e'] = { '<cmd>NeoTreeFocusToggle<cr>', '  Explorer' },
   ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
@@ -215,8 +215,9 @@ local mappings = {
     h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
-    g = { '<cmd>Neogit<cr>', 'Neogit' },
-    -- l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", ' Blame' },
+    -- g = { '<cmd>Neogit<cr>', 'Neogit' },
+    g = { '<cmd>G<cr>', 'fugitive' },
+    l = { '<cmd>GlLog<cr>', 'Git Log' },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
@@ -273,9 +274,10 @@ local mappings = {
   },
   -- whichkey-s
   s = {
-    name = 'Search',
+    name = 'Search/Show',
     b = { '<cmd>Telescope git_branches<cr>', 'Checkout branch' },
-    s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", ' Save' },
+    s = { "<cmd>lua require('modules.tools.fancy_telescope').findSnippets()<cr>", 'Snippet' },
+    d = { '<cmd>CocDiagnostics<cr>', 'Diagnostics' },
     h = { '<cmd>Telescope help_tags<cr>', 'Help' },
     n = { '<cmd>Telescope notify<cr>', 'View notify' },
     m = { '<cmd>Telescope man_pages<cr>', 'man Pages' },
@@ -301,10 +303,6 @@ local mappings = {
   -- whichkey-i
   i = {
     name = 'Insert',
-    -- BUG: not useful use picgo -u to upload image
-    m = { '<cmd>lua require("nvim-picgo").upload_clipboard()<cr>', 'Image(Picgo)' },
-    c = { '<cmd>Colortils<cr>', 'Color' },
-    l = { '<cmd>Colortils css list<cr>', 'List Css' },
   },
 
   -- whichkey-m

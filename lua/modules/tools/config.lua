@@ -1,4 +1,3 @@
----@diagnostic disable: undefined-doc-name
 -- author: glepnr https://github.com/glepnir
 -- date: 2022-07-02
 -- License: MIT
@@ -258,7 +257,6 @@ function config.telescope()
   require('telescope').load_extension('projects')
   require('telescope').load_extension('ui-select')
   require('telescope').load_extension('coc')
-  require('telescope').load_extension('file_browser')
 end
 
 function config.project()
@@ -1036,52 +1034,7 @@ function config.notify()
 end
 
 function config.CamelCaseMotion()
-  vim.g.camelcasemotion_key = ';'
-end
-
-function config.colortils()
-  require('colortils').setup({
-    -- Register in which color codes will be copied
-    register = '+',
-    -- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color
-    color_preview = '█ %s',
-    -- The default in which colors should be saved
-    -- This can be hex, hsl or rgb
-    default_format = 'hex',
-    -- Border for the float
-    border = 'rounded',
-    -- Some mappings which are used inside the tools
-    mappings = {
-      -- increment values
-      increment = 'l',
-      -- decrement values
-      decrement = 'h',
-      -- increment values with bigger steps
-      increment_big = 'L',
-      -- decrement values with bigger steps
-      decrement_big = 'H',
-      -- set values to the minimum
-      min_value = '0',
-      -- set values to the maximum
-      max_value = '$',
-      -- save the current color in the register specified above with the format specified above
-      set_register_default_format = '<cr>',
-      -- save the current color in the register specified above with a format you can choose
-      set_register_cjoose_format = 'g<cr>',
-      -- replace the color under the cursor with the current color in the format specified above
-      replace_default_format = '<m-cr>',
-      -- replace the color under the cursor with the current color in a format you can choose
-      replace_choose_format = 'g<m-cr>',
-      -- export the current color to a different tool
-      export = 'E',
-      -- set the value to a certain number (done by just entering numbers)
-      set_value = 'c',
-      -- toggle transparency
-      transparency = 'T',
-      -- choose the background (for transparent colors)
-      choose_background = 'B',
-    },
-  })
+  vim.g.camelcasemotion_key = '\\'
 end
 
 function config.harpoon()
@@ -1188,6 +1141,57 @@ function config.hlslens()
       end
       render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
     end,
+  })
+end
+
+function config.lastplace()
+  require('nvim-lastplace').setup({
+    lastplace_ignore_buftype = { 'quickfix', 'nofile', 'help' },
+    lastplace_ignore_filetype = { 'gitcommit', 'gitrebase', 'svn', 'hgcommit' },
+    lastplace_open_folds = true,
+  })
+end
+
+function config.bqf()
+  require('bqf').setup({
+    auto_enable = true,
+    auto_resize_height = true, -- highly recommended enable
+    preview = {
+      win_height = 12,
+      win_vheight = 12,
+      delay_syntax = 80,
+      border_chars = { '┃', '┃', '━', '━', '┏', '┓', '┗', '┛', '█' },
+      show_title = false,
+      should_preview_cb = function(bufnr, qwinid)
+        local ret = true
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        local fsize = vim.fn.getfsize(bufname)
+        if fsize > 100 * 1024 then
+          -- skip file size greater than 100k
+          ret = false
+        elseif bufname:match('^fugitive://') then
+          -- skip fugitive buffer
+          ret = false
+        end
+        return ret
+      end,
+    },
+    -- make `drop` and `tab drop` to become preferred
+    func_map = {
+      drop = 'o',
+      openc = 'O',
+      split = '<C-s>',
+      tabdrop = '<C-t>',
+      -- set to empty string to disable
+      tabc = '',
+      ptogglemode = 'z,',
+    },
+    filter = {
+      fzf = {
+        action_for = { ['ctrl-s'] = 'split', ['ctrl-t'] = 'tab drop' },
+        extra_opts = { '--bind', 'ctrl-o:toggle-all', '--prompt', '> ' },
+      },
+    },
   })
 end
 

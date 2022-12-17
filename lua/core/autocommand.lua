@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'spectre_panel',
     'dashboard',
     'tsplayground',
+    'fugitive',
   },
   callback = function()
     vim.cmd([[

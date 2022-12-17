@@ -13,7 +13,6 @@ plugin({
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'ahmedkhalf/project.nvim', config = conf.project },
     { 'nvim-telescope/telescope-ui-select.nvim' },
-    { 'nvim-telescope/telescope-file-browser.nvim' },
   },
 })
 
@@ -33,6 +32,12 @@ plugin({
 })
 
 plugin({
+  'kevinhwang91/nvim-bqf',
+  config = conf.bqf,
+  ft = 'qf',
+})
+
+plugin({
   'Leiyi548/harpoon',
   requires = 'nvim-lua/plenary.nvim',
   config = conf.harpoon,
@@ -48,13 +53,6 @@ plugin({
   'Leiyi548/vim-im-select',
   event = 'InsertEnter',
   disable = not vim.fn.has('wsl'),
-})
-
-plugin({
-  'nvim-colortils/colortils.nvim',
-  cmd = 'Colortils',
-  config = conf.colortils,
-  disable = true
 })
 
 plugin({
@@ -90,6 +88,11 @@ plugin({
     },
   },
   config = conf.neogit,
+  disable = true,
+})
+
+plugin({
+  'tpope/vim-fugitive',
 })
 
 plugin({
@@ -100,8 +103,8 @@ plugin({
 
 plugin({
   'easymotion/vim-easymotion',
-  requires = "zzhirong/vim-easymotion-zh",
-  config = function ()
+  requires = 'zzhirong/vim-easymotion-zh',
+  config = function()
     vim.cmd([[
       " Disable default mappings
       let g:EasyMotion_do_mapping = 0
@@ -113,9 +116,9 @@ plugin({
       nnoremap t <Plug>(easymotion-tl)
       nnoremap T <Plug>(easymotion-Tl)
     ]])
-  end
+  end,
+  disable = true,
 })
-
 
 plugin({
   'akinsho/toggleterm.nvim',
@@ -125,20 +128,19 @@ plugin({
 plugin({
   'numToStr/Comment.nvim',
   keys = {
-      { 'n', 'gcc' },
-      { 'n', 'gcb' },
-      { 'n', 'gck' },
-      { 'n', 'gcj' },
-      { 'x', 'gc' },
-      { 'x', 'gb' },
-    },
+    { 'n', 'gc' },
+    { 'n', 'gcc' },
+    { 'n', 'gcb' },
+    { 'x', 'gc' },
+    { 'x', 'gb' },
+  },
   config = conf.Comment,
 })
 
 plugin({
- "LudoPinelli/comment-box.nvim",
+  'LudoPinelli/comment-box.nvim',
   config = conf.comment_box,
-  ft = "markdown"
+  ft = 'markdown',
 })
 
 plugin({
@@ -158,29 +160,29 @@ plugin({
 
 plugin({
   'lewis6991/gitsigns.nvim',
-  event = { 'BufRead'},
+  event = { 'BufRead' },
   config = conf.gitsigns,
 })
 
 plugin({
   'Leiyi548/vim-surround',
   requires = {
-    { 'tpope/vim-repeat',keys = {"."} },
+    { 'tpope/vim-repeat', keys = { '.' } },
   },
   keys = {
-      { 'n', 'ds' },
-      { 'n', 'cs' },
-      { 'n', 'cS' },
-      { 'n', 'yss' },
-      { 'n', 'ysiw' },
-      { 'n', 'ysaw' },
-      { 'x', '(' },
-      { 'x', ')' },
-      { 'x', '{' },
-      { 'x', '}' },
-      { 'x', '"' },
-      { 'x', "'" },
-    },
+    { 'n', 'ds' },
+    { 'n', 'cs' },
+    { 'n', 'cS' },
+    { 'n', 'yss' },
+    { 'n', 'ysiw' },
+    { 'n', 'ysaw' },
+    { 'x', '(' },
+    { 'x', ')' },
+    { 'x', '{' },
+    { 'x', '}' },
+    { 'x', '"' },
+    { 'x', "'" },
+  },
 })
 
 plugin({
@@ -197,6 +199,11 @@ plugin({
 plugin({
   'nvim-pack/nvim-spectre',
   config = conf.spectre,
+})
+
+plugin({
+  'ethanholz/nvim-lastplace',
+  config = conf.lastplace,
 })
 
 plugin({

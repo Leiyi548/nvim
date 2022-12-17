@@ -27,6 +27,11 @@ function config.coc()
           \ CheckBackSpace() ? "\<TAB>" :
           \ coc#refresh()
 
+    " inoremap <silent><expr> <TAB>
+    "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    "       \ CheckBackSpace() ? "\<TAB>" :
+    "       \ coc#refresh()
+
     " To make <cr> select the first completion item and confirm the completion when no item has been selected:
     inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 

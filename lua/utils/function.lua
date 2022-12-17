@@ -59,4 +59,28 @@ function M.get_buf_option(opt)
   end
 end
 
+function M.toggle_line_numbers()
+  if vim.wo.relativenumber then
+    vim.wo.relativenumber = false
+  else
+    vim.wo.relativenumber = true
+  end
+end
+
+function M.toggle_onedarkpro_theme()
+  if vim.o.background == 'dark' then
+    vim.cmd([[colorscheme onelight]])
+  else
+    vim.cmd([[colorscheme onedark_vivid]])
+  end
+end
+
+function M.change_filetype()
+  vim.ui.input({ prompt = 'change filetype to:' }, function(new_ft)
+    if new_ft ~= nil then
+      vim.bo.filetype = new_ft
+    end
+  end)
+end
+
 return M

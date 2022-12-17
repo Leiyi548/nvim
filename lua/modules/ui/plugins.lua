@@ -7,11 +7,11 @@ local conf = require('modules.ui.config')
 
 -- colorscheme
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
-plugin({ 'Leiyi548/zephyr-nvim' })
-plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight })
+plugin({ 'Leiyi548/zephyr-nvim', disable = true })
+plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight, disable = true })
 plugin({ 'Mofiqul/vscode.nvim', config = conf.vscode })
 plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro })
-plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin})
+plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
 
 -- startup plugin
 plugin({
@@ -33,6 +33,7 @@ plugin({
 plugin({
   'nvim-lualine/lualine.nvim',
   config = conf.lualine,
+  disable = false,
 })
 
 -- tabline

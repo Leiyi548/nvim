@@ -167,6 +167,7 @@ local filetype = {
   padding = { left = 1, right = 0 },
 }
 
+---@diagnostic disable-next-line: unused-function
 local pwd = function()
   local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
   return ' ' .. foldname
