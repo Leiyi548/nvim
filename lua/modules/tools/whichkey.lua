@@ -217,6 +217,7 @@ local mappings = {
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", 'Prev Hunk' },
     -- g = { '<cmd>Neogit<cr>', 'Neogit' },
     g = { '<cmd>G<cr>', 'fugitive' },
+    p = { '<cmd>Git push<cr>', 'fugitive Git push' },
     l = { '<cmd>GlLog<cr>', 'Git Log' },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
