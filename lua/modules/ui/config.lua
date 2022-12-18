@@ -210,16 +210,6 @@ end
 function config.dashboard()
   -- local home = os.getenv('HOME') -- /home/ewell
   local db = require('dashboard')
-  -- macos
-  -- db.preview_command = 'cat | lolcat -F 0.3'
-  -- linux
-  -- db.preview_command = 'ueberzug'
-  -- db.preview_command = 'cat | lolcat -F 0.3'
-  --
-  -- db.preview_file_path = home .. '/.dotfile/wallpaper/01.png'
-  -- db.preview_file_path = home .. '/.config/nvim/static/neovim.cat'
-  -- db.preview_file_height = 12
-  -- db.preview_file_width = 80
   db.custom_center = {
     {
       icon = '  ',
@@ -263,6 +253,10 @@ function config.dashboard()
   local nvim_version_info = '  Neovim v' .. version.major .. '.' .. version.minor .. '.' .. version.patch
   db.custom_header = require('modules.ui.banner').dashboard_banner()
   db.custom_footer = { ' ' .. total_plugins .. ' plugins' .. nvim_version_info }
+end
+
+function config.alpha()
+  require('modules.ui.alpha')
 end
 
 function config.heirline()

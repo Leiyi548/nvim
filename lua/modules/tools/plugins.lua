@@ -88,6 +88,7 @@ plugin({
 plugin({
   'bkad/CamelCaseMotion',
   config = conf.CamelCaseMotion,
+  disable = true,
 })
 
 plugin({
@@ -206,6 +207,7 @@ plugin({
     { 'n', 'yss' },
     { 'n', 'ysiw' },
     { 'n', 'ysaw' },
+    { 'x', 'S' },
     { 'x', '(' },
     { 'x', ')' },
     { 'x', '{' },

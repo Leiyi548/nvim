@@ -8,7 +8,6 @@ if _time.hour >= 16 or _time.hour < 8 then
 else
   _G_colorscheme = 'onelight'
 end
-_G_colorscheme = 'vscode'
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then
   return

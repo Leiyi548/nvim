@@ -79,12 +79,10 @@ local opts = {
 }
 
 local mappings = {
-  -- basic mapping no prefix
+  [';'] = { '<cmd>Alpha<cr>', 'Alpha' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment' },
-  -- harpoon
   ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", 'Harpoon' },
   ['<Tab>'] = { '<cmd>e #<cr>', 'Recent Buffer' },
-  -- lsp document symbol
   ['.'] = { '<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols' },
   ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", 'goto1' },
   ['2'] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", 'goto2' },

@@ -31,10 +31,10 @@ function config.coc()
           \ CheckBackSpace() ? "\<TAB>" :
           \ coc#refresh()
 
-    " inoremap <silent><expr> <TAB>
-    "       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-    "       \ CheckBackSpace() ? "\<TAB>" :
-    "       \ coc#refresh()
+    inoremap <silent><expr> <C-j>
+          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+          \ CheckBackSpace() ? "\<TAB>" :
+          \ coc#refresh()
 
     " To make <cr> select the first completion item and confirm the completion when no item has been selected:
     inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -75,8 +75,6 @@ function config.coc()
       autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
     augroup end
 
-    " Applying codeAction to the selected region.
-    " Example: `ga` for current paragraph
     xmap ga  <Plug>(coc-codeaction-selected)
     nmap ga  <Plug>(coc-codeaction-selected)
 
@@ -85,16 +83,6 @@ function config.coc()
 
     " Run the Code Lens action on the current line.
     nmap <Space>cl  <Plug>(coc-codelens-action)
-
-    
-    " Use <C-j> for select text for visual placeholder of snippet.
-    vmap <C-j> <Plug>(coc-snippets-select)
-
-    " Use <C-j> for both expand and jump (make expand higher priority.)
-    imap <C-j> <Plug>(coc-snippets-expand-jump)
-
-    " Use <leader>x for convert visual selected code to snippet
-    xmap <Space>x  <Plug>(coc-convert-snippet)
 
     " coc translator
     nmap \\ <Plug>(coc-translator-p)

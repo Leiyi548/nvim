@@ -21,6 +21,12 @@ plugin({
   disable = true,
 })
 
+plugin({
+  'goolord/alpha-nvim',
+  config = conf.alpha,
+  requires = 'kyazdani42/nvim-web-devicons',
+})
+
 -- icon
 plugin({ 'kyazdani42/nvim-web-devicons' })
 plugin({

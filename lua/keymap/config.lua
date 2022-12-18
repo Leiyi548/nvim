@@ -20,15 +20,13 @@ xmap({ ' ', '', opts(noremap) })
 nmap({
   -- noremal remap
   { '<C-s>', cmd('write'), opts(noremap) },
-  -- { 's', '<leader>' },
+
   -- yank paste
   { 'Y', 'y$', opts(noremap) },
 
   -- I hate click this key
   { 'H', '^', opts(noremap) },
   { 'L', '$', opts(noremap) },
-  { '<', '<<', opts(noremap) },
-  { '>', '>>', opts(noremap) },
 
   -- buffer jump
   { ']b', cmd('bn'), opts(noremap) },
@@ -67,6 +65,9 @@ xmap({
 
   -- 防止剪贴版被复制内容给替代
   { 'p', '"_dP', opts(noremap) },
+
+  { '<', '<gv', opts(noremap) },
+  { '>', '>gv', opts(noremap) },
 
   -- comment.nvim
   { '<C-_>', '<Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },

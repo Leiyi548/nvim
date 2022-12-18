@@ -1,4 +1,4 @@
-# Cosyvim - coc
+## Cosyvim - coc
 
 ## Prerequisites
 
@@ -14,19 +14,12 @@ pip3 install -i https://mirrors.aliyun.com/pypi/simple neovim
 - [x] vue
 - [ ] go
 
+## TODO
 
-## some issues
+- [ ] alpha 启动时文件图标的高亮
+- [ ] coc rename
+- [ ] coc snippet super jump
 
-- tab 键等于 C-i 键
-
-区分 tab 和 C-i 键(**目前好像无用**)
-
-```lua
-vim.cmd([[
-  let &t_TI = "\<Esc>[>4;2m"
-  let &t_TE = "\<Esc>[>4;m"
-]])
-```
 
 ## Tips
 
