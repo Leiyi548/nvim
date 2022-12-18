@@ -28,6 +28,7 @@ M.winbar_filetype_exclude = {
   'dap-repl',
   'dap-terminal',
   'dapui_console',
+  'fugitive',
   '',
 }
 
@@ -71,19 +72,6 @@ M.get_filename = function()
   end
 end
 
-M.get_diagnostic_coc = function()
-  local data = vim.b.coc_diagnostic_info
-  local icon = require('modules.ui.icons')
-  if data then
-    local error = icon.diagnostics.Error .. data.error
-    local warning = icon.diagnostics.Warning .. data.warning
-    local separate = ' '
-    return separate .. error .. separate .. warning
-    -- return data.error, data.warning, data.information, data.hint
-  end
-  return ''
-end
-
 local excludes = function()
   if vim.tbl_contains(M.winbar_filetype_exclude, vim.bo.filetype) then
     vim.opt_local.winbar = nil
@@ -105,15 +93,13 @@ M.get_winbar = function()
       local mod = '%' .. nr .. '@v:lua.winbar_click_buffers@' .. '%#WinbarModifySign#' .. ' ' .. '%*'
       value = value .. mod
     end
-    local buffers_num = '%'
-      .. nr
-      .. '@v:lua.winbar_click_buffers@'
-      .. '%#WinbarBufferNumber#'
-      .. require('utils.function').get_bufs_num()
-      .. '%*'
-    value = value .. buffers_num
-    -- local coc_diagnostic_info = M.get_diagnostic_coc()
-    -- value = value .. coc_diagnostic_info
+    local num_tabs = #vim.api.nvim_list_tabpages()
+
+    local nr = vim.api.nvim_get_current_buf()
+    if num_tabs > 1 and not f.isempty(value) then
+      local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
+      value = value .. '%' .. nr .. '@v:lua.winbar_click_tabs@' .. '%=' .. tabpage_number .. '/' .. tostring(num_tabs)
+    end
   end
 
   local status_ok, _ = pcall(vim.api.nvim_set_option_value, 'winbar', value, { scope = 'local' })
