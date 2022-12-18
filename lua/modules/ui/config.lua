@@ -173,13 +173,10 @@ function config.onedarkpro()
       highlights = {
         CursorLineNr = { style = 'bold' },
         IncSearch = { bg = '${gray}' },
-        -- plugins
+        -- hop
         HopNextKey = { fg = '${green}', style = 'bold' },
         HopNextKey1 = { fg = '${yellow}', style = 'bold' },
         HopNextKey2 = { link = 'HopNextKey1' },
-        -- heirline
-        Heirline = { bg = '${statusline_bg}' },
-        HeirlineBufferline = { fg = '${buffer_color}' },
         -- my person winbar hightlight
         WinbarFilename = { style = 'bold' },
         WinbarBufferNumber = { fg = '${blue}' },

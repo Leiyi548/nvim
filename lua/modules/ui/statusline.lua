@@ -50,7 +50,7 @@ local diff = {
 local branch = {
   'branch',
   icons_enabled = true,
-  icon = icons.git.Octoface,
+  icon = icons.git.Branch,
   colored = false,
   cond = hide_in_width_100,
 }

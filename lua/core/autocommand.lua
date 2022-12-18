@@ -83,13 +83,13 @@ vim.api.nvim_create_autocmd('BufWritePre', {
   end,
 })
 
--- if vim.fn.has('nvim-0.8') == 1 then
---   vim.api.nvim_create_autocmd(
---     { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
---     {
---       callback = function()
---         require('modules.ui.winbar').get_winbar()
---       end,
---     }
---   )
--- end
+if vim.fn.has('nvim-0.8') == 1 then
+  vim.api.nvim_create_autocmd(
+    { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
+    {
+      callback = function()
+        require('modules.ui.winbar').get_winbar()
+      end,
+    }
+  )
+end

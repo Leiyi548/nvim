@@ -80,26 +80,25 @@ local opts = {
 
 local mappings = {
   -- basic mapping no prefix
-  ['/'] = { '<Plug>(comment_toggle_linewise_current)', ' Comment' },
+  ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment' },
   -- harpoon
-  ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", '  Harpoon' },
+  ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", 'Harpoon' },
   ['<Tab>'] = { '<cmd>e #<cr>', 'Recent Buffer' },
   -- lsp document symbol
-  ['.'] = { '<cmd>Telescope lsp_document_symbols<cr>', '  Document Symbols' },
-  ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", ' goto1' },
-  ['2'] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", ' goto2' },
-  ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", ' goto3' },
-  ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", ' goto4' },
-  ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", ' Add Mark' },
+  ['.'] = { '<cmd>Telescope lsp_document_symbols<cr>', 'Document Symbols' },
+  ['1'] = { "<cmd>lua require('harpoon.ui').nav_file(1)<cr>", 'goto1' },
+  ['2'] = { "<cmd>lua require('harpoon.ui').nav_file(2)<cr>", 'goto2' },
+  ['3'] = { "<cmd>lua require('harpoon.ui').nav_file(3)<cr>", 'goto3' },
+  ['4'] = { "<cmd>lua require('harpoon.ui').nav_file(4)<cr>", 'goto4' },
+  ['a'] = { "<cmd>lua require('harpoon.mark').add_file()<cr>", 'Add Harpoon Mark' },
   ['j'] = { '<Plug>(coc-diagnostic-next)', 'coc-diagnostic-next' },
   ['k'] = { '<Plug>(coc-diagnostic-prev)', 'coc-diagnostic-prev' },
-  -- ['e'] = { '<cmd>NvimTreeToggle<cr>', ' Explorer' },
-  ['e'] = { '<cmd>NeoTreeFocusToggle<cr>', '  Explorer' },
-  ['h'] = { '<cmd>nohl<cr>', ' Highlight' },
+  ['e'] = { '<cmd>NeoTreeFocusToggle<cr>', 'Explorer' },
+  ['h'] = { '<cmd>nohl<cr>', 'Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
   ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
-  ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', ' Replace' },
-  -- ['z'] = { '<cmd>ZenMode<cr>', ' ZenMode' },
+  ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', 'Replace' },
+  -- ['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
 
   -- whichkey-p
   p = {
@@ -309,9 +308,10 @@ local mappings = {
 
   -- whichkey-m
   m = {
-    name = 'Markdown/Mark',
+    name = 'Markdown/Marks',
     p = { '<cmd>MarkdownPreview<cr>', 'MarkdownPreview' },
-    i = { '<cmd>Mason', 'Mason Install' },
+    b = { '<cmd>MarksListBuf<cr>', 'MarksListBuf' },
+    a = { '<cmd>MarksListAll<cr>', 'MarksListAll' },
   },
 }
 

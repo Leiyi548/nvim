@@ -27,6 +27,12 @@ plugin({
 })
 
 plugin({
+  'chentoast/marks.nvim',
+  config = conf.marks,
+  event = 'BufRead',
+})
+
+plugin({
   'kevinhwang91/nvim-hlslens',
   config = conf.hlslens,
   keys = {
@@ -53,13 +59,12 @@ plugin({
   'kevinhwang91/nvim-bqf',
   config = conf.bqf,
   ft = 'qf',
-})
-
-plugin({
-  'junegunn/fzf',
-  run = function()
-    vim.fn['fzf#install']()
-  end,
+  requires = {
+    'junegunn/fzf',
+    run = function()
+      vim.fn['fzf#install']()
+    end,
+  },
 })
 
 plugin({

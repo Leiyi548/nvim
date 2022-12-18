@@ -32,13 +32,6 @@ plugin({
 })
 
 plugin({
-  'yaegassy/coc-marksman',
-  ft = 'markdown',
-  run = 'yarn install --frozen-lockfile',
-  disable = true,
-})
-
-plugin({
   'jbyuki/venn.nvim',
   ft = 'markdown',
 })

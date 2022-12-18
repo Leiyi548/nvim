@@ -600,7 +600,7 @@ function config.gitsigns()
       delete = { hl = 'GitSignsDelete', text = '', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
       topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
     },
-    signcolumn = false, -- Toggle with `:Gitsigns toggle_signs`
+    signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
     numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
     linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -1090,6 +1090,43 @@ function config.wilder()
   ]])
 end
 
+function config.marks()
+  require('marks').setup({
+    -- whether to map keybinds or not. default true
+    default_mappings = true,
+    -- which builtin marks to show. default {}
+    builtin_marks = { '.', '<', '>', '^', 'a', 'b', 'c' },
+    -- whether movements cycle back to the beginning/end of buffer. default true
+    cyclic = true,
+    -- whether the shada file is updated after modifying uppercase marks. default false
+    force_write_shada = false,
+    -- how often (in ms) to redraw signs/recompute mark positions.
+    -- higher values will have better performance but may cause visual lag,
+    -- while lower values may cause performance penalties. default 150.
+    refresh_interval = 250,
+    -- sign priorities for each type of mark - builtin marks, uppercase marks, lowercase
+    -- marks, and bookmarks.
+    -- can be either a table with all/none of the keys, or a single number, in which case
+    -- the priority applies to all marks.
+    -- default 10.
+    sign_priority = { lower = 10, upper = 15, builtin = 8, bookmark = 20 },
+    -- disables mark tracking for specific filetypes. default {}
+    excluded_filetypes = {},
+    -- marks.nvim allows you to configure up to 10 bookmark groups, each with its own
+    -- sign/virttext. Bookmarks can be used to group together positions and quickly move
+    -- across multiple buffers. default sign is '!@#$%^&*()' (from 0 to 9), and
+    -- default virt_text is "".
+    bookmark_0 = {
+      sign = '⚑',
+      virt_text = 'hello world',
+      -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
+      -- defaults to false.
+      annotate = false,
+    },
+    mappings = {},
+  })
+end
+
 function config.hlslens()
   local kopts = { noremap = true, silent = true }
 
@@ -1110,37 +1147,21 @@ function config.hlslens()
   vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
   vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
+  -- run `:nohlsearch` and export results to quickfix
+  -- if Neovim is 0.8.0 before, remap yourself.
+  vim.keymap.set({ 'n', 'x' }, '<Space>n', function()
+    vim.schedule(function()
+      if require('hlslens').exportLastSearchToQuickfix() then
+        vim.cmd('cw')
+      end
+    end)
+    return ':noh<CR>'
+  end, { expr = true })
+
   require('hlslens').setup({
     calm_down = false,
     nearest_only = false,
     nearest_float_when = 'auto',
-    override_lens = function(render, posList, nearest, idx, relIdx)
-      local sfw = vim.v.searchforward == 1
-      local indicator, text, chunks
-      local absRelIdx = math.abs(relIdx)
-      if absRelIdx > 1 then
-        indicator = ('%d%s'):format(absRelIdx, sfw ~= (relIdx > 1) and '▲' or '▼')
-      elseif absRelIdx == 1 then
-        indicator = sfw ~= (relIdx == 1) and '▲' or '▼'
-      else
-        indicator = ''
-      end
-
-      local lnum, col = unpack(posList[idx])
-      if nearest then
-        local cnt = #posList
-        if indicator ~= '' then
-          text = ('[%s %d/%d]'):format(indicator, idx, cnt)
-        else
-          text = ('[%d/%d]'):format(idx, cnt)
-        end
-        chunks = { { ' ', 'Ignore' }, { text, 'HlSearchLensNear' } }
-      else
-        text = ('[%s %d]'):format(indicator, idx)
-        chunks = { { ' ', 'Ignore' }, { text, 'HlSearchLens' } }
-      end
-      render.setVirt(0, lnum - 1, col - 1, chunks, nearest)
-    end,
   })
 end
 

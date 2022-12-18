@@ -18,7 +18,7 @@ plugin({
   'glepnir/dashboard-nvim',
   config = conf.dashboard,
   requires = 'kyazdani42/nvim-web-devicons',
-  disable = false,
+  disable = true,
 })
 
 -- icon

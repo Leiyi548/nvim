@@ -4,25 +4,6 @@ if not bufferline_ok then
 end
 
 bufferline.setup({
-  highlights = {
-    background = {
-      fg = '#abb2bf',
-      italic = false,
-    },
-    buffer_selected = {
-      fg = '#d55fde',
-      bold = true,
-      italic = false,
-    },
-    tab_selected = {
-      fg = '#d55fde',
-      bold = true,
-    },
-    close_button_selected = {
-      fg = '#d55fde',
-      bold = true,
-    },
-  },
   options = {
     mode = 'buffers', -- tabs | buffers
     numbers = 'none', -- none | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -86,7 +67,7 @@ bufferline.setup({
     show_close_icon = true,
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-    separator_style = 'thin', -- slant | padded_slant | thick | thin
+    separator_style = 'slant', -- slant | padded_slant | thick | thin
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     -- sort will change number,I don't need this.
