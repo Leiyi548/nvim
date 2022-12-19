@@ -22,8 +22,8 @@ function config.coc()
     'coc-translator',
     'coc-tsserver',
   }
-  vim.g.coc_snippet_next = '<C-j>'
-  vim.g.coc_snippet_prev = '<C-k>'
+  -- vim.g.coc_snippet_next = '<C-j>'
+  -- vim.g.coc_snippet_prev = '<C-k>'
   vim.cmd([[
     inoremap <silent><expr> <TAB>
           \ coc#pum#visible() ? coc#_select_confirm() :
@@ -31,10 +31,23 @@ function config.coc()
           \ CheckBackSpace() ? "\<TAB>" :
           \ coc#refresh()
 
+    inoremap <silent><expr> <S-TAB>
+          \ pumvisible() ? "\<C-p>" :
+          \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
+          \ "\<C-h>"
+
     inoremap <silent><expr> <C-j>
-          \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-          \ CheckBackSpace() ? "\<TAB>" :
-          \ coc#refresh()
+          \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetNext',[])\<CR>" :
+          \ "<C-o>o"
+
+    inoremap <silent><expr> <C-k>
+          \ coc#jumpable() ? "\<C-r>=coc#rpc#request('snippetPrev',[])\<CR>" :
+          \ "<C-o>D"
+
+
+    " inoremap <silent><expr> <C-k>
+    "       \ coc#snippet#prev() ? coc#snippet#next() :
+    "       \ "<C-o>D" 
 
     " To make <cr> select the first completion item and confirm the completion when no item has been selected:
     inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
@@ -49,6 +62,7 @@ function config.coc()
     inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
     inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 
+    nmap <silent> <Space>lr <Plug>(coc-rename)
     nmap <silent> [d <Plug>(coc-diagnostic-prev)
     nmap <silent> ]d <Plug>(coc-diagnostic-next)
     nmap <silent> gl <Plug>(coc-diagnostic-next)
