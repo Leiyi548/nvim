@@ -341,6 +341,8 @@ function config.toggleterm()
     -- vim.api.nvim_buf_set_keymap(0, 't', '<M-h>', [[<C-\><C-n><C-W>l]], opts)
     -- vim.api.nvim_buf_set_keymap(0, 't', '<M-l>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', opts)
     -- vim.api.nvim_buf_set_keymap(0, 't', '<M-v>', '<cmd>ToggleTerm size=80 direction=vertical<cr>', opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<M-v>', '<cmd>ToggleTerm size=10 direction=vertical<cr>', opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<M-h>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>', opts)
     vim.api.nvim_buf_set_keymap(0, 't', '<M-i>', '<cmd>ToggleTerm direction=float<cr>', opts)
   end
 
@@ -494,10 +496,12 @@ function config.Comment()
     },
 
     ---Pre-hook, called before commenting the line
+    ---@diagnostic disable-next-line: undefined-doc-name
     ---@type fun(ctx: CommentCtx):string
     pre_hook = nil,
 
     ---Post-hook, called after commenting is done
+    ---@diagnostic disable-next-line: undefined-doc-name
     ---@type fun(ctx: CommentCtx)
     post_hook = nil,
   })
@@ -601,7 +605,7 @@ function config.gitsigns()
       topdelete = { hl = 'GitSignsDelete', text = '‾', numhl = 'GitSignsDeleteNr', linehl = 'GitSignsDeleteLn' },
     },
     signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-    numhl = true, -- Toggle with `:Gitsigns toggle_numhl`
+    numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
     linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
     watch_gitdir = {
@@ -942,6 +946,28 @@ function config.dired()
   })
 end
 
+function config.vim_visual_multi()
+  vim.g.VM_theme = 'iceblue'
+  vim.g.VM_maps = {
+    ['Find Under'] = nil,
+    ['Find Subword Under'] = nil,
+    ['Select All'] = nil,
+    ['Select h'] = nil,
+    ['Select l'] = nil,
+    ['Add Cursor Up'] = '<M-C-K>',
+    ['Add Cursor Down'] = '<M-NL>',
+    ['Add Cursor At Pos'] = nil,
+    ['Add Cursor At Word'] = '<M-n>',
+    ['Move Left'] = nil,
+    ['Move Right'] = nil,
+    ['Remove Region'] = 'q',
+    ['Increase'] = '+',
+    ['Decrease'] = '_',
+    ['Undo'] = 'u',
+    ['Redo'] = '<C-r>',
+  }
+end
+
 function config.diffview()
   -- Lua
   local actions = require('diffview.actions')
@@ -1204,7 +1230,7 @@ function config.hlslens()
 
   -- run `:nohlsearch` and export results to quickfix
   -- if Neovim is 0.8.0 before, remap yourself.
-  vim.keymap.set({ 'n', 'x' }, '<Space>n', function()
+  vim.keymap.set({ 'n', 'x' }, '<Space>q', function()
     vim.schedule(function()
       if require('hlslens').exportLastSearchToQuickfix() then
         vim.cmd('cw')

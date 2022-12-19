@@ -94,7 +94,7 @@ local mappings = {
   ['k'] = { '<Plug>(coc-diagnostic-prev)', 'coc-diagnostic-prev' },
   ['e'] = { '<cmd>NeoTreeFocusToggle<cr>', 'Explorer' },
   ['h'] = { '<cmd>nohl<cr>', 'Highlight' },
-  ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
+  ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', 'Ts Highlight' },
   -- ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', 'Replace' },
   -- ['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
@@ -209,6 +209,7 @@ local mappings = {
   -- whichkey-g
   g = {
     name = 'Git',
+    a = { '<cmd>Git stage ' .. vim.fn.expand('%:p') .. '<cr>', 'Git stage current file' },
     f = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },
     h = { '<cmd>DiffviewFileHistory<cr>', 'History' },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", 'Next Hunk' },

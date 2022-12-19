@@ -86,6 +86,17 @@ plugin({
 })
 
 plugin({
+  'windwp/nvim-autopairs',
+  config = conf.autopairs,
+  disable = true,
+})
+
+plugin({
+  'mg979/vim-visual-multi',
+  config = conf.vim_visual_multi,
+})
+
+plugin({
   'bkad/CamelCaseMotion',
   config = conf.CamelCaseMotion,
   disable = true,
