@@ -24,7 +24,11 @@ plugin({
 plugin({
   'goolord/alpha-nvim',
   config = conf.alpha,
+  -- config = function()
+  --   require('alpha').setup(require('alpha.themes.theta').config)
+  -- end,
   requires = 'kyazdani42/nvim-web-devicons',
+  disable = true,
 })
 
 -- icon

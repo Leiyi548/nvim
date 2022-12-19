@@ -49,6 +49,9 @@ local greetHeading = {
   },
 }
 
+-- get filetype extension
+-- example icons.lua
+-- return .lua
 local function get_extension(fn)
   local match = fn:match('^.+(%..+)$')
   local ext = ''
@@ -58,35 +61,37 @@ local function get_extension(fn)
   return ext
 end
 
+-- get icon base on filetype
+-- fn is filename abbration
 local function icon(fn)
   local nwd = require('nvim-web-devicons')
   local ext = get_extension(fn)
   return nwd.get_icon(fn, ext, { default = true })
 end
 
-local function file_button(fn, sc, short_fn)
-  short_fn = short_fn or fn
-  local ico_txt
-  local fb_hl = {}
+local function file_button(filename, shortcut, short_filename)
+  short_filename = short_filename or filename
+  local icon_txt
+  local file_button_highlight_table = {}
 
-  local ico, hl = icon(fn)
-  local hl_option_type = type(nvim_web_devicons.highlight)
-  if hl_option_type == 'boolean' then
-    if hl and nvim_web_devicons.highlight then
-      table.insert(fb_hl, { hl, 0, 1 })
-    end
-  end
-  if hl_option_type == 'string' then
-    table.insert(fb_hl, { nvim_web_devicons.highlight, 0, 1 })
-  end
-  ico_txt = ico .. '  '
+  -- add icon highlight
+  local icon, icon_highlight_name = icon(filename)
+  local icon_highlight_option_type = type(nvim_web_devicons.highlight)
 
-  local file_button_el = dashboard.button(sc, ico_txt .. short_fn, '<cmd>e ' .. fn .. ' <cr>')
-  local fn_start = short_fn:match('.*/')
-  if fn_start ~= nil then
-    table.insert(fb_hl, { 'Comment', #ico_txt - 2, #fn_start + #ico_txt })
+  table.insert(file_button_highlight_table, { icon_highlight_name, 0, 2 })
+  icon_txt = icon .. '  '
+
+  local file_button_el = dashboard.button(shortcut, icon_txt .. short_filename, '<cmd>e ' .. filename .. ' <cr>')
+  -- highlight match
+  local filename_start = short_filename:match('.*[/\\]')
+  if filename_start ~= nil then
+    table.insert(file_button_highlight_table, { 'Comment', #icon_txt - 2, #filename_start + #icon_txt })
   end
-  file_button_el.opts.hl = fb_hl
+  -- icon button highlight
+  file_button_el.opts.hl = file_button_highlight_table
+  -- for _, v in ipairs(file_button_highlight_table) do
+  --   print(vim.inspect(v))
+  -- end
   return file_button_el
 end
 
@@ -116,6 +121,7 @@ local function mru(start, cwd, items_number, opts)
     else
       cwd_cond = vim.startswith(v, cwd)
     end
+    -- filter file to add oldfile list
     local ignore = (opts.ignore and opts.ignore(v, get_extension(v))) or false
     if (vim.fn.filereadable(v) == 1) and cwd_cond and not ignore then
       oldfiles[#oldfiles + 1] = v
@@ -129,8 +135,11 @@ local function mru(start, cwd, items_number, opts)
   for i, fn in ipairs(oldfiles) do
     local short_fn
     if cwd then
+      -- if file in current folder
+      -- relative path
       short_fn = vim.fn.fnamemodify(fn, ':.')
     else
+      -- absolute path
       short_fn = vim.fn.fnamemodify(fn, ':~')
     end
 
@@ -148,6 +157,8 @@ local function mru(start, cwd, items_number, opts)
       shortcut = tostring(i + start - 1 - #special_shortcuts)
     end
 
+    -- fn is oldfile list filename
+    -- shortcut is button index
     local file_button_el = file_button(fn, ' ' .. shortcut, short_fn)
     tbl[i] = file_button_el
   end
@@ -160,14 +171,48 @@ end
 
 local header = {
   type = 'text',
+  -- val = {
+  --   ' ',
+  --   '    ███    ██ ██    ██ ██ ███    ███',
+  --   '    ████   ██ ██    ██ ██ ████  ████',
+  --   '    ██ ██  ██ ██    ██ ██ ██ ████ ██',
+  --   '    ██  ██ ██  ██  ██  ██ ██  ██  ██',
+  --   '    ██   ████   ████   ██ ██      ██',
+  -- },
   val = {
-    ' ',
-    '    ███    ██ ██    ██ ██ ███    ███',
-    '    ████   ██ ██    ██ ██ ████  ████',
-    '    ██ ██  ██ ██    ██ ██ ██ ████ ██',
-    '    ██  ██ ██  ██  ██  ██ ██  ██  ██',
-    '    ██   ████   ████   ██ ██      ██',
+    "        `       --._    `-._   `-.   `.     :   /  .'   .-'   _.-'    _.--'                 ",
+    "        `--.__     `--._   `-._  `-.  `. `. : .' .'  .-'  _.-'   _.--'     __.--'           ",
+    "           __    `--.__    `--._  `-._ `-. `. :/ .' .-' _.-'  _.--'    __.--'    __         ",
+    "            `--..__   `--.__   `--._ `-._`-.`_=_'.-'_.-' _.--'   __.--'   __..--'           ",
+    "          --..__   `--..__  `--.__  `--._`-q(-_-)p-'_.--'  __.--'  __..--'   __..--         ",
+    "                ``--..__  `--..__ `--.__ `-'_) (_`-' __.--' __..--'  __..--''               ",
+    "          ...___        ``--..__ `--..__`--/__/  --'__..--' __..--''        ___...          ",
+    "                ```---...___    ``--..__`_(<_   _/)_'__..--''    ___...---'''               ",
+    "           ```-----....._____```---...___(____|_/__)___...---'''_____.....-----'''          ",
+    '    ',
+    'Virtue is what you do when nobody is looking. The rest is marketing. - Nassim Nicholas Taleb',
   },
+  -- val = {
+  --   '',
+  --   '',
+  --   '        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
+  --   '      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷ ',
+  --   '     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿ ',
+  --   '    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿ ',
+  --   '  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿ ',
+  --   ' ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿ ',
+  --   ' ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟ ',
+  --   ' ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣ ',
+  --   ' ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾ ',
+  --   ' ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿ ',
+  --   ' ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿ ',
+  --   ' ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿ ',
+  --   ' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
+  --   '  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
+  --   ' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
+  --   '',
+  --   '',
+  -- },
   opts = {
     position = 'center',
     hl = 'Comment',
@@ -207,7 +252,8 @@ local buttons = {
     { type = 'padding', val = 1 },
     dashboard.button('p', ' ' .. ' Find project', ":lua require('telescope').extensions.projects.projects()<cr>"),
     dashboard.button('f', '  Find file', ':lua require("modules.tools.fancy_telescope").findFiles()<cr>'),
-    dashboard.button('F', '  Find text', ':Telescope live_grep<cr>'),
+    dashboard.button('t', '  Find text', ':Telescope live_grep<cr>'),
+    dashboard.button('e', '  New file', ':ene <BAR><CR>'),
     dashboard.button('u', '  Update plugins', ':PackerSync<cr>'),
     dashboard.button('q', '  Quit', ':qa<cr>'),
   },
