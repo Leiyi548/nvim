@@ -17,6 +17,9 @@ pip3 install -i https://mirrors.aliyun.com/pypi/simple neovim
 ## TODO
 
 - [ ] ~~alpha 启动时文件图标的高亮 **目前无法实现，已经不用启动插件了**~~
+- [ ] 添加 nvim-bqf 的高亮
+  - [ ] coc diagnostic
+  - [ ] vim builtin mark
 - [x] coc snippet super jump
 
 
