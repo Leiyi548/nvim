@@ -171,8 +171,7 @@ function config.onedarkpro()
       light_theme = 'onelight', -- The default light theme
       colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
       highlights = {
-        CursorLineNr = { style = 'bold' },
-        IncSearch = { bg = '${gray}' },
+        -- IncSearch = { bg = '${gray}' },
         -- hop
         HopNextKey = { fg = '${green}', style = 'bold' },
         HopNextKey1 = { fg = '${yellow}', style = 'bold' },

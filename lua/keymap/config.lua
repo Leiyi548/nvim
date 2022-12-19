@@ -48,8 +48,11 @@ nmap({
   { '<M-.>', cmd('resize +5'), opts(noremap, silent) },
 
   -- like vscode move line
-  { '<M-Up>', ':m .-2<CR>==', opts(noremap) },
-  { '<M-Down>', ':m .+1<CR>==', opts(noremap) },
+  { '<M-j>', '<esc>:m .+1<cr>==gi', opts(noremap, silent) },
+  { '<M-k>', '<esc>:m .-2<cr>==gi', opts(noremap, silent) },
+
+  -- toggleterm like vscode behaviour
+  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 xmap({
@@ -58,10 +61,10 @@ xmap({
   { 'L', '$', opts(noremap) },
 
   -- move line up/down like vscode
-  { 'J', ":move '>+1<CR>gv-gv", opts(noremap) },
-  { 'K', ":move '<-2<CR>gv-gv", opts(noremap) },
-  { '<M-Down>', ":move '>+1<CR>gv-gv", opts(noremap) },
-  { '<M-Up>', ":move '<-2<CR>gv-gv", opts(noremap) },
+  { 'J', ":move '>+1<cr>gv-gv", opts(noremap) },
+  { 'K', ":move '<-2<cr>gv-gv", opts(noremap) },
+  { '<M-j>', '<esc>:m .+1<cr>==gi', opts(noremap, silent) },
+  { '<M-k>', '<esc>:m .-2<cr>==gi', opts(noremap, silent) },
 
   -- 防止剪贴版被复制内容给替代
   { 'p', '"_dP', opts(noremap) },
@@ -69,19 +72,30 @@ xmap({
   { '<', '<gv', opts(noremap) },
   { '>', '>gv', opts(noremap) },
 
-  -- comment.nvim
+  -- comment.nvim like vscode behaviour
   { '<C-_>', '<Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },
+
+  -- toggleterm like vscode behaviour
+  -- Strange, c- ' in nvim is c-space
+  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 imap({
   { '<C-s>', cmd('write'), opts(noremap) },
 
   -- use C-v to paste text
-  { '<C-V>', '<Esc>pA', opts(noremap) },
+  -- { '<C-v>', '<esc>pA', opts(noremap) },
 
   -- move line up/down vscode
-  { '<M-Up>', '<Esc>:m .-2<CR>==gi', opts(noremap) },
-  { '<M-Down>', '<Esc>:m .+1<CR>==gi', opts(noremap) },
+  { '<M-j>', '<esc>:m .+1<cr>==gi', opts(noremap, silent) },
+  { '<M-k>', '<esc>:m .-2<cr>==gi', opts(noremap, silent) },
+
+  -- comment.nvim
+  { '<C-_>', '<esc><Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },
+
+  -- toggleterm like vscode behaviour
+  -- Strange, c- ' in nvim is c-space
+  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 -- commandline remap (emacs keybinding)

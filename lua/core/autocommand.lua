@@ -52,16 +52,16 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd('TermOpen', {
-  group = terminal_group,
-  pattern = '*',
-  callback = function()
-    vim.cmd([[
-      nnoremap <silent> <buffer> q :bdelete<cr>
-      set nobuflisted
-    ]])
-  end,
-})
+-- vim.api.nvim_create_autocmd('TermOpen', {
+--   group = terminal_group,
+--   pattern = '*',
+--   callback = function()
+--     vim.cmd([[
+--       nnoremap <silent> <buffer> q :bdelete<cr>
+--       set nobuflisted
+--     ]])
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd('FileType', {
   group = terminal_group,
