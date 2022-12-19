@@ -50,9 +50,6 @@ nmap({
   -- like vscode move line
   { '<M-j>', '<esc>:m .+1<cr>==gi', opts(noremap, silent) },
   { '<M-k>', '<esc>:m .-2<cr>==gi', opts(noremap, silent) },
-
-  -- toggleterm like vscode behaviour
-  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 xmap({
@@ -74,10 +71,6 @@ xmap({
 
   -- comment.nvim like vscode behaviour
   { '<C-_>', '<Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },
-
-  -- toggleterm like vscode behaviour
-  -- Strange, c- ' in nvim is c-space
-  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 imap({
@@ -92,10 +85,6 @@ imap({
 
   -- comment.nvim
   { '<C-_>', '<esc><Plug>(comment_toggle_linewise_visual)', opts(noremap, silent) },
-
-  -- toggleterm like vscode behaviour
-  -- Strange, c- ' in nvim is c-space
-  { '<C-Space>', cmd('ToggleTerm size=10 direction=horizontal'), opts(noremap, silent) },
 })
 
 -- commandline remap (emacs keybinding)

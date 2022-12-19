@@ -26,6 +26,9 @@ nmap({
   { ']g', cmd('lua require "gitsigns".next_hunk()'), opts(noremap, silent) },
   { 'gp', cmd('lua require "gitsigns".preview_hunk()'), opts(noremap, silent) },
 
+  -- neotree float window
+  { '<F6>', cmd('NeoTreeFloatToggle'), opts(noremap, silent) },
+
   -- Vistitlink like vscode style
   { 'gx', cmd('VisitLinkUnderCursor'), opts(noremap, silent) },
 
