@@ -9,7 +9,7 @@ local conf = require('modules.ui.config')
 plugin({ 'Leiyi548/github-nvim-theme', config = conf.github })
 plugin({ 'Leiyi548/zephyr-nvim', disable = true })
 plugin({ 'folke/tokyonight.nvim', config = conf.tokyonight, disable = true })
-plugin({ 'Mofiqul/vscode.nvim', config = conf.vscode })
+plugin({ 'Mofiqul/vscode.nvim', config = conf.vscode, disable = true })
 plugin({ 'olimorris/onedarkpro.nvim', config = conf.onedarkpro })
 plugin({ 'catppuccin/nvim', as = 'catppuccin', config = conf.catppuccin, disable = true })
 

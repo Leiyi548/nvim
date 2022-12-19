@@ -79,6 +79,7 @@ local opts = {
 }
 
 local mappings = {
+  -- no prefix mapping
   [';'] = { '<cmd>Alpha<cr>', 'Alpha' },
   ['/'] = { '<Plug>(comment_toggle_linewise_current)', 'Comment' },
   ['<leader>'] = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>", 'Harpoon' },
@@ -94,7 +95,7 @@ local mappings = {
   ['e'] = { '<cmd>NeoTreeFocusToggle<cr>', 'Explorer' },
   ['h'] = { '<cmd>nohl<cr>', 'Highlight' },
   ['H'] = { '<cmd>TSHighlightCapturesUnderCursor<cr>', ' Ts Highlight' },
-  ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
+  -- ['q'] = { '<cmd>lua require("utils.function").smart_quit()<cr>', ' Quit Neovim' },
   ['R'] = { '<cmd>lua require("spectre").open_visual({select_word=true})<cr>', 'Replace' },
   -- ['z'] = { '<cmd>ZenMode<cr>', 'ZenMode' },
 
@@ -215,7 +216,7 @@ local mappings = {
     -- g = { '<cmd>Neogit<cr>', 'Neogit' },
     g = { '<cmd>G<cr>', 'fugitive' },
     p = { '<cmd>Git push<cr>', 'fugitive Git push' },
-    l = { '<cmd>GlLog<cr>', 'Git Log' },
+    l = { '<cmd>Git Log<cr>', 'Git Log' },
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", 'Reset Hunk' },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", 'Reset Buffer' },
     s = { "<cmd>lua require('modules.tools.fancy_telescope').git_status()<cr>", 'Git status' },

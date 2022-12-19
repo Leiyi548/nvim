@@ -124,6 +124,7 @@ plugin({
 
 plugin({
   'tpope/vim-fugitive',
+  cmd = { 'G', 'Git', 'Gedit', 'Gread', 'Gwrite', 'Gdiffsplit', 'Gvdiffsplit' },
 })
 
 plugin({
@@ -196,6 +197,27 @@ plugin({
 })
 
 plugin({
+  'ggandor/leap.nvim',
+  keys = {
+    { 'n', 'f' },
+    { 'n', 'F' },
+    { 'n', 's' },
+    { 'n', 'S' },
+    { 'n', 'gs' },
+    { 'x', 's' },
+    { 'x', 'S' },
+    { 'x', 'gs' },
+  },
+  config = conf.leap,
+})
+
+plugin({
+  'ggandor/leap-spooky.nvim',
+  after = 'leap.nvim',
+  config = conf.leap_spooky,
+})
+
+plugin({
   'Leiyi548/vim-surround',
   requires = {
     { 'tpope/vim-repeat', keys = { '.' } },
@@ -208,12 +230,6 @@ plugin({
     { 'n', 'ysiw' },
     { 'n', 'ysaw' },
     { 'x', 'S' },
-    { 'x', '(' },
-    { 'x', ')' },
-    { 'x', '{' },
-    { 'x', '}' },
-    { 'x', '"' },
-    { 'x', "'" },
   },
 })
 

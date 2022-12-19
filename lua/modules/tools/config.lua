@@ -639,6 +639,61 @@ function config.gitsigns()
   })
 end
 
+function config.leap()
+  local leap = require('leap')
+  local labels = {
+    'f',
+    'j',
+    'd',
+    'k',
+    's',
+    'l',
+    'a',
+    ';',
+    'n',
+    'v',
+    'c',
+    'm',
+    'x',
+    'q',
+    'w',
+    'u',
+    'i',
+    'o',
+    'e',
+    'r',
+    'h',
+    'g',
+  }
+
+  leap.setup({
+    case_sensitive = false,
+    labels = labels,
+    -- disable auto-jumping to the first match
+    safe_labels = {},
+  })
+  require('leap').set_default_keymaps()
+end
+
+function config.leap_spooky()
+  require('leap-spooky').setup({
+    affixes = {
+      -- These will generate mappings for all native text objects, like:
+      -- (ir|ar|iR|aR|im|am|iM|aM){obj}.
+      -- Special line objects will also be added, by repeating the affixes.
+      -- E.g. `yrr<leap>` and `ymm<leap>` will yank a line in the current
+      -- window.
+      -- You can also use 'rest' & 'move' as mnemonics.
+      remote = { window = 'r', cross_window = 'R' },
+      magnetic = { window = 'm', cross_window = 'M' },
+    },
+    -- If this option is set to true, the yanked text will automatically be pasted
+    -- at the cursor position if the unnamed register is in use (and the object is
+    -- "non-magnetic").
+    yank_paste = false,
+  })
+end
+
 function config.spctre()
   require('spectre').setup({
 

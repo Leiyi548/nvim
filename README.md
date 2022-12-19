@@ -17,8 +17,8 @@ pip3 install -i https://mirrors.aliyun.com/pypi/simple neovim
 ## TODO
 
 - [ ] alpha 启动时文件图标的高亮
-- [ ] coc rename
-- [ ] coc snippet super jump
+- [x] coc rename
+- [x] coc snippet super jump
 
 
 ## Tips
