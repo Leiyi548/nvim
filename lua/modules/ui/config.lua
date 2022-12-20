@@ -165,45 +165,40 @@ function config.vscode()
 end
 
 function config.onedarkpro()
-  if _G_colorscheme == 'onedarkpro' then
-    require('onedarkpro').setup({
-      dark_theme = 'onedark_vivid', -- The default dark theme
-      light_theme = 'onelight', -- The default light theme
-      colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-      highlights = {
-        -- IncSearch = { bg = '${gray}' },
-        -- hop
-        HopNextKey = { fg = '${green}', style = 'bold' },
-        HopNextKey1 = { fg = '${yellow}', style = 'bold' },
-        HopNextKey2 = { link = 'HopNextKey1' },
-        -- my person winbar hightlight
-        WinbarFilename = { style = 'bold' },
-        WinbarBufferNumber = { fg = '${blue}' },
-      }, -- Override default highlight groups
-      ft_highlights = {}, -- Override default highlight groups for specific filetypes
-      plugins = { -- Override which plugin highlight groups are loaded
-        -- See the Supported Plugins section for a list of available plugins
-      },
-      styles = { -- Choose from "bold,italic,underline"
-        strings = 'NONE', -- Style that is applied to strings.
-        comments = 'Italic', -- Style that is applied to comments
-        keywords = 'italic', -- Style that is applied to keywords
-        functions = 'italic', -- Style that is applied to functions
-        variables = 'NONE', -- Style that is applied to variables
-        virtual_text = 'NONE', -- Style that is applied to virtual text
-      },
-      options = {
-        bold = true, -- Use the colorscheme's opinionated bold styles?
-        italic = true, -- Use the colorscheme's opinionated italic styles?
-        underline = true, -- Use the colorscheme's opinionated underline styles?
-        undercurl = true, -- Use the colorscheme's opinionated undercurl styles?
-        cursorline = true, -- Use cursorline highlighting?
-        transparency = false, -- Use a transparent background?
-        terminal_colors = true, -- Use the colorscheme's colors for Neovim's :terminal?
-        window_unfocused_color = false, -- When the window is out of focus, change the normal background?
-      },
-    })
-  end
+  require('onedarkpro').setup({
+    colors = {}, -- Override default colors or create your own
+    highlights = {}, -- Override default highlight groups or create your own
+    filetypes = { -- Override which filetype highlight groups are loaded
+      -- See the 'Configuring filetype highlights' section for the available list
+    },
+    plugins = { -- Override which plugin highlight groups are loaded
+      -- See the 'Supported plugins' section for the available list
+    },
+    styles = { -- For example, to apply bold and italic, use "bold,italic"
+      types = 'NONE', -- Style that is applied to types
+      numbers = 'NONE', -- Style that is applied to numbers
+      strings = 'NONE', -- Style that is applied to strings
+      comments = 'italic', -- Style that is applied to comments
+      keywords = 'NONE', -- Style that is applied to keywords
+      constants = 'NONE', -- Style that is applied to constants
+      functions = 'italic', -- Style that is applied to functions
+      operators = 'NONE', -- Style that is applied to operators
+      variables = 'NONE', -- Style that is applied to variables
+      conditionals = 'NONE', -- Style that is applied to conditionals
+      virtual_text = 'NONE', -- Style that is applied to virtual text
+    },
+    options = {
+      bold = true, -- Use bold styles?
+      italic = true, -- Use italic styles?
+      underline = true, -- Use underline styles?
+      undercurl = true, -- Use undercurl styles?
+
+      cursorline = true, -- Use cursorline highlighting?
+      transparency = false, -- Use a transparent background?
+      terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+      highlight_inactive_windows = false, -- When the window is out of focus, change the normal background?
+    },
+  })
 end
 
 function config.dashboard()
