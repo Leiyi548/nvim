@@ -86,9 +86,7 @@ plugin({
 })
 
 plugin({
-  'windwp/nvim-autopairs',
-  config = conf.autopairs,
-  disable = true,
+  'jiangmiao/auto-pairs',
 })
 
 plugin({

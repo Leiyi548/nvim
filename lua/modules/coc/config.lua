@@ -10,7 +10,6 @@ function config.coc()
   local api = vim.api
 
   vim.g.coc_global_extensions = {
-    'coc-pairs',
     'coc-sumneko-lua',
     'coc-json',
     'coc-go',
