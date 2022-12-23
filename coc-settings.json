@@ -1,5 +1,5 @@
 {
-  "coc.preferences.extensionUpdateCheck": "weekly",
+  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.source.file.enable": true,
   "coc.source.file.triggerCharacters": ["/", "\\"],
   "codeLens.enable": true,
