@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'tsplayground',
     'fugitive',
     'fzf',
+    'coctree',
   },
   callback = function()
     vim.cmd([[

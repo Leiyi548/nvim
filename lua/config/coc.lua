@@ -42,9 +42,23 @@ vim.cmd([[
   inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
   inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
   inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
-  nmap <silent> <Space>lr <Plug>(coc-rename)
+
+  " Map function and class text objects
+  " NOTE: Requires 'textDocument.documentSymbol' support from the language server
+  xmap if <Plug>(coc-funcobj-i)
+  omap if <Plug>(coc-funcobj-i)
+  xmap af <Plug>(coc-funcobj-a)
+  omap af <Plug>(coc-funcobj-a)
+  xmap ic <Plug>(coc-classobj-i)
+  omap ic <Plug>(coc-classobj-i)
+  xmap ac <Plug>(coc-classobj-a)
+  omap ac <Plug>(coc-classobj-a)
+
+  nmap <silent> <leader>lr <Plug>(coc-rename)
   nmap <silent> [d <Plug>(coc-diagnostic-prev)
   nmap <silent> ]d <Plug>(coc-diagnostic-next)
+  nmap <silent> = <Plug>(coc-format-selected)
+  xmap <silent> = <Plug>(coc-format-selected)
   nmap <silent> gl <Plug>(coc-diagnostic-next)
   nmap <silent> gd :Telescope coc definitions<cr>
   nmap <silent> gy :Telescope coc type_definations<cr>

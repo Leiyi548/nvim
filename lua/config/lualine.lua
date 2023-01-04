@@ -167,11 +167,17 @@ local filetype = {
   padding = { left = 1, right = 0 },
 }
 
----@diagnostic disable-next-line: unused-function
 local pwd = function()
   local foldname = vim.fn.fnamemodify(vim.fn.getcwd(), ':t') .. ' '
   return ' ' .. foldname
 end
+
+local lazy = {
+  require("lazy.status").updates,
+  cond = require('lazy.status').has_updates,
+  color = {fg  ="#ff9e63"}
+}
+
 
 lualine.setup({
   options = {

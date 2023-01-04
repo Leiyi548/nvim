@@ -10,7 +10,7 @@ return {
     event = 'BufRead',
     build = ':Tsupdate',
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
+      -- 'nvim-treesitter/nvim-treesitter-textobjects',
       'p00f/nvim-ts-rainbow',
     },
     config = function() require('config.treesitter') end
@@ -25,6 +25,11 @@ return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     config = function() require('config.lualine') end
+  },
+  {
+    'NvChad/nvim-colorizer.lua',
+    event = 'BufRead',
+    config = function() require('config.nvim_colorizer') end
   },
   {
     'lewis6991/gitsigns.nvim',
@@ -72,6 +77,17 @@ return {
       { "ysaw", mode = "n" },
       { "S", mode = "x" }
     },
+  },
+  {
+    'wellle/targets.vim',
+    keys = {
+      { "dia", mode = "n" },
+      { "dIa", mode = "n" },
+      { "daa", mode = "n" },
+      { "cia", mode = "n" },
+      { "cIa", mode = "n" },
+      { "caa", mode = "n" },
+    }
   },
   {
     'akinsho/toggleterm.nvim',

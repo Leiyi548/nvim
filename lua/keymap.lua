@@ -103,3 +103,6 @@ vim.keymap.set("n", "<M-h>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>")
 -- lazygit
 vim.keymap.set("n", "<leader>lg", "<cmd>lua require('config.fancy_toggleterm').lazygit_toggle()<cr>")
 vim.keymap.set("n", "<leader>gl", "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
+
+-- coc
+vim.keymap.set("n", "<leader>oo", "<cmd>CocOutline<cr>")

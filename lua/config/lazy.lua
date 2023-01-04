@@ -15,7 +15,7 @@ vim.g.mapleader = " " -- make sure to set `mapleader` before lazy so your mappin
 -- load lazy
 require("lazy").setup("plugins", {
   defaults = { lazy = true },
-  --checker = { enabled = false},
+  checker = { enabled = false },
   performance = {
     rtp = {
       disabled_plugins = {
