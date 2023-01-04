@@ -229,6 +229,10 @@ telescope.setup({
       case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
+    coc = {
+      theme = 'ivy',
+      prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+    },
   },
 })
 require('telescope').load_extension('fzf')

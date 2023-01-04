@@ -68,6 +68,8 @@ vim.keymap.set("n", "<leader>;", "<cmd>Alpha<cr>")
 -- telesope
 vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>fd", "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope<cr>")
+vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files<cr>")
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope live_grep<cr>")
@@ -106,3 +108,5 @@ vim.keymap.set("n", "<leader>gl", "<cmd>lua require('config.fancy_toggleterm').l
 
 -- coc
 vim.keymap.set("n", "<leader>oo", "<cmd>CocOutline<cr>")
+vim.keymap.set("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
+vim.keymap.set("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
