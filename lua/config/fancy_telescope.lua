@@ -84,7 +84,7 @@ function M.find_dotfile()
       '%.ttf',
     },
   }
-    require('vim.highlight').on_yank({ higroup = 'Search', timeout = 60 })
+  require('vim.highlight').on_yank({ higroup = 'Search', timeout = 60 })
   builtin.find_files(themes.get_dropdown(opts))
 end
 

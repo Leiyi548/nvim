@@ -48,7 +48,7 @@ M.get_filename = function()
 
   if not f.isempty(filename) then
     local file_icon, file_icon_color =
-      require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
+    require('nvim-web-devicons').get_icon_color(filename, extension, { default = true })
     local hl_group = 'FileIconColor' .. extension
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     if f.isempty(file_icon) then
@@ -56,8 +56,7 @@ M.get_filename = function()
       file_icon_color = ''
     end
 
-    return
-      '%#'
+    return '%#'
         .. hl_group
         .. '#'
         .. file_icon
@@ -95,7 +94,7 @@ M.get_winbar = function()
     end
     local num_tabs = #vim.api.nvim_list_tabpages()
 
-    local nr = vim.api.nvim_get_current_buf()
+    -- local nr = vim.api.nvim_get_current_buf()
     if num_tabs > 1 and not f.isempty(value) then
       local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
       value = value .. '%' .. nr .. '@v:lua.winbar_click_tabs@' .. '%=' .. tabpage_number .. '/' .. tostring(num_tabs)

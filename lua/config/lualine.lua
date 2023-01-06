@@ -175,7 +175,7 @@ end
 local lazy = {
   require("lazy.status").updates,
   cond = require('lazy.status').has_updates,
-  color = {fg  ="#ff9e63"}
+  color = { fg = "#ff9e63" }
 }
 
 
