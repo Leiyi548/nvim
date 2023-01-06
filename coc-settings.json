@@ -6,6 +6,9 @@
   "codeLens.separator": "",
   "codeLens.subseparator": " │ ",
   "codeLens.position": "eol",
+  "outline.autoPreview": true,
+  "outline.previewBorder": true,
+  "outline.showLineNumber": true,
   "suggest.floatConfig": {
     "border": false,
     "highlight": "none",
@@ -90,5 +93,5 @@
   "Lua.telemetry.enable": false,
   "Lua.diagnostics.globals": ["vim"],
   "html.autoClosingTags": true,
-  "inlayHint.enable": false
+  "inlayHint.enable": false,
 }
