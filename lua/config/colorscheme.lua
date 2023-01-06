@@ -1,6 +1,8 @@
 require("onedarkpro").setup({
   colors = {}, -- Override default colors or create your own
-  highlights = {}, -- Override default highlight groups or create your own
+  highlights = {
+    HLIndentLine = { fg = "#b757c2" }
+  }, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
     -- See the 'Configuring filetype highlights' section for the available list
   },
@@ -14,7 +16,7 @@ require("onedarkpro").setup({
     comments = "italic", -- Style that is applied to comments
     keywords = "NONE", -- Style that is applied to keywords
     constants = "NONE", -- Style that is applied to constants
-    functions = "italic", -- Style that is applied to functions
+    functions = "NONE", -- Style that is applied to functions
     operators = "NONE", -- Style that is applied to operators
     variables = "NONE", -- Style that is applied to variables
     conditionals = "NONE", -- Style that is applied to conditionals

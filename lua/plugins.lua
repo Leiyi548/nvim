@@ -1,5 +1,5 @@
 return {
-  { 'olimorris/onedarkpro.nvim', lazy = false, priority = 100, config = function () require('config.colorscheme') end },
+  { 'olimorris/onedarkpro.nvim', lazy = false, priority = 100, config = function() require('config.colorscheme') end },
   {
     'goolord/alpha-nvim',
     event = 'BufWinEnter',
@@ -49,6 +49,9 @@ return {
     'neoclide/coc.nvim',
     branch = 'release',
     lazy = false,
+    dependencies = {
+      { 'Leiyi548/friendly-snippets' }
+    },
     config = function() require('config.coc') end
   },
   {
@@ -65,6 +68,11 @@ return {
   {
     'jiangmiao/auto-pairs',
     event = "InsertEnter",
+  },
+  {
+    'yaocccc/nvim-hlchunk',
+    event = "BufRead",
+    config = function() require('config.nvim_hlchunk') end
   },
   {
     'Leiyi548/vim-surround',
@@ -141,7 +149,7 @@ return {
       { 'nvim-lua/plenary.nvim' },
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { 'ahmedkhalf/project.nvim', config = function() require('config.project') end },
-      { 'fannheyward/telescope-coc.nvim'}
+      { 'fannheyward/telescope-coc.nvim' }
     },
     config = function()
       require('config.telescope')
