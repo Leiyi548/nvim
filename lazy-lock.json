@@ -13,6 +13,7 @@
   "nui.nvim": { "branch": "main", "commit": "4939282919885e1c83aff68ecb35b3cadf6015a9" },
   "nvim-colorizer.lua": { "branch": "master", "commit": "760e27df4dd966607e8fb7fd8b6b93e3c7d2e193" },
   "nvim-hlchunk": { "branch": "master", "commit": "95b85972ee92a874ae98cbfc4a2809f8e87d4bee" },
+  "nvim-hlslens": { "branch": "main", "commit": "9234f0fd7ec6042e8b4c70d41d25478a6cbf3a8e" },
   "nvim-lastplace": { "branch": "main", "commit": "ecced899435c6bcdd81becb5efc6d5751d0dc4c8" },
   "nvim-treesitter": { "branch": "master", "commit": "12e95e160d7d45b76a36bca6303dd8447ab77490" },
   "nvim-ts-rainbow": { "branch": "master", "commit": "ef95c15a935f97c65a80e48e12fe72d49aacf9b9" },

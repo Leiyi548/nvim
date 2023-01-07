@@ -11,7 +11,6 @@ else
   _G_colorscheme = 'onelight'
   -- _G_colorscheme = 'github_light_default'
 end
-_G_colorscheme = 'onedark_vivid'
 local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
 if not ok then
   return
