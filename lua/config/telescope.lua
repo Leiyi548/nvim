@@ -197,6 +197,9 @@ telescope.setup({
     find_files = {
       theme = 'dropdown',
     },
+    git_status = {
+      theme = 'dropdown',
+    },
     buffers = {
       sort_lastused = true,
       sort_mru = true,

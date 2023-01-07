@@ -125,13 +125,14 @@ function M.git_status()
     git_icons = {
       -- added = ' ',
       -- changed = ' ',
-      added = '+ ',
-      changed = 'M ',
-      copied = '> ',
-      deleted = '✖ ',
-      renamed = '➡ ',
-      unmerged = ' ',
-      untracked = '? ',
+      added = 'A',
+      changed = 'M',
+      copied = '>',
+      deleted = 'D',
+      renamed = '➡',
+      unmerged = '',
+      untracked = 'U',
+      -- untracked = '? ',
     },
   }
   builtin.git_status(opts)
