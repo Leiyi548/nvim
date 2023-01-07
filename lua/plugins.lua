@@ -114,6 +114,8 @@ return {
       { "cia", mode = "n" },
       { "cIa", mode = "n" },
       { "caa", mode = "n" },
+      { "viq", mode = "n" },
+      { "diq", mode = "n" },
       { "ciq", mode = "n" },
     }
   },
