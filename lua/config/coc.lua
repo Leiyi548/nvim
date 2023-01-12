@@ -39,8 +39,6 @@ vim.cmd([[
     return !col || getline('.')[col - 1]  =~# '\s'
   endfunction
   let g:coc_snippet_next = '<tab>'
-  inoremap <expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
-  inoremap <expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
   inoremap <expr> <C-l> coc#pum#visible() ? coc#pum#confirm() : coc#refresh()
 
   " Map function and class text objects

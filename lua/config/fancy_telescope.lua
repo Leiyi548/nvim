@@ -142,7 +142,8 @@ function M.findSnippets()
   local opts = {
     prompt_title = 'friendlysnippets',
     search_dirs = {
-      '~/.local/share/nvim/site/pack/packer/start/friendly-snippets',
+      '~/.local/share/nvim/lazy/friendly-snippets/snippet',
+      -- '~/.local/share/nvim/site/pack/packer/start/friendly-snippets',
       -- '~/.config/nvim/snippets',
     },
     path_display = { 'tail' },
@@ -176,6 +177,20 @@ function M.grep_string_visual()
   end
   require('telescope.builtin').live_grep({
     default_text = visual_selection(),
+  })
+end
+
+function M.grep_string_by_filetype()
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Search for a specific file type',
+    type_filter = vim.fn.input('FileType:')
+  })
+end
+
+function M.grep_string_open_files()
+  require('telescope.builtin').live_grep({
+    prompt_title = 'Grep String in open files',
+    grep_open_files = true
   })
 end
 
