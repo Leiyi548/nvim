@@ -8,7 +8,9 @@ keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
 -- select all
-keymap({ "n", "v" }, "vae", "ggvG")
+keymap("n", "vae", "ggVG")
+keymap("n", "yae", "ggVGy")
+keymap("n", "dae", "ggVGd")
 
 -- resize window
 keymap("n", "<A-[>", "<cmd>vertical resize-5<cr>")

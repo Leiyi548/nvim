@@ -106,6 +106,12 @@ return {
     },
   },
   {
+    'tpope/vim-repeat',
+    keys = {
+      { ".", mode = "n" },
+    },
+  },
+  {
     'wellle/targets.vim',
     keys = {
       { "dia", mode = "n" },
