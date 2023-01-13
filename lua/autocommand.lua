@@ -75,13 +75,20 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-if vim.fn.has('nvim-0.8') == 1 then
-  vim.api.nvim_create_autocmd(
-    { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
-    {
-      callback = function()
-        require('config.winbar').get_winbar()
-      end,
-    }
-  )
-end
+-- coc format on save
+vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
+  pattern  = { "*.go", "*.lua" },
+  callback = function()
+    vim.cmd([[call CocAction('format')]])
+  end,
+})
+
+-- winbar
+vim.api.nvim_create_autocmd(
+  { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
+  {
+    callback = function()
+      require('config.winbar').get_winbar()
+    end,
+  }
+)
