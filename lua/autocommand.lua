@@ -1,5 +1,5 @@
 -- author: Leiyi548 https://github.com/Leiyi548
--- created: 2023-01-03
+-- created: 2023-01-13
 -- License: MIT
 
 local general_group = vim.api.nvim_create_augroup('terminal_settings', { clear = false })
