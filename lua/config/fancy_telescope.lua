@@ -57,7 +57,7 @@ function M.find_dotfile()
   local opts = {
     prompt_title = 'Dotfile',
     hidden = true,
-    path_display = { 'truncate' },
+    path_display = { 'tail' },
     prompt_position = 'top',
     sorting_strategy = 'ascending',
     -- search_dirs = { '~/.config/nvim', '~/.dotfile' },
