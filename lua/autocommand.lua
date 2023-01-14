@@ -53,6 +53,14 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  group = filetype_group,
+  pattern = 'alpha',
+  callback = function()
+    vim.keymap.set("n", "o", function() require('alpha').press() end, { noremap = false, silent = true, buffer = 0 })
+  end,
+})
+
 -- vim.api.nvim_create_autocmd('TermOpen', {
 --   group = terminal_group,
 --   pattern = '*',
