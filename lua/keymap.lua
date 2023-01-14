@@ -68,7 +68,7 @@ keymap("o", "L", "$")
 -- 适配 ahk 改键
 keymap("n", "<Home>", "<C-a>")
 keymap("n", "<end>", "<C-e>")
-keymap("x", "<Home>", "g<C-a>")
+keymap("x", "g<Home>", "g<C-a>")
 keymap("n", "<right>", "<C-f>")
 keymap("n", "<left>", "<C-b>")
 

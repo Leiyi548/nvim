@@ -36,7 +36,7 @@ vim.opt.smarttab = true
 vim.opt.shiftround = true
 vim.opt.timeout = true
 vim.opt.ttimeout = true
-vim.opt.timeoutlen = 288
+vim.opt.timeoutlen = 500
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
 vim.opt.redrawtime = 100
@@ -107,6 +107,8 @@ vim.opt.signcolumn = 'yes'
 vim.opt.background = 'dark'
 -- vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'niv'
+-- vim.opt.statuscolumn = '%=%l%s%{foldlevel(v:lnum) > 0 ? (foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " ") : " " }'
+-- vim.opt.statuscolumn = '%C%s%=%{gitsigns.getsign(cur_line)} %{diagnostic.getsign(cur_line)}'
 
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
