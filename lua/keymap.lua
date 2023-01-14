@@ -20,6 +20,7 @@ keymap("n", "<A-.>", "<cmd>resize+5<cr>")
 
 -- buffer
 keymap("n", "<leader>bs", "<cmd>buffers<cr>")
+keymap("n", "<leader>bk", "<cmd>bdelete<cr>")
 keymap("n", "[b", "<cmd>bp<cr>")
 keymap("n", "]b", "<cmd>bn<cr>")
 keymap("n", "<leader><Tab>", "<cmd>e #<cr>")
@@ -65,8 +66,9 @@ keymap("o", "H", "^")
 keymap("o", "L", "$")
 
 -- 适配 ahk 改键
-keymap("n", "<home>", "<C-a>")
-keymap("v", "g<home>", "g<C-a>")
+keymap("n", "<Home>", "<C-a>")
+keymap("n", "<end>", "<C-e>")
+keymap("x", "<Home>", "g<C-a>")
 keymap("n", "<right>", "<C-f>")
 keymap("n", "<left>", "<C-b>")
 
@@ -108,6 +110,8 @@ keymap("n", "<leader>lz", "<cmd>Lazy<cr>")
 -- gitsign
 keymap("n", "[g", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
 keymap("n", "]g", "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
+keymap("n", "<leader>gk", "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
+keymap("n", "<leader>gj", "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
 keymap("n", "gp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
 keymap("n", "<leader>rh", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
 keymap("n", "<leader>rb", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>")
