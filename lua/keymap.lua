@@ -7,16 +7,17 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
--- quit neovim
-keymap("n", "<leader>q", ":confirm quit")
+-- confirm quit neovim
+keymap("n", "<leader>q", ":confirm quit<cr>")
 
--- quick input command
+-- quickly input command
 keymap({ "n", "v" }, "<cr>", ":")
 
--- select all
+-- all content
 keymap("n", "vae", "ggVG")
 keymap("n", "yae", "ggVGy")
 keymap("n", "dae", "ggVGd")
+keymap("n", "cae", "ggVGc")
 
 -- resize window
 keymap("n", "<A-[>", "<cmd>vertical resize-5<cr>")
@@ -43,8 +44,8 @@ keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
 keymap({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 keymap({ "n", "v" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
--- 防止剪贴版被复制内容给替代
-keymap("x", "p", [["_dp]])
+-- prevents the clipboard from being replaced by copied content
+keymap("x", "p", "\"_dP")
 
 -- add undo break-points
 keymap("i", ",", ",<c-g>u")
@@ -71,7 +72,7 @@ keymap("x", "L", "$")
 keymap("o", "H", "^")
 keymap("o", "L", "$")
 
--- 适配 ahk 改键
+-- adapts the autohotkey key change
 keymap("n", "<Home>", "<C-a>")
 keymap("n", "<end>", "<C-e>")
 keymap("x", "g<Home>", "g<C-a>")
@@ -135,7 +136,9 @@ keymap("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
 
 -- harpoon
+-- <cmd>lua require('harpoon.mark').add_file()<cr>
 keymap("n", "<leader><leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
+keymap("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>")
 keymap("n", "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
 keymap("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
 keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
