@@ -8,7 +8,7 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     event = 'BufRead',
-    build = ':Tsupdate',
+    build = ':TSUpdate',
     dependencies = {
       -- 'nvim-treesitter/nvim-treesitter-textobjects',
       'p00f/nvim-ts-rainbow',
@@ -92,6 +92,9 @@ return {
     'yaocccc/nvim-hlchunk',
     event = "BufRead",
     config = function() require('config.nvim_hlchunk') end
+  },
+  {
+    'Leiyi548/harpoon',
   },
   {
     'Leiyi548/vim-surround',

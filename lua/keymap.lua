@@ -7,6 +7,12 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- quit neovim
+keymap("n", "<leader>q", ":confirm quit")
+
+-- quick input command
+keymap({ "n", "v" }, "<cr>", ":")
+
 -- select all
 keymap("n", "vae", "ggVG")
 keymap("n", "yae", "ggVGy")
@@ -75,7 +81,7 @@ keymap("n", "<left>", "<C-b>")
 -- alpha(dashboard)
 keymap("n", "<leader>;", "<cmd>Alpha<cr>")
 
--- telesope
+-- telescope
 keymap("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
 keymap("n", "<leader>fd", "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
 keymap("n", "<leader>fb", "<cmd>Telescope<cr>")
@@ -127,6 +133,13 @@ keymap("n", "<leader>gl", "<cmd>lua require('config.fancy_toggleterm').lazygit_l
 keymap("n", "<leader>oo", "<cmd>CocOutline<cr>")
 keymap("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
+
+-- harpoon
+keymap("n", "<leader><leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
+keymap("n", "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
+keymap("n", "<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
+keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
+keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 
 -- wsl2 copy
 keymap({ "n", "v" }, "<leader>y", '"+y"')
