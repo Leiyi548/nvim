@@ -89,9 +89,9 @@ return {
     event = "InsertEnter",
   },
   {
-    'yaocccc/nvim-hlchunk',
+    'lukas-reineke/indent-blankline.nvim',
     event = "BufRead",
-    config = function() require('config.nvim_hlchunk') end
+    config = function() require('config.indent_blankline') end,
   },
   {
     'Leiyi548/harpoon',
