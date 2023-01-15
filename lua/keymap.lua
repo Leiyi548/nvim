@@ -10,8 +10,8 @@ keymap("n", "<C-l>", "<C-w>l")
 -- confirm quit neovim
 keymap("n", "<leader>q", ":confirm quit<cr>")
 
--- quickly input command
-keymap({ "n", "v" }, "<cr>", ":")
+-- quickly input command && I don't use c-f in normal mode
+keymap({ "n", "v" }, "<Right>", ":")
 
 -- all content
 keymap("n", "vae", "ggVG")
@@ -76,14 +76,14 @@ keymap("o", "L", "$")
 keymap("n", "<Home>", "<C-a>")
 keymap("n", "<end>", "<C-e>")
 keymap("x", "g<Home>", "g<C-a>")
-keymap("n", "<right>", "<C-f>")
-keymap("n", "<left>", "<C-b>")
 
 -- alpha(dashboard)
 keymap("n", "<leader>;", "<cmd>Alpha<cr>")
 
 -- telescope
 keymap("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
+-- I don't use c-f in normal mode
+keymap("n", "<Left>", "<cmd>Telescope buffers<cr>")
 keymap("n", "<leader>fd", "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
 keymap("n", "<leader>fb", "<cmd>Telescope<cr>")
 keymap("n", "<leader>fc", "<cmd>Telescope commands<cr>")
