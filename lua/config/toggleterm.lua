@@ -25,13 +25,3 @@ toggleterm.setup({
     },
   },
 })
-
-function _G.set_terminal_keymaps()
-  local opts = { noremap = true }
-  vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<A-v>', '<cmd>ToggleTerm size=10 direction=vertical<cr>', opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<A-h>', '<cmd>ToggleTerm size=80 direction=horizontal<cr>', opts)
-  vim.api.nvim_buf_set_keymap(0, 't', '<A-i>', '<cmd>ToggleTerm direction=float<cr>', opts)
-end
-
-vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

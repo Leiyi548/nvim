@@ -124,7 +124,9 @@ keymap("n", "<leader>rh", "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
 keymap("n", "<leader>rb", "<cmd>lua require 'gitsigns'.reset_buffer()<cr>")
 
 -- toggleterm
-keymap("n", "<M-h>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>")
+keymap("n", "<A-h>", "<cmd>ToggleTerm size=10 direction=horizontal<cr>")
+keymap("n", "<A-v>", "<cmd>ToggleTerm size=10 direction=vertical<cr>")
+keymap("n", "<A-i>", "<cmd>ToggleTerm direction=float<cr>")
 
 -- lazygit
 keymap("n", "<leader>lg", "<cmd>lua require('config.fancy_toggleterm').lazygit_toggle()<cr>")
@@ -136,7 +138,6 @@ keymap("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
 
 -- harpoon
--- <cmd>lua require('harpoon.mark').add_file()<cr>
 keymap("n", "<leader><leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 keymap("n", "<leader>a", "<cmd>lua require('harpoon.mark').add_file()<cr>")
 keymap("n", "<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")

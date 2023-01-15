@@ -83,6 +83,18 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('TermOpen', {
+  group = terminal_group,
+  pattern = 'term://*',
+  callback = function()
+    local opts = { noremap = true }
+    vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<A-v>', '<cmd>ToggleTerm size=10 direction=vertical<cr>', opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<A-h>', '<cmd>ToggleTerm size=80 direction=horizontal<cr>', opts)
+    vim.api.nvim_buf_set_keymap(0, 't', '<A-i>', '<cmd>ToggleTerm direction=float<cr>', opts)
+  end,
+})
+
 -- coc format on save
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
   pattern  = { "*.go", "*.lua" },
