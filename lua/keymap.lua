@@ -103,7 +103,7 @@ keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>")
 keymap("n", "<leader>gs", "<cmd>lua require('config.fancy_telescope').git_status()<cr>")
 keymap("n", "<leader>sh", "<cmd>Telescope help_tags<cr>")
 keymap("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>")
-keymap("n", "<leader>sr", "<cmd>Telescope register<cr>")
+keymap("n", "<leader>sr", "<cmd>Telescope registers<cr>")
 keymap("v", "<leader>f", "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- fugitive
