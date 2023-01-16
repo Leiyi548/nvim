@@ -1,10 +1,10 @@
 local leap = require('leap')
 local labels = {
+  's',
   'f',
   'j',
   'd',
   'k',
-  's',
   'l',
   'a',
   ';',
