@@ -160,7 +160,14 @@ telescope.setup({
         ['<C-v>'] = stopinsert(custom_actions.multi_selection_open_vertical),
         ['<C-s>'] = stopinsert(custom_actions.multi_selection_open_horizontal),
         ['<C-t>'] = stopinsert(custom_actions.multi_selection_open_tab),
+        ['<C-l>'] = stopinsert(custom_actions.multi_selection_open),
         ['<cr>'] = stopinsert(custom_actions.multi_selection_open),
+        -- add mouse click support
+        -- not where I want
+        ["<RightMouse>"] = actions.close,
+        ["<LeftMouse>"] = actions.select_default,
+        ["<ScrollWheelDown>"] = actions.move_selection_next,
+        ["<ScrollWheelUp>"] = actions.move_selection_previous,
       },
       n = {
         ['<esc>'] = actions.close,
@@ -182,6 +189,7 @@ telescope.setup({
         ['<C-v>'] = custom_actions.multi_selection_open_vertical,
         ['<C-s>'] = custom_actions.multi_selection_open_horizontal,
         ['<C-t>'] = custom_actions.multi_selection_open_tab,
+        ['<C-l>'] = custom_actions.multi_selection_open,
         ['<cr>'] = custom_actions.multi_selection_open,
         ['<C-j>'] = custom_actions.multi_selection_open,
       },

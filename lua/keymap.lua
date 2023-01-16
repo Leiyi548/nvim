@@ -10,8 +10,10 @@ keymap("n", "<C-l>", "<C-w>l")
 -- confirm quit neovim
 keymap("n", "<leader>q", ":confirm quit<cr>")
 
--- quickly input command && I don't use c-f in normal mode
+-- quickly input command && I don't use c-f
 keymap({ "n", "v" }, "<Right>", ":")
+-- make the ring finger comfortable
+keymap("c", "<C-l>", "<cr>")
 
 -- all content
 keymap("n", "vae", "ggVG")
@@ -77,12 +79,12 @@ keymap("n", "<Home>", "<C-a>")
 keymap("n", "<end>", "<C-e>")
 keymap("x", "g<Home>", "g<C-a>")
 
--- alpha(dashboard)
+-- alpha
 keymap("n", "<leader>;", "<cmd>Alpha<cr>")
 
 -- telescope
 keymap("n", "<leader>bb", "<cmd>Telescope buffers<cr>")
--- I don't use c-f in normal mode
+-- I don't use c-b
 keymap("n", "<Left>", "<cmd>Telescope buffers<cr>")
 keymap("n", "<leader>fd", "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
 keymap("n", "<leader>fb", "<cmd>Telescope<cr>")
@@ -101,6 +103,7 @@ keymap("n", "<leader>gf", "<cmd>Telescope git_files<cr>")
 keymap("n", "<leader>gs", "<cmd>lua require('config.fancy_telescope').git_status()<cr>")
 keymap("n", "<leader>sh", "<cmd>Telescope help_tags<cr>")
 keymap("n", "<leader>sc", "<cmd>Telescope colorscheme<cr>")
+keymap("n", "<leader>sr", "<cmd>Telescope register<cr>")
 keymap("v", "<leader>f", "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- fugitive
