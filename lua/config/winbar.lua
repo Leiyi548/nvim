@@ -33,6 +33,7 @@ M.winbar_filetype_exclude = {
 }
 
 function _G.winbar_click_exploer()
+  vim.cmd('Lazy load neo-tree.nvim')
   vim.cmd('NeoTreeFloatToggle')
 end
 
@@ -52,21 +53,23 @@ M.get_filename = function()
     local hl_group = 'FileIconColor' .. extension
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
     if f.isempty(file_icon) then
-      file_icon = ''
+      file_icon = '%#@text#' .. ''
       file_icon_color = ''
     end
+    local pwd = vim.fn.fnamemodify(vim.fn.getcwd(), ':t')
+    file_icon = '%#' .. hl_group .. '#' .. file_icon .. ' '
+    local pwdSymbol = ' ' .. '%#WarningMsg#' .. ' ' .. '%#@text#' .. pwd .. ' '
+    local seperator = '%#error#' .. ' '
+    local filenameSymbol = '%#@text#' .. filename
 
-    return '%#'
-        .. hl_group
-        .. '#'
-        .. file_icon
-        .. '%*'
-        .. ' '
+    return '%*'
         .. '%'
         .. nr
         .. '@v:lua.winbar_click_exploer@'
-        .. '%#WinbarFilename#'
-        .. filename
+        .. pwdSymbol
+        .. seperator
+        .. file_icon
+        .. filenameSymbol
         .. '%*'
   end
 end
