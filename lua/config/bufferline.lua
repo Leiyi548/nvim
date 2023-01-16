@@ -8,7 +8,10 @@ bufferline.setup({
     mode = 'buffers', -- tabs | buffers
     numbers = 'none', -- none | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
-    right_mouse_command = 'NeoTreeFloatToggle', -- can be a string | function, see "Mouse actions"
+    right_mouse_command = function()
+      vim.cmd('Lazy load neo-tree.nvim')
+      vim.cmd('NeoTreeFloatToggle')
+    end, -- can be a string | function, see "Mouse actions"
     left_mouse_command = 'buffer %d', -- can be a string | function, see "Mouse actions"
     middle_mouse_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     indicator = {
