@@ -216,8 +216,15 @@ telescope.setup({
       previewer = false,
       mappings = {
         i = { ['<C-d>'] = actions.delete_buffer },
-        n = { ['d'] = actions.delete_buffer },
+        n = {
+          ['d'] = actions.delete_buffer,
+          ['<C-d>'] = actions.delete_buffer
+        },
       },
+    },
+    colorscheme = {
+      theme = 'dropdown',
+      previewer = false,
     },
     builtin = {
       theme = 'dropdown',
