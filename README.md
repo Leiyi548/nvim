@@ -24,5 +24,6 @@ Easy to use
 - [SpaceVim](https://github.com/SpaceVim/SpaceVim)
 - [ravenxrz/dotfiles](https://github.com/ravenxrz/dotfiles)
 - [glepnir/nvim](https://github.com/glepnir/nvim)
+- [yaocccc/nvim](https://github.com/yaocccc/nvim) 
 
 ## License MIT
