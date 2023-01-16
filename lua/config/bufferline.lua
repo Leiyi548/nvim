@@ -81,6 +81,13 @@ bufferline.setup({
 })
 
 local keymap = vim.keymap.set
+vim.api.nvim_create_user_command("BufferLineCloseOthers", function()
+  vim.cmd('BufferLineCloseLeft')
+  vim.cmd('BufferLineCloseRight')
+end, {})
 
-keymap("n", "<Space>bp", "<cmd>BufferLineCyclePrev<cr>")
-keymap("n", "<Space>bn", "<cmd>BufferLineCycleNext<cr>")
+keymap("n", "<leader>bp", "<cmd>BufferLineCyclePrev<cr>")
+keymap("n", "<leader>bn", "<cmd>BufferLineCycleNext<cr>")
+keymap("n", "<leader>bo", "<cmd>BufferLineCloseOthers<cr>")
+keymap("n", "<leader>bl", "<cmd>BufferLineCloseLeft<cr>")
+keymap("n", "<leader>br", "<cmd>BufferLineCloseRight<cr>")
