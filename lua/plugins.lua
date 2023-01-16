@@ -22,6 +22,11 @@ return {
     config = function() require('config.lastplace') end
   },
   {
+    'akinsho/nvim-bufferline.lua',
+    event = 'BufReadPre',
+    config = function() require('config.bufferline') end
+  },
+  {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     config = function() require('config.lualine') end
