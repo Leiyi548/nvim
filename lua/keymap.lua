@@ -37,14 +37,15 @@ keymap("n", "<leader>bk", "<cmd>bdelete<cr>")
 keymap("n", "[b", "<cmd>bp<cr>")
 keymap("n", "]b", "<cmd>bn<cr>")
 keymap("n", "<leader><Tab>", "<cmd>e #<cr>")
+keymap({ "n", "i" }, "<F9>", "<cmd>e #<cr>")
 
 -- move Lines
 keymap("n", "<A-j>", ":m .+1<CR>==")
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv")
-keymap("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
+keymap("i", "<A-j>", "<esc>:m .+1<CR>==gi")
 keymap("n", "<A-k>", ":m .-2<CR>==")
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv")
-keymap("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+keymap("i", "<A-k>", "<esc>:m .-2<CR>==gi")
 
 -- enhance jk
 keymap({ "n", "v" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -59,8 +60,7 @@ keymap("i", ".", ".<c-g>u")
 keymap("i", ";", ";<c-g>u")
 
 -- save in insert mode
-keymap("i", "<C-s>", "<cmd>:w<cr><esc>")
-keymap("n", "<C-s>", "<cmd>:w<cr><esc>")
+keymap({ "n", "i", "v" }, "<C-s>", "<cmd>write<cr>")
 
 -- better indenting
 keymap("v", "<", "<gv")
@@ -110,8 +110,10 @@ keymap("n", "<leader>sr", "<cmd>Telescope registers<cr>")
 keymap("v", "<leader>f", "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- fugitive
-keymap("n", "<leader>ga", "<cmd>Git stage " .. vim.fn.expand("%:p") .. "<cr>")
+keymap("n", "<leader>gi", "<cmd>G init<cr>")
+keymap("n", "<leader>ga", "<cmd>Gwrite<cr>")
 keymap("n", "<leader>gg", "<cmd>G<cr>")
+keymap("n", "<leader>gp", "<cmd>G push<cr>")
 
 -- neotree
 keymap("n", "<leader>ob", "<cmd>NeoTreeFocusToggle buffers<cr>")
