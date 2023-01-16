@@ -6,7 +6,6 @@ local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
 
 vim.g.mapleader = " "
 vim.opt.termguicolors = true
--- vim.opt.mouse = 'nv'
 vim.opt.cursorline = true
 vim.opt.mouse = 'a'
 vim.opt.errorbells = true
