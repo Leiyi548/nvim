@@ -7,6 +7,10 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
+-- vim cmd alias
+vim.cmd([[cnoreabbrev qq q!]])
+vim.cmd([[cnoreabbrev qqa qa!]])
+
 -- confirm quit neovim
 keymap("n", "<leader>q", ":confirm quit<cr>")
 
@@ -57,7 +61,6 @@ keymap("i", ";", ";<c-g>u")
 -- save in insert mode
 keymap("i", "<C-s>", "<cmd>:w<cr><esc>")
 keymap("n", "<C-s>", "<cmd>:w<cr><esc>")
-keymap("n", "<C-c>", "<cmd>normal ciw<cr>a")
 
 -- better indenting
 keymap("v", "<", "<gv")
@@ -139,6 +142,9 @@ keymap("n", "<leader>gl", "<cmd>lua require('config.fancy_toggleterm').lazygit_l
 keymap("n", "<leader>oo", "<cmd>CocOutline<cr>")
 keymap("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
+
+-- marks.nvim
+keymap("n", "<leader>tm", "<cmd>MarksToggleSigns<cr>")
 
 -- harpoon
 keymap("n", "<leader><leader>", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
