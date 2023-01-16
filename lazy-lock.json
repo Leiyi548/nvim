@@ -3,6 +3,7 @@
   "alpha-nvim": { "branch": "main", "commit": "21a0f2520ad3a7c32c0822f943368dc063a569fb" },
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
   "coc.nvim": { "branch": "release", "commit": "95b43f67147391cf2c69e550bd001b742781d226" },
+  "flit.nvim": { "branch": "main", "commit": "be110f9814a45788d10537fd59b3c76d956bb7ad" },
   "friendly-snippets": { "branch": "main", "commit": "0e193943daf1fe323c9d544217320533f77aba38" },
   "gitsigns.nvim": { "branch": "main", "commit": "addd6e174a85fc1c4007ab0b65d77e6555b417bf" },
   "harpoon": { "branch": "master", "commit": "ed9e543b709b32abd4a3acd3aecaf4450e4fa552" },

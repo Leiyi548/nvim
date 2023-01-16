@@ -149,6 +149,21 @@ return {
     config = function() require('config.leap') end
   },
   {
+    'ggandor/flit.nvim',
+    keys = {
+      { "f", mode = "n" },
+      { "F", mode = "n" },
+      { "t", mode = "n" },
+      { "T", mode = "n" },
+      { "f", mode = "x" },
+      { "F", mode = "x" },
+      { "t", mode = "x" },
+      { "T", mode = "x" }
+    },
+    dependencies = { 'ggandor/leap.nvim' },
+    config = function() require('config.flit') end
+  },
+  {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
     dependencies = {
