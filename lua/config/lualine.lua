@@ -31,8 +31,13 @@ end
 local diagnostics = {
   'diagnostics',
   sources = { 'coc' },
-  sections = { 'error', 'warn' },
-  symbols = { error = icons.diagnostics.BoldError, warn = icons.diagnostics.BoldWarn },
+  sections = { 'error', 'warn', 'info', 'hint' },
+  symbols = {
+    error = icons.diagnostics.BoldError,
+    warn  = icons.diagnostics.BoldWarn,
+    info  = icons.diagnostics.BoldInfo,
+    hint  = icons.diagnostics.BoldHint
+  },
   colored = true,
   update_in_insert = false,
   always_visible = true,
