@@ -32,8 +32,10 @@ startify.section.mru_cwd.val = {
 }
 
 startify.section.bottom_buttons.val = {
+  startify.button("t", "  Telescope git Status", ":Telescope live_grep<cr>"),
+  startify.button("s", "  Telescope git Status", ":lua require('config.fancy_telescope').git_status()<cr>"),
   startify.button("f", "  Fugitive", ":tabnew | G<cr>"),
-  startify.button("q", "  Quit NVIM", ":qa<cr>"),
+  startify.button("q", "  Quit NVIM", ":q<cr>"),
 }
 
 startify.section.footer = {
