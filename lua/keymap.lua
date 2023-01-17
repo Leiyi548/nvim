@@ -7,9 +7,13 @@ keymap("n", "<C-j>", "<C-w>j")
 keymap("n", "<C-k>", "<C-w>k")
 keymap("n", "<C-l>", "<C-w>l")
 
--- vim cmd alias
+-- fast quit: vim cmd alias
 vim.cmd([[cnoreabbrev qq q!]])
 vim.cmd([[cnoreabbrev qqa qa!]])
+
+-- emacs keybinding
+keymap("i", "<M-f>", "<C-right>")
+keymap("i", "<M-b>", "<C-left>")
 
 -- confirm quit neovim
 keymap("n", "<leader>q", ":confirm quit<cr>")
