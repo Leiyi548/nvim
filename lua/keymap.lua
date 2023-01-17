@@ -37,7 +37,7 @@ keymap("n", "<leader>bk", "<cmd>bdelete<cr>")
 keymap("n", "[b", "<cmd>bp<cr>")
 keymap("n", "]b", "<cmd>bn<cr>")
 keymap("n", "<leader><Tab>", "<cmd>e #<cr>")
-keymap({ "n", "i" }, "<F9>", "<cmd>e #<cr>")
+keymap({ "n", "i", "v" }, "<F19>", "<cmd>e #<cr>")
 
 -- move Lines
 keymap("n", "<A-j>", ":m .+1<CR>==")

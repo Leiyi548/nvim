@@ -177,7 +177,7 @@ return {
     },
     keys = {
       { "<leader>e", "<cmd>NeoTreeFocusToggle<cr>", desc = "NeotreeFocusToggle" },
-      { "<F6>", "<cmd>NeoTreeFloatToggle<cr>", desc = "NeotreeFloat" },
+      { "<F18>", "<cmd>NeoTreeFloatToggle<cr>", desc = "NeotreeFloat" },
     },
     config = function() require('config.neo_tree') end
   },
