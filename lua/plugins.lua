@@ -73,8 +73,7 @@ return {
     'neoclide/coc.nvim',
     branch = 'release',
     lazy = false,
-    dependencies = {
-      { 'Leiyi548/friendly-snippets' }
+    dependencies = { 'Leiyi548/friendly-snippets'
     },
     config = function() require('config.coc') end
   },

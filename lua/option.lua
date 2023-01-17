@@ -1,5 +1,5 @@
--- author: glepnr https://github.com/glepnir
--- date: 2022-07-02
+-- author: Leiyi548 https://github.com/Leiyi548
+-- date: 2023-01-17
 -- License: MIT
 
 local cache_dir = os.getenv('HOME') .. '/.cache/nvim/'
@@ -106,8 +106,6 @@ vim.opt.signcolumn = 'yes'
 vim.opt.background = 'dark'
 -- vim.opt.conceallevel = 2
 -- vim.opt.concealcursor = 'niv'
--- vim.opt.statuscolumn = '%=%l%s%{foldlevel(v:lnum) > 0 ? (foldlevel(v:lnum) > foldlevel(v:lnum - 1) ? (foldclosed(v:lnum) == -1 ? "" : "") : " ") : " " }'
--- vim.opt.statuscolumn = '%C%s%=%{gitsigns.getsign(cur_line)} %{diagnostic.getsign(cur_line)}'
 
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
