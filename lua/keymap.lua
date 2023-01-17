@@ -23,10 +23,12 @@ keymap({ "n", "v" }, "<Right>", ":")
 -- make the ring finger comfortable
 keymap("c", "<C-l>", "<cr>")
 
--- better n N J
+-- better n N J <C-d> <C-u>
 keymap("n", "J", "mzJ`z")
 keymap("n", "n", "nzzzv")
 keymap("n", "N", "Nzzzv")
+keymap("n", "<C-d>", "<C-d>zz")
+keymap("n", "<C-u>", "<C-u>zz")
 
 -- all content
 keymap("n", "vae", "ggVG")
