@@ -112,8 +112,10 @@ keymap("v", "<leader>f", "<cmd>lua require('config.fancy_telescope').grep_string
 -- fugitive
 keymap("n", "<leader>gi", "<cmd>G init<cr>")
 keymap("n", "<leader>ga", "<cmd>Gwrite<cr>")
+keymap("n", "<leader>gd", "<cmd>Gvdiffsplit<cr>")
 keymap("n", "<leader>gg", "<cmd>G<cr>")
 keymap("n", "<leader>gp", "<cmd>G push<cr>")
+vim.cmd([[cnoreabbrev git Git]])
 
 -- neotree
 keymap("n", "<leader>ob", "<cmd>NeoTreeFocusToggle buffers<cr>")
@@ -138,7 +140,8 @@ keymap("n", "<A-i>", "<cmd>ToggleTerm direction=float<cr>")
 
 -- lazygit
 keymap("n", "<leader>lg", "<cmd>lua require('config.fancy_toggleterm').lazygit_toggle()<cr>")
-keymap("n", "<leader>gl", "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
+keymap("n", "<leader>gl", "<cmd>G log<cr>")
+keymap("n", "<leader>gL", "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
 
 -- coc
 keymap("n", "<leader>oo", "<cmd>CocOutline<cr>")
@@ -157,5 +160,7 @@ keymap("n", "<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
 keymap("n", "<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 
 -- wsl2 copy
-keymap({ "n", "v" }, "<leader>y", '"+y"')
-keymap({ "n", "v" }, "<leader>p", '"+p"')
+if vim.fn.has('wsl') == 1 then
+  keymap({ "n", "v" }, "<leader>y", '"+y"')
+  keymap({ "n", "v" }, "<leader>p", '"+p"')
+end
