@@ -43,25 +43,6 @@ return {
     config = function() require('config.gitsigns') end
   },
   {
-    'kevinhwang91/nvim-hlslens',
-    keys = {
-      { "n", mode = "n" },
-      { "n", mode = "x" },
-      { "N", mode = "n" },
-      { "N", mode = "x" },
-      { "/", mode = "n" },
-      { "?", mode = "n" },
-      { "*", mode = "n" },
-      { "#", mode = "n" },
-      { "#", mode = "x" },
-      { "g*", mode = "n" },
-      { "g*", mode = "x" },
-      { "g#", mode = "n" },
-      { "g#", mode = "x" },
-    },
-    config = function() require('config.nvim_hlsens') end
-  },
-  {
     'chentoast/marks.nvim',
     event = { 'BufRead' },
     config = function() require('config.marks') end
