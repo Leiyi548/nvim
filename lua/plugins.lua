@@ -17,6 +17,15 @@ return {
     config = function() require('config.treesitter') end
   },
   {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+    config = function() require('config.noice') end
+  },
+  {
     'ethanholz/nvim-lastplace',
     lazy = false,
     priority = 100,
@@ -62,10 +71,9 @@ return {
   {
     'numToStr/Comment.nvim',
     keys = {
-      { "gc", mode = "n" },
+      { "gc", mode = { "n", "x" } },
       { "gcc", mode = "n" },
       { "gcb", mode = "n" },
-      { "gc", mode = "x" },
       { "gb", mode = "x" },
     },
     config = function() require('config.comment') end
@@ -93,12 +101,7 @@ return {
       { "ysaw", mode = "n" },
       { "S", mode = "x" }
     },
-  },
-  {
-    'tpope/vim-repeat',
-    keys = {
-      { ".", mode = "n" },
-    },
+    dependencies = { 'tpope/vim-repeat' }
   },
   {
     'wellle/targets.vim',
@@ -112,6 +115,7 @@ return {
       { "viq", mode = "n" },
       { "diq", mode = "n" },
       { "ciq", mode = "n" },
+      { "yiq", mode = "n" },
     }
   },
   {

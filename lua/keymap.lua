@@ -25,6 +25,8 @@ keymap("c", "<C-l>", "<cr>")
 
 -- better n N J
 keymap("n", "J", "mzJ`z")
+keymap("n", "n", "nzzzv")
+keymap("n", "N", "Nzzzv")
 
 -- all content
 keymap("n", "vae", "ggVG")
