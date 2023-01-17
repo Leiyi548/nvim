@@ -1,9 +1,10 @@
 return {
   { 'olimorris/onedarkpro.nvim', lazy = false, priority = 100, config = function() require('config.colorscheme') end },
   {
-    'goolord/alpha-nvim',
+    'Leiyi548/alpha-nvim',
+    branch = 'startify_center',
     event = 'BufWinEnter',
-    config = function() require('config.alpha') end
+    config = function() require('config.alpha').startify() end
   },
   {
     'nvim-treesitter/nvim-treesitter',
