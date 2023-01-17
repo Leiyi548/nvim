@@ -6,6 +6,7 @@ Easy to use
 
 - [ ] visual mode toggle_checkbox
 - [ ] markdown coc lsp
+- [ ] telescope save history
 
 ## Target
 
@@ -25,5 +26,6 @@ Easy to use
 - [ravenxrz/dotfiles](https://github.com/ravenxrz/dotfiles)
 - [glepnir/nvim](https://github.com/glepnir/nvim)
 - [yaocccc/nvim](https://github.com/yaocccc/nvim) 
+- [New-arkssac/New-arkssacVimrc](https://github.com/New-arkssac/New-arkssacVimrc) 
 
 ## License MIT
