@@ -59,7 +59,7 @@ keymap("i", ",", ",<c-g>u")
 keymap("i", ".", ".<c-g>u")
 keymap("i", ";", ";<c-g>u")
 
--- save in insert mode
+-- fast save
 keymap({ "n", "i", "v" }, "<C-s>", "<cmd>write<cr>")
 
 -- better indenting
