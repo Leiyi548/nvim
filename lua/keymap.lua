@@ -19,6 +19,9 @@ keymap({ "n", "v" }, "<Right>", ":")
 -- make the ring finger comfortable
 keymap("c", "<C-l>", "<cr>")
 
+-- better n N J
+keymap("n", "J", "mzJ`z")
+
 -- all content
 keymap("n", "vae", "ggVG")
 keymap("n", "yae", "ggVGy")
@@ -147,6 +150,7 @@ keymap("n", "<leader>gL", "<cmd>lua require('config.fancy_toggleterm').lazygit_l
 -- coc
 keymap("n", "<leader>oo", "<cmd>CocOutline<cr>")
 keymap("n", "<leader>ls", "<cmd>Telescope coc document_symbols<cr>")
+keymap({ "n", "i", "v" }, "<F20>", "<cmd>Telescope coc document_symbols<cr>")
 keymap("n", "<leader>lw", "<cmd>Telescope coc workspace_symbols<cr>")
 
 -- marks.nvim

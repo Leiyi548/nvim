@@ -248,7 +248,7 @@ telescope.setup({
       -- the default case_mode is "smart_case"
     },
     coc = {
-      theme = 'ivy',
+      theme = 'dropdown',
       prefer_locations = false, -- always use Telescope locations to preview definitions/declarations/implementations etc
     },
   },
