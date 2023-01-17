@@ -9,12 +9,33 @@ function M.startify()
   local startify = require 'alpha.themes.startify_center'
 
   startify.section.header.val = {
-    [[                                   __                ]],
-    [[      ___     ___    ___   __  __ /\_\    ___ ___    ]],
-    [[     / _ `\  / __`\ / __`\/\ \/\ \\/\ \  / __` __`\  ]],
-    [[    /\ \/\ \/\  __//\ \_\ \ \ \_/ |\ \ \/\ \/\ \/\ \ ]],
-    [[    \ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
-    [[     \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
+    [[                           ▓▓▓▓▓▓▓     ]],
+    [[                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+    [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+    [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ░▓▓▓▓▓▓▓▓▓]],
+    [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░▓▓▓▓▓▓▓▓▓]],
+    [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+    [[      ▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓]],
+    [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+    [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▒▓▓▓▓▓▓▓▓▓]],
+    [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ▒▓▓▓▓▓▓▓▓▓]],
+    [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+    [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+    [[                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+    [[                          ▓▓▓▓▓▓▓      ]],
+    [[                                       ]],
+  }
+
+  startify.section.header.opts = {
+    hl = "CocInfoSign",
+    position = "center",
+    shrink_margin = false,
+    -- wrap = "overflow";
   }
 
   startify.section.top_buttons.val = {
@@ -33,9 +54,10 @@ function M.startify()
   }
 
   startify.section.bottom_buttons.val = {
-    startify.button("t", "  Telescope Live grep", ":Telescope live_grep<cr>"),
-    startify.button("s", "  Telescope git Status", ":lua require('config.fancy_telescope').git_status()<cr>"),
     startify.button("f", "  Fugitive", ":enew | G<cr>"),
+    startify.button("t", "  Telescope live grep", ":Telescope live_grep<cr>"),
+    startify.button("s", "  Telescope git Status", ":lua require('config.fancy_telescope').git_status()<cr>"),
+    startify.button("p", "  Telescope projects", ":Telescope projects<cr>"),
     startify.button("q", "  Quit NVIM", ":q<cr>"),
   }
 
