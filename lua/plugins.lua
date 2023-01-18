@@ -54,7 +54,8 @@ return {
   {
     'chentoast/marks.nvim',
     event = { 'BufRead' },
-    config = function() require('config.marks') end
+    config = function() require('config.marks') end,
+    enabled = false,
   },
   {
     'tpope/vim-fugitive',
@@ -151,7 +152,13 @@ return {
       { "T", mode = "x" }
     },
     dependencies = { 'ggandor/leap.nvim' },
-    config = function() require('config.flit') end
+    config = function() require('config.flit') end,
+    enabled = false
+  },
+  {
+    'rhysd/clever-f.vim',
+    event = 'BufReadPre',
+    config = function() require('config.clever_f') end
   },
   {
     'nvim-neo-tree/neo-tree.nvim',

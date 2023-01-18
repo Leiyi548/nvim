@@ -2,6 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "eab2c83a0207369900e92783f56990808082eac2" },
   "alpha-nvim": { "branch": "startify_center", "commit": "fe1cefb75fad97edede50fce51d69f5878b89b6e" },
   "auto-pairs": { "branch": "master", "commit": "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
+  "clever-f.vim": { "branch": "master", "commit": "6a3ac5e3688598af9411ab741737f98c47370c22" },
   "coc.nvim": { "branch": "release", "commit": "95b43f67147391cf2c69e550bd001b742781d226" },
   "flit.nvim": { "branch": "main", "commit": "be110f9814a45788d10537fd59b3c76d956bb7ad" },
   "friendly-snippets": { "branch": "main", "commit": "c111d784f02789e70871de6949ce29d90b92051c" },
