@@ -9,6 +9,8 @@ keymap("n", "<C-l>", "<C-w>l")
 
 -- fast quit: vim cmd alias
 vim.cmd([[cnoreabbrev qq q!]])
+vim.cmd([[cnoreabbrev z q!]])
+vim.cmd([[cnoreabbrev za qa!]])
 vim.cmd([[cnoreabbrev qqa qa!]])
 
 -- emacs keybinding
