@@ -17,6 +17,7 @@ Easy to use
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [Nvchad](https://github.com/NvChad/NvChad)
 - [lazy.nvim-author/folke](https://github.com/folke/dot)
+- [LazyVim](https://github.com/LazyVim/LazyVim)
 - [bufferline.nvim-author/akinsho](https://github.com/akinsho/dotfiles)
 - [denstiny/nvim-nanny](https://github.com/denstiny/nvim-nanny)
 - [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
