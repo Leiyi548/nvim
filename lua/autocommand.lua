@@ -90,7 +90,7 @@ vim.api.nvim_create_autocmd('TermOpen', {
 })
 
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-  pattern  = { "*.go", "*.lua" },
+  pattern  = { "*.go", "*.lua", "*.rs" },
   desc     = 'coc format on save',
   callback = function()
     vim.cmd([[call CocAction('format')]])

@@ -6,6 +6,7 @@ vim.g.coc_global_extensions = {
   'coc-sumneko-lua',
   'coc-json',
   'coc-go',
+  'coc-rust-analyzer',
   'coc-html',
   'coc-css',
   'coc-emmet',
@@ -79,8 +80,8 @@ vim.cmd([[
     " Update signature help on jump placeholder.
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   augroup end
-  xmap ga  <Plug>(coc-codeaction-selected)
-  nmap ga  <Plug>(coc-codeaction-selected)
+  xmap <silent> ga  <Plug>(coc-codeaction-selected)
+  nmap <silent> ga  <Plug>(coc-codeaction-selected)
   " Remap keys for applying codeAction to the current buffer.
   nmap ga  <Plug>(coc-codeaction)
   " Run the Code Lens action on the current line.
