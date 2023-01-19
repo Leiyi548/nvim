@@ -222,6 +222,9 @@ telescope.setup({
         },
       },
     },
+    lsp_references = {
+      theme = 'dropdown',
+    },
     lsp_document_symbols = {
       theme = 'dropdown',
     },

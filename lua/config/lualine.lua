@@ -30,7 +30,7 @@ end
 
 local diagnostics = {
   'diagnostics',
-  sources = { 'coc' },
+  sources = { 'nvim_diagnostic' },
   sections = { 'error', 'warn', 'info', 'hint' },
   symbols = {
     error = icons.diagnostics.BoldError,
