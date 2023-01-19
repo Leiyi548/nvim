@@ -1,5 +1,5 @@
 -- author: Leiyi548 https://github.com/Leiyi548
--- date: 2022-07-18
+-- date: 2023-01-19
 -- License: MIT
 
 local M = {}
@@ -19,7 +19,7 @@ local file_ignore_patterns = {
   '%.svg',
   '%.otf',
   '%.ttf',
-  "a.out"
+  'a.out',
 }
 
 local larget_layout_config = {
@@ -183,14 +183,14 @@ end
 function M.grep_string_by_filetype()
   require('telescope.builtin').live_grep({
     prompt_title = 'Search for a specific file type',
-    type_filter = vim.fn.input('FileType:')
+    type_filter = vim.fn.input('FireType: '),
   })
 end
 
 function M.grep_string_open_files()
   require('telescope.builtin').live_grep({
     prompt_title = 'Grep String in open files',
-    grep_open_files = true
+    grep_open_files = true,
   })
 end
 

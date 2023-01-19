@@ -164,10 +164,10 @@ telescope.setup({
         ['<cr>'] = stopinsert(custom_actions.multi_selection_open),
         -- add mouse click support
         -- not where I want
-        ["<RightMouse>"] = actions.close,
-        ["<LeftMouse>"] = actions.select_default,
-        ["<ScrollWheelDown>"] = actions.move_selection_next,
-        ["<ScrollWheelUp>"] = actions.move_selection_previous,
+        ['<RightMouse>'] = actions.close,
+        ['<LeftMouse>'] = actions.select_default,
+        ['<ScrollWheelDown>'] = actions.move_selection_next,
+        ['<ScrollWheelUp>'] = actions.move_selection_previous,
       },
       n = {
         ['<esc>'] = actions.close,
@@ -218,9 +218,15 @@ telescope.setup({
         i = { ['<C-d>'] = actions.delete_buffer },
         n = {
           ['d'] = actions.delete_buffer,
-          ['<C-d>'] = actions.delete_buffer
+          ['<C-d>'] = actions.delete_buffer,
         },
       },
+    },
+    lsp_document_symbols = {
+      theme = 'dropdown',
+    },
+    lsp_workspace_symbols = {
+      theme = 'dropdown',
     },
     colorscheme = {
       theme = 'dropdown',
@@ -247,12 +253,8 @@ telescope.setup({
       case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
       -- the default case_mode is "smart_case"
     },
-    coc = {
-      theme = 'dropdown',
-      prefer_locations = false, -- always use Telescope locations to preview definitions/declarations/implementations etc
-    },
   },
 })
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('projects')
-require('telescope').load_extension('coc')
+require('telescope').load_extension('noice')

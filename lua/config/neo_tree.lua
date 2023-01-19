@@ -64,14 +64,14 @@ require('neo-tree').setup({
     git_status = {
       symbols = {
         -- Change type
-        added = "A", -- or "✚", but this is redundant info if you use git_status_colors on the name
+        added = 'A', -- or "✚", but this is redundant info if you use git_status_colors on the name
         modified = '', -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted = "D", -- this can only be used in the git_status source
+        deleted = 'D', -- this can only be used in the git_status source
         renamed = icons.git.renamed, -- this can only be used in the git_status source
         -- Status type
-        untracked = "U",
+        untracked = 'U',
         ignored = icons.git.ignored,
-        unstaged = "M",
+        unstaged = 'M',
         staged = icons.git.staged,
         conflict = icons.git.conflict,
       },

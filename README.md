@@ -7,6 +7,7 @@ Easy to use
 - [ ] visual mode toggle_checkbox
 - [ ] markdown coc lsp
 - [ ] telescope save history
+- [ ] add github cli stylua
 
 ## Target
 
@@ -22,7 +23,7 @@ Easy to use
 - [denstiny/nvim-nanny](https://github.com/denstiny/nvim-nanny)
 - [ayamir/nvimdots](https://github.com/ayamir/nvimdots)
 - [glepnir/nvim](https://github.com/glepnir/nvim)
-- [yaocccc/nvim](https://github.com/yaocccc/nvim) 
-- [New-arkssac/New-arkssacVimrc](https://github.com/New-arkssac/New-arkssacVimrc) 
+- [yaocccc/nvim](https://github.com/yaocccc/nvim)
+- [New-arkssac/New-arkssacVimrc](https://github.com/New-arkssac/New-arkssacVimrc)
 
 ## License MIT

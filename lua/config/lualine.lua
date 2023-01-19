@@ -34,9 +34,9 @@ local diagnostics = {
   sections = { 'error', 'warn', 'info', 'hint' },
   symbols = {
     error = icons.diagnostics.BoldError,
-    warn  = icons.diagnostics.BoldWarn,
-    info  = icons.diagnostics.BoldInfo,
-    hint  = icons.diagnostics.BoldHint
+    warn = icons.diagnostics.BoldWarn,
+    info = icons.diagnostics.BoldInfo,
+    hint = icons.diagnostics.BoldHint,
   },
   colored = true,
   update_in_insert = false,
@@ -178,11 +178,10 @@ local pwd = function()
 end
 
 local lazy = {
-  require("lazy.status").updates,
+  require('lazy.status').updates,
   cond = require('lazy.status').has_updates,
-  color = { fg = "#ff9e63" }
+  color = { fg = '#ff9e63' },
 }
-
 
 lualine.setup({
   options = {

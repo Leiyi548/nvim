@@ -1,5 +1,5 @@
 -- author: Leiyi548 https://github.com/Leiyi548
--- created: 2023-01-16
+-- created: 2023-01-19
 -- License: MIT
 
 local general_group = vim.api.nvim_create_augroup('terminal_settings', { clear = false })
@@ -49,7 +49,9 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = 'alpha',
   desc = 'use o to open button in buffer of alpha',
   callback = function()
-    vim.keymap.set("n", "o", function() require('alpha').press() end, { noremap = false, silent = true, buffer = 0 })
+    vim.keymap.set('n', 'o', function()
+      require('alpha').press()
+    end, { noremap = false, silent = true, buffer = 0 })
   end,
 })
 
@@ -89,20 +91,16 @@ vim.api.nvim_create_autocmd('TermOpen', {
   end,
 })
 
-vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-  pattern  = { "*.go", "*.lua", "*.rs" },
-  desc     = 'coc format on save',
+vim.api.nvim_create_autocmd('ModeChanged', {
+  pattern = '*',
+  group = edit_group,
   callback = function()
-    vim.cmd([[call CocAction('format')]])
+    if
+      ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
+      and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
+      and not require('luasnip').session.jump_active
+    then
+      require('luasnip').unlink_current()
+    end
   end,
 })
-
-vim.api.nvim_create_autocmd(
-  { 'BufWinEnter', 'BufWritePost', 'CursorMoved', 'CursorMovedI', 'TextChanged', 'TextChangedI' },
-  {
-    desc = 'custom winbar',
-    callback = function()
-      require('config.winbar').get_winbar()
-    end,
-  }
-)
