@@ -3,11 +3,13 @@ name: ci
 on:
   push:
     branches:
-      - main
+      - lsp
+      - lazy
 
   pull_request:
     branches:
-      - main
+      - lsp
+      - lazy
 
 jobs:
   lint:
