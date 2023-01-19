@@ -64,7 +64,7 @@ function M.startify()
       '  Telescope live grep [By Type]',
       "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>"
     ),
-    startify.button('s', '  Telescope git Status', "<cmd>lua require('config.fancy_telescope').git_status()<cr>"),
+    startify.button('c', '  Telescope git Status', "<cmd>lua require('config.fancy_telescope').git_status()<cr>"),
     startify.button('p', '  Telescope projects', '<cmd>Telescope projects<cr>'),
     startify.button('q', '  Quit NVIM', '<cmd>q<cr>'),
   }
