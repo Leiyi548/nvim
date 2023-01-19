@@ -54,12 +54,12 @@ keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
 keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
 
 -- move Lines
-keymap('n', '<A-j>', ':m .+1<CR>==')
-keymap('v', '<A-j>', ":m '>+1<CR>gv=gv")
-keymap('i', '<A-j>', '<esc>:m .+1<CR>==gi')
-keymap('n', '<A-k>', ':m .-2<CR>==')
-keymap('v', '<A-k>', ":m '<-2<CR>gv=gv")
-keymap('i', '<A-k>', '<esc>:m .-2<CR>==gi')
+keymap('n', '<A-j>', ':m .+1<CR>==', { silent = true })
+keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
+keymap('i', '<A-j>', '<esc>:m .+1<CR>==gi', { silent = true })
+keymap('n', '<A-k>', ':m .-2<CR>==', { silent = true })
+keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
+keymap('i', '<A-k>', '<esc>:m .-2<CR>==gi', { silent = true })
 
 -- enhance jk
 keymap({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -159,6 +159,7 @@ keymap('n', '<leader>gl', '<cmd>G log<cr>')
 keymap('n', '<leader>gL', "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
 
 -- lsp
+keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_workspace_symbols<cr>')
 keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
