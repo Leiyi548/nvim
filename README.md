@@ -1,4 +1,4 @@
-## COC-LAZY
+## LSP-LAZY
 
 Easy to use
 
@@ -7,11 +7,11 @@ Easy to use
 - [ ] visual mode toggle_checkbox
 - [ ] markdown coc lsp
 - [ ] telescope save history
-- [ ] add github cli stylua
+- [x] add github cli stylua
 
 ## Target
 
-**There are less than 40 neovim plugins**
+**There are less than 50 neovim plugins**
 
 ## Other Neovim configurations
 
