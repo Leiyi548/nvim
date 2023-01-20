@@ -101,15 +101,14 @@ keymap('n', '<leader>;', '<cmd>Alpha<cr>')
 
 -- telescope
 keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
--- I don't use c-b
+keymap({ 'n', 'i', 'v' }, '<C-p>', '<cmd>Telescope find_files<cr>')
 keymap('n', '<Left>', '<cmd>Telescope buffers<cr>')
 keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
 keymap('n', '<leader>fb', '<cmd>Telescope<cr>')
 keymap('n', '<leader>fc', '<cmd>Telescope commands<cr>')
 keymap('n', '<leader>fg', '<cmd>Telescope resume<cr>')
 keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
-keymap({ 'n', 'i', 'v' }, '<C-p>', '<cmd>Telescope find_files<cr>')
-keymap({ 'n', 'i', 'v' }, '<C-b>', '<cmd>Telescope buffers<cr>')
+keymap('n', '<leader>sp', '<cmd>Telescope projects<cr>')
 keymap('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
 keymap('n', '<leader>fT', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")
 keymap('n', '<leader>fo', "<cmd>lua require('config.fancy_telescope').grep_string_open_files()<cr>")
