@@ -78,7 +78,7 @@ require('neo-tree').setup({
     },
   },
   window = {
-    position = 'left',
+    position = 'right',
     width = 40,
     mapping_options = {
       noremap = true,
@@ -131,7 +131,7 @@ require('neo-tree').setup({
   },
   nesting_rules = {},
   source_selector = {
-    winbar = false,
+    winbar = true,
     statusline = false,
   },
   filesystem = {
@@ -167,10 +167,11 @@ require('neo-tree').setup({
     -- instead of relying on nvim autocmd events.
     window = {
       mappings = {
-        ['<bs>'] = 'navigate_up',
+        ['<bs>'] = 'none',
         ['.'] = 'set_root',
         ['H'] = 'toggle_hidden',
-        ['/'] = 'fuzzy_finder',
+        -- ['/'] = 'fuzzy_finder',
+        ['/'] = 'none',
         ['D'] = 'fuzzy_finder_directory',
         ['f'] = 'filter_on_submit',
         ['<c-x>'] = 'clear_filter',
@@ -189,7 +190,7 @@ require('neo-tree').setup({
       mappings = {
         ['d'] = 'buffer_delete',
         ['bd'] = 'buffer_delete',
-        ['<bs>'] = 'navigate_up',
+        ['<bs>'] = 'none',
         ['.'] = 'set_root',
       },
     },
