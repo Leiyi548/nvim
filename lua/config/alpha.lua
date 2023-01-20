@@ -57,15 +57,16 @@ function M.startify()
   }
 
   startify.section.bottom_buttons.val = {
+    startify.button('l', '  Fuzzy Find', '<cmd>Telescope find_files<cr>'),
     startify.button('f', '  Fugitive', '<cmd>enew | G<cr>'),
-    startify.button('t', '  Telescope live grep', '<cmd>Telescope live_grep<cr>'),
+    startify.button('t', '  Live Grep', '<cmd>Telescope live_grep<cr>'),
     startify.button(
       'T',
       '  Telescope live grep [By Type]',
       "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>"
     ),
-    startify.button('c', '  Telescope git Status', "<cmd>lua require('config.fancy_telescope').git_status()<cr>"),
-    startify.button('p', '  Telescope projects', '<cmd>Telescope projects<cr>'),
+    startify.button('c', '  Fuzzy Git Status', "<cmd>lua require('config.fancy_telescope').git_status()<cr>"),
+    startify.button('p', '  Fuzzy Projects', '<cmd>Telescope projects<cr>'),
     startify.button('q', '  Quit NVIM', '<cmd>q<cr>'),
   }
 
