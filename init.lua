@@ -1,6 +1,7 @@
 require('option')
 require('keymap')
 require('autocommand')
+require('statuscolumn')
 require('config.lazy')
 
 local _time = os.date('*t')
