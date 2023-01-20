@@ -175,6 +175,11 @@ keymap('n', '<leader>2', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
 keymap('n', '<leader>3', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
 keymap('n', '<leader>4', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 
+-- treesitter
+keymap('n', '<leader>ot', function()
+  vim.treesitter.show_tree({ command = 'botright 60vnew' })
+end, { desc = 'Open treesitter tree for current buffer' })
+
 -- luasnip
 keymap('s', '<BS>', '<C-o>s')
 
