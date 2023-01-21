@@ -110,7 +110,7 @@ keymap('n', '<leader>fg', '<cmd>Telescope resume<cr>')
 keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
 keymap('n', '<leader>sp', '<cmd>Telescope projects<cr>')
 keymap('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
-keymap('n', '<leader>fT', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")
+keymap('n', '<leader>st', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")
 keymap('n', '<leader>fo', "<cmd>lua require('config.fancy_telescope').grep_string_open_files()<cr>")
 keymap('n', '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<cr>')
 keymap('n', '<leader>fk', '<cmd>Telescope keymaps<cr>')
@@ -131,7 +131,7 @@ keymap('n', '<leader>gg', '<cmd>G<cr>')
 keymap('n', '<leader>gp', '<cmd>G push<cr>')
 vim.cmd([[cnoreabbrev git Git]])
 
--- neotree
+-- neo-tree
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
 keymap('n', '<leader>og', '<cmd>NeoTreeFocusToggle git_status<cr>')
 
@@ -158,9 +158,10 @@ keymap('n', '<leader>gl', '<cmd>G log<cr>')
 keymap('n', '<leader>gL', "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
 
 -- lsp
+keymap('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
 keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
-keymap('n', '<leader>ls', '<cmd>Telescope lsp_workspace_symbols<cr>')
+keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
 keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
 
 -- noice

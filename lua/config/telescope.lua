@@ -190,6 +190,7 @@ telescope.setup({
         ['<C-s>'] = custom_actions.multi_selection_open_horizontal,
         ['<C-t>'] = custom_actions.multi_selection_open_tab,
         ['<C-l>'] = custom_actions.multi_selection_open,
+        ['o'] = custom_actions.multi_selection_open,
         ['<cr>'] = custom_actions.multi_selection_open,
         ['<C-j>'] = custom_actions.multi_selection_open,
       },
@@ -221,6 +222,9 @@ telescope.setup({
           ['<C-d>'] = actions.delete_buffer,
         },
       },
+    },
+    lsp_definitions = {
+      theme = 'dropdown',
     },
     lsp_references = {
       theme = 'dropdown',
