@@ -34,7 +34,7 @@ require('lspsaga').setup({
   lightbulb = {
     enable = true,
     enable_in_insert = true,
-    sign = false,
+    sign = true,
     sign_priority = 40,
     virtual_text = true,
   },
@@ -125,7 +125,7 @@ keymap('n', '<leader>lr', '<cmd>Lspsaga rename<CR>')
 -- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
 
 -- Go to Definition
-keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
+-- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
 
 -- Show line diagnostics you can pass argument ++unfocus to make
 -- show_line_diagnostics float window unfocus

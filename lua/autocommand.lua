@@ -33,7 +33,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'fugitive',
     'git',
     'fzf',
-    'coctree',
+    'lspsagaoutline',
   },
   desc = 'smart quick',
   callback = function()
