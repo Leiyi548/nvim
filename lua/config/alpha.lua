@@ -8,31 +8,32 @@ function M.startify()
   local alpha = require('alpha')
   local startify = require('alpha.themes.startify_center')
 
-  -- alphaHeader highlight
-  vim.api.nvim_set_hl(0, 'alphaHeader', { underline = false, bold = true, fg = '#0082cf', bg = 'NONE' })
+  -- startify.section.header.val = {
+  --   [[                           ▓▓▓▓▓▓▓     ]],
+  --   [[                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+  --   [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+  --   [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ░▓▓▓▓▓▓▓▓▓]],
+  --   [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░▓▓▓▓▓▓▓▓▓]],
+  --   [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+  --   [[      ▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓]],
+  --   [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
+  --   [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▒▓▓▓▓▓▓▓▓▓]],
+  --   [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ▒▓▓▓▓▓▓▓▓▓]],
+  --   [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
+  --   [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
+  --   [[                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
+  --   [[                          ▓▓▓▓▓▓▓      ]],
+  --   [[                                       ]],
+  -- }
 
-  startify.section.header.val = {
-    [[                           ▓▓▓▓▓▓▓     ]],
-    [[                       ▓▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
-    [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
-    [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ░▓▓▓▓▓▓▓▓▓]],
-    [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ░▓▓▓▓▓▓▓▓▓]],
-    [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
-    [[      ▓▓▓▓▓▓▓▓▓▓▓▓           ▓▓▓▓▓▓▓▓▓▓]],
-    [[    ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓         ▓▓▓▓▓▓▓▓▓▓]],
-    [[  ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓      ▒▓▓▓▓▓▓▓▓▓]],
-    [[▓▓▓▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓▓▓▓    ▒▓▓▓▓▓▓▓▓▓]],
-    [[▓▓▓▓▓▓▓        ▓▓▓▓▓▓▓▓▓▓▓▓▓ ▒▓▓▓▓▓▓▓▓▓]],
-    [[  ▓▓             ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[                   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[                     ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓]],
-    [[                        ▓▓▓▓▓▓▓▓▓▓▓▓▓  ]],
-    [[                          ▓▓▓▓▓▓▓      ]],
-    [[                                       ]],
-  }
+  -- alphaHeader highlight
+  -- vim.api.nvim_set_hl(0, 'alphaHeader', { underline = false, bold = true, fg = '#0082cf', bg = 'NONE' })
+  vim.api.nvim_set_hl(0, 'alphaHeader', { underline = false, bold = true, fg = '#ef596f', bg = 'NONE' })
 
   startify.section.header.opts = {
     hl = 'alphaHeader',
@@ -57,8 +58,8 @@ function M.startify()
   }
 
   startify.section.bottom_buttons.val = {
-    startify.button('l', '  Fuzzy Find', '<cmd>Telescope find_files<cr>'),
-    startify.button('f', '  Fugitive', '<cmd>enew | G<cr>'),
+    startify.button('f', '  Fuzzy Find', '<cmd>Telescope find_files<cr>'),
+    startify.button('l', '  Fugitive', '<cmd>enew | G<cr>'),
     startify.button('t', '  Live Grep', '<cmd>Telescope live_grep<cr>'),
     startify.button(
       'T',
