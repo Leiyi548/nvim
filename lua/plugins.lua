@@ -311,7 +311,8 @@ return {
       'MunifTanjim/nui.nvim',
     },
     keys = {
-      { '<leader>e', '<cmd>NeoTreeFocusToggle<cr>', desc = 'NeotreeFocusToggle' },
+      -- { '<leader>e', '<cmd>NeoTreeFocusToggle<cr>', desc = 'NeotreeFocusToggle' },
+      { '<leader>e', '<cmd>NeoTreeFloatToggle<cr>', desc = 'NeotreeFocusToggle' },
       { '<F18>', '<cmd>NeoTreeFloatToggle<cr>', desc = 'NeotreeFloat' },
     },
     config = function()
