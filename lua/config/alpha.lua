@@ -57,18 +57,28 @@ function M.startify()
     },
   }
 
+  -- startify.button.opts.hl = { 'Keyword', 1, 2 }
   startify.section.bottom_buttons.val = {
-    startify.button('f', '  Fuzzy Find', '<cmd>Telescope find_files<cr>'),
-    startify.button('l', '  Fugitive', '<cmd>enew | G<cr>'),
-    startify.button('t', '  Live Grep', '<cmd>Telescope live_grep<cr>'),
-    startify.button(
+    startify.icon_button('f', '', 'Fuzzy Find', 'Telescope find_files', '@function'),
+    startify.icon_button('h', '', 'Harpoon', 'lua require("harpoon.ui").toggle_quick_menu()', 'Operator'),
+    startify.icon_button('l', '', 'Fugitive', 'enew | G', 'SpecialComment'),
+    startify.icon_button('t', '', 'Live Grep', 'Telescope live_grep', '@class'),
+    startify.icon_button(
       'T',
-      '  Telescope live grep [By Type]',
-      "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>"
+      '',
+      'Telescope live grep [By Type]',
+      "lua require('config.fancy_telescope').grep_string_by_filetype()",
+      'Keyword'
     ),
-    startify.button('c', '  Fuzzy Git Status', "<cmd>lua require('config.fancy_telescope').git_status()<cr>"),
-    startify.button('p', '  Fuzzy Projects', '<cmd>Telescope projects<cr>'),
-    startify.button('q', '  Quit NVIM', '<cmd>q<cr>'),
+    startify.icon_button(
+      'c',
+      '',
+      'Fuzzy Git Status',
+      "lua require('config.fancy_telescope').git_status()",
+      '@character'
+    ),
+    startify.icon_button('p', '', 'Fuzzy Projects', 'Telescope projects', '@function'),
+    startify.icon_button('q', '', 'Quit NVIM', 'q', 'DiagnosticError'),
   }
 
   startify.section.footer = {
