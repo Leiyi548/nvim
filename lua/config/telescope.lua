@@ -235,6 +235,9 @@ telescope.setup({
     lsp_workspace_symbols = {
       theme = 'dropdown',
     },
+    marks = {
+      theme = 'dropdown',
+    },
     colorscheme = {
       theme = 'dropdown',
       previewer = false,

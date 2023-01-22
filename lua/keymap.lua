@@ -19,7 +19,7 @@ keymap('i', '<M-f>', '<C-right>')
 keymap('i', '<M-b>', '<C-left>')
 
 -- confirm quit neovim
-keymap('n', '<leader>q', ':confirm quit<cr>')
+-- keymap('n', '<leader>q', ':confirm quit<cr>')
 
 -- quickly input command && I don't use c-f
 keymap({ 'n', 'v' }, '<Right>', ':')
@@ -121,6 +121,7 @@ keymap('n', '<leader>gs', "<cmd>lua require('config.fancy_telescope').git_status
 keymap('n', '<leader>sh', '<cmd>Telescope help_tags<cr>')
 keymap('n', '<leader>sc', '<cmd>Telescope colorscheme<cr>')
 keymap('n', '<leader>sr', '<cmd>Telescope registers<cr>')
+keymap('n', '<leader>sm', '<cmd>Telescope marks<cr>')
 keymap('v', '<leader>f', "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- fugitive
