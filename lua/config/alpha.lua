@@ -60,8 +60,8 @@ function M.startify()
   -- startify.button.opts.hl = { 'Keyword', 1, 2 }
   startify.section.bottom_buttons.val = {
     startify.icon_button('f', '', 'Fuzzy Find', 'Telescope find_files', '@function'),
+    startify.icon_button('F', '', 'Fugitive', 'enew | G', 'SpecialComment'),
     startify.icon_button('h', '', 'Harpoon', 'lua require("harpoon.ui").toggle_quick_menu()', 'Operator'),
-    startify.icon_button('l', '', 'Fugitive', 'enew | G', 'SpecialComment'),
     startify.icon_button('t', '', 'Live Grep', 'Telescope live_grep', '@class'),
     startify.icon_button(
       'T',
