@@ -1,5 +1,5 @@
 -- author: Leiyi548 https://github.com/Leiyi548
--- date: 2023-01-17
+-- date: 2023-01-24
 -- License: MIT
 
 local M = {}
@@ -66,7 +66,7 @@ function M.startify()
     startify.icon_button(
       'T',
       '',
-      'Telescope live grep [By Type]',
+      'Live grep [By Type]',
       "lua require('config.fancy_telescope').grep_string_by_filetype()",
       'Keyword'
     ),
