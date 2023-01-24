@@ -122,6 +122,9 @@ keymap('n', '<leader>sh', '<cmd>Telescope help_tags<cr>')
 keymap('n', '<leader>sc', '<cmd>Telescope colorscheme<cr>')
 keymap('n', '<leader>sr', '<cmd>Telescope registers<cr>')
 keymap('n', '<leader>sm', '<cmd>Telescope marks<cr>')
+keymap('n', '<leader>s/', '<cmd>Telescope search_history<cr>')
+keymap('n', '<leader>sq', '<cmd>Telescope quickfix<cr>')
+keymap('n', '<leader>sj', '<cmd>Telescope jumplist<cr>')
 keymap('v', '<leader>f', "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- fugitive
