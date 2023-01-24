@@ -48,3 +48,6 @@ require('lspconfig').sumneko_lua.setup({
 
 -- gopls
 require('lspconfig').gopls.setup({})
+
+-- vimls
+require('lspconfig').vimls.setup({})
