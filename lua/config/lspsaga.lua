@@ -76,7 +76,7 @@ require('lspsaga').setup({
     -- this option only work in neovim 0.9
     title = true,
     -- border type can be single,double,rounded,solid,shadow.
-    border = 'solid',
+    border = 'single',
     winblend = 0,
     expand = '',
     collapse = '',
@@ -87,9 +87,9 @@ require('lspsaga').setup({
     outgoing = ' ',
     colors = {
       --float window normal background color
-      normal_bg = '#1d1536',
+      normal_bg = '#282c34',
       --title background color
-      title_bg = '#afd700',
+      title_bg = '#ce5dd6',
       red = '#e95678',
       magenta = '#b33076',
       orange = '#FF8700',
@@ -122,11 +122,7 @@ keymap('n', '<leader>lr', '<cmd>Lspsaga rename<CR>')
 -- you can edit the definition file in this float window
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
--- keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
-
--- Go to Definition
--- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
-
+keymap('n', 'gp', '<cmd>Lspsaga peek_definition<CR>') -- Go to Definition-- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
 -- Show line diagnostics you can pass argument ++unfocus to make
 -- show_line_diagnostics float window unfocus
 keymap('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<CR>')
