@@ -132,7 +132,7 @@ keymap('n', '<leader>gi', '<cmd>G init<cr>')
 keymap('n', '<leader>ga', '<cmd>Gwrite<cr>')
 keymap('n', '<leader>gd', '<cmd>Gvdiffsplit<cr>')
 keymap('n', '<leader>gg', '<cmd>G<cr>')
-keymap('n', '<leader>gp', '<cmd>G push<cr>')
+-- keymap('n', '<leader>gp', '<cmd>G push<cr>')
 vim.cmd([[cnoreabbrev git Git]])
 
 -- neo-tree
@@ -147,7 +147,7 @@ keymap('n', '[g', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
 keymap('n', ']g', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
 keymap('n', '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
 keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
-keymap('n', 'gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
+keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
 keymap('n', '<leader>rh', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
 keymap('n', '<leader>rb', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>")
 
@@ -167,9 +167,6 @@ keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
 keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
-
--- noice
-keymap('n', '<leader>fn', '<cmd>Telescope noice<cr>')
 
 -- harpoon
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")

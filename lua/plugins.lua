@@ -37,6 +37,7 @@ return {
     config = function()
       require('config.noice')
     end,
+    enabled = false,
   },
   {
     'ethanholz/nvim-lastplace',
@@ -276,6 +277,23 @@ return {
     config = function()
       require('config.leap')
     end,
+  },
+  {
+    'chomosuke/term-edit.nvim',
+    lazy = false,
+    config = function()
+      require('config.term_edit')
+    end,
+  },
+  {
+    'tommcdo/vim-exchange',
+    lazy = false,
+    -- keys = {
+    --   { 'cx', mode = 'n' },
+    --   { 'cxx', mode = 'n' },
+    --   { 'X', mode = 'x' },
+    --   { 'cxc', mode = 'n' },
+    -- },
   },
   {
     'ggandor/flit.nvim',

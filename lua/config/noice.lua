@@ -143,5 +143,9 @@ require('noice').setup({
   },
 })
 
+vim.opt.cmdheight = 0
 local keymap = vim.keymap.set
+keymap('n', '<leader>fn', '<cmd>Telescope noice<cr>')
 keymap('n', '<leader>sn', '<cmd>Noice<cr>')
+
+require('telescope').load_extension('noice')
