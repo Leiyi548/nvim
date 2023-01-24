@@ -1,8 +1,43 @@
 require('onedarkpro').setup({
-  colors = {}, -- Override default colors or create your own
+  colors = {
+    telescope_prompt = '#2e323a',
+    telescope_results = '#21252d',
+  }, -- Override default colors or create your own
   highlights = {
     HLIndentLine = { fg = '#b757c2' },
     CmpItemMenu = { fg = '#b757c2' },
+    -- telescope
+    TelescopeBorder = {
+      fg = '${telescope_results}',
+      bg = '${telescope_results}',
+    },
+    TelescopePromptBorder = {
+      fg = '${telescope_prompt}',
+      bg = '${telescope_prompt}',
+    },
+    TelescopePromptCounter = { fg = '${fg}' },
+    TelescopePromptNormal = { fg = '${fg}', bg = '${telescope_prompt}' },
+    TelescopePromptPrefix = {
+      fg = '${purple}',
+      bg = '${telescope_prompt}',
+    },
+    TelescopePromptTitle = {
+      fg = '${telescope_prompt}',
+      bg = '${purple}',
+    },
+
+    TelescopePreviewTitle = {
+      fg = '${telescope_results}',
+      bg = '${green}',
+    },
+    TelescopeResultsTitle = {
+      fg = '${telescope_results}',
+      bg = '${telescope_results}',
+    },
+
+    TelescopeMatching = { fg = '${purple}' },
+    TelescopeNormal = { bg = '${telescope_results}' },
+    TelescopeSelection = { bg = '${telescope_prompt}' },
   }, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
     -- See the 'Configuring filetype highlights' section for the available list
