@@ -1,4 +1,3 @@
--- vim api
 local keymap = vim.keymap.set
 
 -- navigate window
