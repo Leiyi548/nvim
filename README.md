@@ -5,7 +5,6 @@ Easy to use
 ## TODO
 
 - [ ] visual mode toggle_checkbox
-- [ ] markdown coc lsp
 - [ ] telescope save history
 - [x] add github cli stylua
 
