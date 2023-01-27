@@ -1,7 +1,27 @@
 require('onedarkpro').setup({
   colors = {
-    telescope_prompt = '#2e323a',
-    telescope_results = '#21252d',
+    dark = {
+      statusline_bg = '#2e323b', -- gray
+      statuscolumn_border = '#3c4047',
+      indentline = '#3c4047',
+      telescope_prompt = "require('onedarkpro.helpers').darken('bg', 1, 'onedark')",
+      telescope_results = "require('onedarkpro.helpers').darken('bg', 4, 'onedark')",
+      telescope_preview = "require('onedarkpro.helpers').darken('bg', 6, 'onedark')",
+      telescope_selection = "require('onedarkpro.helpers').darken('bg', 8, 'onedark')",
+      copilot = "require('onedarkpro.helpers').darken('gray', 8, 'onedark')",
+      breadcrumbs = "require('onedarkpro.helpers').darken('gray', 10, 'onedark')",
+    },
+    light = {
+      comment = '#bebebe', -- Revert back to original comment colors
+      statusline_bg = '#f0f0f0', -- gray
+      statuscolumn_border = "require('onedarkpro.helpers').darken('bg', 3, 'onelight')",
+      telescope_prompt = "require('onedarkpro.helpers').darken('bg', 2, 'onelight')",
+      telescope_results = "require('onedarkpro.helpers').darken('bg', 5, 'onelight')",
+      telescope_preview = "require('onedarkpro.helpers').darken('bg', 7, 'onelight')",
+      telescope_selection = "require('onedarkpro.helpers').darken('bg', 9, 'onelight')",
+      copilot = "require('onedarkpro.helpers').lighten('gray', 8, 'onelight')",
+      breadcrumbs = "require('onedarkpro.helpers').lighten('gray', 8, 'onelight')",
+    },
   }, -- Override default colors or create your own
   highlights = {
     HLIndentLine = { fg = '#b757c2' },
@@ -25,7 +45,6 @@ require('onedarkpro').setup({
       fg = '${telescope_prompt}',
       bg = '${purple}',
     },
-
     TelescopePreviewTitle = {
       fg = '${telescope_results}',
       bg = '${green}',
@@ -34,10 +53,11 @@ require('onedarkpro').setup({
       fg = '${telescope_results}',
       bg = '${telescope_results}',
     },
-
-    TelescopeMatching = { fg = '${purple}' },
+    TelescopeMatching = { fg = '${blue}' },
     TelescopeNormal = { bg = '${telescope_results}' },
-    TelescopeSelection = { bg = '${telescope_prompt}' },
+    TelescopeSelection = { bg = '${telescope_selection}', fg = '#9a77cf' },
+    TelescopePreviewNormal = { bg = '${telescope_preview}' },
+    TelescopePreviewBorder = { fg = '${telescope_preview}', bg = '${telescope_preview}' },
   }, -- Override default highlight groups or create your own
   filetypes = { -- Override which filetype highlight groups are loaded
     -- See the 'Configuring filetype highlights' section for the available list
