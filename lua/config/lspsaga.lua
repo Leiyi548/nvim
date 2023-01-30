@@ -110,7 +110,7 @@ local keymap = vim.keymap.set
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>')
+keymap('n', 'go', '<cmd>Lspsaga lsp_finder<CR>')
 
 -- Code action
 keymap({ 'n', 'v' }, 'ga', '<cmd>Lspsaga code_action<CR>')
@@ -152,6 +152,7 @@ keymap('n', '<leader>oo', '<cmd>Lspsaga outline<CR>')
 -- Hover Doc
 -- if there has no hover will have a notify no information available
 -- to disable it just Lspsaga hover_doc ++quiet
+keymap('n', 'gh', '<cmd>Lspsaga hover_doc<CR>')
 keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 
 -- Callhierarchy
