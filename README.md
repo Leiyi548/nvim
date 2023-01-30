@@ -5,7 +5,7 @@ Easy to use
 ## TODO
 
 - [ ] visual mode toggle_checkbox
-- [ ] telescope save history
+- [x] telescope save history -> telescope resume
 - [x] add github cli stylua
 
 ## Target
