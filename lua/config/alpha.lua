@@ -78,6 +78,7 @@ function M.startify()
       '@character'
     ),
     startify.icon_button('p', '', 'Fuzzy Projects', 'Telescope projects', '@function'),
+    startify.icon_button('z', '', 'Lazy', 'Lazy', 'String'),
     startify.icon_button('q', '', 'Quit NVIM', 'q', 'DiagnosticError'),
   }
 
