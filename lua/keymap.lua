@@ -8,10 +8,58 @@ keymap('n', '<C-l>', '<C-w>l')
 
 -- fast quit: vim cmd alias
 vim.cmd([[cnoreabbrev qq q!]])
+vim.cmd([[cnoreabbrev qqa qa!]])
 vim.cmd([[cnoreabbrev z q!]])
 vim.cmd([[cnoreabbrev za qa!]])
-vim.cmd([[cnoreabbrev qqa qa!]])
 vim.cmd([[cnoreabbrev ee e!]])
+
+-- add empty lines before and after cursor line
+keymap('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = 'Put empty line above' })
+keymap('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>", { desc = 'Put empty line below' })
+
+-- reselect latest changed, put, or yanked text
+keymap('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, desc = 'Visually select changed text' })
+
+-- Search inside visually highlighted text. Use `silent = false` for it to
+-- make effect immediately.
+keymap('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside visual selection' })
+
+-- correct latest misspelled word by taking first suggestion.
+-- Use `<C-g>u` in Insert mode to mark this as separate undoable action.
+-- Source: https://stackoverflow.com/a/16481737
+-- NOTE: this remaps `<C-z>` in Normal mode (completely stops Neovim), but
+-- it seems to be too harmful anyway.
+keymap('n', '<C-z>', '[s1z=', { desc = 'Correct latest misspelled word' })
+keymap('i', '<C-z>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { desc = 'Correct latest misspelled word' })
+
+-- toggle neovim option
+keymap(
+  'n',
+  '\\b',
+  '<Cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<CR>',
+  { desc = "Toggle 'background'" }
+)
+keymap('n', '\\c', '<Cmd>setlocal cursorline! cursorline?<CR>', { desc = "Toggle 'cursorline'" })
+keymap('n', '\\C', '<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>', { desc = "Toggle 'cursorcolumn'" })
+keymap('n', '\\d', '<Cmd>lua print(require("utils").toggle_diagnostic())<CR>', { desc = 'Toggle diagnostic' })
+keymap(
+  'n',
+  '\\h',
+  '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>',
+  { desc = 'Toggle search highlight' }
+)
+keymap(
+  'n',
+  '<leader>h',
+  '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>',
+  { desc = 'Toggle search highlight' }
+)
+keymap('n', '\\i', '<Cmd>setlocal ignorecase! ignorecase?<CR>', { desc = "Toggle 'ignorecase'" })
+keymap('n', '\\l', '<Cmd>setlocal list! list?<CR>', { desc = "Toggle 'list'" })
+keymap('n', '\\n', '<Cmd>setlocal number! number?<CR>', { desc = "Toggle 'number'" })
+keymap('n', '\\r', '<Cmd>setlocal relativenumber! relativenumber?<CR>', { desc = "Toggle 'relativenumber'" })
+keymap('n', '\\s', '<Cmd>setlocal spell! spell?<CR>', { desc = "Toggle 'spell'" })
+keymap('n', '\\w', '<Cmd>setlocal wrap! wrap?<CR>', { desc = "Toggle 'wrap'" })
 
 -- emacs keybinding
 keymap('i', '<M-f>', '<C-right>')
@@ -80,7 +128,7 @@ keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
 
 -- remove highlight
-keymap('n', '<leader>h', '<cmd>nohl<cr>')
+-- keymap('n', '<leader>h', '<cmd>nohl<cr>')
 
 -- I hide click this key
 keymap('n', 'H', '^')
