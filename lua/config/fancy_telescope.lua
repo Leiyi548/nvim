@@ -143,8 +143,6 @@ function M.findSnippets()
     prompt_title = 'friendlysnippets',
     search_dirs = {
       '~/.local/share/nvim/lazy/friendly-snippets/snippet',
-      -- '~/.local/share/nvim/site/pack/packer/start/friendly-snippets',
-      -- '~/.config/nvim/snippets',
     },
     path_display = { 'tail' },
     previewer = false,
