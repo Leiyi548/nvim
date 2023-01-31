@@ -110,7 +110,7 @@ local keymap = vim.keymap.set
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-keymap('n', 'gR', '<cmd>Lspsaga lsp_finder<CR>')
+keymap('n', 'gw', '<cmd>Lspsaga lsp_finder<CR>')
 
 -- Code action
 keymap({ 'n', 'v' }, 'ga', '<cmd>Lspsaga code_action<CR>')
