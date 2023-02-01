@@ -95,8 +95,6 @@ keymap('n', '<A-.>', '<cmd>resize+5<cr>')
 -- buffer
 keymap('n', '<leader>bs', '<cmd>buffers<cr>')
 keymap('n', '<leader>bk', '<cmd>bdelete<cr>')
-keymap('n', '[b', '<cmd>bp<cr>')
-keymap('n', ']b', '<cmd>bn<cr>')
 keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
 keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
 
