@@ -121,6 +121,12 @@ return {
           require('config.lspsaga')
         end,
       },
+      {
+        'j-hui/fidget.nvim',
+        config = function()
+          require('config.fidget')
+        end,
+      },
     },
     config = function()
       require('config.lspconfig')
