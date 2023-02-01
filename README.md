@@ -4,9 +4,9 @@ Easy to use
 
 ## TODO
 
-- [ ] visual mode toggle_checkbox (**neovim,vscode,intellij idea**)
 - [ ] support gO/o to append line before/after (**vscode,intellij idea**)
-- [ ] vim spell check (**neovim**)
+- [ ] visual mode toggle_checkbox (**vscode,intellij idea**)
+- [x] vim spell check (**neovim**)
 - [x] telescope save history -> telescope resume (**neovim**)
 - [x] add github cli stylua
 
