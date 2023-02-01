@@ -52,6 +52,7 @@ function! s:toggle_checkbox_range()
     endif
     let lnum1 = lnum1 + 1
   endfor
+  call  cursor(lnum2,col2)
 endfunction
 
 nnoremap <silent><buffer> <cr> :call <sid>toggle_checkbox()<cr>
