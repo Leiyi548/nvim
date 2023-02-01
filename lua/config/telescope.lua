@@ -146,13 +146,16 @@ telescope.setup({
         ['<C-c>'] = actions.close,
         ['<Up>'] = actions.move_selection_previous,
         ['<Down>'] = actions.move_selection_next,
-        ['<C-j>'] = actions.move_selection_next,
-        ['<C-k>'] = actions.move_selection_previous,
+        -- ['<C-j>'] = actions.move_selection_next,
+        -- ['<C-k>'] = actions.move_selection_previous,
+        ['<C-j>'] = actions.cycle_history_next,
+        ['<C-k>'] = actions.cycle_history_prev,
         ['<PageUp>'] = actions.preview_scrolling_up,
         ['<PageDown>'] = actions.preview_scrolling_down,
         ['<C-b>'] = actions.preview_scrolling_up,
         ['<C-f>'] = actions.preview_scrolling_down,
-        ['<C-y>'] = actions.which_key,
+        -- ['<C-y>'] = actions.which_key,
+        ['<C-y>'] = actions.smart_send_to_qflist + actions.open_qflist,
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
         -- telescope mulitopen
@@ -178,12 +181,15 @@ telescope.setup({
         ['<Down>'] = actions.move_selection_next,
         -- ['<C-j>'] = actions.move_selection_next,
         -- ['<C-k>'] = actions.move_selection_previous,
+        ['<C-j>'] = actions.cycle_history_next,
+        ['<C-k>'] = actions.cycle_history_prev,
         ['<C-n>'] = actions.move_selection_next,
         ['<C-p>'] = actions.move_selection_previous,
         ['<PageUp>'] = actions.preview_scrolling_up,
         ['<PageDown>'] = actions.preview_scrolling_down,
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
+        ['<C-y>'] = actions.smart_send_to_qflist + actions.open_qflist,
         -- telescope mulitopen
         -- more information please see https://github.com/rebelot/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
         ['<C-v>'] = custom_actions.multi_selection_open_vertical,
@@ -192,7 +198,6 @@ telescope.setup({
         ['<C-l>'] = custom_actions.multi_selection_open,
         ['o'] = custom_actions.multi_selection_open,
         ['<cr>'] = custom_actions.multi_selection_open,
-        ['<C-j>'] = custom_actions.multi_selection_open,
       },
     },
   },
@@ -207,6 +212,9 @@ telescope.setup({
       theme = 'dropdown',
     },
     git_status = {
+      theme = 'dropdown',
+    },
+    quickfix = {
       theme = 'dropdown',
     },
     buffers = {

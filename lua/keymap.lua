@@ -98,6 +98,9 @@ keymap('n', '<leader>bk', '<cmd>bdelete<cr>')
 keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
 keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
 
+-- quicklist
+keymap('n', '<leader>oq', '<cmd>copen<cr>')
+
 -- move Lines
 keymap('n', '<A-j>', ':m .+1<CR>==', { silent = true })
 keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })

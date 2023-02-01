@@ -288,12 +288,26 @@ return {
   {
     'tommcdo/vim-exchange',
     lazy = false,
-    -- keys = {
-    --   { 'cx', mode = 'n' },
-    --   { 'cxx', mode = 'n' },
-    --   { 'X', mode = 'x' },
-    --   { 'cxc', mode = 'n' },
-    -- },
+    keys = {
+      { 'cx', mode = 'n' },
+      { 'cxx', mode = 'n' },
+      { 'X', mode = 'x' },
+      { 'cxc', mode = 'n' },
+    },
+    enabled = false,
+  },
+  {
+    'kevinhwang91/nvim-bqf',
+    config = function()
+      require('config.nvim_bqf')
+    end,
+    ft = 'qf',
+    dependencies = {
+      'junegunn/fzf',
+      build = function()
+        vim.fn['fzf#install']()
+      end,
+    },
   },
   {
     'ggandor/flit.nvim',
