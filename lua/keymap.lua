@@ -182,6 +182,11 @@ keymap('n', '<leader>gd', '<cmd>Gvdiffsplit<cr>')
 keymap('n', '<leader>gg', '<cmd>G<cr>')
 -- keymap('n', '<leader>gp', '<cmd>G push<cr>')
 vim.cmd([[cnoreabbrev git Git]])
+vim.cmd([[cnoreabbrev gb Git branch]])
+vim.cmd([[cnoreabbrev gba Git branch -a]])
+vim.cmd([[cnoreabbrev gco Git checkout]])
+vim.cmd([[cnoreabbrev ge Gedit]])
+vim.cmd([[cnoreabbrev gr Gread]])
 
 -- neo-tree
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
