@@ -7,11 +7,11 @@ keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
 
 -- fast quit: vim cmd alias
-vim.cmd([[cnoreabbrev qq q!]])
-vim.cmd([[cnoreabbrev qqa qa!]])
-vim.cmd([[cnoreabbrev z q!]])
-vim.cmd([[cnoreabbrev za qa!]])
-vim.cmd([[cnoreabbrev ee e!]])
+vim.cmd([[cnoreabbrev <expr> qq getcmdtype() == ':' && getcmdline() ==# 'qq' ? 'q!' : 'qq']])
+vim.cmd([[cnoreabbrev <expr> qqa getcmdtype() == ':' && getcmdline() ==# 'qqa' ? 'qa!' : 'qqa']])
+vim.cmd([[cnoreabbrev <expr> z getcmdtype() == ':' && getcmdline() ==# 'z' ? 'q!' : 'z']])
+vim.cmd([[cnoreabbrev <expr> za getcmdtype() == ':' && getcmdline() ==# 'za' ? 'qa!' : 'za']])
+vim.cmd([[cnoreabbrev <expr> ee getcmdtype() == ':' && getcmdline() ==# 'ee' ? 'e!' : 'ee']])
 
 -- add empty lines before and after cursor line
 keymap('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = 'Put empty line above' })
@@ -180,13 +180,13 @@ keymap('n', '<leader>gi', '<cmd>G init<cr>')
 keymap('n', '<leader>ga', '<cmd>Gwrite<cr>')
 keymap('n', '<leader>gd', '<cmd>Gvdiffsplit<cr>')
 keymap('n', '<leader>gg', '<cmd>G<cr>')
--- keymap('n', '<leader>gp', '<cmd>G push<cr>')
-vim.cmd([[cnoreabbrev git Git]])
-vim.cmd([[cnoreabbrev gb Git branch]])
-vim.cmd([[cnoreabbrev gba Git branch -a]])
-vim.cmd([[cnoreabbrev gco Git checkout]])
-vim.cmd([[cnoreabbrev ge Gedit]])
-vim.cmd([[cnoreabbrev gr Gread]])
+-- vim commandmode git alias
+vim.cmd([[cnoreabbrev <expr> git getcmdtype() == ':' && getcmdline() ==# 'git' ? 'Git' : 'git']])
+vim.cmd([[cnoreabbrev <expr> gb getcmdtype() == ':' && getcmdline() ==# 'gb' ? 'Git branch' : 'gb']])
+vim.cmd([[cnoreabbrev <expr> gba getcmdtype() == ':' && getcmdline() ==# 'gba' ? 'Git branch -a' : 'gba']])
+vim.cmd([[cnoreabbrev <expr> gco getcmdtype() == ':' && getcmdline() ==# 'gco' ? 'Git checkout' : 'gco']])
+vim.cmd([[cnoreabbrev <expr> ge getcmdtype() == ':' && getcmdline() ==# 'ge' ? 'Gedit' : 'ge']])
+vim.cmd([[cnoreabbrev <expr> gr getcmdtype() == ':' && getcmdline() ==# 'gr' ? 'Gread' : 'gr']])
 
 -- neo-tree
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
