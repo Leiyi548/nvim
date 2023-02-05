@@ -149,7 +149,7 @@ keymap('n', '<leader>;', '<cmd>Alpha<cr>')
 
 -- telescope
 keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
-keymap({ 'n', 'i', 'v' }, '<C-p>', '<cmd>Telescope find_files<cr>')
+keymap({ 'n', 'i', 'v' }, '<C-p>', "<cmd>lua require('config.fancy_telescope').find_project_files()<cr>")
 keymap('n', '<Left>', '<cmd>Telescope buffers<cr>')
 keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
 keymap('n', '<leader>fb', '<cmd>Telescope<cr>')
