@@ -7,6 +7,8 @@ keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
 
 -- fast quit: vim cmd alias
+vim.cmd([[cnoreabbrev <expr> ~ getcmdtype() == ':' && getcmdline() ==# '~' ? 'q' : '~']])
+vim.cmd([[cnoreabbrev <expr> ~a getcmdtype() == ':' && getcmdline() ==# '~a' ? 'qa' : '~a']])
 vim.cmd([[cnoreabbrev <expr> qq getcmdtype() == ':' && getcmdline() ==# 'qq' ? 'q!' : 'qq']])
 vim.cmd([[cnoreabbrev <expr> qqa getcmdtype() == ':' && getcmdline() ==# 'qqa' ? 'qa!' : 'qqa']])
 vim.cmd([[cnoreabbrev <expr> z getcmdtype() == ':' && getcmdline() ==# 'z' ? 'q!' : 'z']])
