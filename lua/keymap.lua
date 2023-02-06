@@ -250,6 +250,10 @@ keymap(
 -- chmod
 vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmod' ? 'Chmod' : 'chmod']])
 
+-- run file
+keymap('n', '<leader>rr', '<cmd>AsyncTask file-run<cr>', { desc = 'Run code' })
+keymap('n', '<leader>rf', '<cmd>AsyncTask file-run-floaterm<cr>', { desc = 'Run code on floaterm' })
+
 -- wsl2 copy
 if vim.fn.has('wsl') == 1 then
   keymap({ 'n', 'v' }, '<leader>y', '"+y"')

@@ -380,6 +380,47 @@ return {
     end,
   },
   {
+    'skywind3000/asynctasks.vim',
+    cmd = { 'AsyncTask' },
+    dependencies = {
+      { 'skywind3000/asyncrun.vim', cmd = { 'AsyncRun' } },
+      {
+        'voldikss/vim-floaterm',
+        cmd = {
+          'FloatermNew',
+          'FloatermPrev',
+          'FloatermNext',
+          'FloatermFirst',
+          'FloatermLast',
+          'FloatermLast',
+          'FloatermToggle',
+          'FloatermHidden',
+          'FloatermKill',
+          'FloatermSend',
+        },
+        config = function()
+          vim.cmd([[hi FloatermNC guibg=gray]])
+          vim.g.floaterm_width = 0.9
+          vim.g.floaterm_wintype = 'float'
+          vim.g.floaterm_height = 0.9
+          vim.g.floaterm_title = ''
+          vim.g.floaterm_borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' }
+        end,
+      },
+    },
+    config = function()
+      vim.g.asynctasks_term_pos = 'bottom'
+      vim.g.asynctasks_term_cols = 60
+      vim.g.asynctasks_term_rows = 12
+      vim.g.asyncrun_open = 6
+      vim.cmd([[
+        let g:asynctasks_extra_config = [
+    \ '~/.config/nvim/tasks.ini',
+    \ ]
+        ]])
+    end,
+  },
+  {
     'nvim-telescope/telescope.nvim',
     cmd = 'Telescope',
     keys = {
