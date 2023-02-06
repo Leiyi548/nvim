@@ -10,6 +10,7 @@ require('onedarkpro').setup({
       telescope_selection = "require('onedarkpro.helpers').darken('bg', 8, 'onedark')",
       copilot = "require('onedarkpro.helpers').darken('gray', 8, 'onedark')",
       breadcrumbs = "require('onedarkpro.helpers').darken('gray', 10, 'onedark')",
+      lspsaga_winbar_folder_name_fg = '#acad8f',
     },
     light = {
       comment = '#bebebe', -- Revert back to original comment colors
@@ -21,11 +22,14 @@ require('onedarkpro').setup({
       telescope_selection = "require('onedarkpro.helpers').darken('bg', 9, 'onelight')",
       copilot = "require('onedarkpro.helpers').lighten('gray', 8, 'onelight')",
       breadcrumbs = "require('onedarkpro.helpers').lighten('gray', 8, 'onelight')",
+      lspsaga_winbar_folder_name_fg = '#f7bb3b',
     },
   }, -- Override default colors or create your own
   highlights = {
     HLIndentLine = { fg = '#b757c2' },
     CmpItemMenu = { fg = '#b757c2' },
+    -- lspsaga
+    LspSagaWinbarFolderName = { fg = '${lspsaga_winbar_folder_name_fg}' },
     -- telescope
     TelescopeBorder = {
       fg = '${telescope_results}',
