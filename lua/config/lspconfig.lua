@@ -51,3 +51,9 @@ require('lspconfig').gopls.setup({})
 
 -- vimls
 require('lspconfig').vimls.setup({})
+
+-- vuels
+require('lspconfig').vuels.setup({})
+
+-- javascript typescript
+require('lspconfig').tsserver.setup({})
