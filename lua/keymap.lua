@@ -197,13 +197,16 @@ keymap('n', '<leader>og', '<cmd>NeoTreeFocusToggle git_status<cr>')
 keymap('n', '<leader>lz', '<cmd>Lazy<cr>')
 
 -- gitsign
-keymap('n', '[g', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
-keymap('n', ']g', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
-keymap('n', '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>")
-keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
-keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
-keymap('n', '<leader>rh', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>")
-keymap('n', '<leader>rb', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>")
+keymap('n', '[g', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { silent = true })
+keymap('n', ']g', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { silent = true })
+keymap({ 'n', 'v' }, '<leader>sH', ':Gitsigns stage_hunk<cr>', { silent = true })
+keymap('n', '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { silent = true })
+keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { silent = true })
+keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", { silent = true })
+keymap('n', '<leader>rh', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", { silent = true })
+keymap('n', '<leader>rb', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", { silent = true })
+-- Text object
+keymap({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { silent = true })
 
 -- toggleterm
 keymap('n', '<A-h>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>')
