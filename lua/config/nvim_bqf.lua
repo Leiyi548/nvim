@@ -26,7 +26,8 @@ require('bqf').setup({
     drop = 'o',
     openc = 'O',
     split = '<C-s>',
-    tabdrop = '<C-t>',
+    vsplit = '<C-v>',
+    tab = '<C-t>',
     -- set to empty string to disable
     tabc = '',
     ptogglemode = 'z,',
