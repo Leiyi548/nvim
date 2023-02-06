@@ -242,6 +242,17 @@ end, { desc = 'Open treesitter tree for current buffer' })
 -- luasnip
 keymap('s', '<BS>', '<C-o>s')
 
+-- system operation
+-- rename current file
+keymap(
+  'n',
+  '<leader>rn',
+  '<cmd>lua print(require("utils").rename_current_file())<CR>',
+  { desc = 'Rename current file' }
+)
+-- chmod
+vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmod' ? 'Chmod' : 'chmod']])
+
 -- wsl2 copy
 if vim.fn.has('wsl') == 1 then
   keymap({ 'n', 'v' }, '<leader>y', '"+y"')

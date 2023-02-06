@@ -16,6 +16,11 @@ return {
     end,
   },
   {
+    'Leiyi548/vim-im-select',
+    event = 'InsertEnter',
+    enabled = vim.fn.has('wsl'),
+  },
+  {
     'nvim-treesitter/nvim-treesitter',
     event = 'BufRead',
     build = ':TSUpdate',
@@ -86,6 +91,23 @@ return {
   {
     'tpope/vim-fugitive',
     cmd = { 'G', 'Git', 'Gedit', 'Gread', 'Gwrite', 'Gdiffsplit', 'Gvdiffsplit' },
+  },
+  {
+    'tpope/vim-eunuch',
+    cmd = {
+      'Remove',
+      'Delete',
+      'Move',
+      'Rename',
+      'Chmod',
+      'Mkdir',
+      'Cfind',
+      'Clocate',
+      'Lfind',
+      'Wall',
+      'SudoWrite',
+      'SudoEdit',
+    },
   },
   -- nvim lsp
   {
