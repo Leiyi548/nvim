@@ -15,6 +15,9 @@ vim.cmd([[cnoreabbrev <expr> z getcmdtype() == ':' && getcmdline() ==# 'z' ? 'q!
 vim.cmd([[cnoreabbrev <expr> za getcmdtype() == ':' && getcmdline() ==# 'za' ? 'qa!' : 'za']])
 vim.cmd([[cnoreabbrev <expr> ee getcmdtype() == ':' && getcmdline() ==# 'ee' ? 'e!' : 'ee']])
 
+-- tab
+keymap('n', '<leader>to', '<cmd>tabonly<cr>')
+
 -- add empty lines before and after cursor line
 keymap('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = 'Put empty line above' })
 keymap('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>", { desc = 'Put empty line below' })
@@ -25,14 +28,6 @@ keymap('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, de
 -- Search inside visually highlighted text. Use `silent = false` for it to
 -- make effect immediately.
 keymap('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside visual selection' })
-
--- correct latest misspelled word by taking first suggestion.
--- Use `<C-g>u` in Insert mode to mark this as separate undoable action.
--- Source: https://stackoverflow.com/a/16481737
--- NOTE: this remaps `<C-z>` in Normal mode (completely stops Neovim), but
--- it seems to be too harmful anyway.
-keymap('n', '<C-z>', '[s1z=', { desc = 'Correct latest misspelled word' })
-keymap('i', '<C-z>', '<C-g>u<Esc>[s1z=`]a<C-g>u', { desc = 'Correct latest misspelled word' })
 
 -- toggle neovim option
 keymap(
@@ -242,7 +237,7 @@ keymap('n', '<leader>ot', function()
 end, { desc = 'Open treesitter tree for current buffer' })
 
 -- luasnip
-keymap('s', '<BS>', '<C-o>s')
+keymap('s', '<BS>', '<C-o>s', { desc = 'delete snippet placeholder' })
 
 -- system operation
 -- rename current file
