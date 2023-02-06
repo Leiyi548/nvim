@@ -365,6 +365,7 @@ return {
   {
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v2.x',
+    cmd = { 'NeoTreeFocusToggle', 'NeoTreeFloatToggle' },
     dependencies = {
       'nvim-lua/plenary.nvim',
       'kyazdani42/nvim-web-devicons',
