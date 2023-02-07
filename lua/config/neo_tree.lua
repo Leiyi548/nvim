@@ -124,9 +124,11 @@ require('neo-tree').setup({
       ['m'] = 'move', -- takes text input for destination, also accepts the optional config.show_path option like "add".
       ['q'] = 'close_window',
       ['R'] = 'refresh',
-      ['?'] = 'show_help',
       ['<'] = 'prev_source',
       ['>'] = 'next_source',
+      -- disable ?
+      ['?'] = '',
+      ['g?'] = 'show_help',
     },
   },
   nesting_rules = {},
@@ -137,7 +139,7 @@ require('neo-tree').setup({
   filesystem = {
     filtered_items = {
       visible = false, -- when true, they will just be displayed differently than normal items
-      hide_dotfiles = true,
+      hide_dotfiles = false,
       hide_gitignored = true,
       hide_hidden = true, -- only works on Windows for hidden files/directories
       hide_by_name = {
@@ -180,6 +182,9 @@ require('neo-tree').setup({
         ['<c-x>'] = 'clear_filter',
         ['[g'] = 'prev_git_modified',
         [']g'] = 'next_git_modified',
+        -- disable ?
+        ['?'] = '',
+        ['g?'] = 'show_help',
       },
     },
   },
