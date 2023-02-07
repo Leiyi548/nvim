@@ -4,6 +4,7 @@ Easy to use
 
 ## TODO
 
+- [ ] show_buffers add icon prefix
 - [ ] support gO/o to append line before/after (**vscode,intellij idea**)
 - [ ] visual mode toggle_checkbox (**vscode,intellij idea**)
 - [x] vim spell check (**neovim**)

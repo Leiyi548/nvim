@@ -100,6 +100,17 @@ function M.show_buffers()
   local event = require('nui.utils.autocmd').event
   local NuiText = require('nui.text')
 
+  -- @type string
+  local env_home = os.getenv('HOME')
+
+  local opts = {
+    show_all_buffers = false,
+    ignore_current_buffer = false,
+    sort_mru = true,
+    cwd_only = false,
+    use_icon = true,
+  }
+
   local highlights = {
     TITLE_BAR = 'NeoTreeTitleBar',
     PROMPT = 'TelescopePromptPrefix',
@@ -107,24 +118,65 @@ function M.show_buffers()
     SELECTION = 'TelescopeSelection',
   }
 
+  local function get_extension(fn)
+    local match = fn:match('^.+(%..+)$')
+    local ext = ''
+    if match ~= nil then
+      ext = match:sub(2)
+    end
+    return ext
+  end
+
+  local function icon(fn)
+    local nwd = require('nvim-web-devicons')
+    local ext = get_extension(fn)
+    return nwd.get_icon(fn, ext, { default = true })
+  end
+
   local buffers_menu_tbl = {}
   local buffers_name_tbl = {}
 
-  for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
-    local buffer_name = vim.api.nvim_buf_get_name(buffer)
-    repeat
-      -- delete empty buffer
-      if buffer_name == nil or buffer_name == '' then
-        break
-      end
-      print(vim.api.nvim_get_current_buf())
-      if buffer_name == vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()) then
-        table.insert(buffers_menu_tbl, Menu.item(NuiText(buffer_name, highlights.SELECTION)))
-      else
-        table.insert(buffers_menu_tbl, Menu.item(buffer_name))
-        table.insert(buffers_name_tbl, buffer_name)
-      end
-    until true
+  -- filter buffer
+  local buffers_tbl = vim.tbl_filter(function(buffer)
+    if 1 ~= vim.fn.buflisted(buffer) then
+      return false
+    end
+    -- only hide unloaded buffers if opts.show_all_buffers is false, keep them listed if true or nil
+    if opts.show_all_buffers == false and not vim.api.nvim_buf_is_loaded(buffer) then
+      return false
+    end
+    if opts.ignore_current_buffer and buffer == vim.api.nvim_get_current_buf() then
+      return false
+    end
+    if opts.cwd_only and not string.find(vim.api.nvim_buf_get_name(buffer), vim.loop.cwd(), 1, true) then
+      return false
+    end
+    if not opts.cwd_only and opts.cwd and not string.find(vim.api.nvim_buf_get_name(buffer), opts.cwd, 1, true) then
+      return false
+    end
+    return true
+  end, vim.api.nvim_list_bufs())
+
+  if opts.sort_mru then
+    table.sort(buffers_tbl, function(a, b)
+      return vim.fn.getbufinfo(a)[1].lastused > vim.fn.getbufinfo(b)[1].lastused
+    end)
+  end
+
+  for _, buffer in ipairs(buffers_tbl) do
+    local buffer_name = vim.api.nvim_buf_get_name(buffer):gsub(env_home, '~')
+    -- highlight current buffer
+    if opts.use_icon then
+      -- TODO: add icon prefix
+      local icon_text, icon_highlight_group = icon(buffer_name)
+      -- local buffer_name_text = NuiText(icon_text, icon_highlight_group) + NuiText(buffer_name, "TelescopeNormal")
+    end
+    if buffer_name == vim.api.nvim_buf_get_name(vim.api.nvim_get_current_buf()):gsub(env_home, '~') then
+      table.insert(buffers_menu_tbl, Menu.item(NuiText(buffer_name, highlights.SELECTION)))
+    else
+      table.insert(buffers_menu_tbl, Menu.item(buffer_name))
+    end
+    table.insert(buffers_name_tbl, buffer_name)
   end
 
   ---return longest line length
@@ -148,6 +200,7 @@ function M.show_buffers()
     position = '50%',
     size = {
       width = max_width + 5,
+      -- width = 50,
       height = max_length,
     },
     border = {
