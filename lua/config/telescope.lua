@@ -207,6 +207,10 @@ telescope.setup({
       --@usage don't include the filename in the search results
       only_sort_text = true,
       theme = 'dropdown',
+      layout_config = {
+        width = 0.8,
+        height = 0.5,
+      },
     },
     find_files = {
       theme = 'dropdown',
@@ -253,14 +257,19 @@ telescope.setup({
     builtin = {
       theme = 'dropdown',
       layout_config = {
-        width = 50,
+        width = 0.5,
         height = 0.5,
       },
       include_extensions = true,
       use_default_opts = true,
     },
     git_files = {
+      theme = 'dropdown',
       show_untracked = true,
+      layout_config = {
+        width = 0.88,
+        height = 0.5,
+      },
     },
   },
   extensions = {
