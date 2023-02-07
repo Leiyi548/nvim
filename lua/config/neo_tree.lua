@@ -175,6 +175,7 @@ require('neo-tree').setup({
         ['D'] = 'fuzzy_finder_directory',
         ['<C-s>'] = 'open_split',
         ['<C-v>'] = 'open_vsplit',
+        ['<C-t>'] = 'open_tabnew',
         ['f'] = 'filter_on_submit',
         ['<c-x>'] = 'clear_filter',
         ['[g'] = 'prev_git_modified',
