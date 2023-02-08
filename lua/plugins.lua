@@ -170,6 +170,7 @@ return {
           require('config.nvim_autopairs')
         end,
       },
+      'windwp/nvim-ts-autotag',
     },
     config = function()
       require('config.cmp')
