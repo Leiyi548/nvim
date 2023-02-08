@@ -1,7 +1,6 @@
 require('nvim-treesitter.configs').setup({
   ensure_installed = 'all',
-  -- ignore_install = { 'phpdoc', 'markdown', 'markdown_inline' },
-  ignore_install = { 'phpdoc' },
+  ignore_install = { 'phpdoc', 'markdown', 'markdown_inline' },
   highlight = {
     enable = true,
     disable = {},
