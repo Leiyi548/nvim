@@ -92,8 +92,8 @@ require('neo-tree').setup({
       ['<2-LeftMouse>'] = 'open',
       ['<cr>'] = 'open',
       ['o'] = 'open',
-      ['i'] = 'open_split',
-      ['s'] = 'open_vsplit',
+      ['i'] = '',
+      ['s'] = '',
       -- ["S"] = "split_with_window_picker",
       -- ["s"] = "vsplit_with_window_picker",
       ['t'] = 'open_tabnew',
@@ -111,7 +111,8 @@ require('neo-tree').setup({
       ['A'] = 'add_directory', -- also accepts the optional config.show_path option like "add".
       ['d'] = 'delete',
       ['r'] = 'rename',
-      ['y'] = 'copy_to_clipboard',
+      ['y'] = '',
+      ['yy'] = 'copy_to_clipboard',
       ['x'] = 'cut_to_clipboard',
       ['p'] = 'paste_from_clipboard',
       ['c'] = 'copy', -- takes text input for destination, also accepts the optional config.show_path option like "add":
