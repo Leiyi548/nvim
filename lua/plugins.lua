@@ -350,6 +350,7 @@ return {
     ft = 'qf',
     dependencies = {
       'junegunn/fzf',
+      cmd = { 'FZF' },
       build = function()
         vim.fn['fzf#install']()
       end,

@@ -16,6 +16,8 @@ vim.cmd([[cnoreabbrev <expr> za getcmdtype() == ':' && getcmdline() ==# 'za' ? '
 vim.cmd([[cnoreabbrev <expr> ee getcmdtype() == ':' && getcmdline() ==# 'ee' ? 'e!' : 'ee']])
 
 -- tab
+keymap('n', '<leader>tc', '<cmd>tabclose<cr>')
+keymap('n', '<leader>tn', '<cmd>tabnew<cr>')
 keymap('n', '<leader>to', '<cmd>tabonly<cr>')
 
 -- add empty lines before and after cursor line
@@ -144,6 +146,9 @@ keymap('x', 'g<Home>', 'g<C-a>')
 -- alpha
 keymap('n', '<leader>;', '<cmd>Alpha<cr>')
 
+-- fzf
+keymap('n', '<leader>ff', '<cmd>FZF<cr>')
+
 -- telescope
 keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
 keymap({ 'n', 'i', 'v' }, '<C-p>', "<cmd>lua require('config.fancy_telescope').find_project_files()<cr>")
@@ -152,7 +157,7 @@ keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfi
 keymap('n', '<leader>fb', '<cmd>Telescope<cr>')
 keymap('n', '<leader>fc', '<cmd>Telescope commands<cr>')
 keymap('n', '<leader>fg', '<cmd>Telescope resume<cr>')
-keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
+-- keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
 keymap('n', '<leader>sp', '<cmd>Telescope projects<cr>')
 keymap('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
 keymap('n', '<leader>st', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")
@@ -185,6 +190,10 @@ vim.cmd([[cnoreabbrev <expr> gba getcmdtype() == ':' && getcmdline() ==# 'gba' ?
 vim.cmd([[cnoreabbrev <expr> gco getcmdtype() == ':' && getcmdline() ==# 'gco' ? 'Git checkout' : 'gco']])
 vim.cmd([[cnoreabbrev <expr> ge getcmdtype() == ':' && getcmdline() ==# 'ge' ? 'Gedit' : 'ge']])
 vim.cmd([[cnoreabbrev <expr> gr getcmdtype() == ':' && getcmdline() ==# 'gr' ? 'Gread' : 'gr']])
+
+-- diffview
+keymap('n', '<leader>do', '<cmd>DiffviewOpen<cr>')
+keymap('n', '<leader>df', '<cmd>DiffviewFileHistory<cr>')
 
 -- neo-tree
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
