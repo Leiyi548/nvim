@@ -98,6 +98,14 @@ return {
     enabled = false,
   },
   {
+    'sindrets/diffview.nvim',
+    dependencies = 'nvim-lua/plenary.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFocusFile', 'DiffviewRefresh', 'DiffviewFileHistory' },
+    config = function()
+      require('config.diffview')
+    end,
+  },
+  {
     'tpope/vim-fugitive',
     cmd = { 'G', 'Git', 'Gedit', 'Gread', 'Gwrite', 'Gdiffsplit', 'Gvdiffsplit' },
   },
