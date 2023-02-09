@@ -57,10 +57,10 @@ function M.startify()
     },
   }
 
-  -- startify.button.opts.hl = { 'Keyword', 1, 2 }
   startify.section.bottom_buttons.val = {
     startify.icon_button('f', '', 'Fuzzy Find', 'Telescope find_files', '@function'),
     startify.icon_button('r', '', 'Recent File', 'Telescope oldfiles', '@function'),
+    startify.icon_button('e', '', 'NeoTree', 'NeoTreeFloatToggle', '@class'),
     startify.icon_button('F', '', 'Fugitive', 'enew | G', 'SpecialComment'),
     startify.icon_button('L', '', 'Fugitive Log', 'enew | G log', 'SpecialComment'),
     startify.icon_button('h', '', 'Harpoon', 'lua require("harpoon.ui").toggle_quick_menu()', 'Operator'),
