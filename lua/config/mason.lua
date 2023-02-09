@@ -12,6 +12,7 @@ local ensure_installed = {
   'stylua',
   'goimports',
   'prettier',
+  'black',
 }
 
 -- install format on lint tool

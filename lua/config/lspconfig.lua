@@ -49,6 +49,9 @@ require('lspconfig').sumneko_lua.setup({
 -- gopls
 require('lspconfig').gopls.setup({})
 
+-- pyright
+require('lspconfig').pyright.setup({})
+
 -- vimls
 require('lspconfig').vimls.setup({})
 
