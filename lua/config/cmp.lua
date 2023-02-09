@@ -29,7 +29,7 @@ cmp.setup({
     ['<PageUp>'] = cmp.mapping.scroll_docs(4),
     ['<PageDown>'] = cmp.mapping.scroll_docs(-4),
     -- ['<C-o>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-    -- ['<C-]>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-]>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     -- ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close(), }), -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
     ['<CR>'] = cmp.mapping.confirm({
@@ -135,12 +135,12 @@ cmp.setup({
   window = {
     documentation = {
       -- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      -- border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
       -- winhighlight = 'NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None',
       -- winhighlight = 'Normal:CmpPmenu,FloatBorder:CmpPmenuBorder,Search:None',
     },
     completion = {
-      -- border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
+      border = { '┌', '─', '┐', '│', '┘', '─', '└', '│' },
       -- winhighlight = 'Normal:CmpPmenu,CursorLine:PmenuSel,Search:None',
     },
   },
