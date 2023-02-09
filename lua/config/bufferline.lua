@@ -73,7 +73,7 @@ bufferline.setup({
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- more information please see bufferline-styling
-    separator_style = 'slant', -- slant | padded_slant | thick | thin (default)
+    separator_style = 'thin', -- slant | padded_slant | thick | thin (default)
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     -- sort will change number,I don't need this.
