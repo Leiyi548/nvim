@@ -121,14 +121,15 @@ keymap('i', '.', '.<c-g>u')
 keymap('i', ';', ';<c-g>u')
 
 -- fast save
-keymap({ 'n', 'i', 'v' }, '<C-s>', '<cmd>write<cr>')
+keymap({ 'n', 'i', 'v' }, '<C-s>', function()
+  vim.cmd('write')
+  local time = os.date('%T')
+  vim.api.nvim_command('echohl DiagnosticError |  echom "saved ' .. time .. '"')
+end)
 
 -- better indenting
 keymap('v', '<', '<gv')
 keymap('v', '>', '>gv')
-
--- remove highlight
--- keymap('n', '<leader>h', '<cmd>nohl<cr>')
 
 -- I hide click this key
 keymap('n', 'H', '^')
@@ -193,7 +194,7 @@ vim.cmd([[cnoreabbrev <expr> gr getcmdtype() == ':' && getcmdline() ==# 'gr' ? '
 
 -- diffview
 keymap('n', '<leader>do', '<cmd>DiffviewOpen<cr>')
-keymap('n', '<leader>df', '<cmd>DiffviewFileHistory<cr>')
+keymap('n', '<leader>df', '<cmd>DiffviewFileHistory %<cr>')
 
 -- neo-tree
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
