@@ -2,9 +2,18 @@ return {
   {
     'olimorris/onedarkpro.nvim',
     lazy = false,
-    priority = 100,
+    priority = 1000,
     config = function()
-      require('config.colorscheme')
+      require('config.colorscheme').onedarkpro()
+    end,
+  },
+  {
+    'rose-pine/neovim',
+    name = 'rose-pine',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('config.colorscheme').rose_pine()
     end,
   },
   {
