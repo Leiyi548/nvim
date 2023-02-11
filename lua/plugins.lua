@@ -484,6 +484,7 @@ return {
           require('config.project')
         end,
       },
+      { 'debugloop/telescope-undo.nvim' },
     },
     config = function()
       require('config.telescope')
