@@ -17,6 +17,14 @@ return {
     end,
   },
   {
+    'projekt0n/github-nvim-theme',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('config.colorscheme').github_nvim_theme()
+    end,
+  },
+  {
     'Leiyi548/alpha-nvim',
     branch = 'startify_center',
     event = 'BufWinEnter',

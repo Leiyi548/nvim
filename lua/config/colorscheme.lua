@@ -107,7 +107,7 @@ function M.rose_pine()
     dim_nc_background = false,
     disable_background = false,
     disable_float_background = false,
-    disable_italics = false,
+    disable_italics = true,
     --- @usage string hex value or named color from rosepinetheme.com/palette
 
     groups = {
@@ -134,9 +134,31 @@ function M.rose_pine()
     },
     -- Change specific vim highlight groups
     highlight_groups = {
-
       ColorColumn = { bg = 'rose' },
     },
+  })
+end
+
+function M.github_nvim_theme()
+  -- Example config in Lua
+  require('github-theme').setup({
+    theme_style = 'light',
+    comment_style = 'NONE',
+    function_style = 'NONE',
+    sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
+
+    -- Change the "hint" color to the "orange" color, and make the "error" color bright red
+    colors = { hint = 'orange', error = '#ff0000' },
+
+    -- Overwrite the highlight groups
+    overrides = function(c)
+      return {
+        htmlTag = { fg = c.red, bg = '#282c34', sp = c.hint, style = 'underline' },
+        DiagnosticHint = { link = 'LspDiagnosticsDefaultHint' },
+        -- this will remove the highlight groups
+        TSField = {},
+      }
+    end,
   })
 end
 
