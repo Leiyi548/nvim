@@ -50,6 +50,13 @@ return {
     end,
   },
   {
+    'nvim-treesitter/nvim-treesitter-context',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('config.treesitter_context')
+    end,
+  },
+  {
     'folke/noice.nvim',
     event = 'VeryLazy',
     dependencies = {
@@ -214,6 +221,12 @@ return {
       'hrsh7th/cmp-cmdline',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'saadparwaiz1/cmp_luasnip',
+      {
+        'wasden/cmp-flypy.nvim',
+        config = function()
+          require('config.cmp_flypy')
+        end,
+      },
       {
         'windwp/nvim-autopairs',
         config = function()
@@ -406,6 +419,13 @@ return {
       require('config.flit')
     end,
     enabled = false,
+  },
+  {
+    'rhysd/clever-f.vim',
+    event = 'BufReadPre',
+    config = function()
+      require('config.clever_f')
+    end,
   },
   {
     'rhysd/clever-f.vim',
