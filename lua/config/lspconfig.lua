@@ -22,8 +22,8 @@ vim.diagnostic.config({
   },
 })
 
--- sumneko_lua
-require('lspconfig').sumneko_lua.setup({
+-- lua_ls
+require('lspconfig').lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
