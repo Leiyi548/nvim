@@ -43,7 +43,7 @@ function M.startify()
   }
 
   startify.section.top_buttons.val = {
-    startify.button('e', '  New file', ':ene <BAR> startinsert <cr>'),
+    -- startify.button('e', '  New file', ':ene <BAR> startinsert <cr>'),
   }
 
   startify.section.mru_cwd.val = {
@@ -135,7 +135,7 @@ function M.theta()
         position = 'center',
       },
     },
-    { type = 'padding', val = 1 },
+    -- { type = 'padding', val = 1 },
     {
       type = 'group',
       val = function()
