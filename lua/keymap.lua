@@ -5,6 +5,9 @@ keymap('n', '<BS>', '<C-w>h')
 keymap('n', '<C-j>', '<C-w>j')
 keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
+keymap('n', '<C-w>e', '<C-w>=')
+keymap('n', '<C-w>t', '<C-w>T')
+keymap('n', '<C-w>d', '<C-w>c')
 
 -- use Q to instead of q
 keymap('n', 'q', '<NOP>')
@@ -20,8 +23,8 @@ vim.cmd([[cnoreabbrev <expr> za getcmdtype() == ':' && getcmdline() ==# 'za' ? '
 vim.cmd([[cnoreabbrev <expr> ee getcmdtype() == ':' && getcmdline() ==# 'ee' ? 'e!' : 'ee']])
 
 -- tab
-keymap('n', '<leader>tc', '<cmd>tabclose<cr>')
-keymap('n', '<leader>tn', '<cmd>tabnew<cr>')
+keymap('n', '<leader>tk', '<cmd>tabclose<cr>')
+keymap('n', '<leader>tt', '<cmd>tabnew<cr>')
 keymap('n', '<leader>to', '<cmd>tabonly<cr>')
 
 -- add empty lines before and after cursor line
