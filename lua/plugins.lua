@@ -98,6 +98,10 @@ return {
     end,
   },
   {
+    'hotoo/pangu.vim',
+    event = { 'BufReadPre' },
+  },
+  {
     'kevinhwang91/nvim-hlslens',
     keys = {
       { 'n', mode = 'n' },

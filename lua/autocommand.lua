@@ -93,3 +93,6 @@ vim.api.nvim_create_autocmd('ModeChanged', {
     end
   end,
 })
+
+-- 中文格式化
+vim.cmd([[autocmd BufWritePre * call PanGuSpacing('ALL')]])
