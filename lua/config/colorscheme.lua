@@ -142,7 +142,7 @@ end
 function M.github_nvim_theme()
   -- Example config in Lua
   require('github-theme').setup({
-    theme_style = 'light',
+    theme_style = 'dark',
     comment_style = 'NONE',
     function_style = 'NONE',
     sidebars = { 'qf', 'vista_kind', 'terminal', 'packer' },
