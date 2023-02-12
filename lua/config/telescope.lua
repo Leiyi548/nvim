@@ -259,7 +259,6 @@ telescope.setup({
               vim.notify('没有可以选择的 commit')
             else
               actions.close(prompt_bufnr)
-              -- yanks the additions from the currently selected undo state into the default register
               vim.fn.setreg(require('utils').get_default_register(), selection.msg)
               vim.notify('复制成功 commit message: ' .. selection.msg)
             end
@@ -271,7 +270,6 @@ telescope.setup({
               vim.notify('没有可以选择的 commit')
             else
               actions.close(prompt_bufnr)
-              -- yanks the additions from the currently selected undo state into the default register
               vim.fn.setreg(require('utils').get_default_register(), selection.value)
               vim.notify('复制成功 commit hash: ' .. selection.value)
             end
@@ -355,20 +353,17 @@ telescope.setup({
       entry_format = 'state #$ID, $STAT, $TIME',
       mappings = {
         i = {
-          -- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
-          -- you want to replicate these defaults and use the following actions. This means
-          -- installing as a dependency of telescope in it's `requirements` and loading this
-          -- extension from there instead of having the separate plugin definition as outlined
-          -- above.
           ['<cr>'] = require('telescope-undo.actions').restore,
-          ['<C-cr>'] = require('telescope-undo.actions').yank_additions,
-          ['<S-cr>'] = require('telescope-undo.actions').yank_deletions,
+          ['<C-s>'] = require('telescope-undo.actions').yank_deletions,
+          ['<C-v>'] = require('telescope-undo.actions').yank_additions,
         },
         n = {
           ['o'] = require('telescope-undo.actions').restore,
           ['<cr>'] = require('telescope-undo.actions').restore,
-          ['<C-cr>'] = require('telescope-undo.actions').yank_additions,
-          ['<S-cr>'] = require('telescope-undo.actions').yank_deletions,
+          ['ya'] = require('telescope-undo.actions').yank_additions,
+          ['yd'] = require('telescope-undo.actions').yank_deletions,
+          ['<C-s>'] = require('telescope-undo.actions').yank_deletions,
+          ['<C-v>'] = require('telescope-undo.actions').yank_additions,
         },
       },
     },
