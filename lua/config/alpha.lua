@@ -58,7 +58,13 @@ function M.startify()
   }
 
   startify.section.bottom_buttons.val = {
-    startify.icon_button('f', '', 'Fuzzy Find', 'Telescope find_files', '@function'),
+    startify.icon_button(
+      'f',
+      '',
+      'Fuzzy Find',
+      "lua require('config.fancy_telescope').find_project_files()",
+      '@function'
+    ),
     startify.icon_button('r', '', 'Recent File', 'Telescope oldfiles', '@function'),
     startify.icon_button('e', '', 'NeoTree', 'NeoTreeFloatToggle', '@class'),
     startify.icon_button('F', '', 'Fugitive', 'enew | G', 'SpecialComment'),
