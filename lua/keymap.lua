@@ -6,6 +6,10 @@ keymap('n', '<C-j>', '<C-w>j')
 keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
 
+-- use Q to instead of q
+keymap('n', 'q', '<NOP>')
+keymap('n', 'Q', 'q')
+
 -- fast quit: vim cmd alias
 vim.cmd([[cnoreabbrev <expr> ~ getcmdtype() == ':' && getcmdline() ==# '~' ? 'q' : '~']])
 vim.cmd([[cnoreabbrev <expr> ~a getcmdtype() == ':' && getcmdline() ==# '~a' ? 'qa' : '~a']])
