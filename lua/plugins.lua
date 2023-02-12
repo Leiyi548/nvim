@@ -222,12 +222,6 @@ return {
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'saadparwaiz1/cmp_luasnip',
       {
-        'wasden/cmp-flypy.nvim',
-        config = function()
-          require('config.cmp_flypy')
-        end,
-      },
-      {
         'windwp/nvim-autopairs',
         config = function()
           require('config.nvim_autopairs')
