@@ -216,10 +216,74 @@ telescope.setup({
       theme = 'dropdown',
     },
     git_status = {
-      theme = 'dropdown',
+      layout_strategy = 'vertical',
+    },
+    git_commits = {
+      layout_strategy = 'vertical',
+      mappings = {
+        i = {
+          -- checkout commit
+          ['<C-o>'] = actions.git_checkout,
+          -- 复制 commit 信息
+          ['<cr>'] = function(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            if selection == nil then
+              vim.notify('没有可以选择的 commit')
+            else
+              actions.close(prompt_bufnr)
+              -- yanks the additions from the currently selected undo state into the default register
+              vim.fn.setreg(require('utils').get_default_register(), selection.msg)
+              vim.notify('复制成功 commit message: ' .. selection.msg)
+            end
+          end,
+          -- 复制 commit hash 值
+          ['<C-v>'] = function(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            if selection == nil then
+              vim.notify('没有可以选择的 commit')
+            else
+              actions.close(prompt_bufnr)
+              -- yanks the additions from the currently selected undo state into the default register
+              vim.fn.setreg(require('utils').get_default_register(), selection.value)
+              vim.notify('复制成功 commit hash: ' .. selection.value)
+            end
+          end,
+        },
+        n = {
+          -- checkout commit
+          ['<C-o>'] = actions.git_checkout,
+          -- 复制 commit 信息
+          ['<cr>'] = function(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            if selection == nil then
+              vim.notify('没有可以选择的 commit')
+            else
+              actions.close(prompt_bufnr)
+              -- yanks the additions from the currently selected undo state into the default register
+              vim.fn.setreg(require('utils').get_default_register(), selection.msg)
+              vim.notify('复制成功 commit message: ' .. selection.msg)
+            end
+          end,
+          -- 复制 commit hash 值
+          ['<C-v>'] = function(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            if selection == nil then
+              vim.notify('没有可以选择的 commit')
+            else
+              actions.close(prompt_bufnr)
+              -- yanks the additions from the currently selected undo state into the default register
+              vim.fn.setreg(require('utils').get_default_register(), selection.value)
+              vim.notify('复制成功 commit hash: ' .. selection.value)
+            end
+          end,
+        },
+      },
+    },
+    git_bcommits = {
+      layout_strategy = 'vertical',
     },
     quickfix = {
-      theme = 'dropdown',
+      layout_strategy = 'vertical',
     },
     buffers = {
       sort_lastused = true,
@@ -301,6 +365,7 @@ telescope.setup({
           ['<S-cr>'] = require('telescope-undo.actions').yank_deletions,
         },
         n = {
+          ['o'] = require('telescope-undo.actions').restore,
           ['<cr>'] = require('telescope-undo.actions').restore,
           ['<C-cr>'] = require('telescope-undo.actions').yank_additions,
           ['<S-cr>'] = require('telescope-undo.actions').yank_deletions,

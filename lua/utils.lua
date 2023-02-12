@@ -259,4 +259,15 @@ function M.get_modify_buffers()
   return modified_buffers_tbl
 end
 
+function M.get_default_register()
+  local clipboardFlags = vim.split(vim.api.nvim_get_option('clipboard'), ',')
+  if vim.tbl_contains(clipboardFlags, 'unnamedplus') then
+    return '+'
+  end
+  if vim.tbl_contains(clipboardFlags, 'unnamed') then
+    return '*'
+  end
+  return '"'
+end
+
 return M
