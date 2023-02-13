@@ -135,6 +135,7 @@ function M.rose_pine()
     -- Change specific vim highlight groups
     highlight_groups = {
       ColorColumn = { bg = 'rose' },
+      WildMenu = { bg = 'pine' },
     },
   })
 end
