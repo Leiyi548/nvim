@@ -204,13 +204,16 @@ telescope.setup({
   -- reference: https://github.com/dhruvmanila/dotfiles/blob/master/config/nvim/lua/dm/plugins/telescope/init.lua
   pickers = {
     live_grep = {
-      --@usage don't include the filename in the search results
       only_sort_text = true,
       theme = 'dropdown',
       layout_config = {
         width = 0.8,
         height = 0.5,
       },
+    },
+    current_buffer_fuzzy_find = {
+      skip_empty_lines = true,
+      layout_strategy = 'vertical',
     },
     find_files = {
       theme = 'dropdown',
