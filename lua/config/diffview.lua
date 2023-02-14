@@ -26,11 +26,14 @@ require('diffview').setup({
   },
   file_history_panel = {
     log_options = { -- See ':h diffview-config-log_options'
-      single_file = {
-        diff_merges = 'combined',
-      },
-      multi_file = {
-        diff_merges = 'first-parent',
+      git = {
+        single_file = {
+          max_count = 512,
+          follow = true,
+        },
+        multi_file = {
+          max_count = 128,
+        },
       },
     },
     win_config = { -- See ':h diffview-config-win_config'
@@ -54,8 +57,8 @@ require('diffview').setup({
       ['<tab>'] = actions.select_next_entry, -- Open the diff for the next file
       ['<s-tab>'] = actions.select_prev_entry, -- Open the diff for the previous file
       ['gf'] = actions.goto_file, -- Open the file in a new split in the previous tabpage
-      ['<C-s>'] = actions.goto_file_split, -- Open the file in a new split
-      ['<C-t>'] = actions.goto_file_tab, -- Open the file in a new tabpage
+      ['<C-w><C-f>'] = actions.goto_file_split,
+      ['<C-w>gf'] = actions.goto_file_tab,
       ['<leader>e'] = actions.focus_files, -- Bring focus to the files panel
       ['<leader>b'] = actions.toggle_files, -- Toggle the files panel.
     },
@@ -73,8 +76,8 @@ require('diffview').setup({
       ['X'] = actions.restore_entry, -- Restore entry to the state on the left side.
       ['R'] = actions.refresh_files, -- Update stats and entries in the file list.
       ['L'] = actions.open_commit_log, -- Open the commit log panel.
-      ['<c-b>'] = actions.scroll_view(-0.25), -- Scroll the view up
-      ['<c-f>'] = actions.scroll_view(0.25), -- Scroll the view down
+      ['<c-u>'] = actions.scroll_view(-0.25), -- Scroll the view up
+      ['<c-d>'] = actions.scroll_view(0.25), -- Scroll the view down
       ['<tab>'] = actions.select_next_entry,
       ['<s-tab>'] = actions.select_prev_entry,
       ['gf'] = actions.goto_file,
