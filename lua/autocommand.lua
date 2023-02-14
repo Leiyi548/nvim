@@ -44,6 +44,18 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+vim.api.nvim_create_autocmd('FileType', {
+  group = filetype_group,
+  pattern = {
+    'fugitive',
+  },
+  callback = function()
+    vim.cmd([[
+      map <silent> <buffer> <TAB> =
+    ]])
+  end,
+})
+
 vim.api.nvim_create_autocmd('TermOpen', {
   group = terminal_group,
   pattern = '*',
