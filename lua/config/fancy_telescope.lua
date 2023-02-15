@@ -63,7 +63,6 @@ function M.find_dotfile()
     -- search_dirs = { '~/.config/nvim', '~/.dotfile' },
     search_dirs = { '~/.config/nvim' },
     previewer = false,
-    layout_config = larget_layout_config,
     file_ignore_patterns = {
       'alacritty.scratchpad.yml',
       'polybar/*',
