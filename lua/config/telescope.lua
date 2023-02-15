@@ -114,7 +114,7 @@ telescope.setup({
     winblend = 0, -- Transparency
     layout_config = {
       horizontal = { prompt_position = 'top', results_width = 0.6 },
-      vertical = { mirror = false },
+      vertical = { prompt_position = 'top', mirror = true },
     },
     preview = {
       -- filesize_limit:The maximum file size in MB attempted to be previewed.
