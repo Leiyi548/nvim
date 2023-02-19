@@ -76,7 +76,7 @@ function M.onedarkpro()
       types = 'NONE', -- Style that is applied to types
       numbers = 'NONE', -- Style that is applied to numbers
       strings = 'NONE', -- Style that is applied to strings
-      comments = 'italic', -- Style that is applied to comments
+      comments = 'NONE', -- Style that is applied to comments
       keywords = 'NONE', -- Style that is applied to keywords
       constants = 'NONE', -- Style that is applied to constants
       functions = 'NONE', -- Style that is applied to functions
