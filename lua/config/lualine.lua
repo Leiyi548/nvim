@@ -31,12 +31,10 @@ end
 local diagnostics = {
   'diagnostics',
   sources = { 'nvim_diagnostic' },
-  sections = { 'error', 'warn', 'info', 'hint' },
+  sections = { 'error', 'warn' },
   symbols = {
     error = icons.diagnostics.BoldError,
     warn = icons.diagnostics.BoldWarn,
-    info = icons.diagnostics.BoldInfo,
-    hint = icons.diagnostics.BoldHint,
   },
   colored = true,
   update_in_insert = false,
