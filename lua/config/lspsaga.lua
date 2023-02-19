@@ -157,7 +157,7 @@ keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
 
 -- Callhierarchy
 keymap('n', '<Leader>ci', '<cmd>Lspsaga incoming_calls<CR>')
-keymap('n', '<Leader>co', '<cmd>Lspsaga outgoing_calls<CR>')
+-- keymap('n', '<Leader>co', '<cmd>Lspsaga outgoing_calls<CR>')
 
 -- Float terminal
 -- keymap({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
