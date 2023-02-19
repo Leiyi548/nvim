@@ -155,7 +155,7 @@ telescope.setup({
         ['<C-b>'] = actions.preview_scrolling_up,
         ['<C-f>'] = actions.preview_scrolling_down,
         -- ['<C-y>'] = actions.which_key,
-        ['<C-y>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        ['<C-o>'] = actions.smart_send_to_qflist + actions.open_qflist,
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
         -- telescope mulitopen
@@ -189,7 +189,7 @@ telescope.setup({
         ['<PageDown>'] = actions.preview_scrolling_down,
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
-        ['<C-y>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        ['<C-o>'] = actions.smart_send_to_qflist + actions.open_qflist,
         -- telescope mulitopen
         -- more information please see https://github.com/rebelot/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
         ['<C-v>'] = custom_actions.multi_selection_open_vertical,
@@ -205,15 +205,12 @@ telescope.setup({
   pickers = {
     live_grep = {
       only_sort_text = true,
-      theme = 'dropdown',
-      layout_config = {
-        width = 0.8,
-        height = 0.5,
-      },
+      layout_strategy = 'vertical',
     },
     current_buffer_fuzzy_find = {
       skip_empty_lines = true,
       layout_strategy = 'vertical',
+      previewer = false,
     },
     find_files = {
       theme = 'dropdown',
@@ -241,7 +238,7 @@ telescope.setup({
             end
           end,
           -- 复制 commit hash 值
-          ['<C-v>'] = function(prompt_bufnr)
+          ['<C-y>'] = function(prompt_bufnr)
             local selection = action_state.get_selected_entry()
             if selection == nil then
               vim.notify('没有可以选择的 commit')
@@ -332,11 +329,16 @@ telescope.setup({
     git_files = {
       theme = 'dropdown',
       previewer = false,
+      color_devicons = false,
       show_untracked = true,
-      -- layout_config = {
-      --   width = 0.88,
-      --   height = 0.5,
-      -- },
+      mappings = {
+        i = {
+          -- telescope have some issue will clear the whole line
+          ['<C-u>'] = function()
+            vim.cmd('normal! d^')
+          end,
+        },
+      },
     },
     oldfiles = {
       theme = 'dropdown',
