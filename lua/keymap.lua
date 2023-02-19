@@ -113,17 +113,18 @@ keymap('n', '<A-.>', '<cmd>resize+5<cr>')
 keymap('n', '<leader>bs', '<cmd>buffers<cr>')
 keymap('n', '<leader>bk', '<cmd>bdelete<cr>')
 keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
-keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
 
 -- quicklist
-keymap('n', '<leader>oq', '<cmd>copen<cr>')
+keymap('n', '<leader>co', '<cmd>copen<cr>')
 
 -- move Lines
 keymap('n', '<A-j>', ':m .+1<CR>==', { silent = true })
 keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
+keymap('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
 keymap('i', '<A-j>', '<esc>:m .+1<CR>==gi', { silent = true })
 keymap('n', '<A-k>', ':m .-2<CR>==', { silent = true })
 keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
+keymap('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
 keymap('i', '<A-k>', '<esc>:m .-2<CR>==gi', { silent = true })
 
 -- enhance jk
@@ -162,11 +163,12 @@ keymap('n', '<Home>', '<C-a>')
 keymap('n', '<end>', '<C-e>')
 keymap('x', 'g<Home>', 'g<C-a>')
 
--- alpha
-keymap('n', '<leader>;', '<cmd>Alpha<cr>')
+-- alpha (dashboard)
+keymap('n', '<leader>db', '<cmd>Alpha<cr>')
 
 -- fzf
-keymap('n', '<leader>ff', '<cmd>FZF<cr>')
+keymap('n', '<leader>ff', '<cmd>GFiles<cr>')
+keymap('n', '<leader>w', '<cmd>Windows<cr>')
 
 -- telescope
 keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
@@ -228,7 +230,8 @@ keymap('n', '<leader>lz', '<cmd>Lazy<cr>')
 -- gitsign
 keymap('n', '[g', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { silent = true })
 keymap('n', ']g', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { silent = true })
-keymap({ 'n', 'v' }, '<leader>sH', ':Gitsigns stage_hunk<cr>', { silent = true })
+keymap('n', '<leader>tg', '<cmd>Gitsigns toggle_current_line_blame<cr>', { silent = true })
+keymap({ 'n', 'v' }, '<leader>gs', ':Gitsigns stage_hunk<cr>', { silent = true })
 keymap('n', '<leader>gk', "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", { silent = true })
 keymap('n', '<leader>gj', "<cmd>lua require 'gitsigns'.next_hunk()<cr>", { silent = true })
 keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", { silent = true })
@@ -252,7 +255,6 @@ keymap('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
 keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
-keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
 
 -- harpoon
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
@@ -262,7 +264,6 @@ keymap('n', '<leader>j', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
 keymap('n', '<leader>k', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
 keymap('n', '<leader>l', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
 keymap('n', '<leader>;', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
-
 
 -- treesitter
 keymap('n', '<leader>ot', function()
@@ -286,6 +287,12 @@ vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmo
 -- run file
 keymap('n', '<leader>rr', '<cmd>AsyncTask file-run<cr>', { desc = 'Run code' })
 keymap('n', '<leader>rf', '<cmd>AsyncTask file-run-floaterm<cr>', { desc = 'Run code on floaterm' })
+
+-- ahk 改键
+-- ctrl+tab
+keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
+-- ctrl+shift+o
+keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
 
 -- wsl2 copy
 if vim.fn.has('wsl') == 1 then
