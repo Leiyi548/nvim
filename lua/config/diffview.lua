@@ -61,6 +61,9 @@ require('diffview').setup({
       ['<C-w>gf'] = actions.goto_file_tab,
       ['<leader>e'] = actions.focus_files, -- Bring focus to the files panel
       ['<leader>b'] = actions.toggle_files, -- Toggle the files panel.
+      ['q'] = function()
+        vim.cmd('tabclose')
+      end,
     },
     file_panel = {
       ['j'] = actions.next_entry, -- Bring the cursor to the next file entry
@@ -87,6 +90,9 @@ require('diffview').setup({
       ['f'] = actions.toggle_flatten_dirs, -- Flatten empty subdirectories in tree listing style.
       ['<leader>e'] = actions.focus_files,
       ['<leader>b'] = actions.toggle_files,
+      ['q'] = function()
+        vim.cmd('tabclose')
+      end,
     },
     file_history_panel = {
       ['g!'] = actions.options, -- Open the option panel
@@ -111,10 +117,15 @@ require('diffview').setup({
       ['<C-t>'] = actions.goto_file_tab,
       ['<leader>e'] = actions.focus_files,
       ['<leader>b'] = actions.toggle_files,
+      ['q'] = function()
+        vim.cmd('tabclose')
+      end,
     },
     option_panel = {
       ['<tab>'] = actions.select_entry,
-      ['q'] = actions.close,
+      ['q'] = function()
+        vim.cmd('tabclose')
+      end,
     },
   },
 })
