@@ -22,6 +22,11 @@ local labels = {
   'r',
   'h',
   'g',
+  'n',
+  'p',
+  't',
+  'y',
+  'z',
 }
 
 leap.setup({
@@ -34,6 +39,7 @@ leap.setup({
 -- require('leap').set_default_keymaps()
 
 vim.keymap.set('n', 's', '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
+vim.keymap.set('v', 's', '<cmd>lua require("leap").leap { target_windows = { vim.fn.win_getid() } }<cr>')
 vim.keymap.set('n', 'S', function()
   require('leap').leap({
     target_windows = vim.tbl_filter(function(win)
