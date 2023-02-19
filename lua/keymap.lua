@@ -8,6 +8,17 @@ keymap('n', '<C-l>', '<C-w>l')
 keymap('n', '<C-w>e', '<C-w>=')
 keymap('n', '<C-w>t', '<C-w>T')
 keymap('n', '<C-w>d', '<C-w>c')
+keymap('n', '<C-w>k', '<C-w>t')
+keymap('n', '<C-w>j', '<C-w>b')
+-- jump window
+for i = 1, 6 do
+  local lhs = '<leader>' .. i
+  local rhs = i .. '<c-w>w'
+  vim.keymap.set('n', lhs, rhs, { desc = 'Move to window ' .. i })
+end
+
+-- quickly replace current line from clipboard
+keymap('n', '<leader>ry', 'Vp')
 
 -- use Q to instead of q
 keymap('n', 'q', '<NOP>')
@@ -247,10 +258,11 @@ keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 keymap('n', '<leader><leader>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 keymap('n', '<leader>a', "<cmd>lua require('harpoon.mark').add_file()<cr>")
-keymap('n', '<leader>1', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
-keymap('n', '<leader>2', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
-keymap('n', '<leader>3', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
-keymap('n', '<leader>4', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
+keymap('n', '<leader>j', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
+keymap('n', '<leader>k', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
+keymap('n', '<leader>l', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
+keymap('n', '<leader>;', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
+
 
 -- treesitter
 keymap('n', '<leader>ot', function()

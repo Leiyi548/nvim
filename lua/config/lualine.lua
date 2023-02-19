@@ -183,10 +183,14 @@ local lazy = {
   color = { fg = '#ff9e63' },
 }
 
+local window = function()
+  return vim.api.nvim_win_get_number(0)
+end
+
 lualine.setup({
   options = {
     icons_enabled = true,
-    globalstatus = true,
+    globalstatus = false,
     theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
@@ -204,7 +208,7 @@ lualine.setup({
     },
   },
   sections = {
-    lualine_a = { 'mode' },
+    lualine_a = { window },
     lualine_b = { branch },
     lualine_c = { filetype, simple_filename, diff, diagnostics },
     lualine_x = { encoding },
@@ -213,10 +217,10 @@ lualine.setup({
   },
   -- 没有聚焦的窗口
   inactive_sections = {
-    lualine_a = {},
+    lualine_a = { window },
     lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
+    lualine_c = { { 'filename', symbols = { modified = '[*]' } } },
+    lualine_x = { 'location', 'progress' },
     lualine_y = {},
     lualine_z = {},
   },
