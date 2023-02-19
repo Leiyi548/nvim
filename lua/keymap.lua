@@ -5,17 +5,25 @@ keymap('n', '<BS>', '<C-w>h')
 keymap('n', '<C-j>', '<C-w>j')
 keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
-keymap('n', '<C-w>e', '<C-w>=')
+-- keymap('n', '<C-w>e', '<C-w>=')
 keymap('n', '<C-w>t', '<C-w>T')
 keymap('n', '<C-w>d', '<C-w>c')
 keymap('n', '<C-w>k', '<C-w>t')
 keymap('n', '<C-w>j', '<C-w>b')
+
 -- jump window
-for i = 1, 6 do
+for i = 1, 9 do
   local lhs = '<leader>' .. i
   local rhs = i .. '<c-w>w'
   vim.keymap.set('n', lhs, rhs, { desc = 'Move to window ' .. i })
 end
+
+-- windows.nvim
+keymap('n', '<C-w>m', '<cmd>WindowsMaximize<cr>')
+keymap('n', '<C-w>_', '<cmd>WindowsMaximizeVertically<cr>')
+keymap('n', '<C-w>|', '<cmd>WindowsMaximizeHorizontally<cr>')
+keymap('n', '<C-w>=', '<cmd>WindowsEqualize<cr>')
+keymap('n', '<C-w>e', '<cmd>WindowsEqualize<cr>')
 
 -- quickly replace current line from clipboard
 keymap('n', '<leader>ry', 'Vp')
@@ -166,10 +174,6 @@ keymap('x', 'g<Home>', 'g<C-a>')
 -- alpha (dashboard)
 keymap('n', '<leader>db', '<cmd>Alpha<cr>')
 
--- fzf
-keymap('n', '<leader>ff', '<cmd>GFiles<cr>')
-keymap('n', '<leader>w', '<cmd>Windows<cr>')
-
 -- telescope
 keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
 keymap({ 'n', 'i', 'v' }, '<C-p>', "<cmd>lua require('config.fancy_telescope').find_project_files()<cr>")
@@ -178,7 +182,7 @@ keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfi
 keymap('n', '<leader>fb', '<cmd>Telescope<cr>')
 keymap('n', '<leader>fc', '<cmd>Telescope commands<cr>')
 keymap('n', '<leader>fg', '<cmd>Telescope resume<cr>')
--- keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
+keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
 keymap('n', '<leader>sp', '<cmd>Telescope projects<cr>')
 keymap('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
 keymap('n', '<leader>st', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")

@@ -415,6 +415,14 @@ return {
     enabled = false,
   },
   {
+    'anuvyklack/windows.nvim',
+    dependencies = 'anuvyklack/middleclass',
+    cmd = { 'WindowsMaximize', 'WindowsMaximizeVertically', 'WindowsMaximizeHorizontally', 'WindowsEqualize' },
+    config = function()
+      require('config.windows')
+    end,
+  },
+  {
     'rhysd/clever-f.vim',
     event = 'BufReadPre',
     config = function()
