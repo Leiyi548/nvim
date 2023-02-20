@@ -73,12 +73,7 @@ keymap(
   '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>',
   { desc = 'Toggle search highlight' }
 )
-keymap(
-  'n',
-  '<leader>h',
-  '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>',
-  { desc = 'Toggle search highlight' }
-)
+keymap('n', '<leader>h', '<Cmd>let v:hlsearch = 1 - v:hlsearch <CR>', { desc = 'Toggle search highlight' })
 keymap('n', '\\i', '<Cmd>setlocal ignorecase! ignorecase?<CR>', { desc = "Toggle 'ignorecase'" })
 keymap('n', '\\l', '<Cmd>setlocal list! list?<CR>', { desc = "Toggle 'list'" })
 keymap('n', '\\n', '<Cmd>setlocal number! number?<CR>', { desc = "Toggle 'number'" })
