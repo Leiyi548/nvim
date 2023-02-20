@@ -66,6 +66,7 @@ function M.startify()
       '@function'
     ),
     startify.icon_button('r', '', 'Recent File', 'Telescope oldfiles', '@function'),
+    startify.icon_button('l', '', 'Last Session', 'SessionManager load_last_session', '@function'),
     startify.icon_button('e', '', 'NeoTree', 'NeoTreeFloatToggle', '@class'),
     startify.icon_button('F', '', 'Fugitive', 'enew | G', 'SpecialComment'),
     startify.icon_button('L', '', 'Fugitive Log', 'enew | G log', 'SpecialComment'),

@@ -430,10 +430,10 @@ return {
     end,
   },
   {
-    'rhysd/clever-f.vim',
-    event = 'BufReadPre',
+    'Shatur/neovim-session-manager',
+    lazy = false,
     config = function()
-      require('config.clever_f')
+      require('config.nvim_session_manager')
     end,
   },
   {
