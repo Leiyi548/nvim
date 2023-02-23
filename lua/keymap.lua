@@ -5,15 +5,17 @@ keymap('n', '<BS>', '<C-w>h')
 keymap('n', '<C-j>', '<C-w>j')
 keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
--- keymap('n', '<C-w>e', '<C-w>=')
+-- move current window to new tab
 keymap('n', '<C-w>t', '<C-w>T')
 keymap('n', '<C-w>d', '<C-w>c')
 keymap('n', '<C-w>k', '<C-w>t')
 keymap('n', '<C-w>j', '<C-w>b')
+-- jump recent window
+keymap('n', '<C-w>w', '<C-w>p')
 
 -- jump window
 for i = 1, 9 do
-  local lhs = '<leader>' .. i
+  local lhs = '<C-w>' .. i
   local rhs = i .. '<c-w>w'
   vim.keymap.set('n', lhs, rhs, { desc = 'Move to window ' .. i })
 end
