@@ -47,8 +47,8 @@ keymap('n', '<leader>tt', '<cmd>tabnew<cr>')
 keymap('n', '<leader>to', '<cmd>tabonly<cr>')
 
 -- add empty lines before and after cursor line
-keymap('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>", { desc = 'Put empty line above' })
-keymap('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>", { desc = 'Put empty line below' })
+keymap('n', 'gO', "<cmd>call append(line('.') - 1, repeat([''], v:count1))<cr>", { desc = 'Put empty line above' })
+keymap('n', 'go', "<cmd>call append(line('.'),     repeat([''], v:count1))<cr>", { desc = 'Put empty line below' })
 
 -- reselect latest changed, put, or yanked text
 keymap('n', 'gV', '"`[" . strpart(getregtype(), 0, 1) . "`]"', { expr = true, desc = 'Visually select changed text' })
@@ -61,25 +61,25 @@ keymap('x', 'g/', '<esc>/\\%V', { silent = false, desc = 'Search inside visual s
 keymap(
   'n',
   '\\b',
-  '<Cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<CR>',
+  '<cmd>lua vim.o.bg = vim.o.bg == "dark" and "light" or "dark"; print(vim.o.bg)<cr>',
   { desc = "Toggle 'background'" }
 )
-keymap('n', '\\c', '<Cmd>setlocal cursorline! cursorline?<CR>', { desc = "Toggle 'cursorline'" })
-keymap('n', '\\C', '<Cmd>setlocal cursorcolumn! cursorcolumn?<CR>', { desc = "Toggle 'cursorcolumn'" })
-keymap('n', '\\d', '<Cmd>lua print(require("utils").toggle_diagnostic())<CR>', { desc = 'Toggle diagnostic' })
+keymap('n', '\\c', '<cmd>setlocal cursorline! cursorline?<cr>', { desc = "Toggle 'cursorline'" })
+keymap('n', '\\C', '<cmd>setlocal cursorcolumn! cursorcolumn?<cr>', { desc = "Toggle 'cursorcolumn'" })
+keymap('n', '\\d', '<cmd>lua print(require("utils").toggle_diagnostic())<cr>', { desc = 'Toggle diagnostic' })
 keymap(
   'n',
   '\\h',
-  '<Cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<CR>',
+  '<cmd>let v:hlsearch = 1 - v:hlsearch | echo (v:hlsearch ? "  " : "no") . "hlsearch"<cr>',
   { desc = 'Toggle search highlight' }
 )
-keymap('n', '<leader>h', '<Cmd>let v:hlsearch = 1 - v:hlsearch <CR>', { desc = 'Toggle search highlight' })
-keymap('n', '\\i', '<Cmd>setlocal ignorecase! ignorecase?<CR>', { desc = "Toggle 'ignorecase'" })
-keymap('n', '\\l', '<Cmd>setlocal list! list?<CR>', { desc = "Toggle 'list'" })
-keymap('n', '\\n', '<Cmd>setlocal number! number?<CR>', { desc = "Toggle 'number'" })
-keymap('n', '\\r', '<Cmd>setlocal relativenumber! relativenumber?<CR>', { desc = "Toggle 'relativenumber'" })
-keymap('n', '\\s', '<Cmd>setlocal spell! spell?<CR>', { desc = "Toggle 'spell'" })
-keymap('n', '\\w', '<Cmd>setlocal wrap! wrap?<CR>', { desc = "Toggle 'wrap'" })
+keymap('n', '<leader>h', '<cmd>let v:hlsearch = 1 - v:hlsearch <cr>', { desc = 'Toggle search highlight' })
+keymap('n', '\\i', '<cmd>setlocal ignorecase! ignorecase?<cr>', { desc = "Toggle 'ignorecase'" })
+keymap('n', '\\l', '<cmd>setlocal list! list?<cr>', { desc = "Toggle 'list'" })
+keymap('n', '\\n', '<cmd>setlocal number! number?<cr>', { desc = "Toggle 'number'" })
+keymap('n', '\\r', '<cmd>setlocal relativenumber! relativenumber?<cr>', { desc = "Toggle 'relativenumber'" })
+keymap('n', '\\s', '<cmd>setlocal spell! spell?<cr>', { desc = "Toggle 'spell'" })
+keymap('n', '\\w', '<cmd>setlocal wrap! wrap?<cr>', { desc = "Toggle 'wrap'" })
 
 -- emacs keybinding
 keymap('i', '<M-f>', '<C-right>')
@@ -121,14 +121,14 @@ keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
 keymap('n', '<leader>co', '<cmd>copen<cr>')
 
 -- move Lines
-keymap('n', '<A-j>', ':m .+1<CR>==', { silent = true })
-keymap('v', '<A-j>', ":m '>+1<CR>gv=gv", { silent = true })
-keymap('v', 'J', ":m '>+1<CR>gv=gv", { silent = true })
-keymap('i', '<A-j>', '<esc>:m .+1<CR>==gi', { silent = true })
-keymap('n', '<A-k>', ':m .-2<CR>==', { silent = true })
-keymap('v', '<A-k>', ":m '<-2<CR>gv=gv", { silent = true })
-keymap('v', 'K', ":m '<-2<CR>gv=gv", { silent = true })
-keymap('i', '<A-k>', '<esc>:m .-2<CR>==gi', { silent = true })
+keymap('n', '<A-j>', ':m .+1<cr>==', { silent = true })
+keymap('v', '<A-j>', ":m '>+1<cr>gv=gv", { silent = true })
+keymap('v', 'J', ":m '>+1<cr>gv=gv", { silent = true })
+keymap('i', '<A-j>', '<esc>:m .+1<cr>==gi', { silent = true })
+keymap('n', '<A-k>', ':m .-2<cr>==', { silent = true })
+keymap('v', '<A-k>', ":m '<-2<cr>gv=gv", { silent = true })
+keymap('v', 'K', ":m '<-2<cr>gv=gv", { silent = true })
+keymap('i', '<A-k>', '<esc>:m .-2<cr>==gi', { silent = true })
 
 -- enhance jk
 keymap({ 'n', 'v' }, 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -237,7 +237,7 @@ keymap('n', '<leader>gp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", { si
 keymap('n', '<leader>rh', "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", { silent = true })
 keymap('n', '<leader>rb', "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", { silent = true })
 -- Text object
-keymap({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { silent = true })
+keymap({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<cr>', { silent = true })
 
 -- toggleterm
 keymap('n', '<A-h>', '<cmd>ToggleTerm size=10 direction=horizontal<cr>')
@@ -277,7 +277,7 @@ keymap('s', '<BS>', '<C-o>s', { desc = 'delete snippet placeholder' })
 keymap(
   'n',
   '<leader>rn',
-  '<cmd>lua print(require("utils").rename_current_file())<CR>',
+  '<cmd>lua print(require("utils").rename_current_file())<cr>',
   { desc = 'Rename current file' }
 )
 -- chmod
