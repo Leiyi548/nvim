@@ -6,7 +6,7 @@ end
 bufferline.setup({
   options = {
     mode = 'buffers', -- tabs | buffers
-    numbers = 'none', -- none | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
+    numbers = 'ordinal', -- none | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
     close_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     right_mouse_command = function()
       -- vim.cmd('Lazy load neo-tree.nvim')
@@ -73,7 +73,7 @@ bufferline.setup({
     show_tab_indicators = true,
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- more information please see bufferline-styling
-    separator_style = 'thick', -- slant | padded_slant | thick | thin (default)
+    separator_style = 'thin', -- slant | padded_slant | thick | thin (default)
     enforce_regular_tabs = false,
     always_show_bufferline = true,
     -- sort will change number,I don't need this.
@@ -95,3 +95,12 @@ keymap('n', '<leader>bl', '<cmd>BufferLineCloseLeft<cr>')
 keymap('n', '<leader>br', '<cmd>BufferLineCloseRight<cr>')
 keymap('n', '[b', '<cmd>BufferLineCyclePrev<cr>')
 keymap('n', ']b', '<cmd>BufferLineCycleNext<cr>')
+keymap('n', '<leader>1', '<cmd>lua require("bufferline").go_to_buffer(1, true)<cr>')
+keymap('n', '<leader>2', '<cmd>lua require("bufferline").go_to_buffer(2, true)<cr>')
+keymap('n', '<leader>3', '<cmd>lua require("bufferline").go_to_buffer(3, true)<cr>')
+keymap('n', '<leader>4', '<cmd>lua require("bufferline").go_to_buffer(4, true)<cr>')
+keymap('n', '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>')
+keymap('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>')
+keymap('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>')
+keymap('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>')
+keymap('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>')
