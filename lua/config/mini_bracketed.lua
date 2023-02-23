@@ -12,7 +12,7 @@ require('mini.bracketed').setup(
     -- See `:h MiniBracketed.config` for more info.
 
     buffer = { suffix = 'b', options = {} },
-    comment = { suffix = 'c', options = {} },
+    comment = { suffix = 'a', options = {} },
     conflict = { suffix = 'x', options = {} },
     -- remove this keybinding
     diagnostic = { suffix = '', options = {} },

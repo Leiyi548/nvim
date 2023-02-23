@@ -442,6 +442,8 @@ return {
     keys = {
       { '[b', mode = { 'n', 'x' } },
       { ']b', mode = { 'n', 'x' } },
+      { '[a', mode = { 'n', 'x' } },
+      { ']a', mode = { 'n', 'x' } },
       { '[c', mode = { 'n', 'x' } },
       { ']c', mode = { 'n', 'x' } },
       { '[d', mode = { 'n', 'x' } },
