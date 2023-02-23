@@ -42,7 +42,7 @@ return {
     event = 'BufRead',
     build = ':TSUpdate',
     dependencies = {
-      -- 'nvim-treesitter/nvim-treesitter-textobjects',
+      'nvim-treesitter/nvim-treesitter-textobjects',
       'mrjones2014/nvim-ts-rainbow',
       'nvim-treesitter-context',
     },
