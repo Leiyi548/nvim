@@ -17,7 +17,7 @@ bufferline.setup({
     middle_mouse_command = 'bdelete! %d', -- can be a string | function, see "Mouse actions"
     indicator = {
       icon = '▎', -- this should be omitted if indicator style is not 'icon'
-      style = 'none', -- | 'underline' | 'none',
+      style = 'icon', -- | 'underline' | 'none',
     },
     buffer_close_icon = '',
     modified_icon = '●',
