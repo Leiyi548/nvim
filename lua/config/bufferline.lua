@@ -64,7 +64,12 @@ bufferline.setup({
     },
     ---@diagnostic disable-next-line: unused-local
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      return '(' .. count .. ')'
+      local s = ' '
+      for e, n in pairs(diagnostics_dict) do
+        local sym = e == 'error' and ' ' or (e == 'warning' and ' ' or ' ')
+        s = s .. n .. sym
+      end
+      return s
     end,
     color_icons = true,
     show_buffer_icons = true,
