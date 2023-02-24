@@ -216,7 +216,7 @@ lualine.setup({
   -- 没有聚焦的窗口
   inactive_sections = {
     lualine_a = { window },
-    lualine_b = {},
+    lualine_b = { 'filetype' },
     lualine_c = { { 'filename', symbols = { modified = '[*]' } } },
     lualine_x = {},
     lualine_y = { location },
