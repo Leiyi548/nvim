@@ -16,7 +16,7 @@ keymap('n', '<C-w>w', '<C-w>p')
 -- jump window
 for i = 1, 9 do
   local lhs = '<C-w>' .. i
-  local rhs = i .. '<c-w>w'
+  local rhs = i .. '<C-w>w'
   vim.keymap.set('n', lhs, rhs, { desc = 'Move to window ' .. i })
 end
 
@@ -288,12 +288,14 @@ vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmo
 -- run file
 keymap('n', '<leader>rr', '<cmd>AsyncTask file-run<cr>', { desc = 'Run code' })
 keymap('n', '<leader>rf', '<cmd>AsyncTask file-run-floaterm<cr>', { desc = 'Run code on floaterm' })
-
 -- ahk 改键
 -- ctrl+tab
 keymap({ 'n', 'i', 'v' }, '<F19>', '<cmd>e #<cr>')
 -- ctrl+shift+o
 keymap({ 'n', 'i', 'v' }, '<F20>', '<cmd>Telescope lsp_document_symbols<cr>')
+-- ctrl+shift+f
+keymap({ 'n', 'i' }, '<F21>', '<cmd>Telescope live_grep<cr>')
+keymap('v', '<F21>', "<cmd>lua require('config.fancy_telescope').grep_string_visual()<cr>")
 
 -- wsl2 copy
 if vim.fn.has('wsl') == 1 then
