@@ -1,3 +1,9 @@
+local colors = {
+  gray = '#787c99',
+  yellow = '#fac661',
+  magenta = '#c678dd',
+  blue = '#61afef',
+}
 require('lspsaga').setup({
   preview = {
     lines_above = 0,
@@ -101,7 +107,31 @@ require('lspsaga').setup({
       white = '#d1d4cf',
       black = '#1c1c19',
     },
-    kind = {},
+    kind = {
+      ['File'] = { ' ', 'Tag' },
+      ['Module'] = { ' ', 'Exception' },
+      ['Namespace'] = { ' ', 'Include' },
+      ['Method'] = { ' ', 'Function' },
+      ['Property'] = { ' ', '@property' },
+      ['Field'] = { ' ', '@filed' },
+      ['Constructor'] = { ' ', '@constructor' },
+      ['Enum'] = { ' ', '@number' },
+      ['Interface'] = { ' ', '@number' },
+      ['Function'] = { ' ', 'Function' },
+      ['Variable'] = { ' ', 'variable' },
+      ['Constant'] = { ' ', 'Constant' },
+      ['String'] = { ' ', 'String' },
+      ['Number'] = { ' ', 'Number' },
+      ['Boolean'] = { ' ', 'Boolean' },
+      ['Array'] = { ' ', 'Type' },
+      ['Object'] = { ' ', 'Type' },
+      ['Key'] = { ' ', '' },
+      ['EnumMember'] = { ' ', 'Number' },
+      ['Struct'] = { ' ', 'Type' },
+      ['Event'] = { ' ', 'Constant' },
+      ['Operator'] = { ' ', 'Operator' },
+      ['TypeParameter'] = { ' ', 'Type' },
+    },
   },
 })
 
