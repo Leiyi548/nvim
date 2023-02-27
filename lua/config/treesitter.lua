@@ -62,7 +62,7 @@ require('nvim-treesitter.configs').setup({
       },
     },
     lsp_interop = {
-      enable = true,
+      enable = false,
       border = 'rounded',
       peek_definition_code = {
         ['df'] = '@function.outer',
