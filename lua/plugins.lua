@@ -118,6 +118,13 @@ return {
     end,
   },
   {
+    'gen740/SmoothCursor.nvim',
+    event = 'VeryLazy',
+    config = function()
+      require('config.smoothCursor')
+    end,
+  },
+  {
     'hotoo/pangu.vim',
     event = { 'BufReadPre' },
   },
