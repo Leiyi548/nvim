@@ -315,7 +315,12 @@ telescope.setup({
       theme = 'dropdown',
     },
     lsp_document_symbols = {
-      theme = 'dropdown',
+      -- theme = 'dropdown',
+      layout_strategy = 'vertical',
+      layout_config = {
+        width = 0.6,
+        height = 0.8,
+      },
     },
     lsp_workspace_symbols = {
       theme = 'dropdown',
