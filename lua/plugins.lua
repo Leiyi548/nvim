@@ -385,6 +385,18 @@ return {
     end,
   },
   {
+    'ggandor/leap-spooky.nvim',
+    keys = {
+      { 'yrr', mode = 'n' },
+      { 'yir', mode = 'n' },
+      { 'yar', mode = 'n' },
+    },
+    dependencies = { 'leap.nvim' },
+    config = function()
+      require('config.leap_spooky')
+    end,
+  },
+  {
     'chomosuke/term-edit.nvim',
     lazy = false,
     config = function()

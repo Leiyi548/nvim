@@ -20,7 +20,7 @@ vim.opt.sessionoptions = 'curdir,help,tabpages,winsize'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.wildignorecase = true
 vim.opt.wildignore =
-  '.git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**'
+'.git,.hg,.svn,*.pyc,*.o,*.out,*.jpg,*.jpeg,*.png,*.gif,*.zip,**/tmp/**,*.DS_Store,**/node_modules/**,**/bower_modules/**'
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
@@ -36,7 +36,7 @@ vim.opt.smarttab = true
 vim.opt.shiftround = true
 vim.opt.timeout = true
 vim.opt.ttimeout = true
-vim.opt.timeoutlen = 500
+vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 10
 vim.opt.updatetime = 100
 vim.opt.redrawtime = 100
