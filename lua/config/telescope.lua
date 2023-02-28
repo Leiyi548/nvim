@@ -211,6 +211,16 @@ telescope.setup({
       skip_empty_lines = true,
       layout_strategy = 'vertical',
       previewer = false,
+      mappings = {
+        i = {
+          ['<C-y>'] = function(prompt_bufnr)
+            local selection = action_state.get_selected_entry()
+            actions.close(prompt_bufnr)
+            vim.fn.setreg(require('utils').get_default_register(), selection.text)
+            vim.notify('复制成功：' .. selection.text)
+          end,
+        },
+      },
     },
     find_files = {
       theme = 'dropdown',
