@@ -72,7 +72,7 @@ local simple_filename = {
   'filename',
   file_status = false, -- Displays file status (readonly status, modified status)
   newfile_status = true, -- Display new file status (new file means no write after created)
-  path = 3,
+  path = 1,
   -- 0: Just the filename
   -- 1: Relative path
   -- 2: Absolute path
@@ -217,7 +217,7 @@ lualine.setup({
   inactive_sections = {
     lualine_a = { window },
     lualine_b = { 'filetype' },
-    lualine_c = { { 'filename', symbols = { modified = '[*]' } } },
+    lualine_c = { { 'filename', path = 1, symbols = { modified = '[*]' } } },
     lualine_x = {},
     lualine_y = { location },
     lualine_z = { progress },

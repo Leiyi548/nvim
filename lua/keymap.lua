@@ -13,9 +13,9 @@ keymap('n', '<C-w>j', '<C-w>b')
 -- jump recent window
 keymap('n', '<C-w>w', '<C-w>p')
 
--- jump window
+-- use leader i to jump window i
 for i = 1, 9 do
-  local lhs = '<C-w>' .. i
+  local lhs = '<leader>' .. i
   local rhs = i .. '<C-w>w'
   vim.keymap.set('n', lhs, rhs, { desc = 'Move to window ' .. i })
 end
@@ -146,7 +146,7 @@ keymap('i', ';', ';<c-g>u')
 
 -- fast save
 keymap({ 'n', 'i', 'v' }, '<C-s>', function()
-  vim.cmd('write')
+  vim.cmd('w')
   local time = os.date('%T')
   vim.api.nvim_command('echohl @class |  echom "saved ' .. time .. '"')
 end)
@@ -262,11 +262,11 @@ keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
 -- harpoon
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 keymap('n', '<leader><leader>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
-keymap('n', '<leader>a', "<cmd>lua require('harpoon.mark').add_file()<cr>")
-keymap('n', '<leader>j', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
-keymap('n', '<leader>k', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
-keymap('n', '<leader>l', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
-keymap('n', '<leader>;', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
+-- keymap('n', '<leader>a', "<cmd>lua require('harpoon.mark').add_file()<cr>")
+-- keymap('n', '<leader>j', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
+-- keymap('n', '<leader>k', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
+-- keymap('n', '<leader>l', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
+-- keymap('n', '<leader>;', "<cmd>lua require('harpoon.ui').nav_file(4)<cr>")
 
 -- treesitter
 keymap('n', '<leader>ot', function()
