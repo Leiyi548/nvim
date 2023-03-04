@@ -25,6 +25,14 @@ return {
     end,
   },
   {
+    'neanias/everforest-nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('config.colorscheme').everforest()
+    end,
+  },
+  {
     'Leiyi548/alpha-nvim',
     branch = 'startify_center',
     event = 'BufWinEnter',
