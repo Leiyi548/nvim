@@ -348,6 +348,8 @@ return {
       { 'cs', mode = 'n' },
       { 'cS', mode = 'n' },
       { 'yss', mode = 'n' },
+      { 'ysL', mode = 'n' },
+      { 'ysH', mode = 'n' },
       { 'ysiw', mode = 'n' },
       { 'ysaw', mode = 'n' },
       { 'S', mode = 'x' },
