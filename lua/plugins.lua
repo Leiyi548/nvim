@@ -470,6 +470,7 @@ return {
     config = function()
       require('config.clever_f')
     end,
+    enabled = false,
   },
   {
     'Shatur/neovim-session-manager',
