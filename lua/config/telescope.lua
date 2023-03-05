@@ -207,6 +207,11 @@ telescope.setup({
       only_sort_text = true,
       layout_strategy = 'vertical',
     },
+    jumplist = {
+      initial_mode = 'normal',
+      layout_strategy = 'vertical',
+      trim_text = true,
+    },
     current_buffer_fuzzy_find = {
       skip_empty_lines = true,
       layout_strategy = 'vertical',
@@ -333,6 +338,7 @@ telescope.setup({
       previewer = false,
     },
     builtin = {
+      previewer = false,
       theme = 'dropdown',
       layout_config = {
         width = 0.5,
