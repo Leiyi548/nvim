@@ -102,7 +102,7 @@ end
 function M.rose_pine()
   require('rose-pine').setup({
     --- @usage 'main' | 'moon'
-    dark_variant = 'main',
+    dark_variant = 'moon',
     bold_vert_split = false,
     dim_nc_background = false,
     disable_background = false,
@@ -136,6 +136,32 @@ function M.rose_pine()
     highlight_groups = {
       ColorColumn = { bg = 'rose' },
       WildMenu = { bg = 'pine' },
+
+      -- telescope nvchad theme
+      -- 下方区域颜色
+      TelescopeBorder = { fg = 'surface', bg = 'surface' },
+      TelescopeNormal = { bg = 'surface' },
+      -- 不知道为什么不生效在主题修改中
+      TelescopePerviewNormal = { bg = 'nc' },
+      TelescopePerviewBorder = { fg = 'nc', bg = 'nc' },
+
+      -- 上方区域颜色
+      TelescopePromptCounter = { fg = 'text', bg = 'base' },
+      TelescopePromptBorder = { fg = 'nc', bg = 'nc' },
+      TelescopePromptNormal = { fg = 'text', bg = 'nc' },
+      TelescopePromptPrefix = { fg = 'gold' },
+
+      -- 中间选择区域
+      TelescopeMatching = { fg = 'love', bold = true },
+      TelescopeSelection = { fg = 'muted', bg = 'overlay' },
+      -- 选择条目的标识符
+      TelescopeSelectionCaret = { fg = 'rose', bg = 'overlay' },
+      TelescopeTitle = { fg = 'muted', bg = 'love' },
+
+      -- 标题
+      TelescopePreviewTitle = { fg = 'base', bg = 'gold' },
+      TelescopePromptTitle = { fg = 'base', bg = 'love' },
+      TelescopeResultsTitle = { fg = 'base', bg = 'foam' },
     },
   })
 end
