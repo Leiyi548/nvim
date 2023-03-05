@@ -192,7 +192,7 @@ lualine.setup({
     theme = 'auto',
     component_separators = { left = '', right = '' },
     section_separators = { left = '', right = '' },
-    disabled_filetypes = { 'alpha', 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
+    disabled_filetypes = { 'dashboard', 'Outline', 'startify', 'TelescopePrompt', 'packer' },
     always_divide_middle = true,
 
     refresh = { -- sets how often lualine should refreash it's contents (in ms)
