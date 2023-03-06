@@ -364,7 +364,7 @@ telescope.setup({
     oldfiles = {
       theme = 'dropdown',
       previewer = false,
-      only_cwd = true,
+      only_cwd = false,
       cmd_only = true,
     },
   },

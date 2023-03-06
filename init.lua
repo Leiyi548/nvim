@@ -10,10 +10,9 @@ if _time.hour >= 16 or _time.hour < 8 then
   -- _G_colorscheme = 'onedark_vivid'
   _G_colorscheme = 'rose-pine'
 else
-  _G_colorscheme = 'onelight'
+  _G_colorscheme = 'github_light'
   -- _G_colorscheme = 'github_light_default'
 end
-local ok, _ = pcall(vim.cmd, 'colorscheme ' .. _G_colorscheme)
-if not ok then
-  return
-end
+_G_colorscheme = 'rose-pine'
+-- load colorscheme
+vim.cmd('colorscheme ' .. _G_colorscheme)
