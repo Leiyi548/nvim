@@ -195,6 +195,10 @@ function M.show_buffers()
   local max_length = #buffers_menu_tbl
   local max_width = get_longest_line_length(buffers_name_tbl)
 
+  if #buffers_menu_tbl == 1 then
+    return
+  end
+
   local menu = Menu({
     relative = 'editor',
     position = '50%',
@@ -229,8 +233,6 @@ function M.show_buffers()
     },
     on_close = function() end,
     on_submit = function(item)
-      -- print(item.text)
-      -- print(vim.inspect(item))
       vim.cmd('e' .. item.text)
     end,
   })
