@@ -272,4 +272,16 @@ function M.get_default_register()
   return '"'
 end
 
+function M.copy_relative_path()
+  local relative_path = vim.fn.expand('%:~:.')
+  vim.fn.setreg(require('utils').get_default_register(), relative_path)
+  vim.notify('复制成功：' .. relative_path)
+end
+
+function M.copy_absolute_path()
+  local absolute_path = vim.fn.expand('%:p:~')
+  vim.fn.setreg(require('utils').get_default_register(), absolute_path)
+  vim.notify('复制成功：' .. absolute_path)
+end
+
 return M

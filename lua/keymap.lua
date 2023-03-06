@@ -291,6 +291,10 @@ keymap(
   '<cmd>lua print(require("utils").rename_current_file())<cr>',
   { desc = 'Rename current file' }
 )
+-- copy relative path
+keymap('n', '<leader>cr', '<cmd>lua print(require("utils").copy_relative_path())<cr>', { desc = 'copy relative path' })
+-- copy absolute path
+keymap('n', '<leader>ca', '<cmd>lua print(require("utils").copy_absolute_path())<cr>', { desc = 'copy absolute path' })
 -- chmod
 vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmod' ? 'Chmod' : 'chmod']])
 
