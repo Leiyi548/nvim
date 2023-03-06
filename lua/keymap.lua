@@ -262,7 +262,7 @@ keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
 -- harpoon
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 keymap('n', '<leader><leader>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
--- keymap('n', '<leader>a', "<cmd>lua require('harpoon.mark').add_file()<cr>")
+keymap('n', '<leader>a', "<cmd>lua require('harpoon.mark').add_file()<cr>")
 -- keymap('n', '<leader>j', "<cmd>lua require('harpoon.ui').nav_file(1)<cr>")
 -- keymap('n', '<leader>k', "<cmd>lua require('harpoon.ui').nav_file(2)<cr>")
 -- keymap('n', '<leader>l', "<cmd>lua require('harpoon.ui').nav_file(3)<cr>")
