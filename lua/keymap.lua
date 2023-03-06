@@ -213,11 +213,18 @@ keymap('n', '<leader>gd', '<cmd>Gvdiffsplit<cr>')
 keymap('n', '<leader>gg', '<cmd>G<cr>')
 -- vim commandmode git alias
 vim.cmd([[cnoreabbrev <expr> git getcmdtype() == ':' && getcmdline() ==# 'git' ? 'Git' : 'git']])
+-- git branch
 vim.cmd([[cnoreabbrev <expr> gb getcmdtype() == ':' && getcmdline() ==# 'gb' ? 'Git branch' : 'gb']])
 vim.cmd([[cnoreabbrev <expr> gba getcmdtype() == ':' && getcmdline() ==# 'gba' ? 'Git branch -a' : 'gba']])
+-- git checkout
 vim.cmd([[cnoreabbrev <expr> gco getcmdtype() == ':' && getcmdline() ==# 'gco' ? 'Git checkout' : 'gco']])
 vim.cmd([[cnoreabbrev <expr> ge getcmdtype() == ':' && getcmdline() ==# 'ge' ? 'Gedit' : 'ge']])
 vim.cmd([[cnoreabbrev <expr> gr getcmdtype() == ':' && getcmdline() ==# 'gr' ? 'Gread' : 'gr']])
+-- git stash
+vim.cmd([[cnoreabbrev <expr> gst getcmdtype() == ':' && getcmdline() ==# 'gst' ? 'Git stash' : 'gst']])
+vim.cmd([[cnoreabbrev <expr> gsts getcmdtype() == ':' && getcmdline() ==# 'gsts' ? 'Git stash save' : 'gsts']])
+vim.cmd([[cnoreabbrev <expr> gstl getcmdtype() == ':' && getcmdline() ==# 'gstl' ? 'Git stash list' : 'gstl']])
+vim.cmd([[cnoreabbrev <expr> gstc getcmdtype() == ':' && getcmdline() ==# 'gstc' ? 'Git stash clear' : 'gstc']])
 
 -- diffview
 keymap('n', '<leader>do', '<cmd>DiffviewOpen<cr>')
