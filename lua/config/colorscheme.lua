@@ -153,7 +153,7 @@ function M.rose_pine()
 
       -- 中间选择区域
       TelescopeMatching = { fg = 'love', bold = true },
-      TelescopeSelection = { fg = 'muted', bg = 'overlay' },
+      TelescopeSelection = { fg = 'text', bg = 'overlay' },
       -- 选择条目的标识符
       TelescopeSelectionCaret = { fg = 'rose', bg = 'overlay' },
       TelescopeTitle = { fg = 'muted', bg = 'love' },
