@@ -1,9 +1,3 @@
-local colors = {
-  gray = '#787c99',
-  yellow = '#fac661',
-  magenta = '#c678dd',
-  blue = '#61afef',
-}
 require('lspsaga').setup({
   preview = {
     lines_above = 0,
@@ -72,7 +66,7 @@ require('lspsaga').setup({
     custom_sort = nil,
     keys = {
       jump = 'o',
-      expand_collapse = 'u',
+      expand_collapse = { 'u', 'za' },
       quit = 'q',
     },
   },

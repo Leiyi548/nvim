@@ -45,10 +45,6 @@ end, { desc = 'Pick a window' })
 -- quickly replace current line from clipboard
 keymap('n', '<leader>ry', 'Vp')
 
--- use Q to instead of q
-keymap('n', 'q', '<NOP>')
-keymap('n', 'Q', 'q')
-
 -- fast quit: vim cmd alias
 vim.cmd([[cnoreabbrev <expr> ~ getcmdtype() == ':' && getcmdline() ==# '~' ? 'q' : '~']])
 vim.cmd([[cnoreabbrev <expr> ~a getcmdtype() == ':' && getcmdline() ==# '~a' ? 'qa' : '~a']])
@@ -246,6 +242,7 @@ keymap('n', '<leader>do', '<cmd>DiffviewOpen<cr>')
 keymap('n', '<leader>df', '<cmd>DiffviewFileHistory %<cr>')
 
 -- neo-tree
+keymap('n', '<leader>fe', '<cmd>NeoTreeFocusToggle<cr>')
 keymap('n', '<leader>ob', '<cmd>NeoTreeFocusToggle buffers<cr>')
 keymap('n', '<leader>og', '<cmd>NeoTreeFocusToggle git_status<cr>')
 
