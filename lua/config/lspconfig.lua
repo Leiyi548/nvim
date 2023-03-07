@@ -69,3 +69,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require('lspconfig').jsonls.setup({
   capabilities = capabilities,
 })
+
+-- marksman markdown lsp
+require('lspconfig').marksman.setup({})
