@@ -13,7 +13,7 @@ Easy to use
 
 ## Target
 
-**There are less than 60 neovim plugins**
+**There are less than 80 neovim plugins**
 
 ## Other Neovim configurations
 
