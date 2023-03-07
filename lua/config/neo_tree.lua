@@ -12,7 +12,7 @@ require('neo-tree').setup({
       end,
     },
   },
-  close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
+  close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
   popup_border_style = 'rounded',
   enable_git_status = true,
   enable_diagnostics = true,
@@ -78,7 +78,7 @@ require('neo-tree').setup({
     },
   },
   window = {
-    position = 'right',
+    position = 'left',
     width = 40,
     mapping_options = {
       noremap = true,
@@ -94,7 +94,7 @@ require('neo-tree').setup({
       ['o'] = 'open',
       ['i'] = '',
       ['s'] = '',
-      -- ["S"] = "split_with_window_picker",
+      ['S'] = 'split_with_window_picker',
       -- ["s"] = "vsplit_with_window_picker",
       ['t'] = 'open_tabnew',
       ['w'] = 'open_with_window_picker',

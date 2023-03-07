@@ -27,6 +27,21 @@ keymap('n', '<C-w>|', '<cmd>WindowsMaximizeHorizontally<cr>')
 keymap('n', '<C-w>=', '<cmd>WindowsEqualize<cr>')
 keymap('n', '<C-w>e', '<cmd>WindowsEqualize<cr>')
 
+-- nvim-window-picker.nvim
+keymap('n', '<leader>ww', function()
+  local windows_picker = require('window-picker')
+  local picked_window_id = windows_picker.pick_window()
+  ---@diagnostic disable-next-line: param-type-mismatch
+  vim.api.nvim_set_current_win(picked_window_id)
+end, { desc = 'Pick a window' })
+
+keymap('n', '<leader>wd', function()
+  local windows_picker = require('window-picker')
+  local picked_window_id = windows_picker.pick_window()
+  ---@diagnostic disable-next-line: param-type-mismatch
+  vim.api.nvim_win_close(picked_window_id, false)
+end, { desc = 'Pick a window' })
+
 -- quickly replace current line from clipboard
 keymap('n', '<leader>ry', 'Vp')
 

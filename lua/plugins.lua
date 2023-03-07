@@ -529,6 +529,12 @@ return {
       'nvim-lua/plenary.nvim',
       'nvim-tree/nvim-web-devicons',
       'MunifTanjim/nui.nvim',
+      {
+        's1n7ax/nvim-window-picker',
+        config = function()
+          require('config.window-picker')
+        end,
+      },
     },
     keys = {
       -- { '<leader>e', '<cmd>NeoTreeFocusToggle<cr>', desc = 'NeotreeFocusToggle' },
