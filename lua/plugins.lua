@@ -342,6 +342,13 @@ return {
     'Leiyi548/harpoon',
   },
   {
+    'cbochs/portal.nvim',
+    cmd = { 'Portal' },
+    config = function()
+      require('config.portal')
+    end,
+  },
+  {
     'Leiyi548/vim-surround',
     keys = {
       { 'ds', mode = 'n' },
