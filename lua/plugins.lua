@@ -405,8 +405,11 @@ return {
     'ggandor/leap-spooky.nvim',
     keys = {
       { 'yrr', mode = 'n' },
+      { 'yRR', mode = 'n' },
       { 'yir', mode = 'n' },
       { 'yar', mode = 'n' },
+      { 'yiR', mode = 'n' },
+      { 'yaR', mode = 'n' },
     },
     dependencies = { 'leap.nvim' },
     config = function()
