@@ -80,6 +80,7 @@ keymap('n', '\\i', '<cmd>setlocal ignorecase! ignorecase?<cr>', { desc = "Toggle
 keymap('n', '\\l', '<cmd>setlocal list! list?<cr>', { desc = "Toggle 'list'" })
 keymap('n', '\\n', '<cmd>setlocal number! number?<cr>', { desc = "Toggle 'number'" })
 keymap('n', '\\r', '<cmd>setlocal relativenumber! relativenumber?<cr>', { desc = "Toggle 'relativenumber'" })
+keymap('n', '<leader><down>', '<cmd>setlocal relativenumber! relativenumber?<cr>', { desc = "Toggle 'relativenumber'" })
 keymap('n', '\\s', '<cmd>setlocal spell! spell?<cr>', { desc = "Toggle 'spell'" })
 keymap('n', '\\w', '<cmd>setlocal wrap! wrap?<cr>', { desc = "Toggle 'wrap'" })
 
@@ -117,10 +118,9 @@ keymap('n', '<A-.>', '<cmd>resize+5<cr>')
 -- buffer
 keymap('n', '<leader>bs', '<cmd>buffers<cr>')
 keymap('n', '<leader>bk', '<cmd>bdelete<cr>')
-keymap('n', '<leader><Tab>', '<cmd>e #<cr>')
 
 -- quicklist
-keymap('n', '<leader>co', '<cmd>copen<cr>')
+keymap('n', '<leader>oq', '<cmd>copen<cr>')
 
 -- move Lines
 keymap('n', '<A-j>', ':m .+1<cr>==', { silent = true })
@@ -265,6 +265,11 @@ keymap('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
 keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
+
+-- portal
+keymap('n', '<leader><C-o>', '<cmd>Portal jumplist backward<cr>')
+keymap('n', '<leader><C-i>', '<cmd>Portal jumplist forward<cr>')
+keymap('n', '<leader><BS>', '<cmd>Portal harpoon<cr>')
 
 -- harpoon
 keymap('n', '<C-t>', "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
