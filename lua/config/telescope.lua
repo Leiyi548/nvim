@@ -157,6 +157,7 @@ telescope.setup({
         ['<C-f>'] = actions.preview_scrolling_down,
         -- ['<C-y>'] = actions.which_key,
         ['<C-o>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
         -- telescope mulitopen
@@ -167,7 +168,6 @@ telescope.setup({
         ['<C-l>'] = stopinsert(custom_actions.multi_selection_open),
         ['<cr>'] = stopinsert(custom_actions.multi_selection_open),
         -- add mouse click support
-        -- not where I want
         ['<RightMouse>'] = actions.close,
         -- ['<LeftMouse>'] = actions.select_default,
         ['<ScrollWheelDown>'] = actions.move_selection_next,
@@ -191,6 +191,7 @@ telescope.setup({
         ['<tab>'] = actions.toggle_selection + actions.move_selection_next,
         ['<S-tab>'] = actions.toggle_selection + actions.move_selection_previous,
         ['<C-o>'] = actions.smart_send_to_qflist + actions.open_qflist,
+        ['<C-q>'] = actions.smart_send_to_qflist + actions.open_qflist,
         -- telescope mulitopen
         -- more information please see https://github.com/rebelot/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
         ['<C-v>'] = custom_actions.multi_selection_open_vertical,
