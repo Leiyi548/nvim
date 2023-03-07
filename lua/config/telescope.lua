@@ -217,7 +217,7 @@ telescope.setup({
     current_buffer_fuzzy_find = {
       skip_empty_lines = true,
       layout_strategy = 'vertical',
-      previewer = false,
+      previewer = true,
       mappings = {
         i = {
           ['<C-y>'] = function(prompt_bufnr)
