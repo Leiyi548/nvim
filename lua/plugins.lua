@@ -377,6 +377,15 @@ return {
       { 'ciq', mode = 'n' },
       { 'yiq', mode = 'n' },
     },
+    enabled = false,
+  },
+  {
+    'echasnovski/mini.ai',
+    lazy = false,
+    version = false,
+    config = function()
+      require('config.mini_ai')
+    end,
   },
   {
     'akinsho/toggleterm.nvim',
