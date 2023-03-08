@@ -1,12 +1,9 @@
 return {
   kind = {
     Text = ' ',
-    -- Method = 'm',
-    -- Function = '',
-    -- Constructor = '',
-    Method = ' ',
-    Function = ' ',
-    Constructor = ' ',
+    Function = ' ', --   
+    Method = ' ', -- m
+    Constructor = ' ', -- 
     Field = ' ',
     Variable = ' ',
     Class = ' ',
@@ -33,7 +30,7 @@ return {
   type = {
     Array = ' ',
     Number = ' ',
-    String = ' ',
+    String = ' ', --  
     Boolean = ' ',
     Object = ' ',
   },
