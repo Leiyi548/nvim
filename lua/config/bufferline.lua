@@ -57,7 +57,7 @@ bufferline.setup({
     offsets = {
       {
         filetype = 'neo-tree',
-        text = 'File Explorer',
+        text = ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~'),
         text_align = 'center',
         highlight = 'BufferLineOffset',
       },
