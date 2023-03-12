@@ -96,6 +96,7 @@ local function stopinsert(callback)
     vim.schedule(function()
       callback(prompt_bufnr)
     end)
+    vim.cmd(':normal! zz')
   end
 end
 
