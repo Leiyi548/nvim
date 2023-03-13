@@ -163,7 +163,7 @@ return {
     config = function()
       require('config.marks')
     end,
-    enabled = false,
+    enabled = true,
   },
   {
     'sindrets/diffview.nvim',
