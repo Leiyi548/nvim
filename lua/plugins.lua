@@ -87,7 +87,7 @@ return {
     config = function()
       require('config.noice')
     end,
-    enabled = false,
+    enabled = true,
   },
   {
     'ethanholz/nvim-lastplace',

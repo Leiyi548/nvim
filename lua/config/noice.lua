@@ -3,10 +3,10 @@ require('noice').setup({
     enabled = true, -- enables the Noice cmdline UI
     view = 'cmdline_popup', -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
     opts = {
-      position = {
-        row = '50%',
-        col = '50%',
-      },
+      -- position = {
+      --   row = '50%',
+      --   col = '50%',
+      -- },
     }, -- global options for the cmdline. See section on views
     format = {
       -- conceal: (default=true) This will hide the text in the cmdline that matches the pattern.
@@ -32,7 +32,7 @@ require('noice').setup({
     view_error = 'notify', -- view for errors
     view_warn = 'notify', -- view for warnings
     view_history = 'messages', -- view for :messages
-    view_search = 'virtualtext', -- view for search count messages. Set to `false` to disable
+    view_search = false, -- view for search count messages. Set to `false` to disable
   },
   popupmenu = {
     enabled = true, -- enables the Noice popupmenu UI
@@ -135,7 +135,7 @@ require('noice').setup({
   },
   -- you can enable a preset for easier configuration
   presets = {
-    bottom_search = false, -- use a classic bottom cmdline for search
+    bottom_search = true, -- use a classic bottom cmdline for search
     command_palette = true, -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
