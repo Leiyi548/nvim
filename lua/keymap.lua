@@ -131,7 +131,7 @@ keymap('n', '<leader>bs', '<cmd>buffers<cr>')
 keymap('n', '<leader>bk', '<cmd>bdelete<cr>')
 
 -- quicklist
-keymap('n', '<leader>oq', '<cmd>copen<cr>')
+keymap('n', '<leader>co', '<cmd>copen<cr>')
 
 -- move Lines
 keymap('n', '<A-j>', ':m .+1<cr>==', { silent = true })
