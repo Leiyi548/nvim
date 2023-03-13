@@ -10,7 +10,7 @@ require('lspsaga').setup({
   },
   request_timeout = 2000,
   finder = {
-    edit = { 'o', '<CR>' },
+    edit = { 'o', '<cr>' },
     vsplit = '<C-v>',
     split = '<C-s>',
     tabe = '<C-t>',
@@ -29,7 +29,7 @@ require('lspsaga').setup({
     keys = {
       -- string |table type
       quit = 'q',
-      exec = { 'o', '<CR>' },
+      exec = { 'o', '<cr>' },
     },
   },
   lightbulb = {
@@ -41,9 +41,9 @@ require('lspsaga').setup({
   },
   rename = {
     quit = '<C-c>',
-    exec = '<CR>',
+    exec = '<cr>',
     mark = 'x',
-    confirm = '<CR>',
+    confirm = '<cr>',
     in_select = true,
     whole_project = true,
   },
@@ -136,33 +136,35 @@ local keymap = vim.keymap.set
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-keymap('n', 'gw', '<cmd>Lspsaga lsp_finder<CR>')
+keymap('n', 'gw', '<cmd>Lspsaga lsp_finder<cr>')
 
 -- Code action
-keymap({ 'n', 'v' }, 'ga', '<cmd>Lspsaga code_action<CR>')
+keymap({ 'n', 'v' }, 'ga', '<cmd>Lspsaga code_action<cr>')
 
 -- rename
-keymap('n', '<leader>lr', '<cmd>Lspsaga rename<CR>')
+keymap('n', '<leader>lr', '<cmd>Lspsaga rename<cr>')
 
 -- Peek Definition
 -- you can edit the definition file in this float window
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
-keymap('n', 'gp', '<cmd>Lspsaga peek_definition<CR>') -- Go to Definition-- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<CR>')
+keymap('n', 'gp', '<cmd>Lspsaga peek_definition<cr>')
+-- Go to Definition
+-- keymap('n', 'gd', '<cmd>Lspsaga goto_definition<cr>')
 -- Show line diagnostics you can pass argument ++unfocus to make
 -- show_line_diagnostics float window unfocus
-keymap('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<CR>')
+keymap('n', 'gl', '<cmd>Lspsaga show_line_diagnostics<cr>')
 
 -- Show cursor diagnostic
 -- also like show_line_diagnostics  support pass ++unfocus
-keymap('n', '<leader>ss', '<cmd>Lspsaga show_cursor_diagnostics<CR>')
+keymap('n', '<leader>ss', '<cmd>Lspsaga show_cursor_diagnostics<cr>')
 
 -- Show buffer diagnostic
-keymap('n', '<leader>sb', '<cmd>Lspsaga show_buf_diagnostics<CR>')
+keymap('n', '<leader>sb', '<cmd>Lspsaga show_buf_diagnostics<cr>')
 
 -- Diagnostic jump can use `<c-o>` to jump back
-keymap('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<CR>')
-keymap('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<CR>')
+keymap('n', '[d', '<cmd>Lspsaga diagnostic_jump_prev<cr>')
+keymap('n', ']d', '<cmd>Lspsaga diagnostic_jump_next<cr>')
 
 -- Diagnostic jump with filter like Only jump to error
 keymap('n', '[D', function()
@@ -173,17 +175,17 @@ keymap('n', ']D', function()
 end)
 
 -- Toggle Outline
-keymap('n', '<leader>oo', '<cmd>Lspsaga outline<CR>')
+keymap('n', '<leader>oo', '<cmd>Lspsaga outline<cr>')
 
 -- Hover Doc
 -- if there has no hover will have a notify no information available
 -- to disable it just Lspsaga hover_doc ++quiet
-keymap('n', 'gh', '<cmd>Lspsaga hover_doc<CR>')
-keymap('n', 'K', '<cmd>Lspsaga hover_doc<CR>')
+keymap('n', 'gh', '<cmd>Lspsaga hover_doc<cr>')
+keymap('n', 'K', '<cmd>Lspsaga hover_doc<cr>')
 
 -- Callhierarchy
-keymap('n', '<Leader>ci', '<cmd>Lspsaga incoming_calls<CR>')
--- keymap('n', '<Leader>co', '<cmd>Lspsaga outgoing_calls<CR>')
+keymap('n', '<Leader>ci', '<cmd>Lspsaga incoming_calls<cr>')
+-- keymap('n', '<Leader>co', '<cmd>Lspsaga outgoing_calls<cr>')
 
 -- Float terminal
--- keymap({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<CR>")
+-- keymap({"n", "t"}, "<A-d>", "<cmd>Lspsaga term_toggle<cr>")

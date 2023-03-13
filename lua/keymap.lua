@@ -184,7 +184,8 @@ keymap('n', '<leader>db', '<cmd>Alpha<cr>')
 
 -- telescope
 -- keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
-keymap('n', '<leader>bb', "<cmd>lua require('config.fancy_telescope').buffers()<cr>")
+-- keymap('n', '<leader>bb', "<cmd>lua require('config.fancy_telescope').buffers()<cr>")
+keymap('n', '<leader>bb', '<cmd>FlyBuf<cr>')
 keymap({ 'n', 'i', 'v' }, '<C-p>', "<cmd>lua require('config.fancy_telescope').find_project_files()<cr>")
 keymap('n', '<Left>', '<cmd>Telescope buffers<cr>')
 keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
@@ -192,6 +193,7 @@ keymap('n', '<leader>fb', '<cmd>Telescope<cr>')
 keymap('n', '<leader>fc', '<cmd>Telescope commands<cr>')
 keymap('n', '<leader>fg', '<cmd>Telescope resume<cr>')
 keymap('n', '<leader>ff', "<cmd>lua require('config.fancy_telescope').find_files()<cr>")
+keymap('n', '<leader>ff', '<cmd>FZF<cr>')
 keymap('n', '<leader>sp', '<cmd>Telescope projects<cr>')
 keymap('n', '<leader>ft', '<cmd>Telescope live_grep<cr>')
 keymap('n', '<leader>st', "<cmd>lua require('config.fancy_telescope').grep_string_by_filetype()<cr>")
@@ -219,6 +221,7 @@ keymap('v', '<leader>t', "<cmd>lua require('config.fancy_telescope').grep_string
 
 -- fugitive
 keymap('n', '<leader>gi', '<cmd>G init<cr>')
+keymap('n', '<leader>gl', '<cmd>G log<cr>')
 keymap('n', '<leader>ga', '<cmd>Gwrite<cr>')
 keymap('n', '<leader>gd', '<cmd>Gvdiffsplit<cr>')
 keymap('n', '<leader>gg', '<cmd>G<cr>')
@@ -269,7 +272,6 @@ keymap('n', '<A-i>', '<cmd>ToggleTerm direction=float<cr>')
 
 -- lazygit
 keymap('n', '<leader>lg', "<cmd>lua require('config.fancy_toggleterm').lazygit_toggle()<cr>")
-keymap('n', '<leader>gl', '<cmd>G log<cr>')
 keymap('n', '<leader>gL', "<cmd>lua require('config.fancy_toggleterm').lazygit_log_toggle()<cr>")
 
 -- lsp
@@ -277,6 +279,8 @@ keymap('n', 'gd', '<cmd>Telescope lsp_definitions<cr>')
 keymap('n', 'gr', '<cmd>Telescope lsp_references<cr>')
 keymap('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
 keymap('n', '<leader>lw', '<cmd>Telescope lsp_workspace_symbols<cr>')
+-- send lsp diagnostic to quickfix list
+keymap('n', '<leader>q', vim.diagnostic.setloclist, { noremap = true, silent = true })
 
 -- portal
 keymap('n', '<leader><C-o>', '<cmd>Portal jumplist backward<cr>')
@@ -318,6 +322,13 @@ vim.cmd([[cnoreabbrev <expr> chmod getcmdtype() == ':' && getcmdline() ==# 'chmo
 -- run file
 keymap('n', '<leader>rr', '<cmd>AsyncTask file-run<cr>', { desc = 'Run code' })
 keymap('n', '<leader>rf', '<cmd>AsyncTask file-run-floaterm<cr>', { desc = 'Run code on floaterm' })
+
+-- rest.nvim
+keymap('n', '<leader>rq', '<Plug>RestNvim', { desc = 'Run the request under the cursor' })
+keymap('n', '<leader>rp', '<Plug>RestNvimPreview', { desc = 'preview the request cURL command' })
+
+-- marks.nvim
+keymap('n', '<leader>dm', '<cmd>delmarks!<cr>', { desc = 'delete marks' })
 
 -- ahk 改键
 -- ctrl+tab
