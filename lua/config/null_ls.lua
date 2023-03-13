@@ -1,6 +1,16 @@
 local null_ls = require('null-ls')
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
 
+local lsp_formatting = function(bufnr)
+  vim.lsp.buf.format({
+    filter = function(client)
+      -- apply whatever logic you want (in this example, we'll only use null-ls)
+      return client.name == 'null-ls'
+    end,
+    bufnr = bufnr,
+  })
+end
+
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.stylua,
@@ -17,7 +27,7 @@ null_ls.setup({
         group = augroup,
         buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ bufnr = bufnr })
+          lsp_formatting(bufnr)
         end,
       })
     end
