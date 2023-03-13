@@ -65,7 +65,7 @@ local progress = {
 
 local location = {
   'location',
-  padding = 0,
+  padding = 1,
 }
 
 local simple_filename = {
@@ -185,6 +185,71 @@ local window = function()
   return vim.api.nvim_win_get_number(0)
 end
 
+local function is_loclist()
+  return vim.fn.getloclist(0, { filewinid = 1 }).filewinid ~= 0
+end
+
+local quickfix_label = function()
+  return is_loclist() and 'Location List' or 'Quickfix List'
+end
+
+local quickfix_title = function()
+  if is_loclist() then
+    return vim.fn.getloclist(0, { title = 0 }).title
+  end
+  return vim.fn.getqflist({ title = 0 }).title
+end
+
+local quickfix_extension = {
+  sections = {
+    lualine_a = { window },
+    lualine_b = { quickfix_title },
+    lualine_c = { quickfix_label },
+    lualine_y = { location },
+    lualine_z = { progress },
+  },
+  filetypes = { 'qf' },
+}
+
+local fugitive_branch = function()
+  local icon = icons.git.Branch
+  return icon .. ' ' .. vim.fn.FugitiveHead()
+end
+
+local fugitive_extension = {
+  sections = {
+    lualine_a = { window },
+    lualine_b = { fugitive_branch },
+    lualine_y = { location },
+    lualine_z = { progress },
+  },
+  filetypes = { 'fugitive' },
+}
+
+local get_short_cwd = function()
+  return vim.fn.fnamemodify(vim.fn.getcwd(), ':~')
+end
+
+local neo_tree_extension = {
+  sections = {
+    lualine_a = { window },
+    lualine_b = { get_short_cwd },
+  },
+  filetypes = { 'neo-tree' },
+}
+
+local toggleterm_statusline = function()
+  return 'ToggleTerm #' .. vim.b.toggle_number
+end
+
+local toggleterm_extension = {
+  sections = {
+    lualine_a = { window },
+    lualine_b = { toggleterm_statusline },
+  },
+  filetypes = { 'toggleterm' },
+}
+
 lualine.setup({
   options = {
     icons_enabled = true,
@@ -209,7 +274,7 @@ lualine.setup({
     lualine_a = { window },
     lualine_b = { branch },
     lualine_c = { filetype, simple_filename, diff, diagnostics },
-    lualine_x = { encoding },
+    lualine_x = { spaces, encoding },
     lualine_y = { location },
     lualine_z = { progress },
   },
@@ -223,5 +288,5 @@ lualine.setup({
     lualine_z = { progress },
   },
   tabline = {},
-  extensions = {},
+  extensions = { quickfix_extension, fugitive_extension, neo_tree_extension, toggleterm_extension },
 })
