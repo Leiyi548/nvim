@@ -6,7 +6,6 @@ keymap('n', '<C-j>', '<C-w>j')
 keymap('n', '<C-k>', '<C-w>k')
 keymap('n', '<C-l>', '<C-w>l')
 -- move current window to new tab
-keymap('n', '<C-w>t', '<C-w>T')
 keymap('n', '<C-w>d', '<C-w>c')
 keymap('n', '<C-w>k', '<C-w>t')
 keymap('n', '<C-w>j', '<C-w>b')
