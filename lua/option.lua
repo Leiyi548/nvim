@@ -83,6 +83,7 @@ vim.opt.display = 'lastline'
 -- vim.opt.showbreak = '↳'
 vim.opt.showbreak = ''
 vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←,eol:↲'
+-- vim.opt.listchars = 'tab:»·,nbsp:+,trail:·,extends:→,precedes:←'
 vim.opt.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 vim.opt.pumblend = 0
 vim.opt.winblend = 0
@@ -111,12 +112,12 @@ vim.opt.background = 'dark'
 
 -- wsl yanking to windows clipboard from nvim
 if vim.fn.has('wsl') == 1 then
-  vim.opt.clipboard = ''
+  -- vim.opt.clipboard = ''
   vim.g.clipboard = {
     name = 'win32yank-wsl',
     copy = {
-      ['+'] = 'win32yank.exe -i --crlf',
-      ['*'] = 'win32yank.exe -i --crlf',
+      ['+'] = 'clip.exe',
+      ['*'] = 'clip.exe',
     },
     paste = {
       ['+'] = 'win32yank.exe -o --lf',
