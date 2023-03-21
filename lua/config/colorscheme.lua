@@ -102,7 +102,7 @@ end
 function M.rose_pine()
   require('rose-pine').setup({
     --- @usage 'main' | 'moon'
-    dark_variant = 'moon',
+    dark_variant = 'main',
     bold_vert_split = false,
     dim_nc_background = false,
     disable_background = false,
@@ -136,17 +136,19 @@ function M.rose_pine()
     highlight_groups = {
       ColorColumn = { bg = 'rose' },
       WildMenu = { bg = 'pine' },
+      CursorColumn = { bg = '#000000' },
+      CursorLine = { bg = '#000000' },
 
       -- telescope nvchad theme
       -- 下方区域颜色
       TelescopeBorder = { fg = 'surface', bg = 'surface' },
       TelescopeNormal = { bg = 'surface' },
       -- 不知道为什么不生效在主题修改中
-      TelescopePerviewNormal = { bg = 'nc' },
-      TelescopePerviewBorder = { fg = 'nc', bg = 'nc' },
+      TelescopePreviewNormal = { bg = '#000000' },
+      TelescopePreviewBorder = { fg = '#000000', bg = '#000000' },
 
       -- 上方区域颜色
-      TelescopePromptCounter = { fg = 'text', bg = 'base' },
+      TelescopePromptCounter = { fg = 'text', bg = 'nc' },
       TelescopePromptBorder = { fg = 'nc', bg = 'nc' },
       TelescopePromptNormal = { fg = 'text', bg = 'nc' },
       TelescopePromptPrefix = { fg = 'gold' },
