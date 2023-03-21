@@ -131,6 +131,7 @@ return {
     config = function()
       require('config.smoothCursor')
     end,
+    enabled = false,
   },
   {
     'hotoo/pangu.vim',
@@ -233,11 +234,20 @@ return {
         config = function()
           require('config.fidget')
         end,
+        enabled = false,
       },
     },
     config = function()
       require('config.lspconfig')
     end,
+  },
+  {
+    'glepnir/flybuf.nvim',
+    cmd = 'FlyBuf',
+    opts = {
+      border = 'double',
+      quit = 'q',
+    },
   },
   {
     'hrsh7th/nvim-cmp',
@@ -413,6 +423,12 @@ return {
   {
     'ggandor/leap-spooky.nvim',
     keys = {
+      { 'drr', mode = 'n' },
+      { 'dRR', mode = 'n' },
+      { 'dir', mode = 'n' },
+      { 'dar', mode = 'n' },
+      { 'diR', mode = 'n' },
+      { 'daR', mode = 'n' },
       { 'yrr', mode = 'n' },
       { 'yRR', mode = 'n' },
       { 'yir', mode = 'n' },
