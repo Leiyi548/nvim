@@ -121,26 +121,47 @@ local spaces = {
       space = ' '
     end
 
-    -- TODO: update codicons and use their indent
     return '  ' .. vim.api.nvim_buf_get_option(0, 'shiftwidth') .. space .. ' '
+    -- return '空格：' .. vim.api.nvim_buf_get_option(0, 'shiftwidth') .. space .. ' '
   end,
   padding = 0,
-  -- separator = '%#SLSeparator#' .. ' │' .. '%*',
-  -- separator = ' │',
   cond = hide_in_width_100,
 }
 
 local LSP_status = {
   function()
-    if rawget(vim, 'lsp') then
-      for _, client in ipairs(vim.lsp.get_active_clients()) do
-        if client.attached_buffers[vim.api.nvim_get_current_buf()] then
-          return ('   LSP ~ ' .. client.name .. ' ') or '   LSP '
-        end
+    local buf_clients = vim.lsp.get_active_clients()
+    local buf_client_names = {}
+
+    -- add lsp
+    for _, client in pairs(buf_clients) do
+      if client.name ~= 'null-ls' and client.name ~= 'copilot' then
+        table.insert(buf_client_names, client.name)
       end
     end
+
+    -- add format
+    local s = require('null-ls.sources')
+    local available_sources = s.get_available(vim.bo.filetype)
+    local registered = {}
+    for _, source in ipairs(available_sources) do
+      for method in pairs(source.methods) do
+        registered[method] = registered[method] or {}
+        table.insert(registered[method], source.name)
+      end
+    end
+    vim.list_extend(buf_client_names, registered['NULL_LS_FORMATTING'])
+
+    -- add linter
+    -- todo
+
+    -- result
+    local unique_client_names = vim.fn.uniq(buf_client_names)
+    local language_servers = '[' .. table.concat(unique_client_names, ', ') .. ']'
+    return language_servers
   end,
   cond = hide_in_width,
+  color = { gui = 'bold' },
 }
 
 -- cool function for progress
@@ -274,7 +295,7 @@ lualine.setup({
     lualine_a = { window },
     lualine_b = { branch },
     lualine_c = { filetype, simple_filename, diff, diagnostics },
-    lualine_x = { spaces, encoding },
+    lualine_x = { LSP_status, spaces, encoding },
     lualine_y = { location },
     lualine_z = { progress },
   },
