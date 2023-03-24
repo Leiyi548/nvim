@@ -1,9 +1,4 @@
 {
-    "workspace.checkThirdParty": false,
-    "diagnostics.globals": [
-        "vim",
-        "require",
-        "string",
-        "action_statelocal"
-    ]
+  "workspace.checkThirdParty": false,
+  "diagnostics.globals": ["vim", "require", "string", "action_statelocal"]
 }
