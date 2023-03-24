@@ -1,5 +1,8 @@
 local keymap = vim.keymap.set
 
+-- reselect pasted text
+keymap('n', 'gy', '`[v`]')
+
 -- navigate window
 keymap('n', '<BS>', '<C-w>h')
 keymap('n', '<C-j>', '<C-w>j')
@@ -185,6 +188,7 @@ keymap('n', '<leader>db', '<cmd>Alpha<cr>')
 -- keymap('n', '<leader>bb', '<cmd>Telescope buffers<cr>')
 -- keymap('n', '<leader>bb', "<cmd>lua require('config.fancy_telescope').buffers()<cr>")
 keymap('n', '<leader>bb', '<cmd>FlyBuf<cr>')
+keymap('n', '<leader>gc', "<cmd>lua require('config.fancy_telescope').git_jump()<cr>")
 keymap({ 'n', 'i', 'v' }, '<C-p>', "<cmd>lua require('config.fancy_telescope').find_project_files()<cr>")
 keymap('n', '<Left>', '<cmd>Telescope buffers<cr>')
 keymap('n', '<leader>fd', "<cmd>lua require('config.fancy_telescope').find_dotfile()<cr>")
@@ -311,6 +315,7 @@ keymap(
   '<cmd>lua print(require("utils").rename_current_file())<cr>',
   { desc = 'Rename current file' }
 )
+-- copy relative path
 -- copy relative path
 keymap('n', '<leader>cr', '<cmd>lua print(require("utils").copy_relative_path())<cr>', { desc = 'copy relative path' })
 -- copy absolute path

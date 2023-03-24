@@ -341,4 +341,46 @@ function M.gen_from_buffer(opts)
   end
 end
 
+function M.git_jump()
+  local action_state = require('telescope.actions.state')
+  local action_set = require('telescope.actions.set')
+  require('telescope.pickers')
+    .new({
+      finder = require('telescope.finders').new_oneshot_job({ 'git', 'jump', '--stdout', 'diff' }, {
+        entry_maker = function(line)
+          local filename, lnum_string = line:match('([^:]+):(%d+).*')
+
+          -- I couldn't find a way to use grep in new_oneshot_job so we have to filter here.
+          -- return nil if filename is /dev/null because this means the file was deleted.
+          if filename:match('^/dev/null') then
+            return nil
+          end
+
+          return {
+            value = filename,
+            display = line,
+            ordinal = line,
+            filename = filename,
+            lnum = tonumber(lnum_string),
+          }
+        end,
+      }),
+      sorter = require('telescope.sorters').get_generic_fuzzy_sorter(),
+      previewer = require('telescope.config').values.grep_previewer({}),
+      results_title = 'Git jump',
+      prompt_title = 'Git jump',
+      attach_mappings = function()
+        action_set.select:enhance({
+          post = function()
+            local selection = action_state.get_selected_entry()
+            vim.api.nvim_win_set_cursor(0, { selection.lnum, 0 })
+          end,
+        })
+
+        return true
+      end,
+    }, {})
+    :find()
+end
+
 return M
