@@ -449,6 +449,10 @@ return {
     end,
   },
   {
+    'junegunn/vim-peekaboo',
+    lazy = false,
+  },
+  {
     'tommcdo/vim-exchange',
     lazy = false,
     keys = {
