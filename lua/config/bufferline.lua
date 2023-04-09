@@ -57,7 +57,8 @@ bufferline.setup({
     offsets = {
       {
         filetype = 'neo-tree',
-        text = ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~'),
+        -- text = ' ' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':~'),
+        text = 'Explorer',
         text_align = 'center',
         highlight = 'BufferLineOffset',
       },
@@ -95,6 +96,8 @@ end, {})
 
 keymap('n', '<leader>bp', '<cmd>BufferLineCyclePrev<cr>')
 keymap('n', '<leader>bn', '<cmd>BufferLineCycleNext<cr>')
+keymap('n', '<M-Left>', '<cmd>BufferLineCyclePrev<cr>')
+keymap('n', '<M-Right>', '<cmd>BufferLineCycleNext<cr>')
 keymap('n', '<leader>bo', '<cmd>BufferLineCloseOthers<cr>')
 keymap('n', '<leader>bh', '<cmd>BufferLineCloseLeft<cr>')
 keymap('n', '<leader>bl', '<cmd>BufferLineCloseRight<cr>')

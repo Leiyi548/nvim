@@ -304,15 +304,15 @@ return {
         silent = true,
         mode = { 'i', 's' },
       },
-      {
-        '<C-l>',
-        function()
-          return require('luasnip').choice_active() and '<Plug>luasnip-next-choice' or '<tab>'
-        end,
-        expr = true,
-        silent = true,
-        mode = { 'i', 's' },
-      },
+      -- {
+      --   '<C-l>',
+      --   function()
+      --     return require('luasnip').choice_active() and '<Plug>luasnip-next-choice' or '<tab>'
+      --   end,
+      --   expr = true,
+      --   silent = true,
+      --   mode = { 'i', 's' },
+      -- },
     },
     dependencies = {
       'Leiyi548/friendly-snippets',

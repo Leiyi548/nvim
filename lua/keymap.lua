@@ -100,14 +100,17 @@ keymap('n', '\\w', '<cmd>setlocal wrap! wrap?<cr>', { desc = "Toggle 'wrap'" })
 -- emacs keybinding
 keymap('i', '<M-f>', '<C-right>')
 keymap('i', '<M-b>', '<C-left>')
+-- center screen
+keymap('i', '<C-l>', '<C-o>zz')
+-- paragrah jump
+keymap('i', '<M-{>', '<C-o>{')
+keymap('i', '<M-}>', '<C-o>}')
 
 -- confirm quit neovim
 -- keymap('n', '<leader>q', ':confirm quit<cr>')
 
 -- quickly input command && I don't use c-f
 keymap({ 'n', 'v' }, '<Right>', ':')
--- make the ring finger comfortable
-keymap('c', '<C-l>', '<cr>')
 
 -- better n N J <C-d> <C-u>
 keymap('n', 'J', 'mzJ`z')

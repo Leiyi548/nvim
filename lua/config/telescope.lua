@@ -165,7 +165,6 @@ telescope.setup({
         ['<C-v>'] = stopinsert(custom_actions.multi_selection_open_vertical),
         ['<C-s>'] = stopinsert(custom_actions.multi_selection_open_horizontal),
         ['<C-t>'] = stopinsert(custom_actions.multi_selection_open_tab),
-        ['<C-l>'] = stopinsert(custom_actions.multi_selection_open),
         ['<cr>'] = stopinsert(custom_actions.multi_selection_open),
         -- add mouse click support
         ['<RightMouse>'] = actions.close,
